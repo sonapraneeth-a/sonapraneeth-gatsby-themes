@@ -7,5 +7,12 @@
     "gatsby": "^2.13.23",
     "react": "^16.8.6",
     "react-dom": "^16.8.6"
+  },
+  "dependencies": {
+    "@emotion/core": "^10.0.14",
+    "@mdx-js/react": "^1.0.27",
+    "gatsby-plugin-theme-ui": "^0.2.6",
+    "react-switch": "^5.0.0",
+    "theme-ui": "^0.2.14"
   }
 }
