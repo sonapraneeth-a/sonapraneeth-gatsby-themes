@@ -1,0 +1,16 @@
+{
+  "name": "sonapraneeth",
+  "version": "1.0.0",
+  "private": true,
+  "main": "index.js",
+  "author": "Sona Praneeth Akula <sonapraneeth.akula@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "develop": "yarn workspace demo develop",
+    "clean": "yarn workspace demo clean"
+  },
+  "workspaces": [
+    "packages/*",
+    "demo"
+  ]
+}
