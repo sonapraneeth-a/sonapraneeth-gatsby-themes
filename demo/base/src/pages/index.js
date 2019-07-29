@@ -1,5 +1,5 @@
 import React from "react";
-import Root from "@sonapraneeth/common";
+import Root from "@sonapraneeth/base";
 
 export default props => (
   <Root>

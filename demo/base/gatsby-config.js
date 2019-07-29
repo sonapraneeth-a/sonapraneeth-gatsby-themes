@@ -1,5 +1,5 @@
 module.exports = {
   plugins: [
-    "@sonapraneeth/common",
+    "@sonapraneeth/base",
   ],
 };
