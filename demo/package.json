@@ -1,11 +1,12 @@
 {
   "name": "demo",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "develop": "gatsby develop",
-    "clean": "gatsby clean"
+    "build": "gatsby build",
+    "clean": "gatsby clean",
+    "develop": "gatsby develop"
   },
   "dependencies": {
     "@sonapraneeth/common": "*",
