@@ -60,8 +60,6 @@ function Root({children}) {
             fontSize: "18px",
           },
           "body": {
-            color: "text",
-            background: "background",
             margin: 0,
             fontFamily: "body",
             boxSizing: "border-box",

@@ -1,3 +1,7 @@
+/* eslint-disable quotes */
+import "typeface-pt-sans";
+import "typeface-signika-negative";
+
 import colors from "./colors";
 import styles from "./styles";
 import fonts from "./fonts";
@@ -11,16 +15,20 @@ export default {
   // initial page load
   // Refer: https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_custom_properties
   useCustomProperties: false,
+  // Breakpoints supported for the theme
   breakpoints: [
     "20rem", "40rem", "48rem", "64rem", "80rem",
     "86rem", "120rem", "240rem",
   ],
+  // Available fonts
   ...fonts,
+  // Line heights
   lineHeights: {
     body: 1.5,
     heading: 1.125,
   },
   variants,
+  // Definitions for various color modes
   colors,
   styles,
 };

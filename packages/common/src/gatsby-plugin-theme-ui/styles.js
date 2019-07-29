@@ -1,5 +1,6 @@
 /* eslint-disable quote-props */
 export default {
+  // Styling for link tags
   a: {
     color: "text",
     bg: "background",
@@ -13,6 +14,7 @@ export default {
       borderBottom: "none",
     },
   },
+  // Styling for heading tags
   h1: {
     fontFamily: "heading",
     fontSize: 5,
@@ -20,6 +22,22 @@ export default {
       fontSize: 5,
     },
   },
+  h2: {
+    fontFamily: "heading",
+  },
+  h3: {
+    fontFamily: "heading",
+  },
+  h4: {
+    fontFamily: "heading",
+  },
+  h5: {
+    fontFamily: "heading",
+  },
+  h6: {
+    fontFamily: "heading",
+  },
+  // Styling for normal paragraph tags
   p: {
     fontSize: 2,
   },

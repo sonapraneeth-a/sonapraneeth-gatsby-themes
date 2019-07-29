@@ -13,6 +13,8 @@
     "@mdx-js/react": "^1.0.27",
     "gatsby-plugin-theme-ui": "^0.2.18",
     "react-switch": "^5.0.1",
-    "theme-ui": "^0.2.21"
+    "theme-ui": "^0.2.21",
+    "typeface-pt-sans": "^0.0.72",
+    "typeface-signika-negative": "^0.0.71"
   }
 }
