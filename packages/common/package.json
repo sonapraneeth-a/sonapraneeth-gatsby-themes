@@ -1,7 +1,20 @@
 {
-  "name": "@sonapraneeth/common",
+  "name": "@sonapraneeth/base",
   "version": "0.0.1",
   "main": "index.js",
+  "author": "Sona Praneeth Akula <sonapraneeth.akula@gmail.com>",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/sonapraneeth-a/gatsby-theme-simple-bio.git"
+  },
+  "homepage": "https://sonapraneeth-a.github.io/gatsby-theme-simple-bio/",
+  "keywords": [
+    "gatsby",
+    "gatsby-theme",
+    "gatsby-plugin",
+    "react",
+    "base"
+  ],
   "license": "MIT",
   "peerDependencies": {
     "gatsby": "^2.13.41",

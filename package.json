@@ -1,16 +1,16 @@
 {
-  "name": "sonapraneeth",
+  "name": "sonapraneeth-gatsby-themes",
   "version": "1.0.0",
   "private": true,
   "main": "index.js",
   "author": "Sona Praneeth Akula <sonapraneeth.akula@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "develop": "yarn workspace demo develop",
-    "clean": "yarn workspace demo clean"
+    "common-dev": "yarn workspace demo-common develop",
+    "common-clean": "yarn workspace demo-common clean"
   },
   "workspaces": [
     "packages/*",
-    "demo"
+    "demo/*"
   ]
 }

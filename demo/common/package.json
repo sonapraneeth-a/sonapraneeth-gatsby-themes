@@ -1,7 +1,8 @@
 {
-  "name": "demo",
+  "name": "demo-common",
   "version": "0.0.1",
   "main": "index.js",
+  "private": true,
   "license": "MIT",
   "scripts": {
     "build": "gatsby build",
@@ -9,7 +10,7 @@
     "develop": "gatsby develop"
   },
   "dependencies": {
-    "@sonapraneeth/common": "*",
+    "@sonapraneeth/base": "*",
     "gatsby": "^2.13.41",
     "react": "^16.8.6",
     "react-dom": "^16.8.6"
