@@ -36,7 +36,7 @@ const uncheckedIcon = (
 );
 
 function Root({children}) {
-  console.log("Root from common");
+  console.log("Root from base");
   const [colorMode, setColorMode] = useColorMode();
   const isDarkTheme = colorMode === "dark";
   const toggleTheme = (e) => {
