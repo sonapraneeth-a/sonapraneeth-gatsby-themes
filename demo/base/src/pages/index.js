@@ -1,8 +1,8 @@
 import React from "react";
-import Root from "@sonapraneeth/base";
+import {RootBulb} from "@sonapraneeth/base";
 
 export default props => (
-  <Root>
+  <RootBulb>
     <h1>Hello, world</h1>
-  </Root>
+  </RootBulb>
 );
