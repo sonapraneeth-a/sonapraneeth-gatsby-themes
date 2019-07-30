@@ -12,14 +12,10 @@ export default {
   accent: "",
   // a gray or subdued color for decorative purposes
   muted: "",
-  // Colors for icons
-  icons: {
-    // Github
-    github: "#4077bf",
-    // LinkedIn
-    linkedin: "#0074b3",
-    // Twitter
-    twitter: "#1ca0f2",
+  // Colors for bulb
+  bulb: {
+    stroke: "#fcee21",
+    color: "#ff0",
   },
   // Color modes
   modes: {
@@ -31,10 +27,10 @@ export default {
       secondary: "#ef0",
       accent: "",
       muted: "",
-      icons: {
-        github: "white",
-        linkedin: "white",
-        twitter: "white",
+      // Colors for bulb
+      bulb: {
+        stroke: "#000",
+        color: "none",
       },
     },
   },
