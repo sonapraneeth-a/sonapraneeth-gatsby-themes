@@ -8,7 +8,7 @@
   "scripts": {
     "base-build": "yarn workspace demo-base build",
     "base-clean": "yarn workspace demo-base clean",
-    "base-dev": "yarn workspace demo-base develop"
+    "base-dev": "yarn workspace demo-base devw"
   },
   "workspaces": [
     "packages/*",
