@@ -1,17 +1,20 @@
 {
   "name": "demo-base",
-  "version": "0.0.1",
+  "version": "0.0.0",
   "main": "index.js",
   "private": true,
   "license": "MIT",
   "scripts": {
+    "dev": "DEBUG=gatsby-theme-simple-bio:* gatsby develop",
+    "devw": "set DEBUG=gatsby-theme-simple-bio:* && gatsby develop",
     "build": "gatsby build",
+    "build-prefix": "gatsby build --prefix-paths",
     "clean": "gatsby clean",
-    "develop": "gatsby develop"
+    "prettier": "prettier --write src/**/*.js"
   },
   "dependencies": {
-    "@sonapraneeth/base": "*",
-    "gatsby": "^2.13.41",
+    "@sonapraneeth/base": "0.0.0",
+    "gatsby": "^2.13.45",
     "react": "^16.8.6",
     "react-dom": "^16.8.6"
   }

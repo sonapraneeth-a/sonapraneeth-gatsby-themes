@@ -1,6 +1,6 @@
 {
   "name": "@sonapraneeth/base",
-  "version": "0.0.1",
+  "version": "0.0.0",
   "main": "index.js",
   "author": "Sona Praneeth Akula <sonapraneeth.akula@gmail.com>",
   "repository": {
@@ -17,16 +17,36 @@
   ],
   "license": "MIT",
   "peerDependencies": {
-    "gatsby": "^2.13.41",
+    "gatsby": "^2.13.45",
     "react": "^16.8.6",
     "react-dom": "^16.8.6"
   },
+  "devDependencies": {
+    "commitizen": "^4.0.3",
+    "cz-customizable": "^6.2.0",
+    "debug": "^4.1.1",
+    "eslint": "^6.1.0",
+    "eslint-config-google": "^0.13.0",
+    "eslint-loader": "^2.2.1",
+    "eslint-plugin-react": "^7.14.3",
+    "eslint-plugin-react-hooks": "^1.6.1",
+    "husky": "^3.0.2",
+    "lint-staged": "^9.2.1",
+    "precise-commits": "^1.0.2",
+    "prettier": "^1.18.2",
+    "pretty-quick": "^1.11.1"
+  },
+  "config": {
+    "commitizen": {
+      "path": "../node_modules/cz-customizable"
+    }
+  },
   "dependencies": {
     "@emotion/core": "^10.0.14",
-    "@mdx-js/react": "^1.0.27",
-    "gatsby-plugin-theme-ui": "^0.2.18",
+    "@mdx-js/react": "^1.1.1",
+    "gatsby-plugin-theme-ui": "^0.2.23",
     "react-switch": "^5.0.1",
-    "theme-ui": "^0.2.21",
+    "theme-ui": "^0.2.23",
     "typeface-pt-sans": "^0.0.72",
     "typeface-signika-negative": "^0.0.71"
   }
