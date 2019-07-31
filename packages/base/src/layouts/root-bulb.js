@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import {Global} from "@emotion/core";
 import {css} from "theme-ui";
-import {useColorMode, useThemeUI} from "theme-ui";
+import {useColorMode, useThemeUI, Layout} from "theme-ui";
 
 import BulbSwitch from "../components/bulb";
 
@@ -17,13 +17,7 @@ function RootBulb({children}) {
   const context = useThemeUI();
   const {colors} = context.theme;
   return (
-    <div
-      style={{
-        margin: "0 auto",
-        position: "relative",
-        width: "90%",
-      }}
-    >
+    <>
       <Global
         styles={css({
           "*": {
@@ -55,8 +49,10 @@ function RootBulb({children}) {
           color={colors.bulb.color} 
         />
       </div>
-      {children}
-    </div>
+      <Layout>
+        {children}
+      </Layout>
+    </>
   );
 }
 
