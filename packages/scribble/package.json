@@ -1,6 +1,6 @@
 {
   "name": "@sonapraneeth/scribble",
-  "version": "0.0.1",
+  "version": "0.0.0",
   "main": "index.js",
   "author": "Sona Praneeth Akula <sonapraneeth.akula@gmail.com>",
   "repository": {
@@ -17,16 +17,16 @@
   ],
   "license": "MIT",
   "peerDependencies": {
-    "gatsby": "^2.13.41",
+    "gatsby": "^2.13.45",
     "react": "^16.8.6",
     "react-dom": "^16.8.6"
   },
   "dependencies": {
     "@emotion/core": "^10.0.14",
-    "@mdx-js/react": "^1.0.27",
-    "gatsby-plugin-theme-ui": "^0.2.18",
+    "@mdx-js/react": "^1.1.1",
+    "gatsby-plugin-theme-ui": "^0.2.23",
     "react-switch": "^5.0.1",
-    "theme-ui": "^0.2.21",
+    "theme-ui": "^0.2.23",
     "typeface-pt-sans": "^0.0.72",
     "typeface-signika-negative": "^0.0.71"
   }
