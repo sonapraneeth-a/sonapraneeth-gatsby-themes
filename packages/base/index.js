@@ -1,7 +1,10 @@
-import Root from "./src/layouts/root";
+import RootSwitch from "./src/layouts/root-switch";
 import RootBulb from "./src/layouts/root-bulb";
+import {Box, Flex, Layout, Header, Main, Container, Footer} from "theme-ui";
 
 export {
-  Root,
-  RootBulb
+  RootSwitch,
+  RootBulb,
+  // ThemeUI Components
+  Box, Flex, Layout, Header, Main, Container, Footer
 }
