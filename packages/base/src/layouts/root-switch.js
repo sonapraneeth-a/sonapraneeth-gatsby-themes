@@ -57,7 +57,6 @@ function RootSwitch({children}) {
           "*": {
             boxSizing: "border-box",
             lineHeight: "body",
-            fontSize: "18px",
           },
           "body": {
             margin: 0,
