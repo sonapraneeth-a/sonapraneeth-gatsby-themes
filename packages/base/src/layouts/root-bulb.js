@@ -4,17 +4,24 @@ import {Global} from "@emotion/core";
 import {css} from "theme-ui";
 import {useColorMode, useThemeUI, Layout} from "theme-ui";
 
+import {layout} from "../../config/default";
 import BulbSwitch from "../components/bulb";
 
 function RootBulb({children}) {
-  console.log("RootBulb from base");
+  layout("RootBulb from base");
   const [colorMode, setColorMode] = useColorMode();
-  const isDarkTheme = colorMode === "dark";
+  const modes = [
+    "light",
+    "dark",
+  ];
+  // Reference: https://theme-ui.com/recipes/color-mode-switcher
   const toggleTheme = (e) => {
-    const updatedTheme = (isDarkTheme ? "light" : "dark");
-    setColorMode(updatedTheme);
+    const index = modes.indexOf(colorMode);
+    const next = modes[(index + 1) % modes.length];
+    setColorMode(next);
   };
   const context = useThemeUI();
+  layout(`Theme: ${JSON.stringify(context.theme, null, 2)}`);
   const {colors} = context.theme;
   return (
     <>
@@ -23,7 +30,6 @@ function RootBulb({children}) {
           "*": {
             boxSizing: "border-box",
             lineHeight: "body",
-            fontSize: "18px",
           },
           "body": {
             margin: 0,
@@ -46,7 +52,7 @@ function RootBulb({children}) {
       >
         <BulbSwitch
           toggleTheme={toggleTheme}
-          color={colors.bulb.color} 
+          color={colors.bulb.color}
         />
       </div>
       <Layout>
