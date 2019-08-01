@@ -5,8 +5,8 @@
   "private": true,
   "license": "MIT",
   "scripts": {
-    "dev": "DEBUG=gatsby-theme-simple-bio:* gatsby develop",
-    "devw": "set DEBUG=gatsby-theme-simple-bio:* && gatsby develop",
+    "dev": "DEBUG=@sonapraneeth/base:* gatsby develop",
+    "devw": "set DEBUG=@sonapraneeth/base:* && gatsby develop",
     "build": "gatsby build",
     "build-prefix": "gatsby build --prefix-paths",
     "clean": "gatsby clean",
