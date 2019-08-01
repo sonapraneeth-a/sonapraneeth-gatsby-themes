@@ -8,7 +8,8 @@
   "scripts": {
     "base-build": "yarn workspace demo-base build",
     "base-clean": "yarn workspace demo-base clean",
-    "base-devw": "yarn workspace demo-base devw"
+    "base-dev": "DEBUG=@sonapraneeth/base:* yarn workspace demo-base dev",
+    "base-devw": "set DEBUG=@sonapraneeth/*:* && yarn workspace demo-base dev"
   },
   "workspaces": [
     "packages/*",
