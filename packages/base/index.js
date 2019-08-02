@@ -6,5 +6,11 @@ export {
   RootSwitch,
   RootBulb,
   // ThemeUI Components
-  Box, Flex, Layout, Header, Main, Container, Footer
-}
+  Box,
+  Flex,
+  Layout,
+  Header,
+  Main,
+  Container,
+  Footer,
+};

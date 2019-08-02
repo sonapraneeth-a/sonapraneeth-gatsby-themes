@@ -6,11 +6,7 @@ import ReactSwitch from "react-switch";
  * @return {JSX}
  */
 function Switch(props) {
-  return (
-    <ReactSwitch
-      {...props}
-    />
-  );
+  return <ReactSwitch {...props} />;
 }
 
 Switch.defaultProps = {

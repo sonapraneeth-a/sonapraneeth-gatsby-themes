@@ -24,9 +24,9 @@ export default {
   // Desktop        : 86rem;  //1376px
   // FullHD         : 120rem; //1920px
   // UltraHD        : 240rem; //3840px
-  breakpoints: [
-    20, 40, 48, 64, 80, 86, 120, 240,
-  ].map((item) => { return `${item}rem` }),
+  breakpoints: [20, 40, 48, 64, 80, 86, 120, 240].map((item) => {
+    return `${item}rem`;
+  }),
   // Available fonts
   ...fonts,
   // Line heights
