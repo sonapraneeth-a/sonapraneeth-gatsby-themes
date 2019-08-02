@@ -22,7 +22,7 @@ module.exports = {
     ecmaVersion: 2018,
     sourceType: "module",
   },
-  plugins: ["react"],
+  plugins: ["react", "react-hooks"],
   rules: {
     indent: ["error", 2],
     "linebreak-style": ["error", "unix"],
@@ -30,5 +30,7 @@ module.exports = {
     "no-unused-vars": "error",
     quotes: [2, "double", { avoidEscape: true }],
     "react/display-name": "off",
+    "react-hooks/rules-of-hooks": "error", // Checks rules of Hooks
+    "react-hooks/exhaustive-deps": "warn", // Checks effect dependencies
   },
 }
