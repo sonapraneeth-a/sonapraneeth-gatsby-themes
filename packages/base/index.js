@@ -14,7 +14,7 @@ import {Styled} from "theme-ui";
 export {
   RootSwitch,
   RootBulb,
-  // ThemeUI Components
+  // Modified ThemeUI Components
   SBox,
   SFlex,
   SLayout,

@@ -1,5 +1,6 @@
 /** @jsx jsx */
 import {jsx} from "theme-ui";
+// ThemeUI Components
 import {Box, Flex, Layout, Header, Main, Container, Footer} from "theme-ui";
 
 const SBox = (props) => {
@@ -40,13 +41,4 @@ const SFooter = (props) => {
   return <Footer {...props} />;
 };
 
-export {
-  // ThemeUI Components
-  SBox,
-  SFlex,
-  SLayout,
-  SHeader,
-  SMain,
-  SContainer,
-  SFooter,
-};
+export {SBox, SFlex, SLayout, SHeader, SMain, SContainer, SFooter};
