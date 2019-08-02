@@ -5,9 +5,13 @@
   "author": "Sona Praneeth Akula <sonapraneeth.akula@gmail.com>",
   "repository": {
     "type": "git",
-    "url": "https://github.com/sonapraneeth-a/gatsby-theme-simple-bio.git"
+    "url": "https://github.com/sonapraneeth-a/gatsby-dev-themes.git",
+    "directory": "packages/base"
   },
-  "homepage": "https://sonapraneeth-a.github.io/gatsby-theme-simple-bio/",
+  "homepage": "https://gatsby-dev-themes.netlify.com",
+  "bugs": {
+    "url": "https://github.com/sonapraneeth-a/gatsby-dev-themes/issues"
+  },
   "keywords": [
     "gatsby",
     "gatsby-theme",
