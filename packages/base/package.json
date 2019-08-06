@@ -8,7 +8,7 @@
     "url": "https://github.com/sonapraneeth-a/gatsby-dev-themes.git",
     "directory": "packages/base"
   },
-  "homepage": "https://gatsby-dev-themes.netlify.com",
+  "homepage": "https://gatsby-dev-themes-demo.netlify.com",
   "bugs": {
     "url": "https://github.com/sonapraneeth-a/gatsby-dev-themes/issues"
   },
@@ -21,17 +21,18 @@
   ],
   "license": "MIT",
   "peerDependencies": {
-    "gatsby": "^2.13.48",
+    "gatsby": "^2.13.51",
     "react": "^16.8.6",
     "react-dom": "^16.8.6"
   },
   "dependencies": {
-    "@emotion/core": "^10.0.14",
-    "@mdx-js/react": "^1.1.4",
+    "@emotion/core": "^10.0.15",
+    "@mdx-js/react": "^1.1.5",
+    "deepmerge": "^4.0.0",
     "gatsby-design-tokens": "^1.0.0",
-    "gatsby-plugin-theme-ui": "^0.2.25",
+    "gatsby-plugin-theme-ui": "^0.2.29",
     "react-switch": "^5.0.1",
-    "theme-ui": "^0.2.25",
+    "theme-ui": "^0.2.29",
     "typeface-pt-sans": "^0.0.72",
     "typeface-signika-negative": "^0.0.71"
   }
