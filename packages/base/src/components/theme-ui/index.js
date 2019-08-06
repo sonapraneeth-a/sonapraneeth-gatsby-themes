@@ -31,7 +31,7 @@ const SContainer = (props) => {
         margin: "0 auto",
         width: ["95%", "95%", "85%", "80%"],
         maxWidth: "none",
-        p: "1rem",
+        p: 4,
       }}
     />
   );

@@ -17,6 +17,8 @@ export default {
     heading: 700,
     // Bold font weight
     bold: 700,
+    // Extra bold font weight
+    extraBold: 800,
   },
   // Font sizes stack
   fontSizes: [

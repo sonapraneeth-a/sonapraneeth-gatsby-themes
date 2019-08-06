@@ -1,11 +1,13 @@
 /* eslint-disable quotes */
 import "typeface-pt-sans";
 import "typeface-signika-negative";
+import {lineHeights} from "gatsby-design-tokens";
 
 import colors from "./colors";
 import styles from "./styles";
 import fonts from "./fonts";
 import variants from "./variants";
+import array from "./array";
 
 export default {
   // This enables the color modes feature
@@ -15,6 +17,8 @@ export default {
   // initial page load
   // Refer: https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_custom_properties
   useCustomProperties: false,
+  // Definitions for various color modes
+  colors,
   // Breakpoints supported for the theme
   // Feature Phone  : 20rem;  // 320px
   // Mobile         : 40rem;  // 640px
@@ -27,15 +31,14 @@ export default {
   breakpoints: [20, 40, 48, 64, 80, 86, 120, 240].map((item) => {
     return `${item}rem`;
   }),
+  ...array,
   // Available fonts
   ...fonts,
   // Line heights
   lineHeights: {
-    body: 1.5,
+    body: lineHeights.default,
     heading: 1.125,
   },
   variants,
-  // Definitions for various color modes
-  colors,
   styles,
 };
