@@ -7,18 +7,18 @@ export default () => {
     <RootBulb>
       <SHeader>
         <SContainer>
-          <Styled.h1>Hello, world</Styled.h1>
+          <Styled.h1>This is a Header</Styled.h1>
         </SContainer>
       </SHeader>
       <SMain>
         <SContainer>
-          <p>Main content</p>
+          <p>This is Main content</p>
           <Styled.a href="https://theme-ui.com/getting-started">Link</Styled.a>
         </SContainer>
       </SMain>
       <SFooter>
         <SContainer>
-          <p>Copyright &copy; 2019. Footer</p>
+          <p>This is a Footer. Copyright &copy; 2019. Footer</p>
         </SContainer>
       </SFooter>
     </RootBulb>
