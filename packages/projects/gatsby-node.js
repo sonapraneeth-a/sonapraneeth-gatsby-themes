@@ -77,7 +77,6 @@ exports.onCreateNode = (
   // Create source field (according to contentPath)
   const fileNode = getNode(node.parent);
   const source = fileNode.sourceInstanceName;
-
   if (node.internal.type === "Mdx" && source === options.contentPath) {
     const slug = createFilePath({
       node: fileNode,
@@ -93,8 +92,6 @@ exports.onCreateNode = (
       completed_date: node.frontmatter.completed_date,
       slug: projectUrl,
     };
-    console.log(projectData);
-    console.log(`Project slug: ${projectData.slug}`);
     createNode({
       ...projectData,
       // Required fields.
@@ -141,7 +138,6 @@ exports.createPages = async ({actions, graphql}) => {
       },
     });
   });
-  console.log(`BaseURL: ${options.baseUrl}`);
   actions.createPage({
     path: options.baseUrl,
     component: require.resolve("./src/templates/projects.js"),
