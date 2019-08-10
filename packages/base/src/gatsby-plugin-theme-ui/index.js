@@ -8,6 +8,7 @@ import styles from "./styles";
 import fonts from "./fonts";
 import variants from "./variants";
 import array from "./array";
+import components from "./components";
 
 export default {
   // This enables the color modes feature
@@ -41,4 +42,5 @@ export default {
   },
   variants,
   styles,
+  components,
 };
