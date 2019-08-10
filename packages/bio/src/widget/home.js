@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 
 import FigureBio from "../components/bio/figure";
 import SocialBio from "../components/bio/social";
