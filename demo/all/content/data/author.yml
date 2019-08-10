@@ -1,0 +1,10 @@
+# Author info
+- name: John Doe
+  description: A passionate web designer
+  cover: ../assets/profile.png
+  username:
+    linkedin: john-doe
+    github: john-doe
+    facebook: john.doe
+    twitter: john_doe
+    email: john_doe@mail.com

@@ -16,8 +16,12 @@
     "bio-devw": "set DEBUG=@sonapraneeth/bio:* && yarn workspace demo-bio dev",
     "projects-build": "yarn workspace demo-projects build",
     "projects-clean": "yarn workspace demo-projects clean",
-    "projects-dev": "DEBUG=@sonapraneeth/bio:* yarn workspace demo-projects dev",
-    "projects-devw": "set DEBUG=@sonapraneeth/bio:* && yarn workspace demo-projects dev"
+    "projects-dev": "DEBUG=@sonapraneeth/projects:* yarn workspace demo-projects dev",
+    "projects-devw": "set DEBUG=@sonapraneeth/projects:* && yarn workspace demo-projects dev",
+    "all-build": "yarn workspace demo-all build",
+    "all-clean": "yarn workspace demo-all clean",
+    "all-dev": "DEBUG=@sonapraneeth/*:* yarn workspace demo-all dev",
+    "all-devw": "set DEBUG=@sonapraneeth/*:* && yarn workspace demo-all dev"
   },
   "workspaces": [
     "packages/*",
