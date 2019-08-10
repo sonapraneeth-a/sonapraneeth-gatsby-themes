@@ -30,10 +30,14 @@
     "@mdx-js/react": "^1.2.2",
     "deepmerge": "^4.0.0",
     "gatsby-design-tokens": "^1.0.0",
+    "gatsby-image": "^2.2.8",
     "gatsby-plugin-theme-ui": "^0.2.29",
     "react-switch": "^5.0.1",
     "theme-ui": "^0.2.31",
     "typeface-pt-sans": "^0.0.72",
     "typeface-signika-negative": "^0.0.71"
+  },
+  "devDependencies": {
+    "debug": "^4.1.1"
   }
 }
