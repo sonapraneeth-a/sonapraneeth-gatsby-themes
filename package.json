@@ -9,7 +9,11 @@
     "base-build": "yarn workspace demo-base build",
     "base-clean": "yarn workspace demo-base clean",
     "base-dev": "DEBUG=@sonapraneeth/base:* yarn workspace demo-base dev",
-    "base-devw": "set DEBUG=@sonapraneeth/*:* && yarn workspace demo-base dev"
+    "base-devw": "set DEBUG=@sonapraneeth/base:* && yarn workspace demo-base dev",
+    "bio-build": "yarn workspace demo-bio build",
+    "bio-clean": "yarn workspace demo-bio clean",
+    "bio-dev": "DEBUG=@sonapraneeth/bio:* yarn workspace demo-bio dev",
+    "bio-devw": "set DEBUG=@sonapraneeth/bio:* && yarn workspace demo-bio dev"
   },
   "workspaces": [
     "packages/*",
@@ -22,7 +26,7 @@
     "eslint": "^6.1.0",
     "eslint-config-google": "^0.13.0",
     "eslint-plugin-react": "^7.14.3",
-    "eslint-plugin-react-hooks": "^1.6.1",
+    "eslint-plugin-react-hooks": "^1.7.0",
     "husky": "^3.0.2",
     "lint-staged": "^9.2.1",
     "precise-commits": "^1.0.2",
