@@ -19,3 +19,9 @@
 *.jsx           text
 *.txt           text
 *.yml           text
+
+*.png           binary
+*.jpg           binary
+*.svg           text
+
+*.pdf           binary
