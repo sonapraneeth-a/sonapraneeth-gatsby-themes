@@ -30,8 +30,8 @@ function HomeWidget({author, details}) {
 }
 
 HomeWidget.propTypes = {
-  author: PropTypes.any.required,
-  details: PropTypes.any.required,
+  author: PropTypes.any.isRequired,
+  details: PropTypes.any.isRequired,
 };
 
 HomeWidget.defaultProps = {};

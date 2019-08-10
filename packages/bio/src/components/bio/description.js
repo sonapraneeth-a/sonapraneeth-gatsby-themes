@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import {MDXRenderer} from "gatsby-plugin-mdx";
 
 DescriptionBio.propTypes = {
-  description: PropTypes.any.required,
+  description: PropTypes.any.isRequired,
 };
 
 DescriptionBio.defaultProps = {};
