@@ -40,7 +40,7 @@ export default {
     body: lineHeights.default,
     heading: 1.125,
   },
-  variants,
+  ...variants,
   styles,
-  components,
+  ...components,
 };
