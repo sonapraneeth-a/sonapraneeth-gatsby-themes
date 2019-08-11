@@ -3,7 +3,7 @@ import React from "react";
 import PropTypes from "prop-types";
 /** @jsx jsx */
 import {jsx} from "theme-ui";
-import {FaLinkedinIn, FaGithub, FaTwitter} from "react-icons/fa";
+import {FaLinkedinIn, FaGithub, FaTwitter} from "@sonapraneeth/base";
 
 SocialBio.propTypes = {
   linkedin: PropTypes.string,
