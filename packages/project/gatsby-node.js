@@ -1,6 +1,6 @@
-const { createFilePath } = require("gatsby-source-filesystem")
-const crypto = require("crypto")
-const merge = require("deepmerge")
+const {createFilePath} = require("gatsby-source-filesystem");
+const crypto = require("crypto");
+const merge = require("deepmerge");
 
 // Default options to be used in theme
 const defaultOptions = {
@@ -8,26 +8,26 @@ const defaultOptions = {
   baseUrl: "/", // Default: "/"
   // Data directory
   contentPath: "content/projects", // Default: "content/projects"
-}
+};
 
-const mdxResolverPassthrough = fieldName => async (
+const mdxResolverPassthrough = (fieldName) => async (
   source,
   args,
   context,
   info
 ) => {
-  const type = info.schema.getType("Mdx")
+  const type = info.schema.getType("Mdx");
   const mdxNode = context.nodeModel.getNodeById({
     id: source.parent,
-  })
-  const resolver = type.getFields()[fieldName].resolve
+  });
+  const resolver = type.getFields()[fieldName].resolve;
   const result = await resolver(mdxNode, args, context, {
     fieldName,
-  })
-  return result
-}
+  });
+  return result;
+};
 
-exports.createSchemaCustomization = ({ actions, schema }) => {
+exports.createSchemaCustomization = ({actions, schema}) => {
   actions.createTypes(`
     interface Project @nodeInterface {
       id: ID!
@@ -35,6 +35,10 @@ exports.createSchemaCustomization = ({ actions, schema }) => {
       status: String!
       start_date: Date!
       completed_date: Date!
+      source: String!
+      report: String!
+      presentation: String!
+      brief: String!
       slug: String!
       body: String!
     }
@@ -44,10 +48,14 @@ exports.createSchemaCustomization = ({ actions, schema }) => {
       status: String!
       start_date: Date!
       completed_date: Date!
+      source: String!
+      report: String!
+      presentation: String!
+      brief: String!
       slug: String!
       body: String!
     }
-  `)
+  `);
   actions.createTypes(
     schema.buildObjectType({
       name: "ProjectMdx",
@@ -58,40 +66,44 @@ exports.createSchemaCustomization = ({ actions, schema }) => {
         },
       },
     })
-  )
-}
+  );
+};
 
 // Create fields for post slugs and source
 // This will change with schema customization with work
 exports.onCreateNode = (
-  { node, actions, getNode, createNodeId },
+  {node, actions, getNode, createNodeId},
   themeOptions
 ) => {
-  options = merge(defaultOptions, themeOptions)
-  const { createNode, createParentChildLink } = actions
+  options = merge(defaultOptions, themeOptions);
+  const {createNode, createParentChildLink} = actions;
   // Make sure it's an MDX node
   if (node.internal.type !== "Mdx") {
-    return
+    return;
   }
 
   // Create source field (according to contentPath)
-  const fileNode = getNode(node.parent)
-  const source = fileNode.sourceInstanceName
+  const fileNode = getNode(node.parent);
+  const source = fileNode.sourceInstanceName;
   if (node.internal.type === "Mdx" && source === options.contentPath) {
     const slug = createFilePath({
       node: fileNode,
       getNode,
       basePath: options.contentPath,
-    })
-    let projectUrl = `${options.baseUrl}${slug}`
-    projectUrl = projectUrl.replace(/\/\//, "/")
+    });
+    let projectUrl = `${options.baseUrl}${slug}`;
+    projectUrl = projectUrl.replace(/\/\//, "/");
     const projectData = {
       title: node.frontmatter.title || "",
       status: node.frontmatter.status || "Completed",
       start_date: node.frontmatter.start_date,
       completed_date: node.frontmatter.completed_date,
+      source: node.frontmatter.source || "",
+      report: node.frontmatter.report || "",
+      presentation: node.frontmatter.presentation || "",
+      brief: node.frontmatter.brief || "",
       slug: projectUrl,
-    }
+    };
     createNode({
       ...projectData,
       // Required fields.
@@ -107,12 +119,12 @@ exports.onCreateNode = (
         content: JSON.stringify(projectData),
         description: "Blog Posts",
       },
-    })
-    createParentChildLink({ parent: fileNode, child: node })
+    });
+    createParentChildLink({parent: fileNode, child: node});
   }
-}
+};
 
-exports.createPages = async ({ actions, graphql }) => {
+exports.createPages = async ({actions, graphql}) => {
   const query = `
   query AllProjectsQuery {
     allProject {
@@ -123,26 +135,31 @@ exports.createPages = async ({ actions, graphql }) => {
           title
           start_date
           completed_date
+          brief
+          source
+          report
+          presentation
+          status
         }
       }
     }
-  }`
-  const result = await graphql(query)
-  const projects = result.data.allProject.edges
-  projects.map(project => {
+  }`;
+  const result = await graphql(query);
+  const projects = result.data.allProject.edges;
+  projects.map((project) => {
     actions.createPage({
       path: project.node.slug,
       component: require.resolve("./src/templates/project.js"),
       context: {
         id: project.node.id,
       },
-    })
-  })
+    });
+  });
   actions.createPage({
     path: options.baseUrl,
     component: require.resolve("./src/templates/projects.js"),
     context: {
       projects,
     },
-  })
-}
+  });
+};
