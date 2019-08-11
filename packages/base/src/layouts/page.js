@@ -11,9 +11,11 @@ import BaseLayout from "./base";
 function PageLayout({title, description, location, children}) {
   return (
     <BaseLayout title={title} description={description} location={location}>
-      <Styled.h1>
-        <span>{title}</span>
-      </Styled.h1>
+      {title !== null && title !== "" && (
+        <Styled.h1>
+          <span>{title}</span>
+        </Styled.h1>
+      )}
       <section>{children}</section>
     </BaseLayout>
   );
