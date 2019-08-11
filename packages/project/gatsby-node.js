@@ -124,7 +124,8 @@ exports.onCreateNode = (
   }
 };
 
-exports.createPages = async ({actions, graphql}) => {
+exports.createPages = async ({actions, graphql}, themeOptions) => {
+  options = merge(defaultOptions, themeOptions);
   const query = `
   query AllProjectsQuery {
     allProject {
@@ -155,6 +156,7 @@ exports.createPages = async ({actions, graphql}) => {
       },
     });
   });
+  console.log(`Projects Base URL: ${options.baseUrl}`);
   actions.createPage({
     path: options.baseUrl,
     component: require.resolve("./src/templates/projects.js"),
