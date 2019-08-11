@@ -2,11 +2,11 @@
 module.exports = {
   plugins: [
     {
-      resolve: "@sonapraneeth/projects",
+      resolve: "@sonapraneeth/project",
       options: {
         baseUrl: "/",
         contentPath: "content",
       },
     },
   ],
-};
+}

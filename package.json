@@ -14,10 +14,10 @@
     "bio-clean": "yarn workspace demo-bio clean",
     "bio-dev": "DEBUG=@sonapraneeth/bio:* yarn workspace demo-bio dev",
     "bio-devw": "set DEBUG=@sonapraneeth/bio:* && yarn workspace demo-bio dev",
-    "projects-build": "yarn workspace demo-projects build",
-    "projects-clean": "yarn workspace demo-projects clean",
-    "projects-dev": "DEBUG=@sonapraneeth/projects:* yarn workspace demo-projects dev",
-    "projects-devw": "set DEBUG=@sonapraneeth/projects:* && yarn workspace demo-projects dev",
+    "project-build": "yarn workspace demo-project build",
+    "project-clean": "yarn workspace demo-project clean",
+    "project-dev": "DEBUG=@sonapraneeth/project:* yarn workspace demo-project dev",
+    "project-devw": "set DEBUG=@sonapraneeth/project:* && yarn workspace demo-project dev",
     "blog-build": "yarn workspace demo-blog build",
     "blog-clean": "yarn workspace demo-blog clean",
     "blog-dev": "DEBUG=@sonapraneeth/blog:* yarn workspace demo-blog dev",
@@ -25,7 +25,8 @@
     "all-build": "yarn workspace demo-all build",
     "all-clean": "yarn workspace demo-all clean",
     "all-dev": "DEBUG=@sonapraneeth/*:* yarn workspace demo-all dev",
-    "all-devw": "set DEBUG=@sonapraneeth/*:* && yarn workspace demo-all dev"
+    "all-devw": "set DEBUG=@sonapraneeth/*:* && yarn workspace demo-all dev",
+    "clean": "yarn base-clean && yarn bio-clean && yarn project-clean && yarn blog-clean && yarn ll-clean"
   },
   "workspaces": [
     "packages/*",

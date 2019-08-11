@@ -1,16 +1,16 @@
-const merge = require("deepmerge");
+const merge = require("deepmerge")
 
-module.exports = (themeOptions) => {
-  console.log(`Environment: ${process.env.NODE_ENV}`);
+module.exports = themeOptions => {
+  console.log(`Environment: ${process.env.NODE_ENV}`)
   // Default options to be used in theme
   const defaultOptions = {
     // Base url for rendering site
     baseUrl: "/", // Default: "/"
     // Data directory
     dataPath: "content/projects", // Default: "content/projects"
-  };
+  }
   // Options created using default and provided options
-  const options = merge(defaultOptions, themeOptions);
+  const options = merge(defaultOptions, themeOptions)
 
   return {
     // Default siteMetadata
@@ -43,5 +43,5 @@ module.exports = (themeOptions) => {
       "gatsby-plugin-mdx",
       "gatsby-plugin-react-helmet",
     ],
-  };
-};
+  }
+}

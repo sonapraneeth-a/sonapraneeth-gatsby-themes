@@ -1,13 +1,13 @@
-import React from "react";
-import PropTypes from "prop-types";
+import React from "react"
+import PropTypes from "prop-types"
 
 /**
  *
  * @param {*} data
  * @return {JSX}
  */
-function Projects({pageContext: {projects}}) {
-  console.log(projects);
+function Projects({ pageContext: { projects } }) {
+  console.log(projects)
   return (
     <>
       <div>
@@ -19,13 +19,13 @@ function Projects({pageContext: {projects}}) {
         ))}
       </div>
     </>
-  );
+  )
 }
 
 Projects.propTypes = {
   pageContext: PropTypes.any.isRequired,
-};
+}
 
-Projects.defaultProps = {};
+Projects.defaultProps = {}
 
-export default Projects;
+export default Projects

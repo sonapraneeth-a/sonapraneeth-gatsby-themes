@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 
 import {PageLayout} from "@sonapraneeth/base";
 import HomeWidget from "@sonapraneeth/bio/src/widget/home";
-import ProjectWidget from "@sonapraneeth/projects/src/widget/projects";
+import ProjectWidget from "@sonapraneeth/project/src/widget/projects";
 import BlogWidget from "@sonapraneeth/blog/src/widget/blogs";
 
 import {useHome} from "../../../hooks/useHome";

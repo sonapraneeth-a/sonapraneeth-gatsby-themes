@@ -31,7 +31,7 @@ module.exports = {
       },
     },
     {
-      resolve: "@sonapraneeth/projects",
+      resolve: "@sonapraneeth/project",
       options: {
         baseUrl: projectsUrl,
         contentPath: "content/projects",

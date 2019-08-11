@@ -1,13 +1,13 @@
-import React from "react";
-import PropTypes from "prop-types";
+import React from "react"
+import PropTypes from "prop-types"
 
 /**
  *
  * @param {*} data
  * @return {JSX}
  */
-function ProjectWidget({projects}) {
-  console.log(projects);
+function ProjectWidget({ projects }) {
+  console.log(projects)
   return (
     <>
       <div>
@@ -19,13 +19,13 @@ function ProjectWidget({projects}) {
         ))}
       </div>
     </>
-  );
+  )
 }
 
 ProjectWidget.propTypes = {
   projects: PropTypes.any.isRequired,
-};
+}
 
-ProjectWidget.defaultProps = {};
+ProjectWidget.defaultProps = {}
 
-export default ProjectWidget;
+export default ProjectWidget
