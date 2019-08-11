@@ -29,7 +29,7 @@ const SContainer = (props) => {
       {...props}
       sx={{
         margin: "0 auto",
-        width: ["95%", "95%", "85%", "80%"],
+        width: ["95%", "95%", "85%", "85%", "85%", "80%"],
         maxWidth: "none",
         p: 4,
       }}
