@@ -1,9 +1,9 @@
 /** @jsx jsx */
-import {jsx} from "theme-ui";
+import { jsx } from "theme-ui"
 // eslint-disable-next-line no-unused-vars
-import React from "react";
-import PropTypes from "prop-types";
-import {Link} from "gatsby";
+import React from "react"
+import PropTypes from "prop-types"
+import { Link } from "gatsby"
 
 import {
   Card,
@@ -16,14 +16,14 @@ import {
   FaCode,
   FaFileAlt,
   FaFilePowerpoint,
-} from "@sonapraneeth/base";
+} from "@sonapraneeth/base"
 
 /**
  *
  * @param {*} children
  * @return {JSX}
  */
-function ProjectCard({project, ...props}) {
+function DetailedProjectCard({ project, ...props }) {
   return (
     <Card>
       <CardContent>
@@ -63,13 +63,13 @@ function ProjectCard({project, ...props}) {
             as={Link}
             to={project.slug}
             sx={{
-              "variant": "link.none",
-              "bg": "surface",
+              variant: "link.none",
+              bg: "surface",
               ":hover": {
                 bg: "surface",
                 color: "text",
               },
-              "display": "inline-block",
+              display: "inline-block",
             }}
           >
             <FaInfoCircle
@@ -81,7 +81,7 @@ function ProjectCard({project, ...props}) {
             <span
               sx={{
                 verticalAlign: "middle",
-                mx: "0.1rem",
+                mx: "0.2rem",
               }}
             >
               Details
@@ -91,8 +91,8 @@ function ProjectCard({project, ...props}) {
             <Styled.a
               href={project.source}
               sx={{
-                "variant": "link.none",
-                "bg": "surface",
+                variant: "link.none",
+                bg: "surface",
                 ":hover": {
                   bg: "surface",
                   color: "text",
@@ -108,7 +108,7 @@ function ProjectCard({project, ...props}) {
               <span
                 sx={{
                   verticalAlign: "middle",
-                  mx: "0.1rem",
+                  mx: "0.2rem",
                 }}
               >
                 Source
@@ -119,8 +119,8 @@ function ProjectCard({project, ...props}) {
             <Styled.a
               href={project.report}
               sx={{
-                "variant": "link.none",
-                "bg": "surface",
+                variant: "link.none",
+                bg: "surface",
                 ":hover": {
                   bg: "surface",
                   color: "text",
@@ -136,7 +136,7 @@ function ProjectCard({project, ...props}) {
               <span
                 sx={{
                   verticalAlign: "middle",
-                  mx: "0.1rem",
+                  mx: "0.2rem",
                 }}
               >
                 Report
@@ -147,8 +147,8 @@ function ProjectCard({project, ...props}) {
             <Styled.a
               href={project.presentation}
               sx={{
-                "variant": "link.none",
-                "bg": "surface",
+                variant: "link.none",
+                bg: "surface",
                 ":hover": {
                   bg: "surface",
                   color: "text",
@@ -164,7 +164,7 @@ function ProjectCard({project, ...props}) {
               <span
                 sx={{
                   verticalAlign: "middle",
-                  mx: "0.1rem",
+                  mx: "0.2rem",
                 }}
               >
                 Presentation
@@ -174,13 +174,13 @@ function ProjectCard({project, ...props}) {
         </SFlex>
       </CardFooter>
     </Card>
-  );
+  )
 }
 
-ProjectCard.propTypes = {
+DetailedProjectCard.propTypes = {
   project: PropTypes.any.isRequired,
-};
+}
 
-ProjectCard.defaultProps = {};
+DetailedProjectCard.defaultProps = {}
 
-export default ProjectCard;
+export default DetailedProjectCard
