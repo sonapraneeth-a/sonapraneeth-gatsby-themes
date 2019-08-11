@@ -14,7 +14,7 @@ function CardFooter({children, ...props}) {
     <div
       {...props}
       sx={{
-        p: 4,
+        p: 3,
         width: "100%",
         borderTop: "0.1rem solid",
         borderColor: "muted",
