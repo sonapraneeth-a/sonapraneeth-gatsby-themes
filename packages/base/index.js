@@ -19,6 +19,8 @@ import {
   CardFooter,
   Chip,
   StatusChip,
+  Grid,
+  GridItem,
   GatsbyImage,
   HeadMeta,
   SEO,
@@ -32,6 +34,9 @@ import {
   FaRss,
   FaCalendarAlt,
   FaTag,
+  FaCode,
+  FaFileAlt,
+  FaFilePowerpoint,
 } from "react-icons/fa";
 
 export {
@@ -46,6 +51,8 @@ export {
   CardFooter,
   Chip,
   StatusChip,
+  Grid,
+  GridItem,
   GatsbyImage,
   HeadMeta,
   SEO,
@@ -67,4 +74,7 @@ export {
   FaRss,
   FaCalendarAlt,
   FaTag,
+  FaCode,
+  FaFileAlt,
+  FaFilePowerpoint,
 };
