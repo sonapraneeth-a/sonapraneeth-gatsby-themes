@@ -1,10 +1,9 @@
 import React from "react";
 import PropTypes from "prop-types";
-import {Link} from "gatsby";
 
-import {Styled} from "@sonapraneeth/base";
-import {Card, CardContent, CardFooter, StatusChip} from "@sonapraneeth/base";
 import {PageLayout} from "@sonapraneeth/base";
+import ProjectCard from "../components/project-card";
+import {Grid, GridItem} from "@sonapraneeth/base";
 
 /**
  *
@@ -16,19 +15,13 @@ function Projects({pageContext: {projects}}, location) {
   console.log(projects);
   return (
     <PageLayout location={location} title={"Projects"}>
-      <div>
+      <Grid noCols={2}>
         {projects.map((project, index) => (
-          <Card key={`project-${index}`}>
-            <CardContent>
-              <Styled.h2>{project.node.title}</Styled.h2>
-              <StatusChip type={project.node.status} />
-            </CardContent>
-            <CardFooter>
-              <Link to={project.node.slug}>Details</Link>
-            </CardFooter>
-          </Card>
+          <GridItem key={`project-${index}`}>
+            <ProjectCard project={project.node} />
+          </GridItem>
         ))}
-      </div>
+      </Grid>
     </PageLayout>
   );
 }
