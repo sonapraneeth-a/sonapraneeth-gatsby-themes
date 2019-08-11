@@ -113,7 +113,8 @@ exports.onCreateNode = (
   }
 };
 
-exports.createPages = async ({actions, graphql}) => {
+exports.createPages = async ({actions, graphql}, themeOptions) => {
+  options = merge(defaultOptions, themeOptions);
   const query = `
   query AllBlogsQuery {
     allBlog {
