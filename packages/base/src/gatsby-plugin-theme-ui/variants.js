@@ -23,4 +23,10 @@ export default {
       borderColor: "#fdd835",
     },
   },
+  link: {
+    none: {
+      border: "none",
+      textDecoration: "none",
+    },
+  },
 };
