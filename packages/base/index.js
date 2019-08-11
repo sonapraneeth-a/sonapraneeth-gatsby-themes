@@ -13,8 +13,26 @@ import {
   SContainer,
   SFooter,
 } from "./src/components/theme-ui/index.js";
-import GatsbyImage from "./src/components/gatsby-image";
+import {
+  Card,
+  CardContent,
+  CardFooter,
+  Chip,
+  StatusChip,
+  GatsbyImage,
+  HeadMeta,
+  SEO,
+} from "./src/components/index";
 import {Styled} from "theme-ui";
+import {
+  FaInfoCircle,
+  FaLinkedinIn,
+  FaGithub,
+  FaTwitter,
+  FaRss,
+  FaCalendarAlt,
+  FaTag,
+} from "react-icons/fa";
 
 export {
   // Layouts
@@ -23,7 +41,14 @@ export {
   BaseLayout,
   PageLayout,
   // Components
+  Card,
+  CardContent,
+  CardFooter,
+  Chip,
+  StatusChip,
   GatsbyImage,
+  HeadMeta,
+  SEO,
   // Modified ThemeUI Components
   SBox,
   SFlex,
@@ -34,4 +59,12 @@ export {
   SFooter,
   // ThemeUI styling
   Styled,
+  // Icons
+  FaInfoCircle,
+  FaLinkedinIn,
+  FaGithub,
+  FaTwitter,
+  FaRss,
+  FaCalendarAlt,
+  FaTag,
 };
