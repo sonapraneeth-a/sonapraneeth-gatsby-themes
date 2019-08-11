@@ -1,6 +1,7 @@
 const pathPrefix = "";
 const baseUrl = "/";
 const projectsUrl = "/projects";
+const blogsUrl = "/blog";
 let serviceWorkerUrl = pathPrefix + baseUrl;
 serviceWorkerUrl = serviceWorkerUrl.replace(/\/\/?$/, "/");
 console.log(`Service worker URL: ${serviceWorkerUrl}`);
@@ -34,6 +35,13 @@ module.exports = {
       options: {
         baseUrl: projectsUrl,
         contentPath: "content/projects",
+      },
+    },
+    {
+      resolve: "@sonapraneeth/blog",
+      options: {
+        baseUrl: blogsUrl,
+        contentPath: "content/blog",
       },
     },
   ],
