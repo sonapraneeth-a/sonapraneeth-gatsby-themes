@@ -1,6 +1,6 @@
 export default {
   // variants can use custom, user-defined names
-  textStyles: {
+  text: {
     heading: {
       fontFamily: "heading",
       lineHeight: "heading",
@@ -9,6 +9,18 @@ export default {
     caps: {
       textTransform: "uppercase",
       letterSpacing: "0.1em",
+    },
+  },
+  chip: {
+    completed: {
+      bg: "#00ff95",
+      color: "black",
+      borderColor: "#00ff95",
+    },
+    ongoing: {
+      bg: "#fdd835",
+      color: "black",
+      borderColor: "#fdd835",
     },
   },
 };
