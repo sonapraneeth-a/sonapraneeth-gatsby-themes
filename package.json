@@ -26,7 +26,7 @@
     "all-clean": "yarn workspace demo-all clean",
     "all-dev": "DEBUG=@sonapraneeth/*:* yarn workspace demo-all dev",
     "all-devw": "set DEBUG=@sonapraneeth/*:* && yarn workspace demo-all dev",
-    "clean": "yarn base-clean && yarn bio-clean && yarn project-clean && yarn blog-clean && yarn ll-clean"
+    "clean": "yarn base-clean && yarn bio-clean && yarn project-clean && yarn blog-clean && yarn all-clean"
   },
   "workspaces": [
     "packages/*",
