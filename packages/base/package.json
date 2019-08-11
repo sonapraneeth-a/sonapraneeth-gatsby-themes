@@ -32,6 +32,7 @@
     "gatsby-design-tokens": "^1.0.0",
     "gatsby-image": "^2.2.8",
     "gatsby-plugin-theme-ui": "^0.2.29",
+    "react-icons": "^3.7.0",
     "react-switch": "^5.0.1",
     "theme-ui": "^0.2.31",
     "typeface-pt-sans": "^0.0.72",
