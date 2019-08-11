@@ -1,31 +1,31 @@
-import React from "react"
-import PropTypes from "prop-types"
+import React from "react";
+import PropTypes from "prop-types";
+
+import SimpleProjectCard from "../components/card/simple";
+import {Grid, GridItem} from "@sonapraneeth/base";
 
 /**
  *
  * @param {*} data
  * @return {JSX}
  */
-function ProjectWidget({ projects }) {
-  console.log(projects)
+function ProjectWidget({projects}) {
+  console.log(projects);
   return (
-    <>
-      <div>
-        {projects.map((project, index) => (
-          <div key={`project-${index}`}>
-            <p>{index}</p>
-            <p>{project.node.title}</p>
-          </div>
-        ))}
-      </div>
-    </>
-  )
+    <Grid noCols={2}>
+      {projects.map((project, index) => (
+        <GridItem key={`project-simple-${index}`}>
+          <SimpleProjectCard project={project.node} />
+        </GridItem>
+      ))}
+    </Grid>
+  );
 }
 
 ProjectWidget.propTypes = {
   projects: PropTypes.any.isRequired,
-}
+};
 
-ProjectWidget.defaultProps = {}
+ProjectWidget.defaultProps = {};
 
-export default ProjectWidget
+export default ProjectWidget;
