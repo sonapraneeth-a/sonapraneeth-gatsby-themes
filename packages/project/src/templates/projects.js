@@ -1,9 +1,9 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-import {PageLayout} from "@sonapraneeth/base";
-import ProjectCard from "../components/project-card";
-import {Grid, GridItem} from "@sonapraneeth/base";
+import {PageLayout, Styled} from "@sonapraneeth/base";
+import DetailedProjectCard from "../components/card/detailed";
+import {Grid, GridItem, SContainer} from "@sonapraneeth/base";
 
 /**
  *
@@ -14,14 +14,17 @@ import {Grid, GridItem} from "@sonapraneeth/base";
 function Projects({pageContext: {projects}}, location) {
   console.log(projects);
   return (
-    <PageLayout location={location} title={"Projects"}>
-      <Grid noCols={2}>
-        {projects.map((project, index) => (
-          <GridItem key={`project-${index}`}>
-            <ProjectCard project={project.node} />
-          </GridItem>
-        ))}
-      </Grid>
+    <PageLayout location={location} title={""}>
+      <SContainer>
+        <Styled.h1>{"Projects"}</Styled.h1>
+        <Grid noCols={2}>
+          {projects.map((project, index) => (
+            <GridItem key={`project-detailed-${index}`}>
+              <DetailedProjectCard project={project.node} />
+            </GridItem>
+          ))}
+        </Grid>
+      </SContainer>
     </PageLayout>
   );
 }
