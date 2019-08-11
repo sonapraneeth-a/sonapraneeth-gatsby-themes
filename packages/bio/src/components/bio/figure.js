@@ -1,6 +1,7 @@
 // eslint-disable-next-line no-unused-vars
 import React from "react";
 import PropTypes from "prop-types";
+import {useThemeUI} from "theme-ui";
 
 import {GatsbyImage} from "@sonapraneeth/base";
 
@@ -19,15 +20,18 @@ FigureBio.defaultProps = {
  * @return {JSX}
  */
 function FigureBio({image, caption}) {
+  const context = useThemeUI();
+  const theme = context.theme;
+  const borderRadius = theme.rounded === false ? "0%" : "50%";
   return (
     <>
       <GatsbyImage
         src={image.fluid}
         style={{
-          borderRadius: "0%",
+          borderRadius: borderRadius,
         }}
         imgStyle={{
-          borderRadius: "0% !important",
+          borderRadius: `${borderRadius} !important`,
         }}
         caption={caption}
       />
