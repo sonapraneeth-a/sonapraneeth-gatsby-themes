@@ -29,4 +29,14 @@ export default {
       textDecoration: "none",
     },
   },
+  button: {
+    primary: {
+      color: "white",
+      bg: "primary",
+    },
+    secondary: {
+      color: "white",
+      bg: "secondary",
+    },
+  },
 };

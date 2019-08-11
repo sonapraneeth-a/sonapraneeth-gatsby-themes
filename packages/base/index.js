@@ -14,6 +14,7 @@ import {
   SFooter,
 } from "./src/components/theme-ui/index.js";
 import {
+  Button,
   Card,
   CardContent,
   CardFooter,
@@ -37,6 +38,7 @@ import {
   FaCode,
   FaFileAlt,
   FaFilePowerpoint,
+  FaArrowRight,
 } from "react-icons/fa";
 
 export {
@@ -46,6 +48,7 @@ export {
   BaseLayout,
   PageLayout,
   // Components
+  Button,
   Card,
   CardContent,
   CardFooter,
@@ -77,4 +80,5 @@ export {
   FaCode,
   FaFileAlt,
   FaFilePowerpoint,
+  FaArrowRight,
 };
