@@ -28,7 +28,7 @@ function Project({data, location}) {
         <Chip type={"date"}>{data.project.completed_date}</Chip>
         <hr />
         <section>
-          <Grid noCols={2} nSizes={[1, 2]}>
+          <Grid noCols={2} nSizes={[1, 2.5]}>
             <GridItem
               id="toc"
               css={{
