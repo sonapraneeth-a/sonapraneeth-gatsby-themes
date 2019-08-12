@@ -1,9 +1,9 @@
 /** @jsx jsx */
-import { jsx } from "theme-ui"
+import {jsx} from "theme-ui";
 // eslint-disable-next-line no-unused-vars
-import React from "react"
-import PropTypes from "prop-types"
-import { Link } from "gatsby"
+import React from "react";
+import PropTypes from "prop-types";
+import {Link} from "gatsby";
 
 import {
   Card,
@@ -16,14 +16,14 @@ import {
   FaCode,
   FaFileAlt,
   FaFilePowerpoint,
-} from "@sonapraneeth/base"
+} from "@sonapraneeth/base";
 
 /**
  *
  * @param {*} children
  * @return {JSX}
  */
-function DetailedProjectCard({ project, ...props }) {
+function DetailedProjectCard({project, ...props}) {
   return (
     <Card>
       <CardContent>
@@ -49,7 +49,7 @@ function DetailedProjectCard({ project, ...props }) {
             </Styled.h4>
           </div>
         </SFlex>
-        {project.brief}
+        {project.abstract}
       </CardContent>
       <CardFooter>
         <SFlex
@@ -63,13 +63,13 @@ function DetailedProjectCard({ project, ...props }) {
             as={Link}
             to={project.slug}
             sx={{
-              variant: "link.none",
-              bg: "surface",
+              "variant": "link.none",
+              "bg": "surface",
               ":hover": {
                 bg: "surface",
                 color: "text",
               },
-              display: "inline-block",
+              "display": "inline-block",
             }}
           >
             <FaInfoCircle
@@ -91,8 +91,8 @@ function DetailedProjectCard({ project, ...props }) {
             <Styled.a
               href={project.source}
               sx={{
-                variant: "link.none",
-                bg: "surface",
+                "variant": "link.none",
+                "bg": "surface",
                 ":hover": {
                   bg: "surface",
                   color: "text",
@@ -119,8 +119,8 @@ function DetailedProjectCard({ project, ...props }) {
             <Styled.a
               href={project.report}
               sx={{
-                variant: "link.none",
-                bg: "surface",
+                "variant": "link.none",
+                "bg": "surface",
                 ":hover": {
                   bg: "surface",
                   color: "text",
@@ -147,8 +147,8 @@ function DetailedProjectCard({ project, ...props }) {
             <Styled.a
               href={project.presentation}
               sx={{
-                variant: "link.none",
-                bg: "surface",
+                "variant": "link.none",
+                "bg": "surface",
                 ":hover": {
                   bg: "surface",
                   color: "text",
@@ -174,13 +174,13 @@ function DetailedProjectCard({ project, ...props }) {
         </SFlex>
       </CardFooter>
     </Card>
-  )
+  );
 }
 
 DetailedProjectCard.propTypes = {
   project: PropTypes.any.isRequired,
-}
+};
 
-DetailedProjectCard.defaultProps = {}
+DetailedProjectCard.defaultProps = {};
 
-export default DetailedProjectCard
+export default DetailedProjectCard;

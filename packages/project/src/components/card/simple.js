@@ -33,7 +33,7 @@ function SimpleProjectCard({project, ...props}) {
         >
           <Styled.h2>{project.title}</Styled.h2>
         </Styled.a>
-        <Styled.p>{project.brief}</Styled.p>
+        <Styled.p>{project.abstract}</Styled.p>
       </CardContent>
     </Card>
   );

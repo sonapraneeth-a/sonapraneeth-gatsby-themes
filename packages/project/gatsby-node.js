@@ -38,7 +38,7 @@ exports.createSchemaCustomization = ({actions, schema}) => {
       source: String!
       report: String!
       presentation: String!
-      brief: String!
+      abstract: String!
       slug: String!
       fileAbsolutePath: String!
       body: String!
@@ -52,7 +52,7 @@ exports.createSchemaCustomization = ({actions, schema}) => {
       source: String!
       report: String!
       presentation: String!
-      brief: String!
+      abstract: String!
       slug: String!
       fileAbsolutePath: String!
       body: String!
@@ -103,7 +103,7 @@ exports.onCreateNode = (
       source: node.frontmatter.source || "",
       report: node.frontmatter.report || "",
       presentation: node.frontmatter.presentation || "",
-      brief: node.frontmatter.brief || "",
+      abstract: node.frontmatter.abstract || "",
       show_toc: node.frontmatter.show_toc || false,
       fileAbsolutePath: node.fileAbsolutePath,
       slug: projectUrl,
@@ -140,7 +140,7 @@ exports.createPages = async ({actions, graphql}, themeOptions) => {
           title
           start_date
           completed_date
-          brief
+          abstract
           source
           report
           presentation

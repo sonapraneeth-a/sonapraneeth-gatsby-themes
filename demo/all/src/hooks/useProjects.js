@@ -14,7 +14,7 @@ export const useProjects = () => {
               title
               start_date
               completed_date
-              brief
+              abstract
             }
           }
         }
