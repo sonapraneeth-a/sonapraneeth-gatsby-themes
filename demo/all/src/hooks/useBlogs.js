@@ -13,6 +13,7 @@ export const useBlogs = () => {
               slug
               title
               published_date
+              excerpt
             }
           }
         }
