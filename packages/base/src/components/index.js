@@ -5,6 +5,7 @@ import {Grid, GridItem} from "./grid/index";
 import GatsbyImage from "./gatsby-image";
 import HeadMeta from "./head/meta";
 import SEO from "./head/seo";
+import TableOfContents from "./toc";
 
 export {
   Button,
@@ -18,4 +19,5 @@ export {
   GatsbyImage,
   HeadMeta,
   SEO,
+  TableOfContents,
 };

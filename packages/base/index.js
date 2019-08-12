@@ -25,7 +25,9 @@ import {
   GatsbyImage,
   HeadMeta,
   SEO,
+  TableOfContents,
 } from "./src/components/index";
+import {from, screens} from "./src/components/breakpoints";
 import {Styled} from "theme-ui";
 import {
   FaInfoCircle,
@@ -59,6 +61,10 @@ export {
   GatsbyImage,
   HeadMeta,
   SEO,
+  TableOfContents,
+  // Breakpoints
+  from,
+  screens,
   // Modified ThemeUI Components
   SBox,
   SFlex,
