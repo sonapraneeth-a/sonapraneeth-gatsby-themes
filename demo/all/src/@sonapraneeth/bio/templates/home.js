@@ -98,6 +98,50 @@ function HomeLayout({location}) {
         <SContainer>
           <Styled.h1>Blog</Styled.h1>
           <BlogWidget blogs={blogs} />
+          <SFlex
+            sx={{
+              justifyContent: "flex-end",
+            }}
+          >
+            <Button
+              type={"primary"}
+              sx={{
+                lineHeight: 1,
+              }}
+            >
+              <Styled.a
+                as={Link}
+                to={"/projects"}
+                sx={{
+                  "variant": "link.none",
+                  "bg": "primary",
+                  "color": "white",
+                  ":hover": {
+                    bg: "primary",
+                    color: "white",
+                  },
+                  "display": "inline-block",
+                  "fontSize": 1,
+                }}
+              >
+                <span
+                  sx={{
+                    verticalAlign: "middle",
+                    mx: "0.5rem",
+                  }}
+                >
+                  Read all blogs
+                </span>
+                <FaArrowRight
+                  sx={{
+                    display: "inline-block",
+                    verticalAlign: "middle",
+                    fontSize: 2,
+                  }}
+                />
+              </Styled.a>
+            </Button>
+          </SFlex>
         </SContainer>
       </div>
     </PageLayout>
