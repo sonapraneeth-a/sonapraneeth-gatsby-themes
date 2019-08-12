@@ -36,14 +36,22 @@ exports.createSchemaCustomization = ({actions, schema}) => {
       title: String!
       published_date: Date!
       slug: String!
+      excerpt: String!
       body: String!
+      fileAbsolutePath: String!
+      draft: Boolean!
+      sharing: Boolean!
     }
     type BlogMdx implements Blog & Node {
       id: ID!
       title: String!
       published_date: Date!
       slug: String!
+      excerpt: String!
       body: String!
+      fileAbsolutePath: String!
+      draft: Boolean!
+      sharing: Boolean!
     }
   `);
   actions.createTypes(
@@ -53,6 +61,16 @@ exports.createSchemaCustomization = ({actions, schema}) => {
         body: {
           type: "String!",
           resolve: mdxResolverPassthrough("body"),
+        },
+        excerpt: {
+          type: "String!",
+          args: {
+            pruneLength: {
+              type: "Int",
+              defaultValue: 140,
+            },
+          },
+          resolve: mdxResolverPassthrough("excerpt"),
         },
       },
     })
@@ -92,6 +110,9 @@ exports.onCreateNode = (
       title: node.frontmatter.title || "",
       published_date: node.frontmatter.published_date,
       slug: blogUrl,
+      fileAbsolutePath: node.fileAbsolutePath,
+      draft: node.frontmatter.draft || false,
+      sharing: node.frontmatter.sharing || false,
     };
     createNode({
       ...blogData,
@@ -115,7 +136,22 @@ exports.onCreateNode = (
 
 exports.createPages = async ({actions, graphql}, themeOptions) => {
   options = merge(defaultOptions, themeOptions);
-  const query = `
+  const queryProd = `
+  query AllBlogsQuery {
+    allBlog(filter: {draft: {eq: true}}) {
+      edges {
+        node {
+          id
+          slug
+          title
+          published_date
+          excerpt
+          fileAbsolutePath
+        }
+      }
+    }
+  }`;
+  const queryDev = `
   query AllBlogsQuery {
     allBlog {
       edges {
@@ -124,11 +160,18 @@ exports.createPages = async ({actions, graphql}, themeOptions) => {
           slug
           title
           published_date
+          excerpt
+          fileAbsolutePath
         }
       }
     }
   }`;
-  const result = await graphql(query);
+  let result = null;
+  if (process.env.NODE_ENV !== "production") {
+    result = await graphql(queryDev);
+  } else {
+    result = await graphql(queryProd);
+  }
   const blogs = result.data.allBlog.edges;
   blogs.map((blog) => {
     actions.createPage({
@@ -136,6 +179,7 @@ exports.createPages = async ({actions, graphql}, themeOptions) => {
       component: require.resolve("./src/templates/blog.js"),
       context: {
         id: blog.node.id,
+        fileAbsolutePath: blog.node.fileAbsolutePath,
       },
     });
   });
