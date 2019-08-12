@@ -42,6 +42,7 @@ import {
   FaFilePowerpoint,
   FaArrowRight,
   FaReadme,
+  FaFolderOpen,
 } from "react-icons/fa";
 
 export {
@@ -90,4 +91,5 @@ export {
   FaFilePowerpoint,
   FaArrowRight,
   FaReadme,
+  FaFolderOpen,
 };
