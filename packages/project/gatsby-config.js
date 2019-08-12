@@ -1,16 +1,16 @@
-const merge = require("deepmerge")
+const merge = require("deepmerge");
 
-module.exports = themeOptions => {
-  console.log(`Environment: ${process.env.NODE_ENV}`)
+module.exports = (themeOptions) => {
+  console.log(`Environment: ${process.env.NODE_ENV}`);
   // Default options to be used in theme
   const defaultOptions = {
     // Base url for rendering site
     baseUrl: "/", // Default: "/"
     // Data directory
     dataPath: "content/projects", // Default: "content/projects"
-  }
+  };
   // Options created using default and provided options
-  const options = merge(defaultOptions, themeOptions)
+  const options = merge(defaultOptions, themeOptions);
 
   return {
     // Default siteMetadata
@@ -40,8 +40,29 @@ module.exports = themeOptions => {
           path: options.contentPath,
         },
       },
-      "gatsby-plugin-mdx",
+      {
+        resolve: "gatsby-plugin-mdx",
+        options: {
+          extensions: [".mdx", ".md"],
+          gatsbyRemarkPlugins: [
+            {
+              resolve: "gatsby-remark-images",
+              options: {
+                // should this be configurable by the end-user?
+                maxWidth: 1380,
+                linkImagesToOriginal: false,
+              },
+            },
+            "gatsby-remark-autolink-headers",
+            "gatsby-remark-slug",
+            "gatsby-remark-copy-linked-files",
+            "gatsby-remark-numbered-footnotes",
+            "gatsby-remark-smartypants",
+          ],
+          remarkPlugins: [require("remark-slug")],
+        },
+      },
       "gatsby-plugin-react-helmet",
     ],
-  }
-}
+  };
+};
