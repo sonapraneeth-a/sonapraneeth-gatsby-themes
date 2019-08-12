@@ -1,29 +1,37 @@
 import React from "react";
 import PropTypes from "prop-types";
 
+import {PageLayout, Styled} from "@sonapraneeth/base";
+import DetailedBlogCard from "../components/card/detailed";
+import {Grid, GridItem, SContainer} from "@sonapraneeth/base";
+
 /**
  *
- * @param {*} data
+ * @param {*} pageContext
+ * @param {*} location
  * @return {JSX}
  */
-function Blogs({pageContext: {blogs}}) {
+function Blogs({pageContext: {blogs}}, location) {
   console.log(blogs);
   return (
-    <>
-      <div>
-        {blogs.map((blog, index) => (
-          <div key={`blog-${index}`}>
-            <p>{index}</p>
-            <p>{blog.node.title}</p>
-          </div>
-        ))}
-      </div>
-    </>
+    <PageLayout location={location} title={""}>
+      <SContainer>
+        <Styled.h1>{"Blog"}</Styled.h1>
+        <Grid noCols={1}>
+          {blogs.map((blog, index) => (
+            <GridItem key={`blog-detailed-${index}`}>
+              <DetailedBlogCard blog={blog.node} />
+            </GridItem>
+          ))}
+        </Grid>
+      </SContainer>
+    </PageLayout>
   );
 }
 
 Blogs.propTypes = {
   pageContext: PropTypes.any.isRequired,
+  location: PropTypes.any.isRequired,
 };
 
 Blogs.defaultProps = {};
