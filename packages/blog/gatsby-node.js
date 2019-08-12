@@ -105,7 +105,6 @@ exports.onCreateNode = (
     );
     blogUrl = `${options.baseUrl}/${year}/${month}/${date}/${slugify(title)}/`;
     blogUrl = blogUrl.replace(/\/\//, "/");
-    console.log(blogUrl);
     const blogData = {
       title: node.frontmatter.title || "",
       published_date: node.frontmatter.published_date,

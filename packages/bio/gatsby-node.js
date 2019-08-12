@@ -67,12 +67,6 @@ exports.sourceNodes = ({actions}, themeOptions) => {
 
 exports.onCreateNode = ({node, actions, getNode, createNodeId}) => {
   const {createNode} = actions;
-  // Create source field (according to contentPath)
-  /* const fileNode = getNode(node.parent)
-  console.log(node);
-  const source = fileNode.sourceInstanceName
-  console.log(source);
-  console.log(contentPath);*/
   if (node.internal.type !== "AuthorYaml") {
     return;
   }

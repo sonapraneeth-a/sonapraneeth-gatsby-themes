@@ -1,8 +1,7 @@
 const pathPrefix = "";
 const baseUrl = "/";
-let serviceWorkerUrl = pathPrefix + baseUrl;
-serviceWorkerUrl = serviceWorkerUrl.replace(/\/?$/, "/");
-console.log(`Service worker URL: ${serviceWorkerUrl}`);
+/* let serviceWorkerUrl = pathPrefix + baseUrl;
+serviceWorkerUrl = serviceWorkerUrl.replace(/\/\/?$/, "/");*/
 
 module.exports = {
   pathPrefix: pathPrefix,

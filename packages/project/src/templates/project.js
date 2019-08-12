@@ -20,7 +20,6 @@ import {
  * @return {JSX}
  */
 function Project({data, location}) {
-  console.log(data);
   return (
     <BaseLayout location={data.project.slug} title={""}>
       <SContainer>

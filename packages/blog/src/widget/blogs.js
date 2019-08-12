@@ -10,7 +10,6 @@ import {Grid, GridItem} from "@sonapraneeth/base";
  * @return {JSX}
  */
 function BlogWidget({blogs}) {
-  console.log(blogs);
   return (
     <Grid noCols={2}>
       {blogs.map((blog, index) => (

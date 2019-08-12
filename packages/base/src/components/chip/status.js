@@ -11,7 +11,6 @@ import PropTypes from "prop-types";
  */
 function StatusChip({type, ...props}) {
   const style = "chip." + type.toLowerCase();
-  console.log(style);
   return (
     <span
       {...props}

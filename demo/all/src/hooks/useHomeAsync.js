@@ -12,6 +12,5 @@ export const useHomeAsync = async () => {
     }
   }`;
   const result = await graphql(query);
-  console.log(result);
   return result;
 };

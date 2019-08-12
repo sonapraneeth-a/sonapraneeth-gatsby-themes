@@ -13,7 +13,6 @@ import {Card, CardContent, Styled} from "@sonapraneeth/base";
  * @return {JSX}
  */
 function SimpleBlogCard({blog, ...props}) {
-  console.log(blog.excerpt);
   return (
     <Card>
       <CardContent>

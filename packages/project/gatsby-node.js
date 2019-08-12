@@ -162,7 +162,6 @@ exports.createPages = async ({actions, graphql}, themeOptions) => {
       },
     });
   });
-  console.log(`Projects Base URL: ${options.baseUrl}`);
   actions.createPage({
     path: options.baseUrl,
     component: require.resolve("./src/templates/projects.js"),

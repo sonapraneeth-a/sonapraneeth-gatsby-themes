@@ -1,7 +1,6 @@
 const merge = require("deepmerge");
 
 module.exports = (themeOptions) => {
-  console.log(`Environment: ${process.env.NODE_ENV}`);
   // Default options to be used in theme
   const defaultOptions = {
     // Base url for rendering site

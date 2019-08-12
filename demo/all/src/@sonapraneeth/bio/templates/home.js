@@ -32,7 +32,6 @@ HomeLayout.defaultProps = {};
  * @return {JSX} Rendered children for the HomeLayout
  */
 function HomeLayout({location}) {
-  console.log("Shadowed");
   const home = useHome();
   const projects = useProjects();
   const blogs = useBlogs();

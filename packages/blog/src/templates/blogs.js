@@ -12,7 +12,6 @@ import {Grid, GridItem, SContainer} from "@sonapraneeth/base";
  * @return {JSX}
  */
 function Blogs({pageContext: {blogs}}, location) {
-  console.log(blogs);
   return (
     <PageLayout location={location} title={""}>
       <SContainer>

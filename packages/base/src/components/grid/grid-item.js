@@ -16,7 +16,6 @@ GridItem.defaultProps = {
  * @return {JSX}
  */
 function GridItem({children, css}) {
-  console.log(css);
   return (
     <div
       sx={{
