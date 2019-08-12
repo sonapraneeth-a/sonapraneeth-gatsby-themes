@@ -16,6 +16,7 @@ function Chip({children, type, ...props}) {
     <span
       {...props}
       sx={{
+        lineHeight: 0.5,
         borderRadius: 0,
         padding: ".2rem",
         bg: "surface",
