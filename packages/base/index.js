@@ -28,7 +28,7 @@ import {
   TableOfContents,
 } from "./src/components/index";
 import {from, screens} from "./src/components/breakpoints";
-import {Styled} from "theme-ui";
+import {Styled, jsx} from "theme-ui";
 import {
   FaInfoCircle,
   FaLinkedinIn,
@@ -75,6 +75,7 @@ export {
   SFooter,
   // ThemeUI styling
   Styled,
+  jsx,
   // Icons
   FaInfoCircle,
   FaLinkedinIn,
