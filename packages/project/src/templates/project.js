@@ -4,8 +4,15 @@ import {graphql} from "gatsby";
 import {MDXRenderer} from "gatsby-plugin-mdx";
 
 import {SContainer, Styled} from "@sonapraneeth/base";
-import {BaseLayout, Chip} from "@sonapraneeth/base";
-// import TableOfContents from "../components/toc";
+import {
+  Grid,
+  GridItem,
+  BaseLayout,
+  Chip,
+  TableOfContents,
+  from,
+  screens,
+} from "@sonapraneeth/base";
 
 /**
  *
@@ -21,11 +28,27 @@ function Project({data, location}) {
         <Chip type={"date"}>{data.project.completed_date}</Chip>
         <hr />
         <section>
-          {/* <TableOfContents
-            tableOfContents={data.project.tableOfContents}
-            location={location}
-          />*/}
-          <MDXRenderer>{data.project.body}</MDXRenderer>
+          <Grid noCols={2} nSizes={[1, 2]}>
+            <GridItem
+              id="toc"
+              css={{
+                margin: 0,
+                [from(screens.mobile)]: {
+                  position: "sticky",
+                  top: "10vh",
+                  placeSelf: "self-start stretch",
+                },
+              }}
+            >
+              <TableOfContents
+                tableOfContents={data.mdx.tableOfContents}
+                location={location}
+              />
+            </GridItem>
+            <GridItem id="body" css={{margin: 0}}>
+              <MDXRenderer>{data.project.body}</MDXRenderer>
+            </GridItem>
+          </Grid>
         </section>
       </SContainer>
     </BaseLayout>
@@ -42,7 +65,7 @@ Project.defaultProps = {};
 export default Project;
 
 export const query = graphql`
-  query ProjectQuery($id: String!) {
+  query ProjectQuery($id: String!, $fileAbsolutePath: String!) {
     project(id: { eq: $id }) {
       title
       status
@@ -50,6 +73,9 @@ export const query = graphql`
       completed_date
       slug
       body
+    }
+    mdx(fileAbsolutePath: { eq: $fileAbsolutePath }) {
+      tableOfContents(maxDepth: 10)
     }
   }
 `;
