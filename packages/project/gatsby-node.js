@@ -40,6 +40,7 @@ exports.createSchemaCustomization = ({actions, schema}) => {
       presentation: String!
       brief: String!
       slug: String!
+      fileAbsolutePath: String!
       body: String!
     }
     type ProjectMdx implements Project & Node {
@@ -53,6 +54,7 @@ exports.createSchemaCustomization = ({actions, schema}) => {
       presentation: String!
       brief: String!
       slug: String!
+      fileAbsolutePath: String!
       body: String!
     }
   `);
@@ -102,6 +104,8 @@ exports.onCreateNode = (
       report: node.frontmatter.report || "",
       presentation: node.frontmatter.presentation || "",
       brief: node.frontmatter.brief || "",
+      show_toc: node.frontmatter.show_toc || false,
+      fileAbsolutePath: node.fileAbsolutePath,
       slug: projectUrl,
     };
     createNode({
@@ -141,6 +145,7 @@ exports.createPages = async ({actions, graphql}, themeOptions) => {
           report
           presentation
           status
+          fileAbsolutePath
         }
       }
     }
@@ -153,6 +158,7 @@ exports.createPages = async ({actions, graphql}, themeOptions) => {
       component: require.resolve("./src/templates/project.js"),
       context: {
         id: project.node.id,
+        fileAbsolutePath: project.node.fileAbsolutePath,
       },
     });
   });
