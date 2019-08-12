@@ -32,5 +32,8 @@
     "gatsby-source-filesystem": "^2.1.9",
     "react-helmet": "^5.2.1",
     "slug": "^1.1.0"
+  },
+  "devDependencies": {
+    "debug": "^4.1.1"
   }
 }
