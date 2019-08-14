@@ -150,6 +150,8 @@ exports.createPages = async ({actions, graphql}, themeOptions) => {
           report
           presentation
           status
+          show_toc
+          featured
           fileAbsolutePath
         }
       }
