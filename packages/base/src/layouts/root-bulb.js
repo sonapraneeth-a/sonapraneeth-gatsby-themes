@@ -48,6 +48,17 @@ function RootBulb({children}) {
           "html": {
             fontSize: "18px",
           },
+          "::-webkit-scrollbar-track": {
+            WebkitBoxShadow: `inset 0 0 6px ${colors.background}`,
+            bg: "background",
+          },
+          "::-webkit-scrollbar": {
+            width: "6px",
+            bg: "#F5F5F5",
+          },
+          "::-webkit-scrollbar-thumb": {
+            bg: "text",
+          },
         })}
       />
       <div
