@@ -13,13 +13,9 @@ import {
   Button,
   FaArrowRight,
 } from "@sonapraneeth/base";
-import HomeWidget from "@sonapraneeth/bio/src/widget/home";
-import ProjectWidget from "@sonapraneeth/project/src/widget/projects";
-import BlogWidget from "@sonapraneeth/blog/src/widget/blogs";
-
-import {useHome} from "../../../hooks/useHome";
-import {useProjects} from "../../../hooks/useProjects";
-import {useBlogs} from "../../../hooks/useBlogs";
+import {HomeWidget, useHome} from "@sonapraneeth/bio";
+import {ProjectWidget, useFeaturedProjects} from "@sonapraneeth/project";
+import {BlogWidget, useRecentBlogs} from "@sonapraneeth/blog";
 
 HomeLayout.propTypes = {
   location: PropTypes.any.isRequired,
@@ -33,8 +29,8 @@ HomeLayout.defaultProps = {};
  */
 function HomeLayout({location}) {
   const home = useHome();
-  const projects = useProjects();
-  const blogs = useBlogs();
+  const projects = useFeaturedProjects();
+  const blogs = useRecentBlogs();
   return (
     <PageLayout title={""} description={""} location={location}>
       <div>
