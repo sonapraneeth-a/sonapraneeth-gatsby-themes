@@ -16,7 +16,7 @@ function H1({children}) {
       sx={{
         "::before": {
           content: " ",
-          background: "linear-gradient(90deg,#000,grey)",
+          bg: "linear-gradient(90deg,#000,grey)",
           position: "relative",
           top: 0,
           left: 0,

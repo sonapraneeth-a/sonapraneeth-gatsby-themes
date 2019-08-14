@@ -18,10 +18,11 @@ function Chip({children, type, ...props}) {
       sx={{
         lineHeight: 0.5,
         borderRadius: 0,
-        padding: ".2rem",
+        padding: ".1rem",
         bg: "surface",
         border: ".05rem solid",
         borderColor: "#000",
+        fontSize: 3,
       }}
     >
       {type !== null && type === "date" && (
