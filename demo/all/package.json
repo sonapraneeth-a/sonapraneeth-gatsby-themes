@@ -13,6 +13,7 @@
   },
   "dependencies": {
     "@sonapraneeth/bio": "^0.0.0",
+    "@sonapraneeth/blog": "^0.0.0",
     "@sonapraneeth/project": "^0.0.0",
     "gatsby": "^2.13.57",
     "react": "^16.9.0",
