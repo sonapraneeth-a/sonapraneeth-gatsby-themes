@@ -12,6 +12,8 @@ import {
   Styled,
   SFlex,
   FaReadme,
+  FaClock,
+  Chip,
 } from "@sonapraneeth/base";
 
 /**
@@ -23,10 +25,23 @@ function DetailedBlogCard({blog, ...props}) {
   return (
     <Card>
       <CardContent>
-        <SFlex>
+        <SFlex
+          sx={{
+            flexDirection: "column",
+          }}
+        >
           <Styled.h2>{blog.title}</Styled.h2>
+          <SFlex
+            sx={{
+              flexDirection: "row",
+            }}
+          >
+            <Chip type={"date"}>
+              <b>Published:</b> {blog.publishedDate}
+            </Chip>
+          </SFlex>
+          <p>{blog.excerpt}</p>
         </SFlex>
-        {blog.excerpt}
       </CardContent>
       <CardFooter>
         <SFlex
@@ -60,9 +75,29 @@ function DetailedBlogCard({blog, ...props}) {
                 mx: "0.2rem",
               }}
             >
-              Continue Reading
+              Continue Reading ...
             </span>
           </Styled.a>
+          <p
+            sx={{
+              m: 0,
+            }}
+          >
+            <FaClock
+              sx={{
+                display: "inline-block",
+                verticalAlign: "middle",
+              }}
+            />
+            <span
+              sx={{
+                verticalAlign: "middle",
+                mx: "0.2rem",
+              }}
+            >
+              {blog.timeToRead} min. read
+            </span>
+          </p>
         </SFlex>
       </CardFooter>
     </Card>
