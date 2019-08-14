@@ -17,9 +17,9 @@ export default {
   // Styling for heading tags
   h1: {
     fontFamily: "heading",
-    fontSize: 5,
+    fontSize: 7,
     "> span": {
-      fontSize: 5,
+      fontSize: 7,
     },
   },
   h2: {
@@ -39,6 +39,6 @@ export default {
   },
   // Styling for normal paragraph tags
   p: {
-    fontSize: 2,
+    fontSize: 4,
   },
 };

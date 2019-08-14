@@ -22,6 +22,8 @@ export default {
   },
   // Font sizes stack
   fontSizes: [
+    0.25,
+    0.5,
     0.75,
     0.875,
     1,
