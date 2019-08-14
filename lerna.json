@@ -1,0 +1,32 @@
+{
+  "packages": ["packages/*"],
+  "version": "independent",
+  "loglevel": "verbose",
+  "registry": "https://registry.npmjs.org/",
+  "useWorkspaces": true,
+  "npmClient": "yarn",
+  "command": {
+    "bootstrap": {
+      "ignore": "component-*",
+      "npmClientArgs": ["--no-package-lock"]
+    },
+    "publish": {
+      "ignoreChanges": [".*", "*.md"],
+      "message": "chore(release): Publish %s",
+      "registry": "https://registry.npmjs.org/"
+    },
+    "version": {
+      "ignoreChanges": [".*", "*.md"],
+      "allowBranch": ["master"],
+      "message": "chore(release): Publish %s"
+    },
+    "changed": {
+      "ignoreChanges": [".*", "*.md"],
+      "allowBranch": ["master"]
+    },
+    "run": {
+      "npmClient": "yarn"
+    }
+  },
+  "ignoreChanges": ["*.md", "**/*.md", ".*"]
+}
