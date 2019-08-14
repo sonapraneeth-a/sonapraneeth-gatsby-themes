@@ -26,7 +26,7 @@ function Blog({data, location}) {
     <BaseLayout location={data.blog.slug} title={""}>
       <SContainer>
         <Styled.h1>{data.blog.title}</Styled.h1>
-        <Chip type={"date"}>{data.blog.published_date}</Chip>
+        <Chip type={"date"}>{data.blog.publishedDate}</Chip>
         <hr />
         <section>
           {toc !== null && toc !== undefined && !isTOCEmpty && (
@@ -80,7 +80,7 @@ export const query = graphql`
       id
       slug
       title
-      published_date
+      publishedDate
       body
     }
     mdx(fileAbsolutePath: { eq: $fileAbsolutePath }) {

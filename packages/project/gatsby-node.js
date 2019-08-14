@@ -33,8 +33,8 @@ exports.createSchemaCustomization = ({actions, schema}) => {
       id: ID!
       title: String!
       status: String!
-      start_date: Date!
-      completed_date: Date!
+      startDate: Date!
+      completedDate: Date!
       source: String!
       report: String!
       presentation: String!
@@ -49,8 +49,8 @@ exports.createSchemaCustomization = ({actions, schema}) => {
       id: ID!
       title: String!
       status: String!
-      start_date: Date!
-      completed_date: Date!
+      startDate: Date!
+      completedDate: Date!
       source: String!
       report: String!
       presentation: String!
@@ -102,8 +102,8 @@ exports.onCreateNode = (
     const projectData = {
       title: node.frontmatter.title || "",
       status: node.frontmatter.status || "Completed",
-      start_date: node.frontmatter.start_date,
-      completed_date: node.frontmatter.completed_date,
+      startDate: node.frontmatter.startDate,
+      completedDate: node.frontmatter.completedDate,
       source: node.frontmatter.source || "",
       report: node.frontmatter.report || "",
       presentation: node.frontmatter.presentation || "",
@@ -143,8 +143,8 @@ exports.createPages = async ({actions, graphql}, themeOptions) => {
           id
           slug
           title
-          start_date
-          completed_date
+          startDate
+          completedDate
           abstract
           source
           report

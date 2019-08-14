@@ -6,14 +6,14 @@ export const useRecentProjects = () => {
   const projects = useStaticQuery(
     graphql`
       query RecentProjectsQuery {
-        allProject(limit: 10, sort: { fields: completed_date, order: DESC }) {
+        allProject(limit: 10, sort: { fields: completedDate, order: DESC }) {
           edges {
             node {
               id
               slug
               title
-              start_date
-              completed_date
+              startDate
+              completedDate
               abstract
             }
           }

@@ -6,13 +6,13 @@ export const useRecentBlogs = () => {
   const blogs = useStaticQuery(
     graphql`
       query RecentBlogsQuery {
-        allBlog(limit: 10, sort: { fields: published_date, order: DESC }) {
+        allBlog(limit: 10, sort: { fields: publishedDate, order: DESC }) {
           edges {
             node {
               id
               slug
               title
-              published_date
+              publishedDate
               excerpt
             }
           }

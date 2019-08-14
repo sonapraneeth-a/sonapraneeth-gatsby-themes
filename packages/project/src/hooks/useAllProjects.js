@@ -12,8 +12,8 @@ export const useAllProjects = () => {
               id
               slug
               title
-              start_date
-              completed_date
+              startDate
+              completedDate
               abstract
             }
           }

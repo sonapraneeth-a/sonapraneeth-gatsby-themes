@@ -26,7 +26,7 @@ function Project({data, location}) {
     <BaseLayout location={data.project.slug} title={""}>
       <SContainer>
         <Styled.h1>{data.project.title}</Styled.h1>
-        <Chip type={"date"}>{data.project.completed_date}</Chip>
+        <Chip type={"date"}>{data.project.completedDate}</Chip>
         <hr />
         <section>
           {data.project.show_toc &&
@@ -82,8 +82,8 @@ export const query = graphql`
     project(id: { eq: $id }) {
       title
       status
-      start_date
-      completed_date
+      startDate
+      completedDate
       slug
       show_toc
       body
