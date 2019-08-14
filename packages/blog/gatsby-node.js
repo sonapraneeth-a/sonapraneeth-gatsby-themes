@@ -34,24 +34,26 @@ exports.createSchemaCustomization = ({actions, schema}) => {
     interface Blog @nodeInterface {
       id: ID!
       title: String!
-      published_date: Date!
+      publishedDate: Date!
       slug: String!
       excerpt: String!
       body: String!
       fileAbsolutePath: String!
       draft: Boolean!
       sharing: Boolean!
+      timeToRead: Int
     }
     type BlogMdx implements Blog & Node {
       id: ID!
       title: String!
-      published_date: Date!
+      publishedDate: Date!
       slug: String!
       excerpt: String!
       body: String!
       fileAbsolutePath: String!
       draft: Boolean!
       sharing: Boolean!
+      timeToRead: Int
     }
   `);
   actions.createTypes(
@@ -62,6 +64,11 @@ exports.createSchemaCustomization = ({actions, schema}) => {
           type: "String!",
           resolve: mdxResolverPassthrough("body"),
         },
+        // TODO: Not Working. Fix this
+        /* timeToRead: {
+          type: "Int",
+          resolve: mdxResolverPassthrough("timeToRead"),
+        },*/
         excerpt: {
           type: "String!",
           args: {
@@ -107,11 +114,12 @@ exports.onCreateNode = (
     blogUrl = blogUrl.replace(/\/\//, "/");
     const blogData = {
       title: node.frontmatter.title || "",
-      published_date: node.frontmatter.published_date,
+      publishedDate: node.frontmatter.publishedDate,
       slug: blogUrl,
       fileAbsolutePath: node.fileAbsolutePath,
       draft: node.frontmatter.draft || false,
       sharing: node.frontmatter.sharing || false,
+      timeToRead: 1,
     };
     createNode({
       ...blogData,
@@ -137,15 +145,16 @@ exports.createPages = async ({actions, graphql}, themeOptions) => {
   options = merge(defaultOptions, themeOptions);
   const queryProd = `
   query AllBlogsQuery {
-    allBlog(filter: {draft: {eq: true}}) {
+    allBlog(filter: {draft: {eq: false}}) {
       edges {
         node {
           id
           slug
           title
-          published_date
+          publishedDate
           excerpt
           fileAbsolutePath
+          timeToRead
         }
       }
     }
@@ -158,9 +167,10 @@ exports.createPages = async ({actions, graphql}, themeOptions) => {
           id
           slug
           title
-          published_date
+          publishedDate
           excerpt
           fileAbsolutePath
+          timeToRead
         }
       }
     }
