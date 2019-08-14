@@ -16,6 +16,7 @@ import {
   FaCode,
   FaFileAlt,
   FaFilePowerpoint,
+  FaStar,
 } from "@sonapraneeth/base";
 
 /**
@@ -33,7 +34,26 @@ function DetailedProjectCard({project, ...props}) {
               width: "66.66%",
             }}
           >
-            <Styled.h2>{project.title}</Styled.h2>
+            <Styled.h2>
+              <span
+                sx={{
+                  verticalAlign: "sub",
+                  mx: "0.2rem",
+                }}
+              >
+                {project.title}
+              </span>
+              {project.featured && (
+                <FaStar
+                  sx={{
+                    display: "inline-block",
+                    verticalAlign: "middle",
+                    color: "#f0ad4e",
+                    fontSize: "0.1rem",
+                  }}
+                />
+              )}
+            </Styled.h2>
           </div>
           <div
             sx={{

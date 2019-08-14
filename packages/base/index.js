@@ -43,6 +43,7 @@ import {
   FaArrowRight,
   FaReadme,
   FaFolderOpen,
+  FaStar,
 } from "react-icons/fa";
 
 export {
@@ -92,4 +93,5 @@ export {
   FaArrowRight,
   FaReadme,
   FaFolderOpen,
+  FaStar,
 };
