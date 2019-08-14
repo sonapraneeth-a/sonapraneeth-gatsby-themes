@@ -44,6 +44,7 @@ import {
   FaReadme,
   FaFolderOpen,
   FaStar,
+  FaClock,
 } from "react-icons/fa";
 
 export {
@@ -94,4 +95,5 @@ export {
   FaReadme,
   FaFolderOpen,
   FaStar,
+  FaClock,
 };
