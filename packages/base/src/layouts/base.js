@@ -7,14 +7,9 @@ import {jsx} from "theme-ui";
 
 import RootBulb from "./root-bulb";
 import HeadMetadata from "../components/head/meta";
-import {
-  SHeader,
-  SContainer,
-  SMain,
-  SFooter,
-} from "../components/theme-ui/index";
+import {SHeader, SContainer, SMain} from "../components/theme-ui/index";
 import {useSiteMetadata} from "../hooks/useSiteMetadata";
-import {FaHeart} from "react-icons/fa";
+import Footer from "../components/footer";
 
 /**
  * Base layout for all other layouts
@@ -35,25 +30,7 @@ function BaseLayout({title, description, location, children}) {
         </SContainer>
       </SHeader>
       <SMain>{children}</SMain>
-      <SFooter>
-        <SContainer
-          sx={{
-            textAlign: "center",
-          }}
-        >
-          <p>
-            Copyright &copy; {siteMeta.author} {new Date().getFullYear()}. Made
-            in
-            <FaHeart
-              sx={{
-                color: "red",
-                mx: "0.2rem",
-              }}
-            />
-            with GatsbyJS.
-          </p>
-        </SContainer>
-      </SFooter>
+      <Footer />
     </RootBulb>
   );
 }
