@@ -1,0 +1,20 @@
+{
+  "name": "demo-profile",
+  "version": "0.0.0",
+  "main": "index.js",
+  "private": true,
+  "license": "MIT",
+  "scripts": {
+    "dev": "gatsby develop",
+    "build": "gatsby build",
+    "build-prefix": "gatsby build --prefix-paths",
+    "clean": "gatsby clean",
+    "prettier": "prettier --write src/**/*.js"
+  },
+  "dependencies": {
+    "@sonapraneeth/profile": "^0.0.0",
+    "gatsby": "^2.13.57",
+    "react": "^16.9.0",
+    "react-dom": "^16.9.0"
+  }
+}
