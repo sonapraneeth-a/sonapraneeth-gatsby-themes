@@ -39,6 +39,8 @@ exports.createSchemaCustomization = ({actions, schema}) => {
       report: String!
       presentation: String!
       abstract: String!
+      show_toc: Boolean!
+      featured: Boolean!
       slug: String!
       fileAbsolutePath: String!
       body: String!
@@ -53,6 +55,8 @@ exports.createSchemaCustomization = ({actions, schema}) => {
       report: String!
       presentation: String!
       abstract: String!
+      show_toc: Boolean!
+      featured: Boolean!
       slug: String!
       fileAbsolutePath: String!
       body: String!
@@ -104,7 +108,8 @@ exports.onCreateNode = (
       report: node.frontmatter.report || "",
       presentation: node.frontmatter.presentation || "",
       abstract: node.frontmatter.abstract || "",
-      show_toc: node.frontmatter.show_toc || false,
+      show_toc: node.frontmatter.show_toc || true,
+      featured: node.frontmatter.featured || false,
       fileAbsolutePath: node.fileAbsolutePath,
       slug: projectUrl,
     };
