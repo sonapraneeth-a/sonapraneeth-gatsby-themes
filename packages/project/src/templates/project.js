@@ -20,6 +20,8 @@ import {
  * @return {JSX}
  */
 function Project({data, location}) {
+  const toc = data.mdx.tableOfContents;
+  const isTOCEmpty = JSON.stringify(toc) === "{}";
   return (
     <BaseLayout location={data.project.slug} title={""}>
       <SContainer>
@@ -27,27 +29,39 @@ function Project({data, location}) {
         <Chip type={"date"}>{data.project.completed_date}</Chip>
         <hr />
         <section>
-          <Grid noCols={2} nSizes={[1, 2.5]}>
-            <GridItem
-              id="toc"
-              css={{
-                margin: 0,
-                [from(screens.mobile)]: {
-                  position: "sticky",
-                  top: "10vh",
-                  placeSelf: "self-start stretch",
-                },
-              }}
-            >
-              <TableOfContents
-                tableOfContents={data.mdx.tableOfContents}
-                location={location}
-              />
-            </GridItem>
-            <GridItem id="body" css={{margin: 0}}>
-              <MDXRenderer>{data.project.body}</MDXRenderer>
-            </GridItem>
-          </Grid>
+          {data.project.show_toc &&
+            toc !== null &&
+            toc !== undefined &&
+            !isTOCEmpty && (
+            <Grid noCols={2} nSizes={[1, 2.5]}>
+              <GridItem
+                id="toc"
+                css={{
+                  margin: 0,
+                  [from(screens.mobile)]: {
+                    position: "sticky",
+                    top: "10vh",
+                    placeSelf: "self-start stretch",
+                  },
+                }}
+              >
+                <TableOfContents
+                  tableOfContents={data.mdx.tableOfContents}
+                  location={location}
+                />
+              </GridItem>
+              <GridItem id="body" css={{margin: 0}}>
+                <MDXRenderer>{data.project.body}</MDXRenderer>
+              </GridItem>
+            </Grid>
+          )}
+          {(toc === undefined || toc === null || isTOCEmpty) && (
+            <Grid noCols={1}>
+              <GridItem id="body" css={{margin: 0}}>
+                <MDXRenderer>{data.project.body}</MDXRenderer>
+              </GridItem>
+            </Grid>
+          )}
         </section>
       </SContainer>
     </BaseLayout>
@@ -71,6 +85,7 @@ export const query = graphql`
       start_date
       completed_date
       slug
+      show_toc
       body
     }
     mdx(fileAbsolutePath: { eq: $fileAbsolutePath }) {
