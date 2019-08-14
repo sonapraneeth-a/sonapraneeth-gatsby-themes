@@ -1,15 +1,15 @@
-import React from "react";
-import PropTypes from "prop-types";
+import React from "react"
+import PropTypes from "prop-types"
 
-import SimpleProjectCard from "../components/card/simple";
-import {Grid, GridItem} from "@sonapraneeth/base";
+import SimpleProjectCard from "../components/card/simple"
+import { Grid, GridItem } from "@sonapraneeth/base"
 
 /**
  *
  * @param {*} data
  * @return {JSX}
  */
-function ProjectWidget({projects}) {
+function ProjectWidget({ projects }) {
   return (
     <Grid noCols={2}>
       {projects.map((project, index) => (
@@ -18,13 +18,13 @@ function ProjectWidget({projects}) {
         </GridItem>
       ))}
     </Grid>
-  );
+  )
 }
 
 ProjectWidget.propTypes = {
   projects: PropTypes.any.isRequired,
-};
+}
 
-ProjectWidget.defaultProps = {};
+ProjectWidget.defaultProps = {}
 
-export default ProjectWidget;
+export default ProjectWidget
