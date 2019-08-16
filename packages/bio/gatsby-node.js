@@ -39,7 +39,7 @@ exports.createSchemaCustomization = ({actions}) => {
       id: ID!
       name: String!
       description: String!
-      cover: File!
+      cover: File! @fileByRelativePath
       username: Username!
     }
   `);
