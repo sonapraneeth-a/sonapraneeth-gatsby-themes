@@ -10,6 +10,8 @@ const defaultOptions = {
   contentPath: "content/projects", // Default: "content/projects"
 };
 
+let options;
+
 const mdxResolverPassthrough = (fieldName) => async (
   source,
   args,
@@ -111,6 +113,7 @@ exports.onCreateNode = (
       show_toc: node.frontmatter.show_toc || true,
       featured: node.frontmatter.featured || false,
       fileAbsolutePath: node.fileAbsolutePath,
+      // cover: node.frontmatter.cover || "",
       slug: projectUrl,
     };
     createNode({
