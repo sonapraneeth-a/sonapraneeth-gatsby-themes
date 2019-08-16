@@ -12,6 +12,8 @@ const defaultOptions = {
   contentPath: "content/blog", // Default: "content/blog"
 };
 
+let options;
+
 const mdxResolverPassthrough = (fieldName) => async (
   source,
   args,
@@ -64,11 +66,10 @@ exports.createSchemaCustomization = ({actions, schema}) => {
           type: "String!",
           resolve: mdxResolverPassthrough("body"),
         },
-        // TODO: Not Working. Fix this
-        /* timeToRead: {
+        timeToRead: {
           type: "Int",
           resolve: mdxResolverPassthrough("timeToRead"),
-        },*/
+        },
         excerpt: {
           type: "String!",
           args: {
@@ -119,7 +120,6 @@ exports.onCreateNode = (
       fileAbsolutePath: node.fileAbsolutePath,
       draft: node.frontmatter.draft || false,
       sharing: node.frontmatter.sharing || false,
-      timeToRead: 1,
     };
     createNode({
       ...blogData,
