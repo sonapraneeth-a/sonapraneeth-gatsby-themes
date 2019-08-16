@@ -22,6 +22,7 @@ import {
  * @return {JSX}
  */
 function DetailedBlogCard({blog, ...props}) {
+  const timeToRead = blog.timeToRead === null ? "~1" : blog.timeToRead;
   return (
     <Card>
       <CardContent>
@@ -95,7 +96,7 @@ function DetailedBlogCard({blog, ...props}) {
                 mx: "0.2rem",
               }}
             >
-              {blog.timeToRead} min. read
+              {timeToRead} min. read
             </span>
           </p>
         </SFlex>
