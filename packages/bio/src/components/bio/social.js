@@ -42,7 +42,7 @@ function SocialBio({linkedin, github, twitter}) {
           <FaLinkedinIn
             sx={{
               color: "icons.linkedin",
-              fontSize: 3,
+              fontSize: 5,
             }}
           />
         </a>
@@ -58,7 +58,7 @@ function SocialBio({linkedin, github, twitter}) {
           <FaGithub
             sx={{
               color: "icons.github",
-              fontSize: 3,
+              fontSize: 5,
             }}
           />
         </a>
@@ -74,7 +74,7 @@ function SocialBio({linkedin, github, twitter}) {
           <FaTwitter
             sx={{
               color: "icons.twitter",
-              fontSize: 3,
+              fontSize: 5,
             }}
           />
         </a>
