@@ -26,15 +26,15 @@
     "react-dom": "^16.9.0"
   },
   "dependencies": {
-    "@emotion/core": "^10.0.15",
+    "@emotion/core": "^10.0.16",
     "@mdx-js/react": "^1.3.0",
     "deepmerge": "^4.0.0",
     "gatsby-design-tokens": "^1.0.0",
     "gatsby-image": "^2.2.8",
-    "gatsby-plugin-theme-ui": "^0.2.33",
+    "gatsby-plugin-theme-ui": "^0.2.34",
     "react-icons": "^3.7.0",
     "react-switch": "^5.0.1",
-    "theme-ui": "^0.2.33",
+    "theme-ui": "^0.2.35",
     "typeface-pt-sans": "^0.0.72",
     "typeface-signika-negative": "^0.0.71"
   },
