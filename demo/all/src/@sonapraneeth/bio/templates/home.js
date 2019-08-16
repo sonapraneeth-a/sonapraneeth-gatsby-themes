@@ -66,7 +66,7 @@ function HomeLayout({location}) {
                     color: "white",
                   },
                   "display": "inline-block",
-                  "fontSize": 1,
+                  "fontSize": 3,
                 }}
               >
                 <span
@@ -106,7 +106,7 @@ function HomeLayout({location}) {
             >
               <Styled.a
                 as={Link}
-                to={"/projects"}
+                to={"/blog"}
                 sx={{
                   "variant": "link.none",
                   "bg": "primary",
@@ -116,7 +116,7 @@ function HomeLayout({location}) {
                     color: "white",
                   },
                   "display": "inline-block",
-                  "fontSize": 1,
+                  "fontSize": 3,
                 }}
               >
                 <span
