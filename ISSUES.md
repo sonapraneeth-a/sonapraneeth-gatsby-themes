@@ -11,7 +11,7 @@
 
 - @sonapraneeth/bio
 
-  - [ ] warn Deprecation warning - adding inferred resolver for field AuthorInfo.cover. In Gatsby v3, only fields with an explicit directive/extension will get a
+  - [x] warn Deprecation warning - adding inferred resolver for field AuthorInfo.cover. In Gatsby v3, only fields with an explicit directive/extension will get a(Fixed in []())
 
 - @sonapraneeth/project
 
@@ -20,7 +20,7 @@
 
 - @sonapraneeth/blog
 
-  - [ ] `timeToRead` not resolving through Mdx
+  - [x] `timeToRead` not resolving through Mdx
 
 - demo/profile
   - [ ] Error: Unable to find plugin "@sonapraneeth/profile". Perhaps you need to install its package?
