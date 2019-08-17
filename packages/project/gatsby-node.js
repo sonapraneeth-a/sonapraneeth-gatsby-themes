@@ -45,6 +45,8 @@ exports.createSchemaCustomization = ({actions, schema}) => {
       featured: Boolean!
       slug: String!
       fileAbsolutePath: String!
+      cover: File
+      tags: [String!]!
       body: String!
     }
     type ProjectMdx implements Project & Node {
@@ -61,6 +63,8 @@ exports.createSchemaCustomization = ({actions, schema}) => {
       featured: Boolean!
       slug: String!
       fileAbsolutePath: String!
+      cover: File @fileByRelativePath
+      tags: [String!]!
       body: String!
     }
   `);
@@ -101,21 +105,27 @@ exports.onCreateNode = (
     });
     let projectUrl = `${options.baseUrl}${slug}`;
     projectUrl = projectUrl.replace(/\/\//, "/");
+    const frontmatter = JSON.parse(JSON.stringify(node.frontmatter));
+    const projectCover = "cover" in frontmatter ? frontmatter.cover : null;
+    const projectTags = "tags" in frontmatter ? frontmatter.tags : [];
+    console.log(projectCover);
     const projectData = {
-      title: node.frontmatter.title || "",
-      status: node.frontmatter.status || "Completed",
-      startDate: node.frontmatter.startDate,
-      completedDate: node.frontmatter.completedDate,
-      source: node.frontmatter.source || "",
-      report: node.frontmatter.report || "",
-      presentation: node.frontmatter.presentation || "",
-      abstract: node.frontmatter.abstract || "",
-      show_toc: node.frontmatter.show_toc || true,
-      featured: node.frontmatter.featured || false,
+      title: frontmatter.title || "",
+      status: frontmatter.status || "Completed",
+      startDate: frontmatter.startDate,
+      completedDate: frontmatter.completedDate,
+      source: frontmatter.source || "",
+      report: frontmatter.report || "",
+      presentation: frontmatter.presentation || "",
+      abstract: frontmatter.abstract || "",
+      show_toc: frontmatter.show_toc || true,
+      featured: frontmatter.featured || false,
       fileAbsolutePath: node.fileAbsolutePath,
-      // cover: node.frontmatter.cover || "",
+      cover: projectCover,
+      tags: projectTags,
       slug: projectUrl,
     };
+    console.log(JSON.stringify(projectData, null, 2));
     createNode({
       ...projectData,
       // Required fields.

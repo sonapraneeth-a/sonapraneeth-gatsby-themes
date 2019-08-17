@@ -15,6 +15,7 @@ export const useFeaturedProjects = () => {
               startDate
               completedDate
               abstract
+              tags
             }
           }
         }

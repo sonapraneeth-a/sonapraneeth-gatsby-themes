@@ -5,7 +5,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import {Link} from "gatsby";
 
-import {Card, CardContent, Styled} from "@sonapraneeth/base";
+import {Card, CardContent, Styled, TagList} from "@sonapraneeth/base";
 
 /**
  *
@@ -32,6 +32,7 @@ function SimpleProjectCard({project, ...props}) {
         >
           <Styled.h2>{project.title}</Styled.h2>
         </Styled.a>
+        <TagList tags={project.tags} />
         <Styled.p>{project.abstract}</Styled.p>
       </CardContent>
     </Card>

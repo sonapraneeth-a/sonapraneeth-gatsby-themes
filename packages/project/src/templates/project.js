@@ -2,6 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import {graphql} from "gatsby";
 import {MDXRenderer} from "gatsby-plugin-mdx";
+import {MDXProvider} from "@mdx-js/react";
 
 import {SContainer, Styled} from "@sonapraneeth/base";
 import {
@@ -10,9 +11,15 @@ import {
   BaseLayout,
   Chip,
   TableOfContents,
+  MDXComponents,
+  TagList,
   from,
   screens,
 } from "@sonapraneeth/base";
+
+const components = {
+  h1: MDXComponents.h1,
+};
 
 /**
  *
@@ -26,7 +33,15 @@ function Project({data, location}) {
     <BaseLayout location={data.project.slug} title={""}>
       <SContainer>
         <Styled.h1>{data.project.title}</Styled.h1>
-        <Chip type={"date"}>{data.project.completedDate}</Chip>
+        <Chip type={"date"}>
+          <b>Published: </b>
+          {data.project.completedDate}
+        </Chip>{" "}
+        <Chip type={"date"}>
+          <b>Last Modified: </b>
+          {data.file.modifiedTime}
+        </Chip>{" "}
+        <TagList tags={data.project.tags} />
         <hr />
         <section>
           {data.project.show_toc &&
@@ -51,14 +66,18 @@ function Project({data, location}) {
                 />
               </GridItem>
               <GridItem id="body" css={{margin: 0}}>
-                <MDXRenderer>{data.project.body}</MDXRenderer>
+                <MDXProvider components={components}>
+                  <MDXRenderer>{data.project.body}</MDXRenderer>
+                </MDXProvider>
               </GridItem>
             </Grid>
           )}
           {(toc === undefined || toc === null || isTOCEmpty) && (
             <Grid noCols={1}>
               <GridItem id="body" css={{margin: 0}}>
-                <MDXRenderer>{data.project.body}</MDXRenderer>
+                <MDXProvider components={components}>
+                  <MDXRenderer>{data.project.body}</MDXRenderer>
+                </MDXProvider>
               </GridItem>
             </Grid>
           )}
@@ -86,10 +105,14 @@ export const query = graphql`
       completedDate
       slug
       show_toc
+      tags
       body
     }
     mdx(fileAbsolutePath: { eq: $fileAbsolutePath }) {
       tableOfContents(maxDepth: 10)
+    }
+    file(absolutePath: { eq: $fileAbsolutePath }) {
+      modifiedTime(formatString: "DD MMM YYYY")
     }
   }
 `;
