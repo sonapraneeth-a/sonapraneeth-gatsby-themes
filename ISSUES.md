@@ -16,7 +16,7 @@
 - @sonapraneeth/project
 
   - [ ] Tried adding ids for headings in MDX files using gatsby-config.js.
-  - [ ] Tried adding H1 component
+  - [x] Tried adding H1 component
 
 - @sonapraneeth/blog
 

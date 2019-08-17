@@ -26,6 +26,7 @@ import {
   HeadMeta,
   SEO,
   TableOfContents,
+  MDXComponents,
 } from "./src/components/index";
 import {from, screens} from "./src/components/breakpoints";
 import {Styled, jsx} from "theme-ui";
@@ -66,6 +67,7 @@ export {
   HeadMeta,
   SEO,
   TableOfContents,
+  MDXComponents,
   // Breakpoints
   from,
   screens,

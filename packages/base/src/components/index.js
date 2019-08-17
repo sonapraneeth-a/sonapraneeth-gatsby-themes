@@ -6,6 +6,7 @@ import GatsbyImage from "./gatsby-image";
 import HeadMeta from "./head/meta";
 import SEO from "./head/seo";
 import TableOfContents from "./toc";
+import {MDXComponents} from "./mdx/index";
 
 export {
   Button,
@@ -20,4 +21,5 @@ export {
   HeadMeta,
   SEO,
   TableOfContents,
+  MDXComponents,
 };

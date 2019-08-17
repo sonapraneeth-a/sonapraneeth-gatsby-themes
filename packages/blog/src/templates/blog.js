@@ -2,6 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import {graphql} from "gatsby";
 import {MDXRenderer} from "gatsby-plugin-mdx";
+import {MDXProvider} from "@mdx-js/react";
 
 import {SContainer, Styled} from "@sonapraneeth/base";
 import {
@@ -10,9 +11,14 @@ import {
   BaseLayout,
   Chip,
   TableOfContents,
+  MDXComponents,
   from,
   screens,
 } from "@sonapraneeth/base";
+
+const components = {
+  h1: MDXComponents.h1,
+};
 
 /**
  *
@@ -48,14 +54,18 @@ function Blog({data, location}) {
                 />
               </GridItem>
               <GridItem id="body" css={{margin: 0}}>
-                <MDXRenderer>{data.blog.body}</MDXRenderer>
+                <MDXProvider components={components}>
+                  <MDXRenderer>{data.blog.body}</MDXRenderer>
+                </MDXProvider>
               </GridItem>
             </Grid>
           )}
           {(toc === undefined || toc === null || isTOCEmpty) && (
             <Grid noCols={1}>
               <GridItem id="body" css={{margin: 0}}>
-                <MDXRenderer>{data.blog.body}</MDXRenderer>
+                <MDXProvider components={components}>
+                  <MDXRenderer>{data.blog.body}</MDXRenderer>
+                </MDXProvider>
               </GridItem>
             </Grid>
           )}
