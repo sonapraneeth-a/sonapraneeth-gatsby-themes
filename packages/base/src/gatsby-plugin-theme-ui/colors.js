@@ -24,6 +24,10 @@ export default {
     linkedin: "#0074b3",
     // Twitter
     twitter: "#1ca0f2",
+    // Facebook
+    facebook: "#3b5998",
+    // RSS
+    rss: "#f26522",
   },
   // Surface color
   surface: "#f8f8f8",
@@ -45,6 +49,8 @@ export default {
         github: "white",
         linkedin: "white",
         twitter: "white",
+        facebook: "white",
+        rss: "white",
       },
       surface: "#4d4d4d",
     },

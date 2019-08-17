@@ -76,7 +76,7 @@ function Footer() {
               href=""
               sx={{
                 "variant": "link.none",
-                "color": "text",
+                "color": "icons.twitter",
                 "bg": "background",
                 ":hover": {
                   color: "text",
@@ -92,7 +92,7 @@ function Footer() {
               href=""
               sx={{
                 "variant": "link.none",
-                "color": "text",
+                "color": "icons.facebook",
                 "bg": "background",
                 ":hover": {
                   color: "text",
@@ -108,7 +108,7 @@ function Footer() {
               href=""
               sx={{
                 "variant": "link.none",
-                "color": "text",
+                "color": "icons.linkedin",
                 "bg": "background",
                 ":hover": {
                   color: "text",
@@ -124,7 +124,7 @@ function Footer() {
               href=""
               sx={{
                 "variant": "link.none",
-                "color": "text",
+                "color": "icons.github",
                 "bg": "background",
                 ":hover": {
                   color: "text",
