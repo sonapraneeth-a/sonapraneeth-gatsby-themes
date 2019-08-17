@@ -11,6 +11,11 @@ export default {
       letterSpacing: "0.1em",
     },
   },
+  icon: {
+    display: "inline-block",
+    verticalAlign: "middle",
+    marginLeft: "0.15rem",
+  },
   chip: {
     completed: {
       bg: "#00ff95",

@@ -18,7 +18,8 @@ function Chip({children, type, ...props}) {
       sx={{
         lineHeight: 0.5,
         borderRadius: 0,
-        padding: ".1rem",
+        paddingTop: ".01rem",
+        paddingBottom: "0.2rem",
         bg: "surface",
         border: ".05rem solid",
         borderColor: "#000",
@@ -28,23 +29,21 @@ function Chip({children, type, ...props}) {
       {type !== null && type === "date" && (
         <FaCalendarAlt
           sx={{
-            display: "inline-block",
-            verticalAlign: "middle",
+            variant: "icon",
           }}
         />
       )}
       {type !== null && type === "tag" && (
         <FaTag
           sx={{
-            display: "inline-block",
-            verticalAlign: "middle",
+            variant: "icon",
           }}
         />
       )}
       <span
         sx={{
           verticalAlign: "middle",
-          mx: "0.2rem",
+          mx: "0.15rem",
         }}
       >
         {children}
