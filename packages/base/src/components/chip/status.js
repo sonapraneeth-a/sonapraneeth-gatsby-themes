@@ -15,6 +15,7 @@ function StatusChip({type, ...props}) {
     <span
       {...props}
       sx={{
+        fontFamily: "body",
         borderRadius: 0,
         margin: ".2rem",
         border: ".05rem solid",
@@ -29,7 +30,7 @@ function StatusChip({type, ...props}) {
           fontSize: ".9rem",
         }}
       >
-        <b>{type}</b>
+        {type}
       </span>
     </span>
   );

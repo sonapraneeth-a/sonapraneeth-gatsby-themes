@@ -3,7 +3,7 @@ export default {
   // text color
   text: "black",
   // body background color
-  background: "rgb(240, 239, 239)",
+  background: "#fafafa",
   // primary color (Used for buttons)
   primary: "#2647c0",
   // secondary color ()
@@ -29,6 +29,10 @@ export default {
     // RSS
     rss: "#f26522",
   },
+  chip: {
+    bg: "#ccc",
+    color: "#241414",
+  },
   // Surface color
   surface: "#f8f8f8",
   // Color modes
@@ -53,6 +57,10 @@ export default {
         rss: "white",
       },
       surface: "#4d4d4d",
+      chip: {
+        bg: "#ccc",
+        color: "#241414",
+      },
     },
   },
 };

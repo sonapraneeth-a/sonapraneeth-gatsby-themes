@@ -20,9 +20,11 @@ function Chip({children, type, ...props}) {
         borderRadius: 0,
         paddingTop: ".01rem",
         paddingBottom: "0.2rem",
-        bg: "surface",
+        bg: "chip.bg",
+        color: "chip.color",
         border: ".05rem solid",
-        borderColor: "#000",
+        borderColor: "chip.bg",
+        px: "0.15rem",
         fontSize: 3,
       }}
     >

@@ -89,6 +89,7 @@ function DetailedProjectCard({project, ...props}) {
                 bg: "surface",
                 color: "text",
               },
+              "px": "1rem",
               "display": "inline-block",
             }}
           >
@@ -117,6 +118,7 @@ function DetailedProjectCard({project, ...props}) {
                   bg: "surface",
                   color: "text",
                 },
+                "px": "1rem",
               }}
             >
               <FaCode
@@ -145,6 +147,7 @@ function DetailedProjectCard({project, ...props}) {
                   bg: "surface",
                   color: "text",
                 },
+                "px": "1rem",
               }}
             >
               <FaFileAlt
@@ -173,6 +176,7 @@ function DetailedProjectCard({project, ...props}) {
                   bg: "surface",
                   color: "text",
                 },
+                "px": "1rem",
               }}
             >
               <FaFilePowerpoint
