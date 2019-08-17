@@ -26,7 +26,17 @@ function BaseLayout({title, description, location, children}) {
       />
       <SHeader>
         <SContainer>
-          <Styled.h1>{siteMeta.author}</Styled.h1>
+          <Styled.h1>
+            <Styled.a
+              href={siteMeta.siteUrl}
+              sx={{
+                textDecoration: "none",
+                borderBottom: "none",
+              }}
+            >
+              {siteMeta.author}
+            </Styled.a>
+          </Styled.h1>
         </SContainer>
       </SHeader>
       <SMain>{children}</SMain>
