@@ -73,7 +73,7 @@ function Footer() {
         >
           {twitter && (
             <Styled.a
-              href=""
+              href={"https://www.twitter.com/" + siteMetaSocial.twitter + "/"}
               sx={{
                 "variant": "link.none",
                 "color": "icons.twitter",
@@ -89,7 +89,7 @@ function Footer() {
           )}
           {facebook && (
             <Styled.a
-              href=""
+              href={"https://www.facebook.com/" + siteMetaSocial.linkedin + "/"}
               sx={{
                 "variant": "link.none",
                 "color": "icons.facebook",
@@ -105,7 +105,9 @@ function Footer() {
           )}
           {linkedin && (
             <Styled.a
-              href=""
+              href={
+                "https://www.linkedin.com/in/" + siteMetaSocial.linkedin + "/"
+              }
               sx={{
                 "variant": "link.none",
                 "color": "icons.linkedin",
@@ -121,7 +123,7 @@ function Footer() {
           )}
           {github && (
             <Styled.a
-              href=""
+              href={"https://www.github.com/" + siteMetaSocial.github + "/"}
               sx={{
                 "variant": "link.none",
                 "color": "icons.github",
