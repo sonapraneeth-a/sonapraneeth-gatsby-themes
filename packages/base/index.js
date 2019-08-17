@@ -27,6 +27,7 @@ import {
   SEO,
   TableOfContents,
   MDXComponents,
+  TagList,
 } from "./src/components/index";
 import {from, screens} from "./src/components/breakpoints";
 import {Styled, jsx} from "theme-ui";
@@ -68,6 +69,7 @@ export {
   SEO,
   TableOfContents,
   MDXComponents,
+  TagList,
   // Breakpoints
   from,
   screens,
