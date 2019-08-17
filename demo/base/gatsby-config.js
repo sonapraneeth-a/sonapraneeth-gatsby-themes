@@ -7,5 +7,14 @@ module.exports = {
     description:
       "This site is a demonstration for using theme " + "@sonapraneeth/base",
   },
-  plugins: ["@sonapraneeth/base"],
+  plugins: [
+    "@sonapraneeth/base",
+    {
+      resolve: "gatsby-theme-style-guide",
+      options: {
+        // sets path for generated page
+        basePath: "/design-system",
+      },
+    },
+  ],
 };
