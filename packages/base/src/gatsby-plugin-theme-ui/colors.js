@@ -17,6 +17,14 @@ export default {
     stroke: "#fcee21",
     color: "#ff0",
   },
+  icons: {
+    // Github
+    github: "#4077bf",
+    // LinkedIn
+    linkedin: "#0074b3",
+    // Twitter
+    twitter: "#1ca0f2",
+  },
   // Surface color
   surface: "#f8f8f8",
   // Color modes
@@ -29,12 +37,16 @@ export default {
       secondary: "#ef0",
       accent: "",
       muted: "#a0a0a033",
-      surface: "#4d4d4d",
-      // Colors for bulb
       bulb: {
         stroke: "#000",
         color: "none",
       },
+      icons: {
+        github: "white",
+        linkedin: "white",
+        twitter: "white",
+      },
+      surface: "#4d4d4d",
     },
   },
 };
