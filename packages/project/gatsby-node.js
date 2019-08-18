@@ -76,6 +76,10 @@ exports.createSchemaCustomization = ({actions, schema}) => {
           type: "String!",
           resolve: mdxResolverPassthrough("body"),
         },
+        timeToRead: {
+          type: "Int",
+          resolve: mdxResolverPassthrough("timeToRead"),
+        },
       },
     })
   );
