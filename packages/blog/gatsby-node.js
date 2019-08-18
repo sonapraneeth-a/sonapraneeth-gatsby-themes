@@ -3,6 +3,7 @@ const crypto = require("crypto");
 const merge = require("deepmerge");
 const slugify = require("slug");
 slugify.charmap["+"] = "p";
+const debug = require("debug")("@sonapraneeth/blog:node");
 
 // Default options to be used in theme
 const defaultOptions = {
@@ -145,11 +146,9 @@ exports.onCreateNode = (
   }
 };
 
-exports.createPages = async ({actions, graphql, reporter}, themeOptions) => {
+exports.createPages = async ({actions, graphql}, themeOptions) => {
   options = merge(defaultOptions, themeOptions);
-  if (process.env.NODE_ENV !== "production") {
-    reporter.setVerbose(true);
-  }
+  debug(`Options: ${JSON.stringify(options, null, 2)}`);
   const queryProd = `
   query AllBlogsQuery {
     allBlog(filter: {draft: {eq: false}}) {
@@ -189,8 +188,8 @@ exports.createPages = async ({actions, graphql, reporter}, themeOptions) => {
     result = await graphql(queryProd);
   }
   const blogs = result.data.allBlog.edges;
-  reporter.verbose(`Blogs in ${process.env.NODE_ENV} env`);
-  reporter.verbose(JSON.stringify(blogs, null, 2));
+  debug(`Blogs in ${process.env.NODE_ENV} env`);
+  debug(JSON.stringify(blogs, null, 2));
   blogs.map((blog) => {
     actions.createPage({
       path: blog.node.slug,
@@ -201,7 +200,7 @@ exports.createPages = async ({actions, graphql, reporter}, themeOptions) => {
       },
     });
   });
-  reporter.verbose(`Creating base blog page at ${options.baseUrl}`);
+  debug(`Creating base blog page at ${options.baseUrl}`);
   actions.createPage({
     path: options.baseUrl,
     component: require.resolve("./src/templates/blogs.js"),

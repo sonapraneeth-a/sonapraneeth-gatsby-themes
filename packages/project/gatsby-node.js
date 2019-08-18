@@ -1,6 +1,7 @@
 const {createFilePath} = require("gatsby-source-filesystem");
 const crypto = require("crypto");
 const merge = require("deepmerge");
+const debug = require("debug")("@sonapraneeth/project:node");
 
 // Default options to be used in theme
 const defaultOptions = {
@@ -92,9 +93,6 @@ exports.onCreateNode = (
   themeOptions
 ) => {
   options = merge(defaultOptions, themeOptions);
-  if (process.env.NODE_ENV !== "production") {
-    reporter.setVerbose(true);
-  }
   const {createNode, createParentChildLink} = actions;
   // Make sure it's an MDX node
   if (node.internal.type !== "Mdx") {
@@ -115,7 +113,8 @@ exports.onCreateNode = (
     const frontmatter = JSON.parse(JSON.stringify(node.frontmatter));
     const projectCover = "cover" in frontmatter ? frontmatter.cover : null;
     const projectTags = "tags" in frontmatter ? frontmatter.tags : [];
-    console.log(projectCover);
+    debug(`Project cover: ${projectCover}`);
+    debug(`Project tags: ${projectTags}`);
     const projectData = {
       title: frontmatter.title || "",
       status: frontmatter.status || "Completed",
@@ -132,7 +131,7 @@ exports.onCreateNode = (
       tags: projectTags,
       slug: projectUrl,
     };
-    reporter.verbose(JSON.stringify(projectData, null, 2));
+    debug(JSON.stringify(projectData, null, 2));
     createNode({
       ...projectData,
       // Required fields.
@@ -155,6 +154,7 @@ exports.onCreateNode = (
 
 exports.createPages = async ({actions, graphql}, themeOptions) => {
   options = merge(defaultOptions, themeOptions);
+  debug(`Options: ${JSON.stringify(options, null, 2)}`);
   const query = `
   query AllProjectsQuery {
     allProject {
@@ -179,6 +179,7 @@ exports.createPages = async ({actions, graphql}, themeOptions) => {
   }`;
   const result = await graphql(query);
   const projects = result.data.allProject.edges;
+  debug(JSON.stringify(projects, null, 2));
   projects.map((project) => {
     actions.createPage({
       path: project.node.slug,
@@ -189,6 +190,7 @@ exports.createPages = async ({actions, graphql}, themeOptions) => {
       },
     });
   });
+  debug(`Creating base project page at ${options.baseUrl}`);
   actions.createPage({
     path: options.baseUrl,
     component: require.resolve("./src/templates/projects.js"),
