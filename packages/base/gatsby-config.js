@@ -2,20 +2,19 @@ module.exports = (themeOptions) => {
   return {
     // Default siteMetadata
     siteMetadata: {
-      appName: "Base",
-      title: "Base",
+      appName: "@sonapraneeth/base package",
+      title: "@sonapraneeth/base package",
       author: "John Doe",
       // TODO: Need to change this URL
-      siteUrl: "https://www.gatsbyjs.org",
+      siteUrl: "/",
       description:
-        "This site is a demonstration for using theme " +
-        "gatsby-theme-simple-bio",
+        "This site is a demonstration for using theme " + "@sonapraneeth/base",
       social: {
-        facebook: "john-doe",
-        twitter: "john-doe",
-        email: "john-doe",
-        linkedin: "john-doe",
-        github: "john-doe",
+        facebook: "",
+        twitter: "",
+        email: "",
+        linkedin: "",
+        github: "",
       },
     },
     plugins: ["gatsby-plugin-theme-ui"],

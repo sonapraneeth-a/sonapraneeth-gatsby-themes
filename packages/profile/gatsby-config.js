@@ -21,13 +21,14 @@ module.exports = (themeOptions) => {
   const options = merge(defaultOptions, themeOptions);
   return {
     siteMetadata: {
-      appName: "Demo of gatsby-theme-simple-bio",
-      title: "Demo of gatsby-theme-simple-bio",
+      appName: "@sonapraneeth/profile package",
+      title: "@sonapraneeth/profile package",
       author: "John Doe",
-      siteUrl: "https://gatsby-theme-simple-bio.netlify.com/",
+      // TODO: Need to change this URL
+      siteUrl: "/",
       description:
         "This site is a demonstration for using theme " +
-        "gatsby-theme-simple-bio",
+        "@sonapraneeth/profile",
       social: {
         twitter: "john-doe",
       },

@@ -115,7 +115,7 @@ exports.onCreateNode = (
     );
     blogUrl = `${options.baseUrl}/${year}/${month}/${date}/${slugify(title)}/`;
     blogUrl = blogUrl.replace(/\/\//, "/");
-    const blogTags = "tags" in frontmatter ? frontmatter.tags : [];
+    const blogTags = "tags" in node.frontmatter ? node.frontmatter.tags : [];
     const blogData = {
       title: node.frontmatter.title || "",
       publishedDate: node.frontmatter.publishedDate,
@@ -145,8 +145,11 @@ exports.onCreateNode = (
   }
 };
 
-exports.createPages = async ({actions, graphql}, themeOptions) => {
+exports.createPages = async ({actions, graphql, reporter}, themeOptions) => {
   options = merge(defaultOptions, themeOptions);
+  if (process.env.NODE_ENV !== "production") {
+    reporter.setVerbose(true);
+  }
   const queryProd = `
   query AllBlogsQuery {
     allBlog(filter: {draft: {eq: false}}) {
@@ -186,6 +189,8 @@ exports.createPages = async ({actions, graphql}, themeOptions) => {
     result = await graphql(queryProd);
   }
   const blogs = result.data.allBlog.edges;
+  reporter.verbose(`Blogs in ${process.env.NODE_ENV} env`);
+  reporter.verbose(JSON.stringify(blogs, null, 2));
   blogs.map((blog) => {
     actions.createPage({
       path: blog.node.slug,
@@ -196,6 +201,7 @@ exports.createPages = async ({actions, graphql}, themeOptions) => {
       },
     });
   });
+  reporter.verbose(`Creating base blog page at ${options.baseUrl}`);
   actions.createPage({
     path: options.baseUrl,
     component: require.resolve("./src/templates/blogs.js"),

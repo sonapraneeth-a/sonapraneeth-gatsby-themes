@@ -18,14 +18,13 @@ module.exports = (themeOptions) => {
   return {
     // Default siteMetadata
     siteMetadata: {
-      appName: "Bio",
-      title: "Bio",
+      appName: "@sonapraneeth/bio package",
+      title: "@sonapraneeth/bio package",
       author: "John Doe",
       // TODO: Need to change this URL
-      siteUrl: "https://www.gatsbyjs.org",
+      siteUrl: "/",
       description:
-        "This site is a demonstration for using theme " +
-        "gatsby-theme-simple-bio",
+        "This site is a demonstration for using theme " + "@sonapraneeth/bio",
       social: {
         facebook: "john-doe",
         twitter: "john-doe",
