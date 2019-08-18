@@ -33,14 +33,7 @@ function Project({data, location}) {
     <BaseLayout location={data.project.slug} title={""}>
       <SContainer>
         <Styled.h1>{data.project.title}</Styled.h1>
-        <Chip type={"date"}>
-          <b>Published: </b>
-          {data.project.completedDate}
-        </Chip>{" "}
-        <Chip type={"date"}>
-          <b>Last Modified: </b>
-          {data.file.modifiedTime}
-        </Chip>{" "}
+        <Chip type={"date"}>{data.project.completedDate}</Chip>{" "}
         <TagList tags={data.project.tags} />
         <hr />
         <section>
@@ -110,9 +103,6 @@ export const query = graphql`
     }
     mdx(fileAbsolutePath: { eq: $fileAbsolutePath }) {
       tableOfContents(maxDepth: 10)
-    }
-    file(absolutePath: { eq: $fileAbsolutePath }) {
-      modifiedTime(formatString: "DD MMM YYYY")
     }
   }
 `;
