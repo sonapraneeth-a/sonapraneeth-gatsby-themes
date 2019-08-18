@@ -1,15 +1,13 @@
 // eslint-disable-next-line no-unused-vars
 import React from "react";
 import PropTypes from "prop-types";
-import {Link} from "gatsby";
-import {Styled} from "theme-ui";
 /** @jsx jsx */
 import {jsx} from "theme-ui";
 
 import RootBulb from "./root-bulb";
 import HeadMetadata from "../components/head/meta";
-import {SHeader, SContainer, SMain} from "../components/theme-ui/index";
-import {useSiteMetadata} from "../hooks/useSiteMetadata";
+import {SMain} from "../components/theme-ui/index";
+import Header from "../components/header";
 import Footer from "../components/footer";
 
 /**
@@ -17,7 +15,6 @@ import Footer from "../components/footer";
  * @return {JSX} Rendered children for the page
  */
 function BaseLayout({title, description, location, children}) {
-  const siteMeta = useSiteMetadata();
   return (
     <RootBulb>
       <HeadMetadata
@@ -25,22 +22,7 @@ function BaseLayout({title, description, location, children}) {
         description={description}
         location={location}
       />
-      <SHeader>
-        <SContainer>
-          <Styled.h1>
-            <Styled.a
-              as={Link}
-              to={siteMeta.baseUrl}
-              sx={{
-                textDecoration: "none",
-                borderBottom: "none",
-              }}
-            >
-              {siteMeta.title}
-            </Styled.a>
-          </Styled.h1>
-        </SContainer>
-      </SHeader>
+      <Header />
       <SMain>{children}</SMain>
       <Footer />
     </RootBulb>
