@@ -88,10 +88,13 @@ exports.createSchemaCustomization = ({actions, schema}) => {
 // Create fields for post slugs and source
 // This will change with schema customization with work
 exports.onCreateNode = (
-  {node, actions, getNode, createNodeId},
+  {node, actions, getNode, createNodeId, reporter},
   themeOptions
 ) => {
   options = merge(defaultOptions, themeOptions);
+  if (process.env.NODE_ENV !== "production") {
+    reporter.setVerbose(true);
+  }
   const {createNode, createParentChildLink} = actions;
   // Make sure it's an MDX node
   if (node.internal.type !== "Mdx") {
@@ -129,7 +132,7 @@ exports.onCreateNode = (
       tags: projectTags,
       slug: projectUrl,
     };
-    console.log(JSON.stringify(projectData, null, 2));
+    reporter.verbose(JSON.stringify(projectData, null, 2));
     createNode({
       ...projectData,
       // Required fields.
