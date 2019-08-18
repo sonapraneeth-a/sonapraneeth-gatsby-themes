@@ -11,6 +11,7 @@ module.exports = {
     title: "Demo of @sonapraneeth/blog",
     author: "John Doe",
     siteUrl: "https://demo-sonapraneeth-themes-blog.netlify.com/",
+    baseUrl: "/",
     description:
       "This site is a demonstration for using theme @sonapraneeth/blog",
   },

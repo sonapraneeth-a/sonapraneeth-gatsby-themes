@@ -10,6 +10,7 @@ module.exports = {
     title: "Demo of @sonapraneeth/bio",
     author: "John Doe",
     siteUrl: "https://demo-sonapraneeth-themes-bio.netlify.com/",
+    baseUrl: "/",
     description:
       "This site is a demonstration for using theme @sonapraneeth/bio",
     social: {

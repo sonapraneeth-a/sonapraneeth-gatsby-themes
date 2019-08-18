@@ -26,6 +26,7 @@ module.exports = (themeOptions) => {
       author: "John Doe",
       // TODO: Need to change this URL
       siteUrl: "/",
+      baseUrl: "/",
       description:
         "This site is a demonstration for using theme " +
         "@sonapraneeth/profile",
