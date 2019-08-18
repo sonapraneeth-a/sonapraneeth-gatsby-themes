@@ -28,13 +28,14 @@ function BaseLayout({title, description, location, children}) {
         <SContainer>
           <Styled.h1>
             <Styled.a
-              href={siteMeta.siteUrl}
+              as={Link}
+              to={siteMeta.baseUrl}
               sx={{
                 textDecoration: "none",
                 borderBottom: "none",
               }}
             >
-              {siteMeta.author}
+              {siteMeta.title}
             </Styled.a>
           </Styled.h1>
         </SContainer>
