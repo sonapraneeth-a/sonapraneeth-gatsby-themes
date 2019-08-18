@@ -12,8 +12,6 @@ import {FaCalendarAlt, FaTag} from "react-icons/fa";
  * @return {JSX}
  */
 function Chip({children, type, ...props}) {
-  let pb = "0.2rem";
-  pb = type === "date" ? "0.05rem" : "0.2rem";
   return (
     <span
       {...props}
@@ -21,7 +19,7 @@ function Chip({children, type, ...props}) {
         lineHeight: 0.5,
         borderRadius: 0,
         paddingTop: ".01rem",
-        paddingBottom: pb,
+        paddingBottom: "0.2rem",
         bg: "chip.bg",
         color: "chip.color",
         border: ".05rem solid",
