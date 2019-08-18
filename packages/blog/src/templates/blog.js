@@ -12,6 +12,7 @@ import {
   Chip,
   TableOfContents,
   MDXComponents,
+  TagList,
   from,
   screens,
 } from "@sonapraneeth/base";
@@ -32,7 +33,15 @@ function Blog({data, location}) {
     <BaseLayout location={data.blog.slug} title={""}>
       <SContainer>
         <Styled.h1>{data.blog.title}</Styled.h1>
-        <Chip type={"date"}>{data.blog.publishedDate}</Chip>
+        <Chip type={"date"}>
+          <b>Published: </b>
+          {data.blog.publishedDate}
+        </Chip>{" "}
+        <Chip type={"date"}>
+          <b>Last Modified: </b>
+          {data.file.modifiedTime}
+        </Chip>{" "}
+        <TagList tags={data.blog.tags} />
         <hr />
         <section>
           {toc !== null && toc !== undefined && !isTOCEmpty && (
@@ -91,10 +100,14 @@ export const query = graphql`
       slug
       title
       publishedDate
+      tags
       body
     }
     mdx(fileAbsolutePath: { eq: $fileAbsolutePath }) {
       tableOfContents(maxDepth: 10)
+    }
+    file(absolutePath: { eq: $fileAbsolutePath }) {
+      modifiedTime(formatString: "DD MMM YYYY")
     }
   }
 `;

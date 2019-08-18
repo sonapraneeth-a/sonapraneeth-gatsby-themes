@@ -44,6 +44,7 @@ exports.createSchemaCustomization = ({actions, schema}) => {
       draft: Boolean!
       sharing: Boolean!
       timeToRead: Int
+      tags: [String!]!
     }
     type BlogMdx implements Blog & Node {
       id: ID!
@@ -56,6 +57,7 @@ exports.createSchemaCustomization = ({actions, schema}) => {
       draft: Boolean!
       sharing: Boolean!
       timeToRead: Int
+      tags: [String!]!
     }
   `);
   actions.createTypes(
@@ -113,6 +115,7 @@ exports.onCreateNode = (
     );
     blogUrl = `${options.baseUrl}/${year}/${month}/${date}/${slugify(title)}/`;
     blogUrl = blogUrl.replace(/\/\//, "/");
+    const blogTags = "tags" in frontmatter ? frontmatter.tags : [];
     const blogData = {
       title: node.frontmatter.title || "",
       publishedDate: node.frontmatter.publishedDate,
@@ -120,6 +123,7 @@ exports.onCreateNode = (
       fileAbsolutePath: node.fileAbsolutePath,
       draft: node.frontmatter.draft || false,
       sharing: node.frontmatter.sharing || false,
+      tags: blogTags,
     };
     createNode({
       ...blogData,
