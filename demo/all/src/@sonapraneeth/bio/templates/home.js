@@ -60,13 +60,14 @@ function HomeLayout({location}) {
                 sx={{
                   "variant": "link.none",
                   "bg": "primary",
-                  "color": "white",
+                  "color": "background",
                   ":hover": {
                     bg: "primary",
-                    color: "white",
+                    color: "background",
                   },
                   "display": "inline-block",
                   "fontSize": 3,
+                  "fontWeight": "bold",
                 }}
               >
                 <span
@@ -110,13 +111,14 @@ function HomeLayout({location}) {
                 sx={{
                   "variant": "link.none",
                   "bg": "primary",
-                  "color": "white",
+                  "color": "background",
                   ":hover": {
                     bg: "primary",
-                    color: "white",
+                    color: "background",
                   },
                   "display": "inline-block",
                   "fontSize": 3,
+                  "fontWeight": "bold",
                 }}
               >
                 <span
