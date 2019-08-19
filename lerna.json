@@ -13,12 +13,18 @@
     "publish": {
       "ignoreChanges": [".*", "*.md"],
       "message": "chore(release): Publish %s",
+      "conventionalCommits": true,
+      "signGitCommit": true,
+      "signGitTag": true,
       "registry": "https://registry.npmjs.org/"
     },
     "version": {
       "ignoreChanges": [".*", "*.md"],
       "allowBranch": ["master"],
-      "message": "chore(release): Publish %s"
+      "message": "chore(release): Publish %s",
+      "conventionalCommits": true,
+      "signGitCommit": true,
+      "signGitTag": true
     },
     "changed": {
       "ignoreChanges": [".*", "*.md"],

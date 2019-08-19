@@ -33,8 +33,8 @@
     "clean": "yarn base-clean && yarn bio-clean && yarn project-clean && yarn blog-clean && yarn all-clean",
     "lc": "lerna clean",
     "lp": "lerna list --json --all --toposort",
-    "new-pre-release-version": "lerna version prerelease --conventional-commits",
-    "new-version": "lerna version --conventional-commits",
+    "new-pre-release-version": "lerna version prerelease",
+    "new-version": "lerna version",
     "pub": "lerna publish"
   },
   "workspaces": [
