@@ -8,7 +8,7 @@ export default {
     // Font used for body
     body: `"PT Sans", ` + fonts.system,
     // Font used for code blocks
-    monospace: fonts.monospace,
+    monospace: `"Fira Code Retina", ` + fonts.monospace,
   },
   fontWeights: {
     // Font weight for body. Normal

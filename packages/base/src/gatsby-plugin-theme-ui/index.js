@@ -38,6 +38,7 @@ export default {
   ...fonts,
   // Line heights
   lineHeights: {
+    ...lineHeights,
     body: lineHeights.default,
     heading: 1.125,
   },

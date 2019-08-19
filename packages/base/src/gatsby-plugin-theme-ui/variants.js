@@ -36,11 +36,11 @@ export default {
   },
   button: {
     primary: {
-      color: "white",
+      color: "background",
       bg: "primary",
     },
     secondary: {
-      color: "white",
+      color: "background",
       bg: "secondary",
     },
   },

@@ -1,5 +1,5 @@
 // Reference: https://theme-ui.com/theme-spec/
-import {zIndices} from "gatsby-design-tokens";
+import {zIndices, shadows} from "gatsby-design-tokens";
 
 export default {
   space: [
@@ -25,4 +25,8 @@ export default {
     ...zIndices,
     switch: 1000,
   },
+  shadows: {
+    ...shadows,
+  },
+  radii: [0],
 };
