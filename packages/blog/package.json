@@ -2,21 +2,24 @@
   "name": "@sonapraneeth/blog",
   "version": "0.0.0",
   "main": "index.js",
-  "license": "MIT",
-  "private": true,
   "author": "Sona Praneeth Akula <sonapraneeth.akula@gmail.com>",
   "repository": {
     "type": "git",
-    "url": "https://github.com/sonapraneeth-a/gatsby-theme-simple-bio.git"
+    "url": "https://github.com/sonapraneeth-a/gatsby-dev-themes.git",
+    "directory": "packages/blog"
   },
-  "homepage": "https://sonapraneeth-a.github.io/gatsby-theme-simple-bio/",
+  "homepage": "https://demo-sonapraneeth-themes-blog.netlify.com",
+  "bugs": {
+    "url": "https://github.com/sonapraneeth-a/gatsby-dev-themes/issues"
+  },
   "keywords": [
     "gatsby",
     "gatsby-theme",
     "gatsby-plugin",
     "react",
-    "blogs"
+    "blog"
   ],
+  "license": "MIT",
   "peerDependencies": {
     "gatsby": "^2.13.63",
     "react": "^16.9.0",

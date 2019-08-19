@@ -3,6 +3,25 @@
   "version": "0.0.0",
   "main": "index.js",
   "private": true,
+  "author": "Sona Praneeth Akula <sonapraneeth.akula@gmail.com>",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/sonapraneeth-a/gatsby-dev-themes.git",
+    "directory": "demo/profile"
+  },
+  "homepage": "https://demo-sonapraneeth-themes-profile.netlify.com",
+  "bugs": {
+    "url": "https://github.com/sonapraneeth-a/gatsby-dev-themes/issues"
+  },
+  "keywords": [
+    "gatsby",
+    "gatsby-theme",
+    "gatsby-plugin",
+    "react",
+    "demo",
+    "starter",
+    "profile"
+  ],
   "license": "MIT",
   "scripts": {
     "dev": "gatsby develop",

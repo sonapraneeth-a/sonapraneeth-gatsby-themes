@@ -2,7 +2,23 @@
   "name": "@sonapraneeth/bio",
   "version": "0.0.0",
   "main": "index.js",
-  "private": true,
+  "author": "Sona Praneeth Akula <sonapraneeth.akula@gmail.com>",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/sonapraneeth-a/gatsby-dev-themes.git",
+    "directory": "packages/bio"
+  },
+  "homepage": "https://demo-sonapraneeth-themes-bio.netlify.com",
+  "bugs": {
+    "url": "https://github.com/sonapraneeth-a/gatsby-dev-themes/issues"
+  },
+  "keywords": [
+    "gatsby",
+    "gatsby-theme",
+    "gatsby-plugin",
+    "react",
+    "bio"
+  ],
   "license": "MIT",
   "peerDependencies": {
     "gatsby": "^2.13.63",
