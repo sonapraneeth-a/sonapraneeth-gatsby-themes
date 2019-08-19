@@ -59,6 +59,19 @@ function RootBulb({children}) {
           "::-webkit-scrollbar-thumb": {
             bg: "text",
           },
+          ".id-link": {
+            "color": `${colors.text} !important`,
+            "bg": `${colors.background} !important`,
+            "textDecoration": "none !important",
+            "borderBottom": "none !important",
+            "marginRight": "0.5rem",
+            ":hover": {
+              color: `${colors.text} !important`,
+              bg: `${colors.background} !important`,
+              textDecoration: "none !important",
+              borderBottom: "none !important",
+            },
+          },
         })}
       />
       <div
