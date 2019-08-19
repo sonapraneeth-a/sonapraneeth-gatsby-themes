@@ -1,37 +1,41 @@
 /** @jsx jsx */
-import { jsx } from "theme-ui"
+import {jsx} from "theme-ui";
 // eslint-disable-next-line no-unused-vars
-import React from "react"
-import PropTypes from "prop-types"
+import React from "react";
+import PropTypes from "prop-types";
+
+import {shadows, transition} from "gatsby-design-tokens";
 
 /**
  *
  * @param {*} children
  * @return {JSX}
  */
-function Card({ children, ...props }) {
+function Card({children, ...props}) {
   return (
     <div
       {...props}
       sx={{
-        bg: "surface",
-        transition: "box-shadow .25s,-webkit-box-shadow .25s",
-        borderRadius: 0,
-        boxShadow:
-          "0 2px 2px 0 rgba(0,0,0,.14), 0 1px 5px 0 rgba(0,0,0,.12), " +
-          "0 3px 1px -2px rgba(0,0,0,.2)",
-        width: "100%",
+        "bg": "surface",
+        "transition": transition.speed.default,
+        "transitionProperty": "box-shadow,-webkit-box-shadow",
+        "borderRadius": 0,
+        "boxShadow": shadows.raised,
+        "width": "100%",
+        ":hover": {
+          boxShadow: shadows.overlay,
+        },
       }}
     >
       {children}
     </div>
-  )
+  );
 }
 
 Card.propTypes = {
   children: PropTypes.any.isRequired,
-}
+};
 
-Card.defaultProps = {}
+Card.defaultProps = {};
 
-export default Card
+export default Card;
