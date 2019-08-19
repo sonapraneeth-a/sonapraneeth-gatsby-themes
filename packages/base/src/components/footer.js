@@ -36,7 +36,6 @@ function Footer() {
       sx={{
         borderTop: "0.1rem solid",
         borderColor: "muted",
-        marginTop: "4rem",
       }}
     >
       <SFlex
