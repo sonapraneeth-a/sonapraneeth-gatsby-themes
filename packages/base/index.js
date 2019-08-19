@@ -48,6 +48,7 @@ import {
   FaStar,
   FaClock,
 } from "react-icons/fa";
+import {colors} from "gatsby-design-tokens";
 
 export {
   // Layouts
@@ -100,4 +101,6 @@ export {
   FaFolderOpen,
   FaStar,
   FaClock,
+  // Gatsby Design Tokens
+  colors,
 };
