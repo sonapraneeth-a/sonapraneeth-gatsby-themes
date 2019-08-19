@@ -1,6 +1,6 @@
 {
   "name": "@sonapraneeth/profile",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "main": "index.js",
   "author": "Sona Praneeth Akula <sonapraneeth.akula@gmail.com>",
   "repository": {
@@ -33,9 +33,9 @@
     "prettier": "prettier --write src/**/*.js"
   },
   "dependencies": {
-    "@sonapraneeth/bio": "^0.0.0",
-    "@sonapraneeth/blog": "^0.0.0",
-    "@sonapraneeth/project": "^0.0.0",
+    "@sonapraneeth/bio": "^0.1.0",
+    "@sonapraneeth/blog": "^0.1.0",
+    "@sonapraneeth/project": "^0.1.0",
     "gatsby": "^2.13.63",
     "react": "^16.9.0",
     "react-dom": "^16.9.0"
