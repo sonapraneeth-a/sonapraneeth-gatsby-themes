@@ -11,6 +11,8 @@ const defaultOptions = {
   baseUrl: "/", // Default: "/"
   // Data directory
   contentPath: "content/blog", // Default: "content/blog"
+  // Configure MDX. true would defaults of the theme
+  mdx: true, // Default: true
 };
 
 let options;

@@ -27,6 +27,5 @@ module.exports = {
         homePath: "content/home",
       },
     },
-    "gatsby-plugin-mdx",
   ],
 };

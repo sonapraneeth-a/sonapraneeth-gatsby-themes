@@ -82,6 +82,7 @@ module.exports = {
         dataPath: "content/data",
         assetsPath: "content/assets",
         homePath: "content/home",
+        mdx: false,
       },
     },
     {
@@ -89,6 +90,7 @@ module.exports = {
       options: {
         baseUrl: projectsUrl,
         contentPath: "content/projects",
+        mdx: false,
       },
     },
     {
@@ -96,6 +98,7 @@ module.exports = {
       options: {
         baseUrl: blogsUrl,
         contentPath: "content/blog",
+        mdx: false,
       },
     },
   ],

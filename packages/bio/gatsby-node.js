@@ -11,6 +11,8 @@ const defaultOptions = {
   assetsPath: "content/assets", // Default: "content/assets"
   // Directory path for MDX home page content
   homePath: "content/home", // Default: "content/home"
+  // Configure MDX. true would defaults of the theme
+  mdx: true, // Default: true
 };
 
 let options;

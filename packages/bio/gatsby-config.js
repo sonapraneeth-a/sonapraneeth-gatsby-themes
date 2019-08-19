@@ -11,6 +11,8 @@ module.exports = (themeOptions) => {
     assetsPath: "content/assets", // Default: "content/assets"
     // Directory path for MDX home page content
     homePath: "content/home", // Default: "content/home"
+    // Configure MDX. true would defaults of the theme
+    mdx: true, // Default: true
   };
   // Options created using default and provided options
   const options = merge(defaultOptions, themeOptions);
@@ -36,6 +38,9 @@ module.exports = (themeOptions) => {
     },
     plugins: [
       "@sonapraneeth/base",
+      options.mdx && {
+        resolve: "gatsby-plugin-mdx",
+      },
       {
         resolve: "gatsby-source-filesystem",
         options: {
