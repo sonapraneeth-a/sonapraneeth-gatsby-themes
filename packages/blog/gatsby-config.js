@@ -39,7 +39,6 @@ module.exports = (themeOptions) => {
           path: options.contentPath,
         },
       },
-      // "gatsby-plugin-mdx",
       "gatsby-plugin-react-helmet",
     ],
   };

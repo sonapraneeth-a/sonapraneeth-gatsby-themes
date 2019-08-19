@@ -23,5 +23,6 @@ module.exports = {
         contentPath: "content",
       },
     },
+    "gatsby-plugin-mdx",
   ],
 };
