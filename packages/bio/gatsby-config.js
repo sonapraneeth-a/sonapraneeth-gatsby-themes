@@ -16,7 +16,6 @@ module.exports = (themeOptions) => {
   };
   // Options created using default and provided options
   const options = merge(defaultOptions, themeOptions);
-
   return {
     // Default siteMetadata
     siteMetadata: {
@@ -66,6 +65,6 @@ module.exports = (themeOptions) => {
       "gatsby-transformer-yaml",
       "gatsby-plugin-sharp",
       "gatsby-transformer-sharp",
-    ],
+    ].filter(Boolean),
   };
 };

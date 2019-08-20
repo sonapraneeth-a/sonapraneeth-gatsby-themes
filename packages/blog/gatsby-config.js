@@ -97,6 +97,6 @@ module.exports = (themeOptions) => {
         },
       },
       "gatsby-plugin-react-helmet",
-    ],
+    ].filter(Boolean),
   };
 };

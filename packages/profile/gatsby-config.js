@@ -118,6 +118,6 @@ module.exports = (themeOptions) => {
           mdx: false,
         },
       },
-    ],
+    ].filter(Boolean),
   };
 };
