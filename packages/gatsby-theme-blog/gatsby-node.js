@@ -1,9 +1,9 @@
-const { createFilePath } = require("gatsby-source-filesystem")
-const crypto = require("crypto")
-const merge = require("deepmerge")
-const slugify = require("slug")
-slugify.charmap["+"] = "p"
-const debug = require("debug")("@sonapraneeth/blog:node")
+const {createFilePath} = require("gatsby-source-filesystem");
+const crypto = require("crypto");
+const merge = require("deepmerge");
+const slugify = require("slug");
+slugify.charmap["+"] = "p";
+const debug = require("debug")("@sonapraneeth/gatsby-theme-blog:node");
 
 // Default options to be used in theme
 const defaultOptions = {
@@ -13,28 +13,28 @@ const defaultOptions = {
   contentPath: "content/blog", // Default: "content/blog"
   // Configure MDX. true would defaults of the theme
   mdx: true, // Default: true
-}
+};
 
-let options
+let options;
 
-const mdxResolverPassthrough = fieldName => async (
+const mdxResolverPassthrough = (fieldName) => async (
   source,
   args,
   context,
   info
 ) => {
-  const type = info.schema.getType("Mdx")
+  const type = info.schema.getType("Mdx");
   const mdxNode = context.nodeModel.getNodeById({
     id: source.parent,
-  })
-  const resolver = type.getFields()[fieldName].resolve
+  });
+  const resolver = type.getFields()[fieldName].resolve;
   const result = await resolver(mdxNode, args, context, {
     fieldName,
-  })
-  return result
-}
+  });
+  return result;
+};
 
-exports.createSchemaCustomization = ({ actions, schema }) => {
+exports.createSchemaCustomization = ({actions, schema}) => {
   actions.createTypes(`
     interface Blog @nodeInterface {
       id: ID!
@@ -62,7 +62,7 @@ exports.createSchemaCustomization = ({ actions, schema }) => {
       timeToRead: Int
       tags: [String!]!
     }
-  `)
+  `);
   actions.createTypes(
     schema.buildObjectType({
       name: "BlogMdx",
@@ -87,38 +87,38 @@ exports.createSchemaCustomization = ({ actions, schema }) => {
         },
       },
     })
-  )
-}
+  );
+};
 
 // Create fields for post slugs and source
 // This will change with schema customization with work
 exports.onCreateNode = (
-  { node, actions, getNode, createNodeId },
+  {node, actions, getNode, createNodeId},
   themeOptions
 ) => {
-  options = merge(defaultOptions, themeOptions)
-  const { createNode, createParentChildLink } = actions
+  options = merge(defaultOptions, themeOptions);
+  const {createNode, createParentChildLink} = actions;
   // Make sure it's an MDX node
   if (node.internal.type !== "Mdx") {
-    return
+    return;
   }
 
   // Create source field (according to contentPath)
-  const fileNode = getNode(node.parent)
-  const source = fileNode.sourceInstanceName
+  const fileNode = getNode(node.parent);
+  const source = fileNode.sourceInstanceName;
   if (node.internal.type === "Mdx" && source === options.contentPath) {
     const slug = createFilePath({
       node: fileNode,
       getNode,
       basePath: options.contentPath,
-    })
-    let blogUrl = slug
+    });
+    let blogUrl = slug;
     const [, year, month, date, title] = blogUrl.match(
       /^\/([\d]{4})-([\d]{2})-([\d]{2})-{1}(.+)\/$/
-    )
-    blogUrl = `${options.baseUrl}/${year}/${month}/${date}/${slugify(title)}/`
-    blogUrl = blogUrl.replace(/\/\//, "/")
-    const blogTags = "tags" in node.frontmatter ? node.frontmatter.tags : []
+    );
+    blogUrl = `${options.baseUrl}/${year}/${month}/${date}/${slugify(title)}/`;
+    blogUrl = blogUrl.replace(/\/\//, "/");
+    const blogTags = "tags" in node.frontmatter ? node.frontmatter.tags : [];
     const blogData = {
       title: node.frontmatter.title || "",
       publishedDate: node.frontmatter.publishedDate,
@@ -127,7 +127,7 @@ exports.onCreateNode = (
       draft: node.frontmatter.draft || false,
       sharing: node.frontmatter.sharing || false,
       tags: blogTags,
-    }
+    };
     createNode({
       ...blogData,
       // Required fields.
@@ -143,14 +143,14 @@ exports.onCreateNode = (
         content: JSON.stringify(blogData),
         description: "Blog Posts",
       },
-    })
-    createParentChildLink({ parent: fileNode, child: node })
+    });
+    createParentChildLink({parent: fileNode, child: node});
   }
-}
+};
 
-exports.createPages = async ({ actions, graphql }, themeOptions) => {
-  options = merge(defaultOptions, themeOptions)
-  debug(`Options: ${JSON.stringify(options, null, 2)}`)
+exports.createPages = async ({actions, graphql}, themeOptions) => {
+  options = merge(defaultOptions, themeOptions);
+  debug(`Options: ${JSON.stringify(options, null, 2)}`);
   const queryProd = `
   query AllBlogsQuery {
     allBlog(filter: {draft: {eq: false}}) {
@@ -166,7 +166,7 @@ exports.createPages = async ({ actions, graphql }, themeOptions) => {
         }
       }
     }
-  }`
+  }`;
   const queryDev = `
   query AllBlogsQuery {
     allBlog {
@@ -182,17 +182,17 @@ exports.createPages = async ({ actions, graphql }, themeOptions) => {
         }
       }
     }
-  }`
-  let result = null
+  }`;
+  let result = null;
   if (process.env.NODE_ENV !== "production") {
-    result = await graphql(queryDev)
+    result = await graphql(queryDev);
   } else {
-    result = await graphql(queryProd)
+    result = await graphql(queryProd);
   }
-  const blogs = result.data.allBlog.edges
-  debug(`Blogs in ${process.env.NODE_ENV} env`)
-  debug(JSON.stringify(blogs, null, 2))
-  blogs.map(blog => {
+  const blogs = result.data.allBlog.edges;
+  debug(`Blogs in ${process.env.NODE_ENV} env`);
+  debug(JSON.stringify(blogs, null, 2));
+  blogs.map((blog) => {
     actions.createPage({
       path: blog.node.slug,
       component: require.resolve("./src/templates/blog.js"),
@@ -200,14 +200,14 @@ exports.createPages = async ({ actions, graphql }, themeOptions) => {
         id: blog.node.id,
         fileAbsolutePath: blog.node.fileAbsolutePath,
       },
-    })
-  })
-  debug(`Creating base blog page at ${options.baseUrl}`)
+    });
+  });
+  debug(`Creating base blog page at ${options.baseUrl}`);
   actions.createPage({
     path: options.baseUrl,
     component: require.resolve("./src/templates/blogs.js"),
     context: {
       blogs,
     },
-  })
-}
+  });
+};

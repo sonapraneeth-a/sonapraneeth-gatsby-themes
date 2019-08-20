@@ -1,9 +1,9 @@
 /** @jsx jsx */
-import { jsx } from "theme-ui"
+import {jsx} from "theme-ui";
 // eslint-disable-next-line no-unused-vars
-import React from "react"
-import PropTypes from "prop-types"
-import { Link } from "gatsby"
+import React from "react";
+import PropTypes from "prop-types";
+import {Link} from "gatsby";
 
 import {
   Card,
@@ -14,15 +14,15 @@ import {
   FaReadme,
   FaClock,
   Chip,
-} from "@sonapraneeth/base"
+} from "@sonapraneeth/gatsby-plugin-themed-components";
 
 /**
  *
  * @param {*} children
  * @return {JSX}
  */
-function DetailedBlogCard({ blog, ...props }) {
-  const timeToRead = blog.timeToRead === null ? "~1" : blog.timeToRead
+function DetailedBlogCard({blog, ...props}) {
+  const timeToRead = blog.timeToRead === null ? "~1" : blog.timeToRead;
   return (
     <Card>
       <CardContent>
@@ -55,13 +55,13 @@ function DetailedBlogCard({ blog, ...props }) {
             as={Link}
             to={blog.slug}
             sx={{
-              variant: "link.none",
-              bg: "surface",
+              "variant": "link.none",
+              "bg": "surface",
               ":hover": {
                 bg: "surface",
                 color: "text",
               },
-              display: "inline-block",
+              "display": "inline-block",
             }}
           >
             <FaReadme
@@ -102,13 +102,13 @@ function DetailedBlogCard({ blog, ...props }) {
         </SFlex>
       </CardFooter>
     </Card>
-  )
+  );
 }
 
 DetailedBlogCard.propTypes = {
   blog: PropTypes.any.isRequired,
-}
+};
 
-DetailedBlogCard.defaultProps = {}
+DetailedBlogCard.defaultProps = {};
 
-export default DetailedBlogCard
+export default DetailedBlogCard;

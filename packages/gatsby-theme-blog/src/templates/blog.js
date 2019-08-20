@@ -1,10 +1,13 @@
-import React from "react"
-import PropTypes from "prop-types"
-import { graphql } from "gatsby"
-import { MDXRenderer } from "gatsby-plugin-mdx"
-import { MDXProvider } from "@mdx-js/react"
+import React from "react";
+import PropTypes from "prop-types";
+import {graphql} from "gatsby";
+import {MDXRenderer} from "gatsby-plugin-mdx";
+import {MDXProvider} from "@mdx-js/react";
 
-import { SContainer, Styled } from "@sonapraneeth/base"
+import {
+  SContainer,
+  Styled,
+} from "@sonapraneeth/gatsby-plugin-themed-components";
 import {
   Grid,
   GridItem,
@@ -15,20 +18,20 @@ import {
   TagList,
   from,
   screens,
-} from "@sonapraneeth/base"
+} from "@sonapraneeth/gatsby-plugin-themed-components";
 
 const components = {
   h1: MDXComponents.h1,
-}
+};
 
 /**
  *
  * @param {*} data
  * @return {JSX}
  */
-function Blog({ data, location }) {
-  const toc = data.mdx.tableOfContents
-  const isTOCEmpty = JSON.stringify(toc) === "{}"
+function Blog({data, location}) {
+  const toc = data.mdx.tableOfContents;
+  const isTOCEmpty = JSON.stringify(toc) === "{}";
   return (
     <BaseLayout location={data.blog.slug} title={""}>
       <SContainer>
@@ -62,7 +65,7 @@ function Blog({ data, location }) {
                   location={location}
                 />
               </GridItem>
-              <GridItem id="body" css={{ margin: 0 }}>
+              <GridItem id="body" css={{margin: 0}}>
                 <MDXProvider components={components}>
                   <MDXRenderer>{data.blog.body}</MDXRenderer>
                 </MDXProvider>
@@ -71,7 +74,7 @@ function Blog({ data, location }) {
           )}
           {(toc === undefined || toc === null || isTOCEmpty) && (
             <Grid noCols={1}>
-              <GridItem id="body" css={{ margin: 0 }}>
+              <GridItem id="body" css={{margin: 0}}>
                 <MDXProvider components={components}>
                   <MDXRenderer>{data.blog.body}</MDXRenderer>
                 </MDXProvider>
@@ -81,17 +84,17 @@ function Blog({ data, location }) {
         </section>
       </SContainer>
     </BaseLayout>
-  )
+  );
 }
 
 Blog.propTypes = {
   data: PropTypes.any.isRequired,
   location: PropTypes.any,
-}
+};
 
-Blog.defaultProps = {}
+Blog.defaultProps = {};
 
-export default Blog
+export default Blog;
 
 export const query = graphql`
   query BlogQuery($id: String!, $fileAbsolutePath: String!) {
@@ -110,4 +113,4 @@ export const query = graphql`
       modifiedTime(formatString: "DD MMM YYYY")
     }
   }
-`
+`;

@@ -1,9 +1,9 @@
 /** @jsx jsx */
-import { jsx } from "theme-ui"
+import {jsx} from "theme-ui";
 // eslint-disable-next-line no-unused-vars
-import React from "react"
-import PropTypes from "prop-types"
-import { Link } from "gatsby"
+import React from "react";
+import PropTypes from "prop-types";
+import {Link} from "gatsby";
 
 import {
   PageLayout,
@@ -12,25 +12,28 @@ import {
   SContainer,
   Button,
   FaArrowRight,
-} from "@sonapraneeth/base"
-import { HomeWidget, useHome } from "@sonapraneeth/bio"
-import { ProjectWidget, useFeaturedProjects } from "@sonapraneeth/project"
-import { BlogWidget, useRecentBlogs } from "@sonapraneeth/blog"
+} from "@sonapraneeth/gatsby-plugin-themed-components";
+import {HomeWidget, useHome} from "@sonapraneeth/gatsby-theme-bio";
+import {
+  ProjectWidget,
+  useFeaturedProjects,
+} from "@sonapraneeth/gatsby-theme-project";
+import {BlogWidget, useRecentBlogs} from "@sonapraneeth/gatsby-theme-blog";
 
 HomeLayout.propTypes = {
   location: PropTypes.any.isRequired,
-}
+};
 
-HomeLayout.defaultProps = {}
+HomeLayout.defaultProps = {};
 
 /**
  * Home layout - Used in home page
  * @return {JSX} Rendered children for the HomeLayout
  */
-function HomeLayout({ location }) {
-  const home = useHome()
-  const projects = useFeaturedProjects()
-  const blogs = useRecentBlogs()
+function HomeLayout({location}) {
+  const home = useHome();
+  const projects = useFeaturedProjects();
+  const blogs = useRecentBlogs();
   return (
     <PageLayout title={""} description={""} location={location}>
       <div>
@@ -58,15 +61,15 @@ function HomeLayout({ location }) {
                 as={Link}
                 to={"/projects"}
                 sx={{
-                  variant: "link.none",
-                  bg: "primary",
-                  color: "white",
+                  "variant": "link.none",
+                  "bg": "primary",
+                  "color": "white",
                   ":hover": {
                     bg: "primary",
                     color: "white",
                   },
-                  display: "inline-block",
-                  fontSize: 1,
+                  "display": "inline-block",
+                  "fontSize": 1,
                 }}
               >
                 <span
@@ -108,15 +111,15 @@ function HomeLayout({ location }) {
                 as={Link}
                 to={"/projects"}
                 sx={{
-                  variant: "link.none",
-                  bg: "primary",
-                  color: "white",
+                  "variant": "link.none",
+                  "bg": "primary",
+                  "color": "white",
                   ":hover": {
                     bg: "primary",
                     color: "white",
                   },
-                  display: "inline-block",
-                  fontSize: 1,
+                  "display": "inline-block",
+                  "fontSize": 1,
                 }}
               >
                 <span
@@ -140,7 +143,7 @@ function HomeLayout({ location }) {
         </SContainer>
       </div>
     </PageLayout>
-  )
+  );
 }
 
-export default HomeLayout
+export default HomeLayout;

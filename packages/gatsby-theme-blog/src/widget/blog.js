@@ -1,15 +1,15 @@
-import React from "react"
-import PropTypes from "prop-types"
+import React from "react";
+import PropTypes from "prop-types";
 
-import SimpleBlogCard from "../components/card/simple"
-import { Grid, GridItem } from "@sonapraneeth/base"
+import SimpleBlogCard from "../components/card/simple";
+import {Grid, GridItem} from "@sonapraneeth/gatsby-plugin-themed-components";
 
 /**
  *
  * @param {*} data
  * @return {JSX}
  */
-function BlogWidget({ blogs }) {
+function BlogWidget({blogs}) {
   return (
     <Grid noCols={2}>
       {blogs.map((blog, index) => (
@@ -18,13 +18,13 @@ function BlogWidget({ blogs }) {
         </GridItem>
       ))}
     </Grid>
-  )
+  );
 }
 
 BlogWidget.propTypes = {
   blogs: PropTypes.any.isRequired,
-}
+};
 
-BlogWidget.defaultProps = {}
+BlogWidget.defaultProps = {};
 
-export default BlogWidget
+export default BlogWidget;

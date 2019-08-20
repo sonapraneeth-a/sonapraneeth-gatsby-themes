@@ -1,6 +1,6 @@
-const merge = require("deepmerge")
+const merge = require("deepmerge");
 
-module.exports = themeOptions => {
+module.exports = (themeOptions) => {
   // Default options to be used in theme
   const defaultOptions = {
     // Base url for rendering site
@@ -9,21 +9,22 @@ module.exports = themeOptions => {
     dataPath: "content/blog", // Default: "content/blog"
     // Configure MDX. true would defaults of the theme
     mdx: true, // Default: true
-  }
+  };
   // Options created using default and provided options
-  const options = merge(defaultOptions, themeOptions)
+  const options = merge(defaultOptions, themeOptions);
 
   return {
     // Default siteMetadata
     siteMetadata: {
-      appName: "@sonapraneeth/blog package",
-      title: "@sonapraneeth/blog package",
+      appName: "@sonapraneeth/gatsby-theme-blog package",
+      title: "@sonapraneeth/gatsby-theme-blog package",
       author: "John Doe",
       // TODO: Need to change this URL
       siteUrl: "/",
       baseUrl: "/",
       description:
-        "This site is a demonstration for using theme " + "@sonapraneeth/blog",
+        "This site is a demonstration for using theme " +
+        "@sonapraneeth/gatsby-theme-blog",
       social: {
         facebook: "john-doe",
         twitter: "john-doe",
@@ -33,7 +34,7 @@ module.exports = themeOptions => {
       },
     },
     plugins: [
-      "@sonapraneeth/base",
+      "@sonapraneeth/gatsby-plugin-themed-components",
       options.mdx && {
         resolve: "gatsby-plugin-mdx",
         options: {
@@ -82,9 +83,9 @@ module.exports = themeOptions => {
                 className: "id-link",
               },
             },
-            { resolve: "gatsby-remark-copy-linked-files" },
-            { resolve: "gatsby-remark-numbered-footnotes" },
-            { resolve: "gatsby-remark-smartypants" },
+            {resolve: "gatsby-remark-copy-linked-files"},
+            {resolve: "gatsby-remark-numbered-footnotes"},
+            {resolve: "gatsby-remark-smartypants"},
           ],
           remarkPlugins: [require("remark-slug")],
         },
@@ -98,5 +99,5 @@ module.exports = themeOptions => {
       },
       "gatsby-plugin-react-helmet",
     ].filter(Boolean),
-  }
-}
+  };
+};

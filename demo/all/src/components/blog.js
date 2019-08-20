@@ -1,5 +1,5 @@
 /** @jsx jsx */
-import {jsx} from "@sonapraneeth/base";
+import {jsx} from "@sonapraneeth/gatsby-plugin-themed-components";
 // eslint-disable-next-line no-unused-vars
 import React from "react";
 import {Link} from "gatsby";
@@ -10,8 +10,8 @@ import {
   SContainer,
   Button,
   FaArrowRight,
-} from "@sonapraneeth/base";
-import {BlogWidget, useRecentBlogs} from "@sonapraneeth/blog";
+} from "@sonapraneeth/gatsby-plugin-themed-components";
+import {BlogWidget, useRecentBlogs} from "@sonapraneeth/gatsby-theme-blog";
 
 BlogBanner.propTypes = {};
 

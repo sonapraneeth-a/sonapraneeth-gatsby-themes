@@ -1,6 +1,6 @@
-const merge = require("deepmerge")
+const merge = require("deepmerge");
 
-module.exports = themeOptions => {
+module.exports = (themeOptions) => {
   // Default options to be used in theme
   const defaultOptions = {
     // Base url for rendering site
@@ -13,20 +13,21 @@ module.exports = themeOptions => {
     homePath: "content/home", // Default: "content/home"
     // Configure MDX. true would defaults of the theme
     mdx: true, // Default: true
-  }
+  };
   // Options created using default and provided options
-  const options = merge(defaultOptions, themeOptions)
+  const options = merge(defaultOptions, themeOptions);
   return {
     // Default siteMetadata
     siteMetadata: {
-      appName: "@sonapraneeth/bio package",
-      title: "@sonapraneeth/bio package",
+      appName: "@sonapraneeth/gatsby-theme-bio package",
+      title: "@sonapraneeth/gatsby-theme-bio package",
       author: "John Doe",
       // TODO: Need to change this URL
       siteUrl: "/",
       baseUrl: "/",
       description:
-        "This site is a demonstration for using theme " + "@sonapraneeth/bio",
+        "This site is a demonstration for using theme " +
+        "@sonapraneeth/gatsby-theme-bio",
       social: {
         facebook: "john-doe",
         twitter: "john-doe",
@@ -36,7 +37,7 @@ module.exports = themeOptions => {
       },
     },
     plugins: [
-      "@sonapraneeth/base",
+      "@sonapraneeth/gatsby-plugin-themed-components",
       options.mdx && {
         resolve: "gatsby-plugin-mdx",
       },
@@ -66,5 +67,5 @@ module.exports = themeOptions => {
       "gatsby-plugin-sharp",
       "gatsby-transformer-sharp",
     ].filter(Boolean),
-  }
-}
+  };
+};

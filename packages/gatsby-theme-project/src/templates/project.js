@@ -1,10 +1,13 @@
-import React from "react"
-import PropTypes from "prop-types"
-import { graphql } from "gatsby"
-import { MDXRenderer } from "gatsby-plugin-mdx"
-import { MDXProvider } from "@mdx-js/react"
+import React from "react";
+import PropTypes from "prop-types";
+import {graphql} from "gatsby";
+import {MDXRenderer} from "gatsby-plugin-mdx";
+import {MDXProvider} from "@mdx-js/react";
 
-import { SContainer, Styled } from "@sonapraneeth/base"
+import {
+  SContainer,
+  Styled,
+} from "@sonapraneeth/gatsby-plugin-themed-components";
 import {
   Grid,
   GridItem,
@@ -15,20 +18,20 @@ import {
   TagList,
   from,
   screens,
-} from "@sonapraneeth/base"
+} from "@sonapraneeth/gatsby-plugin-themed-components";
 
 const components = {
   h1: MDXComponents.h1,
-}
+};
 
 /**
  *
  * @param {*} data
  * @return {JSX}
  */
-function Project({ data, location }) {
-  const toc = data.mdx.tableOfContents
-  const isTOCEmpty = JSON.stringify(toc) === "{}"
+function Project({data, location}) {
+  const toc = data.mdx.tableOfContents;
+  const isTOCEmpty = JSON.stringify(toc) === "{}";
   return (
     <BaseLayout location={data.project.slug} title={""}>
       <SContainer>
@@ -41,33 +44,33 @@ function Project({ data, location }) {
             toc !== null &&
             toc !== undefined &&
             !isTOCEmpty && (
-              <Grid noCols={2} nSizes={[1, 2.5]}>
-                <GridItem
-                  id="toc"
-                  css={{
-                    margin: 0,
-                    [from(screens.mobile)]: {
-                      position: "sticky",
-                      top: "10vh",
-                      placeSelf: "self-start stretch",
-                    },
-                  }}
-                >
-                  <TableOfContents
-                    tableOfContents={data.mdx.tableOfContents}
-                    location={location}
-                  />
-                </GridItem>
-                <GridItem id="body" css={{ margin: 0 }}>
-                  <MDXProvider components={components}>
-                    <MDXRenderer>{data.project.body}</MDXRenderer>
-                  </MDXProvider>
-                </GridItem>
-              </Grid>
-            )}
+            <Grid noCols={2} nSizes={[1, 2.5]}>
+              <GridItem
+                id="toc"
+                css={{
+                  margin: 0,
+                  [from(screens.mobile)]: {
+                    position: "sticky",
+                    top: "10vh",
+                    placeSelf: "self-start stretch",
+                  },
+                }}
+              >
+                <TableOfContents
+                  tableOfContents={data.mdx.tableOfContents}
+                  location={location}
+                />
+              </GridItem>
+              <GridItem id="body" css={{margin: 0}}>
+                <MDXProvider components={components}>
+                  <MDXRenderer>{data.project.body}</MDXRenderer>
+                </MDXProvider>
+              </GridItem>
+            </Grid>
+          )}
           {(toc === undefined || toc === null || isTOCEmpty) && (
             <Grid noCols={1}>
-              <GridItem id="body" css={{ margin: 0 }}>
+              <GridItem id="body" css={{margin: 0}}>
                 <MDXProvider components={components}>
                   <MDXRenderer>{data.project.body}</MDXRenderer>
                 </MDXProvider>
@@ -77,17 +80,17 @@ function Project({ data, location }) {
         </section>
       </SContainer>
     </BaseLayout>
-  )
+  );
 }
 
 Project.propTypes = {
   data: PropTypes.any.isRequired,
   location: PropTypes.any,
-}
+};
 
-Project.defaultProps = {}
+Project.defaultProps = {};
 
-export default Project
+export default Project;
 
 export const query = graphql`
   query ProjectQuery($id: String!, $fileAbsolutePath: String!) {
@@ -105,4 +108,4 @@ export const query = graphql`
       tableOfContents(maxDepth: 10)
     }
   }
-`
+`;

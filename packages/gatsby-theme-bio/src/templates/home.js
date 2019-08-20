@@ -1,27 +1,27 @@
-import React from "react"
-import PropTypes from "prop-types"
-import { graphql } from "gatsby"
+import React from "react";
+import PropTypes from "prop-types";
+import {graphql} from "gatsby";
 
-import { PageLayout } from "@sonapraneeth/base"
-import HomeWidget from "../widget/home"
+import {PageLayout} from "@sonapraneeth/gatsby-plugin-themed-components";
+import HomeWidget from "../widget/home";
 
 HomeLayout.propTypes = {
   location: PropTypes.any.isRequired,
   data: PropTypes.any.isRequired,
-}
+};
 
-HomeLayout.defaultProps = {}
+HomeLayout.defaultProps = {};
 
 /**
  * Home layout - Used in home page
  * @return {JSX} Rendered children for the HomeLayout
  */
-function HomeLayout({ location, data }) {
+function HomeLayout({location, data}) {
   return (
     <PageLayout title={""} description={""} location={location}>
       <HomeWidget author={data.authorInfo} details={data.mdx} />
     </PageLayout>
-  )
+  );
 }
 
 export const query = graphql`
@@ -59,6 +59,6 @@ export const query = graphql`
       body
     }
   }
-`
+`;
 
-export default HomeLayout
+export default HomeLayout;

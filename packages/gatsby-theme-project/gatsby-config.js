@@ -1,6 +1,6 @@
-const merge = require("deepmerge")
+const merge = require("deepmerge");
 
-module.exports = themeOptions => {
+module.exports = (themeOptions) => {
   // Default options to be used in theme
   const defaultOptions = {
     // Base url for rendering site
@@ -9,22 +9,22 @@ module.exports = themeOptions => {
     dataPath: "content/projects", // Default: "content/projects"
     // Configure MDX. true would defaults of the theme
     mdx: true, // Default: true
-  }
+  };
   // Options created using default and provided options
-  const options = merge(defaultOptions, themeOptions)
+  const options = merge(defaultOptions, themeOptions);
 
   return {
     // Default siteMetadata
     siteMetadata: {
-      appName: "@sonapraneeth/project package",
-      title: "@sonapraneeth/project package",
+      appName: "@sonapraneeth/gatsby-theme-project package",
+      title: "@sonapraneeth/gatsby-theme-project package",
       author: "John Doe",
       // TODO: Need to change this URL
       siteUrl: "/",
       baseUrl: "/",
       description:
         "This site is a demonstration for using theme " +
-        "@sonapraneeth/project",
+        "@sonapraneeth/gatsby-theme-project",
       social: {
         facebook: "john-doe",
         twitter: "john-doe",
@@ -34,7 +34,7 @@ module.exports = themeOptions => {
       },
     },
     plugins: [
-      "@sonapraneeth/base",
+      "@sonapraneeth/gatsby-plugin-themed-components",
       options.mdx && {
         resolve: "gatsby-plugin-mdx",
         options: {
@@ -83,9 +83,9 @@ module.exports = themeOptions => {
                 className: "id-link",
               },
             },
-            { resolve: "gatsby-remark-copy-linked-files" },
-            { resolve: "gatsby-remark-numbered-footnotes" },
-            { resolve: "gatsby-remark-smartypants" },
+            {resolve: "gatsby-remark-copy-linked-files"},
+            {resolve: "gatsby-remark-numbered-footnotes"},
+            {resolve: "gatsby-remark-smartypants"},
           ],
           remarkPlugins: [require("remark-slug")],
         },
@@ -101,5 +101,5 @@ module.exports = themeOptions => {
       "gatsby-plugin-sharp",
       "gatsby-transformer-sharp",
     ].filter(Boolean),
-  }
-}
+  };
+};

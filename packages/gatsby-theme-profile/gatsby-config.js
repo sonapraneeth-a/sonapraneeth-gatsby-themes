@@ -1,6 +1,6 @@
-const merge = require("deepmerge")
+const merge = require("deepmerge");
 
-module.exports = themeOptions => {
+module.exports = (themeOptions) => {
   // Default options to be used in theme
   const defaultOptions = {
     // URLs
@@ -18,20 +18,20 @@ module.exports = themeOptions => {
     },
     // Configure MDX. true would defaults of the theme
     mdx: true, // Default: true
-  }
+  };
   // Options created using default and provided options
-  const options = merge(defaultOptions, themeOptions)
+  const options = merge(defaultOptions, themeOptions);
   return {
     siteMetadata: {
-      appName: "@sonapraneeth/profile package",
-      title: "@sonapraneeth/profile package",
+      appName: "@sonapraneeth/gatsby-theme-profile package",
+      title: "@sonapraneeth/gatsby-theme-profile package",
       author: "John Doe",
       // TODO: Need to change this URL
       siteUrl: "/",
       baseUrl: "/",
       description:
         "This site is a demonstration for using theme " +
-        "@sonapraneeth/profile",
+        "@sonapraneeth/gatsby-theme-profile",
       social: {
         twitter: "john-doe",
       },
@@ -85,15 +85,15 @@ module.exports = themeOptions => {
                 className: "id-link",
               },
             },
-            { resolve: "gatsby-remark-copy-linked-files" },
-            { resolve: "gatsby-remark-numbered-footnotes" },
-            { resolve: "gatsby-remark-smartypants" },
+            {resolve: "gatsby-remark-copy-linked-files"},
+            {resolve: "gatsby-remark-numbered-footnotes"},
+            {resolve: "gatsby-remark-smartypants"},
           ],
           remarkPlugins: [require("remark-slug")],
         },
       },
       {
-        resolve: "@sonapraneeth/bio",
+        resolve: "@sonapraneeth/gatsby-theme-bio",
         options: {
           baseUrl: options.baseUrl,
           dataPath: options.dataPath,
@@ -103,7 +103,7 @@ module.exports = themeOptions => {
         },
       },
       {
-        resolve: "@sonapraneeth/project",
+        resolve: "@sonapraneeth/gatsby-theme-project",
         options: {
           baseUrl: options.projectsUrl,
           contentPath: options.projectPath,
@@ -111,7 +111,7 @@ module.exports = themeOptions => {
         },
       },
       {
-        resolve: "@sonapraneeth/blog",
+        resolve: "@sonapraneeth/gatsby-theme-blog",
         options: {
           baseUrl: options.blogsUrl,
           contentPath: options.blogPath,
@@ -119,5 +119,5 @@ module.exports = themeOptions => {
         },
       },
     ].filter(Boolean),
-  }
-}
+  };
+};

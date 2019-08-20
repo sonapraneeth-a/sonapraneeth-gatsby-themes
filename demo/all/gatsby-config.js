@@ -15,7 +15,8 @@ module.exports = {
     baseUrl: "/",
     description:
       "This site is a demonstration for using themes " +
-      "@sonapraneeth/bio, @sonapraneeth/projects, @sonapraneeth/blog",
+      "@sonapraneeth/gatsby-theme-bio, @sonapraneeth/gatsby-theme-projects, " +
+      "@sonapraneeth/gatsby-theme-blog",
     social: {
       twitter: "john-doe",
     },
@@ -76,7 +77,7 @@ module.exports = {
       },
     },
     {
-      resolve: "@sonapraneeth/bio",
+      resolve: "@sonapraneeth/gatsby-theme-bio",
       options: {
         baseUrl: baseUrl,
         dataPath: "content/data",
@@ -86,7 +87,7 @@ module.exports = {
       },
     },
     {
-      resolve: "@sonapraneeth/project",
+      resolve: "@sonapraneeth/gatsby-theme-project",
       options: {
         baseUrl: projectsUrl,
         contentPath: "content/projects",
@@ -94,7 +95,7 @@ module.exports = {
       },
     },
     {
-      resolve: "@sonapraneeth/blog",
+      resolve: "@sonapraneeth/gatsby-theme-blog",
       options: {
         baseUrl: blogsUrl,
         contentPath: "content/blog",

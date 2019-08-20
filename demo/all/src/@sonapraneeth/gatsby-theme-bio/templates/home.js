@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-import {PageLayout} from "@sonapraneeth/base";
+import {PageLayout} from "@sonapraneeth/gatsby-plugin-themed-components";
 
 import AboutBanner from "../../../components/about";
 import ProjectsBanner from "../../../components/projects";

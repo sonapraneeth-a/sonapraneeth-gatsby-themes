@@ -7,17 +7,18 @@ serviceWorkerUrl = serviceWorkerUrl.replace(/\/\/?$/, "/");*/
 module.exports = {
   pathPrefix: pathPrefix,
   siteMetadata: {
-    appName: "Demo of @sonapraneeth/blog",
-    title: "Demo of @sonapraneeth/blog",
+    appName: "Demo of @sonapraneeth/gatsby-theme-blog",
+    title: "Demo of @sonapraneeth/gatsby-theme-blog",
     author: "John Doe",
     siteUrl: "https://demo-sonapraneeth-themes-blog.netlify.com/",
     baseUrl: "/",
     description:
-      "This site is a demonstration for using theme @sonapraneeth/blog",
+      "This site is a demonstration for using theme " +
+      "@sonapraneeth/gatsby-theme-blog",
   },
   plugins: [
     {
-      resolve: "@sonapraneeth/blog",
+      resolve: "@sonapraneeth/gatsby-theme-blog",
       options: {
         baseUrl: baseUrl,
         contentPath: "content",

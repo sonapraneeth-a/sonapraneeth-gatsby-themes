@@ -1,11 +1,11 @@
-import React from "react"
-import PropTypes from "prop-types"
+import React from "react";
+import PropTypes from "prop-types";
 
-import { Grid, GridItem } from "@sonapraneeth/base"
+import {Grid, GridItem} from "@sonapraneeth/gatsby-plugin-themed-components";
 
-import FigureBio from "../components/bio/figure"
-import SocialBio from "../components/bio/social"
-import DescriptionBio from "../components/bio/description"
+import FigureBio from "../components/bio/figure";
+import SocialBio from "../components/bio/social";
+import DescriptionBio from "../components/bio/description";
 
 /**
  *
@@ -13,7 +13,7 @@ import DescriptionBio from "../components/bio/description"
  * @param {*} details - Main author Bio
  * @return {JSX}
  */
-function HomeWidget({ author, details }) {
+function HomeWidget({author, details}) {
   return (
     <>
       <Grid noCols={2} nSizes={[1, 2]}>
@@ -37,19 +37,19 @@ function HomeWidget({ author, details }) {
             />
           }
         </GridItem>
-        <GridItem id="descriptionBio" css={{ padding: "0 1rem 1rem 1rem" }}>
+        <GridItem id="descriptionBio" css={{padding: "0 1rem 1rem 1rem"}}>
           <DescriptionBio description={details.body} />
         </GridItem>
       </Grid>
     </>
-  )
+  );
 }
 
 HomeWidget.propTypes = {
   author: PropTypes.any.isRequired,
   details: PropTypes.any.isRequired,
-}
+};
 
-HomeWidget.defaultProps = {}
+HomeWidget.defaultProps = {};
 
-export default HomeWidget
+export default HomeWidget;

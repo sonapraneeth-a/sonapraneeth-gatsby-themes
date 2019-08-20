@@ -1,6 +1,7 @@
 import {graphql} from "gatsby";
 
-import {useSiteMetadata} from "@sonapraneeth/base/src/hooks/useSiteMetadata";
+// eslint-disable-next-line max-len
+import {useSiteMetadata} from "@sonapraneeth/gatsby-plugin-themed-components/src/hooks/useSiteMetadata";
 
 // Hook for retrieving site meta data
 export const useHomeAsync = async () => {

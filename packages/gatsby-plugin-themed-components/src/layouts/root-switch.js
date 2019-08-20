@@ -1,13 +1,13 @@
-import React from "react"
-import PropTypes from "prop-types"
-import Switch from "../components/switch"
-import { Global } from "@emotion/core"
-import { useColorMode, css } from "theme-ui"
+import React from "react";
+import PropTypes from "prop-types";
+import Switch from "../components/switch";
+import {Global} from "@emotion/core";
+import {useColorMode, css} from "theme-ui";
 
-import sun from "../assets/sun-18.png"
-import moon from "../assets/moon-18.png"
+import sun from "../assets/sun-18.png";
+import moon from "../assets/moon-18.png";
 
-import { layout } from "../../config/default"
+import {layout} from "../../config/default";
 
 const checkedIcon = (
   <img
@@ -21,7 +21,7 @@ const checkedIcon = (
       margin: "4.5px 4.5px 4.5px 6.5px",
     }}
   />
-)
+);
 
 const uncheckedIcon = (
   <img
@@ -35,28 +35,31 @@ const uncheckedIcon = (
       margin: "5px 5px 5px 5.5px",
     }}
   />
-)
+);
 
 /**
  * @param {*} children
  * @return {JSX}
  */
-function RootSwitch({ children }) {
+function RootSwitch({children}) {
   if (typeof window !== "undefined") {
     // If environment is development, attach debug package
     if (process.env.NODE_ENV === "development") {
       // To enable debugging information in browser
-      localStorage.setItem("debug", "@sonapraneeth/base:*")
+      localStorage.setItem(
+        "debug",
+        "@sonapraneeth/gatsby-plugin-themed-components:*"
+      );
     }
   }
-  layout("Root from base")
-  const [colorMode, setColorMode] = useColorMode()
-  const isDarkTheme = colorMode === "dark"
-  const toggleTheme = e => {
-    const updatedTheme = isDarkTheme ? "light" : "dark"
-    setColorMode(updatedTheme)
-  }
-  const switchColor = "rgb(188, 188, 188)"
+  layout("Root from base");
+  const [colorMode, setColorMode] = useColorMode();
+  const isDarkTheme = colorMode === "dark";
+  const toggleTheme = (e) => {
+    const updatedTheme = isDarkTheme ? "light" : "dark";
+    setColorMode(updatedTheme);
+  };
+  const switchColor = "rgb(188, 188, 188)";
   return (
     <div
       style={{
@@ -71,13 +74,13 @@ function RootSwitch({ children }) {
             boxSizing: "border-box",
             lineHeight: "body",
           },
-          body: {
+          "body": {
             margin: 0,
             fontFamily: "body",
             boxSizing: "border-box",
             lineHeight: "body",
           },
-          html: {
+          "html": {
             fontSize: "18px",
           },
         })}
@@ -112,13 +115,13 @@ function RootSwitch({ children }) {
       </div>
       {children}
     </div>
-  )
+  );
 }
 
-export default RootSwitch
+export default RootSwitch;
 
 RootSwitch.propTypes = {
   children: PropTypes.any.isRequired,
-}
+};
 
-RootSwitch.defaultProps = {}
+RootSwitch.defaultProps = {};

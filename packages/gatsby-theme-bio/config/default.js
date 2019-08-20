@@ -1,7 +1,7 @@
 /* eslint-disable new-cap */
 import Debug from "debug";
 
-const debugTheme = Debug("@sonapraneeth/bio");
+const debugTheme = Debug("@sonapraneeth/gatsby-theme-bio");
 
 export const layout = debugTheme.extend("layout");
 export const component = debugTheme.extend("component");

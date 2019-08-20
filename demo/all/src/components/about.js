@@ -1,10 +1,13 @@
 /** @jsx jsx */
-import {jsx} from "@sonapraneeth/base";
+import {jsx} from "@sonapraneeth/gatsby-plugin-themed-components";
 // eslint-disable-next-line no-unused-vars
 import React from "react";
 
-import {Styled, SContainer} from "@sonapraneeth/base";
-import {HomeWidget, useHome} from "@sonapraneeth/bio";
+import {
+  Styled,
+  SContainer,
+} from "@sonapraneeth/gatsby-plugin-themed-components";
+import {HomeWidget, useHome} from "@sonapraneeth/gatsby-theme-bio";
 
 AboutBanner.propTypes = {};
 

@@ -1,13 +1,13 @@
-import React from "react"
-import PropTypes from "prop-types"
-import { Chip } from "@sonapraneeth/base"
+import React from "react";
+import PropTypes from "prop-types";
+import {Chip} from "@sonapraneeth/gatsby-plugin-themed-components";
 
 /**
  *
  * @param {*} tags
  * @return {JSX}
  */
-function TagList({ tags }) {
+function TagList({tags}) {
   return (
     <>
       {tags.map((tag, index) => {
@@ -18,18 +18,18 @@ function TagList({ tags }) {
               {tag}
             </Chip>
           )
-        )
+        );
       })}
     </>
-  )
+  );
 }
 
 TagList.propTypes = {
   tags: PropTypes.arrayOf(PropTypes.string).isRequired,
-}
+};
 
 TagList.defaultProps = {
   tags: [""],
-}
+};
 
-export default TagList
+export default TagList;

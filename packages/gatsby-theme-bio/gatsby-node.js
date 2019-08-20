@@ -1,5 +1,5 @@
-const crypto = require("crypto")
-const merge = require("deepmerge")
+const crypto = require("crypto");
+const merge = require("deepmerge");
 
 // Default options to be used in theme
 const defaultOptions = {
@@ -13,11 +13,11 @@ const defaultOptions = {
   homePath: "content/home", // Default: "content/home"
   // Configure MDX. true would defaults of the theme
   mdx: true, // Default: true
-}
+};
 
-let options
+let options;
 
-exports.createSchemaCustomization = ({ actions }) => {
+exports.createSchemaCustomization = ({actions}) => {
   actions.createTypes(`
     type BioOptions implements Options & Node {
       id: ID!
@@ -44,15 +44,15 @@ exports.createSchemaCustomization = ({ actions }) => {
       cover: File! @fileByRelativePath
       username: Username!
     }
-  `)
-}
+  `);
+};
 
-exports.sourceNodes = ({ actions }, themeOptions) => {
-  options = merge(defaultOptions, themeOptions)
-  const { createNode } = actions
+exports.sourceNodes = ({actions}, themeOptions) => {
+  options = merge(defaultOptions, themeOptions);
+  const {createNode} = actions;
   createNode({
     options,
-    id: "@sonapraneeth/bio",
+    id: "@sonapraneeth/gatsby-theme-bio",
     parent: null,
     children: [],
     internal: {
@@ -64,13 +64,13 @@ exports.sourceNodes = ({ actions }, themeOptions) => {
       content: JSON.stringify(options),
       description: "Bio Options",
     },
-  })
-}
+  });
+};
 
-exports.onCreateNode = ({ node, actions, getNode, createNodeId }) => {
-  const { createNode } = actions
+exports.onCreateNode = ({node, actions, getNode, createNodeId}) => {
+  const {createNode} = actions;
   if (node.internal.type !== "AuthorYaml") {
-    return
+    return;
   }
   if (node.internal.type === "AuthorYaml" /* && source === dataPath*/) {
     const author = {
@@ -84,7 +84,7 @@ exports.onCreateNode = ({ node, actions, getNode, createNodeId }) => {
         github: node.username.github || "",
         email: node.username.email || "",
       },
-    }
+    };
     createNode({
       ...author,
       // Required fields.
@@ -100,24 +100,24 @@ exports.onCreateNode = ({ node, actions, getNode, createNodeId }) => {
         content: JSON.stringify(author),
         description: "Author Info",
       },
-    })
+    });
   }
-}
+};
 
-exports.createPages = async ({ actions, graphql, reporter }) => {
+exports.createPages = async ({actions, graphql, reporter}) => {
   const query = `
   query MainAuthor {
     authorInfo(name: {eq: "John Doe"}) {
       id
     }
-  }`
-  const result = await graphql(query)
-  reporter.info(`Creating page at ${options.baseUrl}`)
+  }`;
+  const result = await graphql(query);
+  reporter.info(`Creating page at ${options.baseUrl}`);
   actions.createPage({
     path: options.baseUrl,
     component: require.resolve("./src/templates/home.js"),
     context: {
       id: result.data.authorInfo.id,
     },
-  })
-}
+  });
+};

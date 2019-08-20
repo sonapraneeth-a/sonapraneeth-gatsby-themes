@@ -1,6 +1,6 @@
 # TODO
 
-- @sonapraneeth/project
+- @sonapraneeth/gatsby-theme-project
 
   - [ ] Add image support
   - [ ] Add code block support
@@ -9,7 +9,7 @@
     - [ ] line highlighting
     - [ ] chip for file type
 
-- @sonapraneeth/blog
+- @sonapraneeth/gatsby-theme-blog
   - [ ] Add image support
   - [ ] Add code block support
     - [ ] code title

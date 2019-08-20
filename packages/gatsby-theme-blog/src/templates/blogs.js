@@ -1,9 +1,16 @@
-import React from "react"
-import PropTypes from "prop-types"
+import React from "react";
+import PropTypes from "prop-types";
 
-import { PageLayout, Styled } from "@sonapraneeth/base"
-import DetailedBlogCard from "../components/card/detailed"
-import { Grid, GridItem, SContainer } from "@sonapraneeth/base"
+import {
+  PageLayout,
+  Styled,
+} from "@sonapraneeth/gatsby-plugin-themed-components";
+import DetailedBlogCard from "../components/card/detailed";
+import {
+  Grid,
+  GridItem,
+  SContainer,
+} from "@sonapraneeth/gatsby-plugin-themed-components";
 
 /**
  *
@@ -11,7 +18,7 @@ import { Grid, GridItem, SContainer } from "@sonapraneeth/base"
  * @param {*} location
  * @return {JSX}
  */
-function Blogs({ pageContext: { blogs } }, location) {
+function Blogs({pageContext: {blogs}}, location) {
   return (
     <PageLayout location={location} title={""}>
       <SContainer>
@@ -25,14 +32,14 @@ function Blogs({ pageContext: { blogs } }, location) {
         </Grid>
       </SContainer>
     </PageLayout>
-  )
+  );
 }
 
 Blogs.propTypes = {
   pageContext: PropTypes.any.isRequired,
   location: PropTypes.any.isRequired,
-}
+};
 
-Blogs.defaultProps = {}
+Blogs.defaultProps = {};
 
-export default Blogs
+export default Blogs;

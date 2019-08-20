@@ -3,7 +3,7 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
-# [0.2.0](https://github.com/sonapraneeth-a/gatsby-dev-themes/compare/@sonapraneeth/project@0.1.0...@sonapraneeth/project@0.2.0) (2019-08-20)
+# [0.2.0](https://github.com/sonapraneeth-a/gatsby-dev-themes/compare/@sonapraneeth/gatsby-theme-project@0.1.0...@sonapraneeth/gatsby-theme-project@0.2.0) (2019-08-20)
 
 ### Bug Fixes
 

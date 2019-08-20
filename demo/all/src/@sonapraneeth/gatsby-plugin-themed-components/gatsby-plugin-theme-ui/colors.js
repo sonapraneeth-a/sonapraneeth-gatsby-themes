@@ -1,7 +1,7 @@
-import merge from "deepmerge"
+import merge from "deepmerge";
 // eslint-disable-next-line max-len
-import defaultThemeColors from "@sonapraneeth/base/src/gatsby-plugin-theme-ui/colors"
-import { colors } from "@sonapraneeth/base"
+import defaultThemeColors from "@sonapraneeth/gatsby-plugin-themed-components/src/gatsby-plugin-theme-ui/colors";
+import {colors} from "@sonapraneeth/gatsby-plugin-themed-components";
 
 export default merge(defaultThemeColors, {
   banner: {
@@ -16,4 +16,4 @@ export default merge(defaultThemeColors, {
       },
     },
   },
-})
+});

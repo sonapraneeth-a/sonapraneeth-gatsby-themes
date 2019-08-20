@@ -1,6 +1,12 @@
 import React from "react";
-import {RootBulb} from "@sonapraneeth/base";
-import {SHeader, SContainer, SMain, SFooter, Styled} from "@sonapraneeth/base";
+import {RootBulb} from "@sonapraneeth/gatsby-plugin-themed-components";
+import {
+  SHeader,
+  SContainer,
+  SMain,
+  SFooter,
+  Styled,
+} from "@sonapraneeth/gatsby-plugin-themed-components";
 
 export default () => {
   return (
