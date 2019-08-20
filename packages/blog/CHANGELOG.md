@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.2.0](https://github.com/sonapraneeth-a/gatsby-dev-themes/compare/@sonapraneeth/blog@0.1.0...@sonapraneeth/blog@0.2.0) (2019-08-20)
+
+### Bug Fixes
+
+- Fixed an issue when option for mdx is false ([90d5000](https://github.com/sonapraneeth-a/gatsby-dev-themes/commit/90d5000))
+
+### Features
+
+- added default mdx configuration for packages ([4e19cf5](https://github.com/sonapraneeth-a/gatsby-dev-themes/commit/4e19cf5))
+
 # 0.1.0 (2019-08-19)
 
 ### Bug Fixes

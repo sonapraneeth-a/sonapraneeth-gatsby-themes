@@ -1,6 +1,6 @@
 {
   "name": "demo-project",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "main": "index.js",
   "private": true,
   "author": "Sona Praneeth Akula <sonapraneeth.akula@gmail.com>",
@@ -31,7 +31,7 @@
     "prettier": "prettier --write src/**/*.js"
   },
   "dependencies": {
-    "@sonapraneeth/project": "^0.1.0",
+    "@sonapraneeth/project": "^0.2.0",
     "gatsby": "^2.13.63",
     "react": "^16.9.0",
     "react-dom": "^16.9.0"
