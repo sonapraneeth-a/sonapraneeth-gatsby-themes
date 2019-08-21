@@ -1,21 +1,5 @@
 const crypto = require("crypto");
-const merge = require("deepmerge");
-
-// Default options to be used in theme
-const defaultOptions = {
-  // Base url for rendering site
-  baseUrl: "/", // Default: "/"
-  // empty as this value must be provided by theme user
-  author: "", // Default: ""
-  // Data directory
-  dataPath: "content/data", // Default: "content/data"
-  // Directory path for images
-  assetsPath: "content/assets", // Default: "content/assets"
-  // Directory path for MDX home page content
-  homePath: "content/home", // Default: "content/home"
-  // Configure MDX. true would defaults of the theme
-  mdx: true, // Default: true
-};
+const withDefaults = require("./utils/default-options");
 
 let options;
 
@@ -50,7 +34,7 @@ exports.createSchemaCustomization = ({actions}) => {
 };
 
 exports.sourceNodes = ({actions}, themeOptions) => {
-  options = merge(defaultOptions, themeOptions);
+  options = withDefaults(themeOptions);
   const {createNode} = actions;
   createNode({
     options,
@@ -73,7 +57,7 @@ exports.onCreateNode = (
   {node, actions, getNode, createNodeId, reporter},
   themeOptions
 ) => {
-  options = merge(defaultOptions, themeOptions);
+  options = withDefaults(themeOptions);
   if (options.author === null || options.author === "") {
     reporter.panic(
       "Author option is empty. Please provide a valid author " +
@@ -120,7 +104,7 @@ exports.onCreateNode = (
 };
 
 exports.createPages = async ({actions, graphql, reporter}, themeOptions) => {
-  options = merge(defaultOptions, themeOptions);
+  options = withDefaults(themeOptions);
   const query = `
   query MainAuthor {
     authorInfo(name: {eq: "${options.author}"}) {
