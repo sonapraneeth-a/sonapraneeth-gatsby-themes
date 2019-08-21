@@ -26,6 +26,7 @@ module.exports = {
         dataPath: "content/data",
         assetsPath: "content/assets",
         homePath: "content/home",
+        author: "John Doe",
       },
     },
   ],

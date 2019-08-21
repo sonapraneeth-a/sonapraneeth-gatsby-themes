@@ -5,6 +5,8 @@ const merge = require("deepmerge");
 const defaultOptions = {
   // Base url for rendering site
   baseUrl: "/", // Default: "/"
+  // empty as this value must be provided by theme user
+  author: "", // Default: ""
   // Data directory
   dataPath: "content/data", // Default: "content/data"
   // Directory path for images
@@ -67,12 +69,25 @@ exports.sourceNodes = ({actions}, themeOptions) => {
   });
 };
 
-exports.onCreateNode = ({node, actions, getNode, createNodeId}) => {
+exports.onCreateNode = (
+  {node, actions, getNode, createNodeId, reporter},
+  themeOptions
+) => {
+  options = merge(defaultOptions, themeOptions);
+  if (options.author === null || options.author === "") {
+    reporter.panic(
+      "Author option is empty. Please provide a valid author " +
+        "name in package options"
+    );
+  }
   const {createNode} = actions;
   if (node.internal.type !== "AuthorYaml") {
     return;
   }
-  if (node.internal.type === "AuthorYaml" /* && source === dataPath*/) {
+  // Create source field (according to contentPath)
+  const fileNode = getNode(node.parent);
+  const source = fileNode.sourceInstanceName;
+  if (node.internal.type === "AuthorYaml" && source === "author") {
     const author = {
       name: node.name || "",
       description: node.description || "",
@@ -104,14 +119,22 @@ exports.onCreateNode = ({node, actions, getNode, createNodeId}) => {
   }
 };
 
-exports.createPages = async ({actions, graphql, reporter}) => {
+exports.createPages = async ({actions, graphql, reporter}, themeOptions) => {
+  options = merge(defaultOptions, themeOptions);
   const query = `
   query MainAuthor {
-    authorInfo(name: {eq: "John Doe"}) {
+    authorInfo(name: {eq: "${options.author}"}) {
       id
     }
   }`;
   const result = await graphql(query);
+  if (result.data !== null && result.data.authorInfo === null) {
+    reporter.panic(
+      `Unable to retrieve data for author (${options.author}). ` +
+        "Please provide name which has been used in " +
+        `data files (Path: ${options.dataPath})`
+    );
+  }
   reporter.info(`Creating page at ${options.baseUrl}`);
   actions.createPage({
     path: options.baseUrl,

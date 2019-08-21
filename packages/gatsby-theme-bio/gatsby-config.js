@@ -5,6 +5,9 @@ module.exports = (themeOptions) => {
   const defaultOptions = {
     // Base url for rendering site
     baseUrl: "/", // Default: "/"
+    // Name of the author. Default value is intentionally
+    // empty as this value must be provided by theme user
+    author: "", // Default: ""
     // Data directory
     dataPath: "content/data", // Default: "content/data"
     // Directory path for images
