@@ -1,8 +1,12 @@
 /* eslint-disable new-cap */
-import Debug from "debug";
+const Debug = require("debug");
+const DebugTheme = Debug("@sonapraneeth/gatsby-theme-bio");
 
-const debugTheme = Debug("@sonapraneeth/gatsby-theme-bio");
-
-export const layout = debugTheme.extend("layout");
-export const component = debugTheme.extend("component");
-export const hooks = debugTheme.extend("hooks");
+module.exports = {
+  debug: DebugTheme,
+  debugNode: DebugTheme.extend("node"),
+  layout: DebugTheme.extend("layout"),
+  component: DebugTheme.extend("component"),
+  widget: DebugTheme.extend("widget"),
+  hooks: DebugTheme.extend("hooks"),
+};
