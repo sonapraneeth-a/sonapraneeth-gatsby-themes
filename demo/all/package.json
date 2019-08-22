@@ -36,6 +36,7 @@
     "@sonapraneeth/gatsby-theme-bio": "^0.2.1",
     "@sonapraneeth/gatsby-theme-blog": "^0.2.1",
     "@sonapraneeth/gatsby-theme-project": "^0.2.1",
+    "deepmerge": "^4.0.0",
     "gatsby": "^2.13.63",
     "gatsby-plugin-mdx": "^1.0.24",
     "gatsby-remark-autolink-headers": "^2.1.3",
