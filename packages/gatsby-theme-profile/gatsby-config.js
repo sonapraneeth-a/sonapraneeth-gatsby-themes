@@ -1,27 +1,9 @@
-const merge = require("deepmerge");
+const withDefaults = require("./utils/default-options");
 
 module.exports = (themeOptions) => {
-  // Default options to be used in theme
-  const defaultOptions = {
-    author: "John Doe",
-    // URLs
-    baseUrl: {
-      home: "/",
-      projects: "/projects",
-      blog: "/blog",
-    },
-    paths: {
-      data: "content/data",
-      assets: "content/assets",
-      home: "content/home",
-      projects: "content/projects",
-      blog: "content/blog",
-    },
-    // Configure MDX. true would defaults of the theme
-    mdx: true, // Default: true
-  };
   // Options created using default and provided options
-  const options = merge(defaultOptions, themeOptions);
+  const options = withDefaults(themeOptions);
+  const {mdx = true} = themeOptions;
   return {
     siteMetadata: {
       appName: "@sonapraneeth/gatsby-theme-profile package",
@@ -38,7 +20,7 @@ module.exports = (themeOptions) => {
       },
     },
     plugins: [
-      options.mdx && {
+      mdx && {
         resolve: "gatsby-plugin-mdx",
         options: {
           extensions: [".mdx", ".md"],
