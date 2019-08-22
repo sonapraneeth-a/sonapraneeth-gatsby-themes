@@ -6,6 +6,7 @@ import {Grid, GridItem} from "@sonapraneeth/gatsby-plugin-themed-components";
 import FigureBio from "../components/bio/figure";
 import SocialBio from "../components/bio/social";
 import DescriptionBio from "../components/bio/description";
+import {widget} from "../../utils/debug";
 
 /**
  *
@@ -14,6 +15,18 @@ import DescriptionBio from "../components/bio/description";
  * @return {JSX}
  */
 function HomeWidget({author, details}) {
+  if (typeof window !== "undefined") {
+    // If environment is development, attach debug package
+    if (process.env.NODE_ENV === "development") {
+      // To enable debugging information in browser
+      localStorage.setItem(
+        "debug",
+        "@sonapraneeth/gatsby-plugin-themed-components:*," +
+          "@sonapraneeth/gatsby-theme-bio:*"
+      );
+    }
+  }
+  widget("Home Widget");
   return (
     <>
       <Grid noCols={2} nSizes={[1, 2]}>

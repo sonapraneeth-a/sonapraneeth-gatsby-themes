@@ -1,5 +1,6 @@
 const crypto = require("crypto");
 const withDefaults = require("./utils/default-options");
+const debug = require("./utils/debug").debugNode;
 
 let options;
 
@@ -35,6 +36,7 @@ exports.createSchemaCustomization = ({actions}) => {
 
 exports.sourceNodes = ({actions}, themeOptions) => {
   options = withDefaults(themeOptions);
+  debug("Schema customization");
   const {createNode} = actions;
   createNode({
     options,
