@@ -1,8 +1,30 @@
+const path = require("path");
+const fs = require("fs");
 const crypto = require("crypto");
 const withDefaults = require("./utils/default-options");
 const debug = require("./utils/debug").debugNode;
 
 let options;
+
+// 1. Make sure the necessary directories exist
+exports.onPreBootstrap = ({store, reporter}, themeOptions) => {
+  const {program} = store.getState();
+  // Options created using default and provided options
+  options = withDefaults(themeOptions);
+  reporter.info(`Options: ${JSON.stringify(options, null, 2)}`);
+  const directories = [
+    path.join(program.directory, options.dataPath),
+    path.join(program.directory, options.homePath),
+    path.join(program.directory, options.assetsPath),
+  ];
+  directories.map((directoryPath) => {
+    reporter.info(`Looking for ${directoryPath} directory`);
+    if (!fs.existsSync(directoryPath)) {
+      reporter.info(`Creating the ${directoryPath} directory`);
+      fs.mkdirSync(directoryPath, {recursive: true});
+    }
+  });
+};
 
 exports.createSchemaCustomization = ({actions}) => {
   actions.createTypes(`
