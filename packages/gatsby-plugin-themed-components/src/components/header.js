@@ -1,20 +1,19 @@
 // eslint-disable-next-line no-unused-vars
-import React from "react"
-import { Link } from "gatsby"
-import { Styled } from "theme-ui"
+import React from "react";
+import {Link} from "gatsby";
+import {Styled} from "theme-ui";
 /** @jsx jsx */
-import { jsx } from "theme-ui"
+import {jsx} from "theme-ui";
 
-import { SContainer, SHeader } from "../components/theme-ui/index"
-import { useSiteMetadata } from "../hooks/useSiteMetadata"
+import {SContainer, SHeader} from "../components/theme-ui/index";
+import {useSiteMetadata} from "../hooks/useSiteMetadata";
 
 /**
  * Base layout for all other layouts
  * @return {JSX} Rendered children for the page
  */
 function Header() {
-  const siteMeta = useSiteMetadata()
-  console.log(siteMeta.baseUrl)
+  const siteMeta = useSiteMetadata();
   return (
     <SHeader>
       <SContainer>
@@ -32,11 +31,11 @@ function Header() {
         </Styled.h1>
       </SContainer>
     </SHeader>
-  )
+  );
 }
 
-Header.propTypes = {}
+Header.propTypes = {};
 
-Header.defaultProps = {}
+Header.defaultProps = {};
 
-export default Header
+export default Header;
