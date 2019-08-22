@@ -21,6 +21,7 @@ exports.onPreBootstrap = ({store, reporter}, themeOptions) => {
     reporter.info(`Looking for ${directoryPath} directory`);
     if (!fs.existsSync(directoryPath)) {
       reporter.info(`Creating the ${directoryPath} directory`);
+      // Reference: https://stackoverflow.com/questions/31645738/how-to-create-full-path-with-nodes-fs-mkdirsync
       fs.mkdirSync(directoryPath, {recursive: true});
     }
   });

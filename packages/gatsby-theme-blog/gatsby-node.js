@@ -1,21 +1,30 @@
+const path = require("path");
+const fs = require("fs");
 const {createFilePath} = require("gatsby-source-filesystem");
 const crypto = require("crypto");
-const merge = require("deepmerge");
+const withDefaults = require("./utils/default-options");
+const debug = require("./utils/debug").debugNode;
 const slugify = require("slug");
 slugify.charmap["+"] = "p";
-const debug = require("debug")("@sonapraneeth/gatsby-theme-blog:node");
-
-// Default options to be used in theme
-const defaultOptions = {
-  // Base url for rendering site
-  baseUrl: "/", // Default: "/"
-  // Data directory
-  contentPath: "content/blog", // Default: "content/blog"
-  // Configure MDX. true would defaults of the theme
-  mdx: true, // Default: true
-};
 
 let options;
+
+// 1. Make sure the necessary directories exist
+exports.onPreBootstrap = ({store, reporter}, themeOptions) => {
+  const {program} = store.getState();
+  // Options created using default and provided options
+  options = withDefaults(themeOptions);
+  reporter.info(`Options: ${JSON.stringify(options, null, 2)}`);
+  const directories = [path.join(program.directory, options.contentPath)];
+  directories.map((directoryPath) => {
+    reporter.info(`Looking for ${directoryPath} directory`);
+    if (!fs.existsSync(directoryPath)) {
+      reporter.info(`Creating the ${directoryPath} directory`);
+      // Reference: https://stackoverflow.com/questions/31645738/how-to-create-full-path-with-nodes-fs-mkdirsync
+      fs.mkdirSync(directoryPath, {recursive: true});
+    }
+  });
+};
 
 const mdxResolverPassthrough = (fieldName) => async (
   source,
@@ -96,7 +105,8 @@ exports.onCreateNode = (
   {node, actions, getNode, createNodeId},
   themeOptions
 ) => {
-  options = merge(defaultOptions, themeOptions);
+  // Options created using default and provided options
+  options = withDefaults(themeOptions);
   const {createNode, createParentChildLink} = actions;
   // Make sure it's an MDX node
   if (node.internal.type !== "Mdx") {
@@ -149,7 +159,8 @@ exports.onCreateNode = (
 };
 
 exports.createPages = async ({actions, graphql}, themeOptions) => {
-  options = merge(defaultOptions, themeOptions);
+  // Options created using default and provided options
+  options = withDefaults(themeOptions);
   debug(`Options: ${JSON.stringify(options, null, 2)}`);
   const queryProd = `
   query AllBlogsQuery {
