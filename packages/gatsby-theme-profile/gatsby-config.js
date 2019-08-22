@@ -3,6 +3,7 @@ const merge = require("deepmerge");
 module.exports = (themeOptions) => {
   // Default options to be used in theme
   const defaultOptions = {
+    author: "John Doe",
     // URLs
     baseUrl: {
       home: "/",
@@ -95,6 +96,7 @@ module.exports = (themeOptions) => {
       {
         resolve: "@sonapraneeth/gatsby-theme-bio",
         options: {
+          author: options.author,
           baseUrl: options.baseUrl,
           dataPath: options.dataPath,
           assetsPath: options.assetsPath,

@@ -80,6 +80,7 @@ module.exports = {
       resolve: "@sonapraneeth/gatsby-theme-bio",
       options: {
         baseUrl: baseUrl,
+        author: "John Doe",
         dataPath: "content/data",
         assetsPath: "content/assets",
         homePath: "content/home",

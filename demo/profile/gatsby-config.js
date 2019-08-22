@@ -24,6 +24,7 @@ module.exports = {
     {
       resolve: "@sonapraneeth/gatsby-theme-profile",
       options: {
+        author: "John Doe",
         baseUrl: {
           home: baseUrl,
           projects: projectsUrl,
