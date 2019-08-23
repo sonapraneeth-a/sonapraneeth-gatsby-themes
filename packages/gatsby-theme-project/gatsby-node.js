@@ -164,7 +164,7 @@ exports.onCreateNode = (
   }
 };
 
-exports.createPages = async ({actions, graphql}, themeOptions) => {
+exports.createPages = async ({actions, graphql, reporter}, themeOptions) => {
   // Options created using default and provided options
   options = withDefaults(themeOptions);
   debug(`Options: ${JSON.stringify(options, null, 2)}`);
@@ -192,17 +192,9 @@ exports.createPages = async ({actions, graphql}, themeOptions) => {
   }`;
   const result = await graphql(query);
   const projects = result.data.allProject.edges;
+  debug(result);
   debug(JSON.stringify(projects, null, 2));
-  projects.map((project) => {
-    actions.createPage({
-      path: project.node.slug,
-      component: require.resolve("./src/templates/project.js"),
-      context: {
-        id: project.node.id,
-        fileAbsolutePath: project.node.fileAbsolutePath,
-      },
-    });
-  });
+  debug(`Number of projects: ${projects.length}`);
   debug(`Creating base project page at ${options.baseUrl}`);
   actions.createPage({
     path: options.baseUrl,
@@ -211,4 +203,27 @@ exports.createPages = async ({actions, graphql}, themeOptions) => {
       projects,
     },
   });
+  if (projects.length == 0) {
+    const url =
+      "https://github.com/sonapraneeth-a/gatsby-dev-themes/tree/master/demo/project/content";
+    reporter.warn(`
+      There does not seem to be any mdx file present in
+      '${options.contentPath}' directory. Hence project
+      pages would not be created. Please add some mdx
+      files in '${options.contentPath}' directory. You may refer
+      to ${url} for `);
+  }
+  if (projects.length > 0) {
+    projects.map((project) => {
+      debug(`Creating project page for '${project.node.title}'`);
+      actions.createPage({
+        path: project.node.slug,
+        component: require.resolve("./src/templates/project.js"),
+        context: {
+          id: project.node.id,
+          fileAbsolutePath: project.node.fileAbsolutePath,
+        },
+      });
+    });
+  }
 };

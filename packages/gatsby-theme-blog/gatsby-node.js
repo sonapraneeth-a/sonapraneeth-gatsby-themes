@@ -158,7 +158,7 @@ exports.onCreateNode = (
   }
 };
 
-exports.createPages = async ({actions, graphql}, themeOptions) => {
+exports.createPages = async ({actions, graphql, reporter}, themeOptions) => {
   // Options created using default and provided options
   options = withDefaults(themeOptions);
   debug(`Options: ${JSON.stringify(options, null, 2)}`);
@@ -201,18 +201,7 @@ exports.createPages = async ({actions, graphql}, themeOptions) => {
     result = await graphql(queryProd);
   }
   const blogs = result.data.allBlog.edges;
-  debug(`Blogs in ${process.env.NODE_ENV} env`);
-  debug(JSON.stringify(blogs, null, 2));
-  blogs.map((blog) => {
-    actions.createPage({
-      path: blog.node.slug,
-      component: require.resolve("./src/templates/blog.js"),
-      context: {
-        id: blog.node.id,
-        fileAbsolutePath: blog.node.fileAbsolutePath,
-      },
-    });
-  });
+  debug(`Number of blogs: ${blogs.length}`);
   debug(`Creating base blog page at ${options.baseUrl}`);
   actions.createPage({
     path: options.baseUrl,
@@ -221,4 +210,26 @@ exports.createPages = async ({actions, graphql}, themeOptions) => {
       blogs,
     },
   });
+  if (blogs.length == 0) {
+    reporter.panic(`
+      There does not seem to be any mdx file present in
+      '${options.contentPath}' directory. Hence blog
+      pages would not be created. Please add some mdx
+      files in '${options.contentPath}' directory`);
+  }
+  debug(`Blogs in ${process.env.NODE_ENV} env`);
+  debug(JSON.stringify(blogs, null, 2));
+  if (blogs.length > 0) {
+    blogs.map((blog) => {
+      debug(`Creating blog page for '${blog.node.title}'`);
+      actions.createPage({
+        path: blog.node.slug,
+        component: require.resolve("./src/templates/blog.js"),
+        context: {
+          id: blog.node.id,
+          fileAbsolutePath: blog.node.fileAbsolutePath,
+        },
+      });
+    });
+  }
 };
