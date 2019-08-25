@@ -3,7 +3,7 @@ import {
   RootBulb,
   BaseLayout,
   PageLayout,
-} from "./src/layouts/index"
+} from "./src/layouts/index";
 import {
   SBox,
   SFlex,
@@ -12,7 +12,7 @@ import {
   SMain,
   SContainer,
   SFooter,
-} from "./src/components/theme-ui/index.js"
+} from "./src/components/theme-ui/index.js";
 import {
   Button,
   Card,
@@ -28,9 +28,9 @@ import {
   TableOfContents,
   MDXComponents,
   TagList,
-} from "./src/components/index"
-import { from, screens } from "./src/components/breakpoints"
-import { Styled, jsx } from "theme-ui"
+} from "./src/components/index";
+import {from, screens} from "./src/components/breakpoints";
+import {Styled, jsx, useThemeUI} from "theme-ui";
 import {
   FaInfoCircle,
   FaLinkedinIn,
@@ -47,8 +47,8 @@ import {
   FaFolderOpen,
   FaStar,
   FaClock,
-} from "react-icons/fa"
-import { colors } from "gatsby-design-tokens"
+} from "react-icons/fa";
+import {colors} from "gatsby-design-tokens";
 
 export {
   // Layouts
@@ -85,6 +85,7 @@ export {
   // ThemeUI styling
   Styled,
   jsx,
+  useThemeUI,
   // Icons
   FaInfoCircle,
   FaLinkedinIn,
@@ -103,4 +104,4 @@ export {
   FaClock,
   // Gatsby Design Tokens
   colors,
-}
+};
