@@ -12,7 +12,7 @@ exports.onPreBootstrap = ({store, reporter}, themeOptions) => {
   const {program} = store.getState();
   // Options created using default and provided options
   options = withDefaults(themeOptions);
-  reporter.info(`Options: ${JSON.stringify(options, null, 2)}`);
+  debug(`Options: ${JSON.stringify(options, null, 2)}`);
   const directories = [path.join(program.directory, options.contentPath)];
   directories.map((directoryPath) => {
     reporter.info(`Looking for ${directoryPath} directory`);
@@ -125,7 +125,7 @@ exports.onCreateNode = (
     const frontmatter = JSON.parse(JSON.stringify(node.frontmatter));
     const projectCover = "cover" in frontmatter ? frontmatter.cover : null;
     const projectTags = "tags" in frontmatter ? frontmatter.tags : [];
-    debug(`Project cover: ${projectCover}`);
+    console.log(`Project cover: ${projectCover}`);
     debug(`Project tags: ${projectTags}`);
     const projectData = {
       title: frontmatter.title || "",
@@ -186,6 +186,19 @@ exports.createPages = async ({actions, graphql, reporter}, themeOptions) => {
           show_toc
           featured
           fileAbsolutePath
+          cover {
+            childImageSharp {
+              fluid(maxWidth: 1280) {
+                base64
+                aspectRatio
+                src
+                srcSet
+                srcWebp
+                srcSetWebp
+                sizes
+              }
+            }
+          }
         }
       }
     }

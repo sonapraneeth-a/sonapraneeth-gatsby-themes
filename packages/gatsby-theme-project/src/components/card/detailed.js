@@ -1,11 +1,13 @@
 /** @jsx jsx */
-import {jsx} from "theme-ui";
+import {jsx} from "@sonapraneeth/gatsby-plugin-themed-components";
 // eslint-disable-next-line no-unused-vars
 import React from "react";
 import PropTypes from "prop-types";
 import {Link} from "gatsby";
 
 import {
+  useThemeUI,
+  GatsbyImage,
   Card,
   CardContent,
   CardFooter,
@@ -25,8 +27,21 @@ import {
  * @return {JSX}
  */
 function DetailedProjectCard({project, ...props}) {
+  console.log(project.cover);
+  const context = useThemeUI();
+  const theme = context.theme;
+  const borderRadius = theme.rounded === false ? "0%" : "2%";
   return (
     <Card>
+      {project.cover !== null && (
+        <GatsbyImage
+          src={project.cover.childImageSharp.fluid}
+          style={{
+            borderTopLeftRadius: borderRadius,
+            borderTopRightRadius: borderRadius,
+          }}
+        />
+      )}
       <CardContent>
         <SFlex>
           <div
