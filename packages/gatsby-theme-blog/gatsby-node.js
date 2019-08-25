@@ -58,7 +58,7 @@ exports.createSchemaCustomization = ({actions, schema}) => {
       cover: File
       timeToRead: Int
       tags: [String!]!
-      tableOfContents
+      tableOfContents: JSON
     }
     type BlogMdx implements Blog & Node {
       id: ID!
