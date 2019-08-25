@@ -36,7 +36,7 @@ function Blog({data, location}) {
   return (
     <BaseLayout location={data.blog.slug} title={""}>
       {data.blog.cover !== null && (
-        <GatsbyImage src={data.project.cover.childImageSharp.fluid} />
+        <GatsbyImage src={data.blog.cover.childImageSharp.fluid} />
       )}
       <SContainer>
         <Styled.h1>{data.blog.title}</Styled.h1>
