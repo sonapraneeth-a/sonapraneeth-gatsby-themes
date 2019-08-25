@@ -5,7 +5,7 @@ import {
   PageLayout,
   Styled,
 } from "@sonapraneeth/gatsby-plugin-themed-components";
-import DetailedBlogCard from "../components/card/detailed";
+import DetailedBlogCardWithCover from "../components/card/detailed-cover";
 import {
   Grid,
   GridItem,
@@ -26,7 +26,7 @@ function Blogs({pageContext: {blogs}}, location) {
         <Grid noCols={1}>
           {blogs.map((blog, index) => (
             <GridItem key={`blog-detailed-${index}`}>
-              <DetailedBlogCard blog={blog.node} />
+              <DetailedBlogCardWithCover blog={blog.node} />
             </GridItem>
           ))}
         </Grid>
