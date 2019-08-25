@@ -1,31 +1,31 @@
-import PropTypes from "prop-types"
+import PropTypes from "prop-types";
 /** @jsx jsx */
-import { jsx } from "theme-ui"
+import {jsx} from "theme-ui";
 
 GridItem.propTypes = {
   children: PropTypes.any.isRequired,
-  css: PropTypes.any,
-}
+  style: PropTypes.any,
+};
 
 GridItem.defaultProps = {
-  css: {},
-}
+  style: {},
+};
 
 /**
  * @param {object} props
  * @return {JSX}
  */
-function GridItem({ children, css }) {
+function GridItem({children, style}) {
   return (
     <div
       sx={{
         margin: "0.5rem",
-        ...css,
+        ...style,
       }}
     >
       {children}
     </div>
-  )
+  );
 }
 
-export default GridItem
+export default GridItem;
