@@ -3,7 +3,7 @@ import {jsx} from "theme-ui";
 // eslint-disable-next-line no-unused-vars
 import React from "react";
 import PropTypes from "prop-types";
-
+import {useThemeUI} from "theme-ui";
 import {shadows, transition} from "gatsby-design-tokens";
 
 /**
@@ -12,6 +12,9 @@ import {shadows, transition} from "gatsby-design-tokens";
  * @return {JSX}
  */
 function Card({children, ...props}) {
+  const context = useThemeUI();
+  const theme = context.theme;
+  const borderRadius = theme.rounded === false ? "0%" : "2%";
   return (
     <div
       {...props}
@@ -19,7 +22,7 @@ function Card({children, ...props}) {
         "bg": "surface",
         "transition": transition.speed.default,
         "transitionProperty": "box-shadow,-webkit-box-shadow",
-        "borderRadius": 0,
+        "borderRadius": borderRadius,
         "boxShadow": shadows.raised,
         "width": "100%",
         ":hover": {
