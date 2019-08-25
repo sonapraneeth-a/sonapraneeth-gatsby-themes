@@ -9,6 +9,7 @@ import {
   Styled,
 } from "@sonapraneeth/gatsby-plugin-themed-components";
 import {
+  GatsbyImage,
   Grid,
   GridItem,
   BaseLayout,
@@ -34,6 +35,9 @@ function Project({data, location}) {
   const isTOCEmpty = JSON.stringify(toc) === "{}";
   return (
     <BaseLayout location={data.project.slug} title={""}>
+      {data.project.cover !== null && (
+        <GatsbyImage src={data.project.cover.childImageSharp.fluid} />
+      )}
       <SContainer>
         <Styled.h1>{data.project.title}</Styled.h1>
         <Chip type={"date"}>{data.project.completedDate}</Chip>{" "}
@@ -103,6 +107,19 @@ export const query = graphql`
       show_toc
       tags
       body
+      cover {
+        childImageSharp {
+          fluid(maxWidth: 1280) {
+            base64
+            aspectRatio
+            src
+            srcSet
+            srcWebp
+            srcSetWebp
+            sizes
+          }
+        }
+      }
     }
     mdx(fileAbsolutePath: { eq: $fileAbsolutePath }) {
       tableOfContents(maxDepth: 10)
