@@ -14,7 +14,7 @@ exports.onPreBootstrap = ({store, reporter}, themeOptions) => {
   const {program} = store.getState();
   // Options created using default and provided options
   options = withDefaults(themeOptions);
-  reporter.info(`Options: ${JSON.stringify(options, null, 2)}`);
+  debug(`Options: ${JSON.stringify(options, null, 2)}`);
   const directories = [path.join(program.directory, options.contentPath)];
   directories.map((directoryPath) => {
     reporter.info(`Looking for ${directoryPath} directory`);
@@ -55,6 +55,7 @@ exports.createSchemaCustomization = ({actions, schema}) => {
       fileAbsolutePath: String!
       draft: Boolean!
       sharing: Boolean!
+      cover: File
       timeToRead: Int
       tags: [String!]!
     }
@@ -68,6 +69,7 @@ exports.createSchemaCustomization = ({actions, schema}) => {
       fileAbsolutePath: String!
       draft: Boolean!
       sharing: Boolean!
+      cover: File
       timeToRead: Int
       tags: [String!]!
     }
@@ -128,14 +130,18 @@ exports.onCreateNode = (
     );
     blogUrl = `${options.baseUrl}/${year}/${month}/${date}/${slugify(title)}/`;
     blogUrl = blogUrl.replace(/\/\//, "/");
-    const blogTags = "tags" in node.frontmatter ? node.frontmatter.tags : [];
+    const frontmatter = JSON.parse(JSON.stringify(node.frontmatter));
+    const blogCover = "cover" in frontmatter ? frontmatter.cover : null;
+    console.log(`Blog cover: ${blogCover}`);
+    const blogTags = "tags" in frontmatter ? frontmatter.tags : [];
     const blogData = {
-      title: node.frontmatter.title || "",
-      publishedDate: node.frontmatter.publishedDate,
+      title: frontmatter.title || "",
+      publishedDate: frontmatter.publishedDate,
       slug: blogUrl,
       fileAbsolutePath: node.fileAbsolutePath,
-      draft: node.frontmatter.draft || false,
-      sharing: node.frontmatter.sharing || false,
+      draft: frontmatter.draft || false,
+      sharing: frontmatter.sharing || false,
+      cover: blogCover,
       tags: blogTags,
     };
     createNode({
@@ -174,6 +180,19 @@ exports.createPages = async ({actions, graphql, reporter}, themeOptions) => {
           excerpt
           fileAbsolutePath
           timeToRead
+          cover {
+            childImageSharp {
+              fluid(maxWidth: 1280) {
+                base64
+                aspectRatio
+                src
+                srcSet
+                srcWebp
+                srcSetWebp
+                sizes
+              }
+            }
+          }
         }
       }
     }
@@ -190,6 +209,19 @@ exports.createPages = async ({actions, graphql, reporter}, themeOptions) => {
           excerpt
           fileAbsolutePath
           timeToRead
+          cover {
+            childImageSharp {
+              fluid(maxWidth: 1280) {
+                base64
+                aspectRatio
+                src
+                srcSet
+                srcWebp
+                srcSetWebp
+                sizes
+              }
+            }
+          }
         }
       }
     }
