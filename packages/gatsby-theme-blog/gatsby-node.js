@@ -58,6 +58,7 @@ exports.createSchemaCustomization = ({actions, schema}) => {
       cover: File
       timeToRead: Int
       tags: [String!]!
+      tableOfContents
     }
     type BlogMdx implements Blog & Node {
       id: ID!
@@ -95,6 +96,16 @@ exports.createSchemaCustomization = ({actions, schema}) => {
             },
           },
           resolve: mdxResolverPassthrough("excerpt"),
+        },
+        tableOfContents: {
+          type: "JSON",
+          args: {
+            maxDepth: {
+              type: "Int",
+              defaultValue: 3,
+            },
+          },
+          resolve: mdxResolverPassthrough("tableOfContents"),
         },
       },
     })

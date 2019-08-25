@@ -31,7 +31,7 @@ const components = {
  * @return {JSX}
  */
 function Blog({data, location}) {
-  const toc = data.mdx.tableOfContents;
+  const toc = data.blog.tableOfContents;
   const isTOCEmpty = JSON.stringify(toc) === "{}";
   return (
     <BaseLayout location={data.blog.slug} title={""}>
@@ -64,10 +64,7 @@ function Blog({data, location}) {
                   },
                 }}
               >
-                <TableOfContents
-                  tableOfContents={data.mdx.tableOfContents}
-                  location={location}
-                />
+                <TableOfContents tableOfContents={toc} location={location} />
               </GridItem>
               <GridItem id="body" css={{margin: 0}}>
                 <MDXProvider components={components}>
@@ -122,9 +119,7 @@ export const query = graphql`
           }
         }
       }
-    }
-    mdx(fileAbsolutePath: { eq: $fileAbsolutePath }) {
-      tableOfContents(maxDepth: 10)
+      tableOfContents
     }
     file(absolutePath: { eq: $fileAbsolutePath }) {
       modifiedTime(formatString: "DD MMM YYYY")

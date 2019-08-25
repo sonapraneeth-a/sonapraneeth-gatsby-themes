@@ -60,6 +60,7 @@ exports.createSchemaCustomization = ({actions, schema}) => {
       cover: File
       tags: [String!]!
       body: String!
+      tableOfContents: JSON
     }
     type ProjectMdx implements Project & Node {
       id: ID!
@@ -91,6 +92,16 @@ exports.createSchemaCustomization = ({actions, schema}) => {
         timeToRead: {
           type: "Int",
           resolve: mdxResolverPassthrough("timeToRead"),
+        },
+        tableOfContents: {
+          type: "JSON",
+          args: {
+            maxDepth: {
+              type: "Int",
+              defaultValue: 3,
+            },
+          },
+          resolve: mdxResolverPassthrough("tableOfContents"),
         },
       },
     })
@@ -157,7 +168,7 @@ exports.onCreateNode = (
           .update(JSON.stringify(projectData))
           .digest("hex"),
         content: JSON.stringify(projectData),
-        description: "Blog Posts",
+        description: "Projects",
       },
     });
     createParentChildLink({parent: fileNode, child: node});
@@ -234,7 +245,6 @@ exports.createPages = async ({actions, graphql, reporter}, themeOptions) => {
         component: require.resolve("./src/templates/project.js"),
         context: {
           id: project.node.id,
-          fileAbsolutePath: project.node.fileAbsolutePath,
         },
       });
     });

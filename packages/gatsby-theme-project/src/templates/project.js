@@ -31,7 +31,7 @@ const components = {
  * @return {JSX}
  */
 function Project({data, location}) {
-  const toc = data.mdx.tableOfContents;
+  const toc = data.project.tableOfContents;
   const isTOCEmpty = JSON.stringify(toc) === "{}";
   return (
     <BaseLayout location={data.project.slug} title={""}>
@@ -60,10 +60,7 @@ function Project({data, location}) {
                   },
                 }}
               >
-                <TableOfContents
-                  tableOfContents={data.mdx.tableOfContents}
-                  location={location}
-                />
+                <TableOfContents tableOfContents={toc} location={location} />
               </GridItem>
               <GridItem id="body" css={{margin: 0}}>
                 <MDXProvider components={components}>
@@ -97,7 +94,7 @@ Project.defaultProps = {};
 export default Project;
 
 export const query = graphql`
-  query ProjectQuery($id: String!, $fileAbsolutePath: String!) {
+  query ProjectQuery($id: String!) {
     project(id: { eq: $id }) {
       title
       status
@@ -120,9 +117,7 @@ export const query = graphql`
           }
         }
       }
-    }
-    mdx(fileAbsolutePath: { eq: $fileAbsolutePath }) {
-      tableOfContents(maxDepth: 10)
+      tableOfContents
     }
   }
 `;
