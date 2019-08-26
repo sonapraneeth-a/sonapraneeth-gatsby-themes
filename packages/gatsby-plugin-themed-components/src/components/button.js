@@ -19,7 +19,7 @@ function Button({children, type, ...props}) {
         fontWeight: "body",
         textAlign: "center",
         verticalAlign: "middle",
-        userselect: "none",
+        userSelect: "none",
         border: "1px solid transparent",
         padding: ".375rem .75rem",
         fontSize: "1rem",
