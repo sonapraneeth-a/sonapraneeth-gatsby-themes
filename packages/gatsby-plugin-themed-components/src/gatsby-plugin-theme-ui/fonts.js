@@ -1,4 +1,4 @@
-import { fonts } from "gatsby-design-tokens"
+import {fonts} from "gatsby-design-tokens";
 
 /* eslint-disable quotes */
 export default {
@@ -41,7 +41,7 @@ export default {
     4.75,
     5.25,
     5.75,
-  ].map(item => {
-    return `${item}rem`
+  ].map((item) => {
+    return `${item}rem`;
   }),
-}
+};

@@ -1,3 +1,3 @@
 export default {
   rounded: true,
-}
+};

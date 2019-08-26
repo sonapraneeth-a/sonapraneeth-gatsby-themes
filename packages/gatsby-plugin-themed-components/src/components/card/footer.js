@@ -1,15 +1,15 @@
 /** @jsx jsx */
-import { jsx } from "theme-ui"
+import {jsx} from "theme-ui";
 // eslint-disable-next-line no-unused-vars
-import React from "react"
-import PropTypes from "prop-types"
+import React from "react";
+import PropTypes from "prop-types";
 
 /**
  *
  * @param {*} children
  * @return {JSX}
  */
-function CardFooter({ children, ...props }) {
+function CardFooter({children, ...props}) {
   return (
     <div
       {...props}
@@ -23,13 +23,13 @@ function CardFooter({ children, ...props }) {
     >
       {children}
     </div>
-  )
+  );
 }
 
 CardFooter.propTypes = {
   children: PropTypes.any.isRequired,
-}
+};
 
-CardFooter.defaultProps = {}
+CardFooter.defaultProps = {};
 
-export default CardFooter
+export default CardFooter;

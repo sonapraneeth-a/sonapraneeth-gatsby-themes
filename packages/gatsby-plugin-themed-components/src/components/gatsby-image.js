@@ -1,6 +1,6 @@
-import React from "react"
-import PropTypes from "prop-types"
-import Image from "gatsby-image"
+import React from "react";
+import PropTypes from "prop-types";
+import Image from "gatsby-image";
 
 GatsbyImage.propTypes = {
   // Image source
@@ -13,25 +13,25 @@ GatsbyImage.propTypes = {
   style: PropTypes.any,
   // Optional: Styling for the img element
   imgStyle: PropTypes.any,
-}
+};
 
 GatsbyImage.defaultProps = {
   alt: "",
   caption: <div></div>,
-}
+};
 
 /**
  * Wrapper for Image component from gatsby
  * @param {object} props
  * @return {JSX} <GatsbyImage> component
  */
-function GatsbyImage({ src, alt, style, imgStyle, caption }) {
+function GatsbyImage({src, alt, style, imgStyle, caption}) {
   return (
     <>
       <Image fluid={src} alt={alt} style={style} imgStyle={imgStyle} />
       {caption}
     </>
-  )
+  );
 }
 
-export default GatsbyImage
+export default GatsbyImage;

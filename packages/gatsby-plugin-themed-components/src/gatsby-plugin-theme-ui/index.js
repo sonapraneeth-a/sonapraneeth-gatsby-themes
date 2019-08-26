@@ -1,15 +1,15 @@
 /* eslint-disable quotes */
-import "typeface-pt-sans"
-import "typeface-signika-negative"
-import { lineHeights } from "gatsby-design-tokens"
+import "typeface-pt-sans";
+import "typeface-signika-negative";
+import {lineHeights} from "gatsby-design-tokens";
 
-import colors from "./colors"
-import styles from "./styles"
-import fonts from "./fonts"
-import variants from "./variants"
-import array from "./array"
-import components from "./components"
-import options from "./options"
+import colors from "./colors";
+import styles from "./styles";
+import fonts from "./fonts";
+import variants from "./variants";
+import array from "./array";
+import components from "./components";
+import options from "./options";
 
 export default {
   // This enables the color modes feature
@@ -30,8 +30,8 @@ export default {
   // Desktop        : 86rem;  //1376px
   // FullHD         : 120rem; //1920px
   // UltraHD        : 240rem; //3840px
-  breakpoints: [20, 40, 48, 64, 80, 86, 120, 240].map(item => {
-    return `${item}rem`
+  breakpoints: [20, 40, 48, 64, 80, 86, 120, 240].map((item) => {
+    return `${item}rem`;
   }),
   ...array,
   // Available fonts
@@ -46,4 +46,4 @@ export default {
   styles,
   ...components,
   ...options,
-}
+};

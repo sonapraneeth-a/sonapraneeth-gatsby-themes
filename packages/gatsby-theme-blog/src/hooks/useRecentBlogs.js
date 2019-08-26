@@ -1,4 +1,4 @@
-import { useStaticQuery, graphql } from "gatsby"
+import {useStaticQuery, graphql} from "gatsby";
 
 // Hook for retrieving site meta data
 export const useRecentBlogs = () => {
@@ -19,6 +19,6 @@ export const useRecentBlogs = () => {
         }
       }
     `
-  )
-  return blogs.allBlog.edges
-}
+  );
+  return blogs.allBlog.edges;
+};

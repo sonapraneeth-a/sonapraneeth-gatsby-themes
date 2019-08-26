@@ -1,12 +1,12 @@
-import React from "react"
-import ReactSwitch from "react-switch"
+import React from "react";
+import ReactSwitch from "react-switch";
 
 /**
  * @param {object} props
  * @return {JSX}
  */
 function Switch(props) {
-  return <ReactSwitch {...props} />
+  return <ReactSwitch {...props} />;
 }
 
 Switch.defaultProps = {
@@ -17,6 +17,6 @@ Switch.defaultProps = {
   handleDiameter: 26,
   offColor: "#000",
   onColor: "#000",
-}
+};
 
-export default Switch
+export default Switch;

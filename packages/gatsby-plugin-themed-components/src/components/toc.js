@@ -1,11 +1,11 @@
 /** @jsx jsx */
-import { jsx } from "theme-ui"
+import {jsx} from "theme-ui";
 // eslint-disable-next-line no-unused-vars
-import React from "react"
-import PropTypes from "prop-types"
-import { Link } from "gatsby"
+import React from "react";
+import PropTypes from "prop-types";
+import {Link} from "gatsby";
 
-import { Styled } from "theme-ui"
+import {Styled} from "theme-ui";
 
 /* Reference: https://github.com/gatsbyjs/gatsby/pull/15251/files */
 
@@ -18,7 +18,7 @@ import { Styled } from "theme-ui"
 function createItems(items, location) {
   return (
     items &&
-    items.map(item => (
+    items.map((item) => (
       <li key={location.pathname + item.url}>
         <Styled.a
           as={Link}
@@ -32,7 +32,7 @@ function createItems(items, location) {
         {item.items && <ul>{createItems(item.items, location)}</ul>}
       </li>
     ))
-  )
+  );
 }
 
 /**
@@ -41,7 +41,7 @@ function createItems(items, location) {
  * @param {*} location
  * @return {JSX}
  */
-function TableOfContents({ tableOfContents, location }) {
+function TableOfContents({tableOfContents, location}) {
   return tableOfContents.items ? (
     <nav>
       <Styled.h3
@@ -62,14 +62,14 @@ function TableOfContents({ tableOfContents, location }) {
         {createItems(tableOfContents.items, location)}
       </ul>
     </nav>
-  ) : null
+  ) : null;
 }
 
 TableOfContents.propTypes = {
   tableOfContents: PropTypes.any.isRequired,
   location: PropTypes.any.isRequired,
-}
+};
 
-TableOfContents.defaultProps = {}
+TableOfContents.defaultProps = {};
 
-export default TableOfContents
+export default TableOfContents;

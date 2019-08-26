@@ -1,4 +1,4 @@
-import { useStaticQuery, graphql } from "gatsby"
+import {useStaticQuery, graphql} from "gatsby";
 
 // Hook for retrieving site meta data
 export const useSiteMetadata = () => {
@@ -18,6 +18,6 @@ export const useSiteMetadata = () => {
         }
       }
     `
-  )
-  return siteMeta.site.siteMetadata
-}
+  );
+  return siteMeta.site.siteMetadata;
+};

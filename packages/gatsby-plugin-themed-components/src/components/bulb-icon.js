@@ -1,8 +1,8 @@
-import PropTypes from "prop-types"
+import PropTypes from "prop-types";
 /** @jsx jsx */
-import { jsx } from "@emotion/core"
+import {jsx} from "@emotion/core";
 
-const BulbIcon = ({ color, stroke }) => {
+const BulbIcon = ({color, stroke}) => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -72,17 +72,17 @@ const BulbIcon = ({ color, stroke }) => {
         }}
       />
     </svg>
-  )
-}
+  );
+};
 
-export default BulbIcon
+export default BulbIcon;
 
 BulbIcon.propTypes = {
   color: PropTypes.string,
   stroke: PropTypes.string,
-}
+};
 
 BulbIcon.defaultProps = {
   color: "#ff0",
   stroke: "#fcee21",
-}
+};

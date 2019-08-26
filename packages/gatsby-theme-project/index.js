@@ -2,8 +2,8 @@ import {
   useFeaturedProjects,
   useRecentProjects,
   useAllProjects,
-} from "./src/hooks/index"
-import ProjectWidget from "./src/widget/project"
+} from "./src/hooks/index";
+import ProjectWidget from "./src/widget/project";
 
 export {
   // Hooks
@@ -12,4 +12,4 @@ export {
   useAllProjects,
   // Widgets
   ProjectWidget,
-}
+};

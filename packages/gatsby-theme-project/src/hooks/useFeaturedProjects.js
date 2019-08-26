@@ -1,4 +1,4 @@
-import { useStaticQuery, graphql } from "gatsby"
+import {useStaticQuery, graphql} from "gatsby";
 
 // Hook for retrieving site meta data
 export const useFeaturedProjects = () => {
@@ -21,6 +21,6 @@ export const useFeaturedProjects = () => {
         }
       }
     `
-  )
-  return projects.allProject.edges
-}
+  );
+  return projects.allProject.edges;
+};

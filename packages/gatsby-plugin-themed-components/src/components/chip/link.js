@@ -1,24 +1,24 @@
 /** @jsx jsx */
-import { jsx } from "theme-ui"
+import {jsx} from "theme-ui";
 // eslint-disable-next-line no-unused-vars
-import React from "react"
-import PropTypes from "prop-types"
-import { Styled } from "theme-ui"
+import React from "react";
+import PropTypes from "prop-types";
+import {Styled} from "theme-ui";
 
-import { FaTag, FaFolderOpen } from "react-icons/fa"
+import {FaTag, FaFolderOpen} from "react-icons/fa";
 
 /**
  *
  * @param {*} children
  * @return {JSX}
  */
-function LinkChip({ children, type, ...props }) {
+function LinkChip({children, type, ...props}) {
   return (
     <Styled.a
       sx={{
-        variant: "link.none",
-        bg: "primary",
-        color: "white",
+        "variant": "link.none",
+        "bg": "primary",
+        "color": "white",
         ":hover": {
           bg: "primary",
           color: "white",
@@ -62,16 +62,16 @@ function LinkChip({ children, type, ...props }) {
         </span>
       </span>
     </Styled.a>
-  )
+  );
 }
 
 LinkChip.propTypes = {
   children: PropTypes.any.isRequired,
   type: PropTypes.oneOf(["tag", "category"]),
-}
+};
 
 LinkChip.defaultProps = {
   type: "",
-}
+};
 
-export default LinkChip
+export default LinkChip;

@@ -1,5 +1,5 @@
 // Reference: https://theme-ui.com/theme-spec/
-import { zIndices, shadows } from "gatsby-design-tokens"
+import {zIndices, shadows} from "gatsby-design-tokens";
 
 export default {
   space: [
@@ -18,8 +18,8 @@ export default {
     4,
     4.5,
     5,
-  ].map(item => {
-    return `${item}rem`
+  ].map((item) => {
+    return `${item}rem`;
   }),
   zIndices: {
     ...zIndices,
@@ -29,4 +29,4 @@ export default {
     ...shadows,
   },
   radii: [0],
-}
+};

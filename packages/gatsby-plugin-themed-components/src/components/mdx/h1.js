@@ -1,20 +1,20 @@
 /** @jsx jsx */
-import { jsx } from "theme-ui"
+import {jsx} from "theme-ui";
 // eslint-disable-next-line no-unused-vars
-import React from "react"
-import PropTypes from "prop-types"
-import { Styled } from "theme-ui"
+import React from "react";
+import PropTypes from "prop-types";
+import {Styled} from "theme-ui";
 
 /**
  *
  * @param {*} children
  * @return {JSX}
  */
-function H1({ children }) {
+function H1({children}) {
   return (
     <Styled.h1
       sx={{
-        display: "flex",
+        "display": "flex",
         /* "position": "sticky",
         "top": "4rem",*/
         "::after": {
@@ -38,13 +38,13 @@ function H1({ children }) {
     >
       {children}
     </Styled.h1>
-  )
+  );
 }
 
 H1.propTypes = {
   children: PropTypes.any.isRequired,
-}
+};
 
-H1.defaultProps = {}
+H1.defaultProps = {};
 
-export default H1
+export default H1;
