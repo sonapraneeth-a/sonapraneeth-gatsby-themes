@@ -46,7 +46,7 @@ function Blog({data, location}) {
         </Chip>{" "}
         <Chip type={"date"}>
           <b>Last Modified: </b>
-          {data.file.modifiedTime}
+          {data.blog.lastModifiedTime}
         </Chip>{" "}
         <TagList tags={data.blog.tags} />
         <hr />
@@ -120,9 +120,7 @@ export const query = graphql`
         }
       }
       tableOfContents
-    }
-    file(absolutePath: { eq: $fileAbsolutePath }) {
-      modifiedTime(formatString: "DD MMM YYYY")
+      lastModifiedTime
     }
   }
 `;

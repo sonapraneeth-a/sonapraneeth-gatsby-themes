@@ -59,6 +59,7 @@ exports.createSchemaCustomization = ({actions, schema}) => {
       timeToRead: Int
       tags: [String!]!
       tableOfContents: JSON
+      lastModifiedTime: Date @dateformat
     }
     type BlogMdx implements Blog & Node {
       id: ID!
@@ -73,6 +74,7 @@ exports.createSchemaCustomization = ({actions, schema}) => {
       cover: File
       timeToRead: Int
       tags: [String!]!
+      lastModifiedTime: Date @dateformat
     }
   `);
   actions.createTypes(
@@ -154,6 +156,7 @@ exports.onCreateNode = (
       sharing: frontmatter.sharing || false,
       cover: blogCover,
       tags: blogTags,
+      lastModifiedTime: fileNode.modifiedTime,
     };
     createNode({
       ...blogData,
@@ -191,6 +194,7 @@ exports.createPages = async ({actions, graphql, reporter}, themeOptions) => {
           excerpt
           fileAbsolutePath
           timeToRead
+          lastModifiedTime
           cover {
             childImageSharp {
               fluid(maxWidth: 1280) {
@@ -220,6 +224,7 @@ exports.createPages = async ({actions, graphql, reporter}, themeOptions) => {
           excerpt
           fileAbsolutePath
           timeToRead
+          lastModifiedTime
           cover {
             childImageSharp {
               fluid(maxWidth: 1280) {
@@ -270,7 +275,6 @@ exports.createPages = async ({actions, graphql, reporter}, themeOptions) => {
         component: require.resolve("./src/templates/blog.js"),
         context: {
           id: blog.node.id,
-          fileAbsolutePath: blog.node.fileAbsolutePath,
         },
       });
     });
