@@ -47,8 +47,8 @@ exports.createSchemaCustomization = ({actions, schema}) => {
       id: ID!
       title: String!
       status: String!
-      startDate: Date!
-      completedDate: Date!
+      startDate: Date! @dateformat
+      completedDate: Date! @dateformat
       source: String!
       report: String!
       presentation: String!
@@ -66,8 +66,8 @@ exports.createSchemaCustomization = ({actions, schema}) => {
       id: ID!
       title: String!
       status: String!
-      startDate: Date!
-      completedDate: Date!
+      startDate: Date! @dateformat
+      completedDate: Date! @dateformat
       source: String!
       report: String!
       presentation: String!

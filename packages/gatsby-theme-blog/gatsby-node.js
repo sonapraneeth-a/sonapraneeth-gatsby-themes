@@ -48,14 +48,14 @@ exports.createSchemaCustomization = ({actions, schema}) => {
     interface Blog @nodeInterface {
       id: ID!
       title: String!
-      publishedDate: Date!
+      publishedDate: Date! @dateformat
       slug: String!
       excerpt: String!
       body: String!
       fileAbsolutePath: String!
       draft: Boolean!
       sharing: Boolean!
-      cover: File
+      cover: File @fileByRelativePath
       timeToRead: Int
       tags: [String!]!
       tableOfContents: JSON
@@ -64,14 +64,14 @@ exports.createSchemaCustomization = ({actions, schema}) => {
     type BlogMdx implements Blog & Node {
       id: ID!
       title: String!
-      publishedDate: Date!
+      publishedDate: Date! @dateformat
       slug: String!
       excerpt: String!
       body: String!
       fileAbsolutePath: String!
       draft: Boolean!
       sharing: Boolean!
-      cover: File
+      cover: File @fileByRelativePath
       timeToRead: Int
       tags: [String!]!
       lastModifiedTime: Date @dateformat
