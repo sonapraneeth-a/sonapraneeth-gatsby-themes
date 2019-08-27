@@ -51,7 +51,7 @@ function Project({data, location}) {
             <Grid noCols={2} nSizes={[1, 2.5]}>
               <GridItem
                 id="toc"
-                css={{
+                style={{
                   margin: 0,
                   [from(screens.mobile)]: {
                     position: "sticky",
@@ -62,7 +62,7 @@ function Project({data, location}) {
               >
                 <TableOfContents tableOfContents={toc} location={location} />
               </GridItem>
-              <GridItem id="body" css={{margin: 0}}>
+              <GridItem id="body" style={{margin: 0}}>
                 <MDXProvider components={components}>
                   <MDXRenderer>{data.project.body}</MDXRenderer>
                 </MDXProvider>
@@ -71,7 +71,7 @@ function Project({data, location}) {
           )}
           {(toc === undefined || toc === null || isTOCEmpty) && (
             <Grid noCols={1}>
-              <GridItem id="body" css={{margin: 0}}>
+              <GridItem id="body" style={{margin: 0}}>
                 <MDXProvider components={components}>
                   <MDXRenderer>{data.project.body}</MDXRenderer>
                 </MDXProvider>
