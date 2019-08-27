@@ -55,7 +55,7 @@ function Blog({data, location}) {
             <Grid noCols={2} nSizes={[1, 2.5]}>
               <GridItem
                 id="toc"
-                css={{
+                style={{
                   margin: 0,
                   [from(screens.mobile)]: {
                     position: "sticky",
@@ -66,7 +66,7 @@ function Blog({data, location}) {
               >
                 <TableOfContents tableOfContents={toc} location={location} />
               </GridItem>
-              <GridItem id="body" css={{margin: 0}}>
+              <GridItem id="body" style={{margin: 0}}>
                 <MDXProvider components={components}>
                   <MDXRenderer>{data.blog.body}</MDXRenderer>
                 </MDXProvider>
@@ -75,7 +75,7 @@ function Blog({data, location}) {
           )}
           {(toc === undefined || toc === null || isTOCEmpty) && (
             <Grid noCols={1}>
-              <GridItem id="body" css={{margin: 0}}>
+              <GridItem id="body" style={{margin: 0}}>
                 <MDXProvider components={components}>
                   <MDXRenderer>{data.blog.body}</MDXRenderer>
                 </MDXProvider>
@@ -98,7 +98,7 @@ Blog.defaultProps = {};
 export default Blog;
 
 export const query = graphql`
-  query BlogQuery($id: String!, $fileAbsolutePath: String!) {
+  query BlogQuery($id: String!) {
     blog(id: { eq: $id }) {
       id
       slug
