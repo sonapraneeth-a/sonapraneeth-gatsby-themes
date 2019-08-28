@@ -51,6 +51,7 @@ exports.createSchemaCustomization = ({actions, schema}) => {
       publishedDate: Date! @dateformat
       slug: String!
       excerpt: String!
+      toc: Boolean!
       body: String!
       fileAbsolutePath: String!
       draft: Boolean!
@@ -67,6 +68,7 @@ exports.createSchemaCustomization = ({actions, schema}) => {
       publishedDate: Date! @dateformat
       slug: String!
       excerpt: String!
+      toc: Boolean!
       body: String!
       fileAbsolutePath: String!
       draft: Boolean!
@@ -145,7 +147,7 @@ exports.onCreateNode = (
     blogUrl = blogUrl.replace(/\/\//, "/");
     const frontmatter = JSON.parse(JSON.stringify(node.frontmatter));
     const blogCover = "cover" in frontmatter ? frontmatter.cover : null;
-    console.log(`Blog cover: ${blogCover}`);
+    debug(`Blog cover: ${blogCover}`);
     const blogTags = "tags" in frontmatter ? frontmatter.tags : [];
     const blogData = {
       title: frontmatter.title || "",
@@ -153,6 +155,10 @@ exports.onCreateNode = (
       slug: blogUrl,
       fileAbsolutePath: node.fileAbsolutePath,
       draft: frontmatter.draft || false,
+      toc:
+        frontmatter.toc !== undefined && frontmatter.toc !== null
+          ? frontmatter.toc
+          : true,
       sharing: frontmatter.sharing || false,
       cover: blogCover,
       tags: blogTags,

@@ -45,8 +45,8 @@ function Project({data, location}) {
         <hr />
         <section>
           {data.project.toc &&
-            toc !== null &&
             toc !== undefined &&
+            toc !== null &&
             !isTOCEmpty && (
             <Grid noCols={2} nSizes={[1, 2.5]}>
               <GridItem
@@ -69,7 +69,10 @@ function Project({data, location}) {
               </GridItem>
             </Grid>
           )}
-          {(toc === undefined || toc === null || isTOCEmpty) && (
+          {(!data.project.toc ||
+            toc === undefined ||
+            toc === null ||
+            isTOCEmpty) && (
             <Grid noCols={1}>
               <GridItem id="body" style={{margin: 0}}>
                 <MDXProvider components={components}>

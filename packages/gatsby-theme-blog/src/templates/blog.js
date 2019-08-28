@@ -33,6 +33,8 @@ const components = {
 function Blog({data, location}) {
   const toc = data.blog.tableOfContents;
   const isTOCEmpty = JSON.stringify(toc) === "{}";
+  const dispTOC =
+    data.blog.toc && toc !== undefined && toc !== null && !isTOCEmpty;
   return (
     <BaseLayout location={data.blog.slug} title={""}>
       {data.blog.cover !== null && (
@@ -51,7 +53,7 @@ function Blog({data, location}) {
         <TagList tags={data.blog.tags} />
         <hr />
         <section>
-          {toc !== null && toc !== undefined && !isTOCEmpty && (
+          {dispTOC && (
             <Grid noCols={2} nSizes={[1, 2.5]}>
               <GridItem
                 id="toc"
@@ -73,7 +75,10 @@ function Blog({data, location}) {
               </GridItem>
             </Grid>
           )}
-          {(toc === undefined || toc === null || isTOCEmpty) && (
+          {(!data.blog.toc ||
+            toc === undefined ||
+            toc === null ||
+            isTOCEmpty) && (
             <Grid noCols={1}>
               <GridItem id="body" style={{margin: 0}}>
                 <MDXProvider components={components}>
@@ -103,6 +108,7 @@ export const query = graphql`
       id
       slug
       title
+      toc
       publishedDate
       tags
       body

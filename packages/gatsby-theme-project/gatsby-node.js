@@ -136,7 +136,7 @@ exports.onCreateNode = (
     const frontmatter = JSON.parse(JSON.stringify(node.frontmatter));
     const projectCover = "cover" in frontmatter ? frontmatter.cover : null;
     const projectTags = "tags" in frontmatter ? frontmatter.tags : [];
-    console.log(`Project cover: ${projectCover}`);
+    debug(`Project cover: ${projectCover}`);
     debug(`Project tags: ${projectTags}`);
     const projectData = {
       title: frontmatter.title || "",
@@ -147,7 +147,10 @@ exports.onCreateNode = (
       report: frontmatter.report || "",
       presentation: frontmatter.presentation || "",
       abstract: frontmatter.abstract || "",
-      toc: frontmatter.toc || true,
+      toc:
+        frontmatter.toc !== undefined && frontmatter.toc !== null
+          ? frontmatter.toc
+          : true,
       featured: frontmatter.featured || false,
       fileAbsolutePath: node.fileAbsolutePath,
       cover: projectCover,
