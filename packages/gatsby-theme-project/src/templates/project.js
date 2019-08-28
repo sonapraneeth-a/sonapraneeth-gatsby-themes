@@ -44,7 +44,7 @@ function Project({data, location}) {
         <TagList tags={data.project.tags} />
         <hr />
         <section>
-          {data.project.show_toc &&
+          {data.project.toc &&
             toc !== null &&
             toc !== undefined &&
             !isTOCEmpty && (
@@ -101,7 +101,7 @@ export const query = graphql`
       startDate
       completedDate
       slug
-      show_toc
+      toc
       tags
       body
       cover {

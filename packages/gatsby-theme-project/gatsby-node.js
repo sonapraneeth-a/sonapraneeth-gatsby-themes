@@ -53,7 +53,7 @@ exports.createSchemaCustomization = ({actions, schema}) => {
       report: String!
       presentation: String!
       abstract: String!
-      show_toc: Boolean!
+      toc: Boolean!
       featured: Boolean!
       slug: String!
       fileAbsolutePath: String!
@@ -72,7 +72,7 @@ exports.createSchemaCustomization = ({actions, schema}) => {
       report: String!
       presentation: String!
       abstract: String!
-      show_toc: Boolean!
+      toc: Boolean!
       featured: Boolean!
       slug: String!
       fileAbsolutePath: String!
@@ -147,7 +147,7 @@ exports.onCreateNode = (
       report: frontmatter.report || "",
       presentation: frontmatter.presentation || "",
       abstract: frontmatter.abstract || "",
-      show_toc: frontmatter.show_toc || true,
+      toc: frontmatter.toc || true,
       featured: frontmatter.featured || false,
       fileAbsolutePath: node.fileAbsolutePath,
       cover: projectCover,
@@ -179,55 +179,78 @@ exports.createPages = async ({actions, graphql, reporter}, themeOptions) => {
   // Options created using default and provided options
   options = withDefaults(themeOptions);
   debug(`Options: ${JSON.stringify(options, null, 2)}`);
-  const query = `
+  const fields = `
+    id
+    slug
+    title
+    startDate
+    completedDate
+    abstract
+    source
+    report
+    presentation
+    status
+    featured
+    cover {
+      childImageSharp {
+        fluid(maxWidth: 1280) {
+          base64
+          aspectRatio
+          src
+          srcSet
+          srcWebp
+          srcSetWebp
+          sizes
+        }
+      }
+    }
+  `;
+  const queryOne = `
   query AllProjectsQuery {
-    allProject {
+    allProject(
+      sort: {fields: startDate, order: DESC},
+      filter: {featured: {eq: true}}
+    ) {
       edges {
         node {
-          id
-          slug
-          title
-          startDate
-          completedDate
-          abstract
-          source
-          report
-          presentation
-          status
-          show_toc
-          featured
-          fileAbsolutePath
-          cover {
-            childImageSharp {
-              fluid(maxWidth: 1280) {
-                base64
-                aspectRatio
-                src
-                srcSet
-                srcWebp
-                srcSetWebp
-                sizes
-              }
-            }
-          }
+          ${fields}
         }
       }
     }
   }`;
-  const result = await graphql(query);
-  const projects = result.data.allProject.edges;
-  debug(result);
-  debug(JSON.stringify(projects, null, 2));
-  debug(`Number of projects: ${projects.length}`);
+  const queryTwo = `
+  query AllProjectsQuery {
+    allProject(
+      sort: {fields: startDate, order: DESC},
+    ) {
+      edges {
+        node {
+          ${fields}
+        }
+      }
+    }
+  }`;
+  const resultOne = await graphql(queryOne);
+  const projectsOne = resultOne.data.allProject.edges;
+  debug(resultOne);
+  debug(JSON.stringify(projectsOne, null, 2));
+  debug(`Number of featured projects: ${projectsOne.length}`);
+  const resultTwo = await graphql(queryTwo);
+  const projectsTwo = resultTwo.data.allProject.edges;
+  debug(resultTwo);
+  debug(JSON.stringify(projectsTwo, null, 2));
+  debug(`Number of projects: ${projectsTwo.length}`);
   debug(`Creating base project page at ${options.baseUrl}`);
+  const featuredProjects = projectsOne.length > 0 ? projectsOne : projectsTwo;
+  const allProjects = projectsTwo;
   actions.createPage({
     path: options.baseUrl,
     component: require.resolve("./src/templates/projects.js"),
     context: {
-      projects,
+      featuredProjects,
     },
   });
-  if (projects.length == 0) {
+  if (allProjects.length == 0) {
     const url =
       "https://github.com/sonapraneeth-a/gatsby-dev-themes/tree/master/demo/project/content";
     reporter.warn(`
@@ -237,8 +260,8 @@ exports.createPages = async ({actions, graphql, reporter}, themeOptions) => {
       files in '${options.contentPath}' directory. You may refer
       to ${url} for `);
   }
-  if (projects.length > 0) {
-    projects.map((project) => {
+  if (allProjects.length > 0) {
+    allProjects.map((project) => {
       debug(`Creating project page for '${project.node.title}'`);
       actions.createPage({
         path: project.node.slug,
