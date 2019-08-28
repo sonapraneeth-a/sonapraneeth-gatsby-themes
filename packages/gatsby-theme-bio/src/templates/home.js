@@ -17,8 +17,14 @@ HomeLayout.defaultProps = {};
  * @return {JSX} Rendered children for the HomeLayout
  */
 function HomeLayout({location, data}) {
+  const title = "Home page of " + data.authorInfo.name;
+  const description =
+    "This is the home page of " +
+    data.authorInfo.name +
+    ". " +
+    "You can find more information about the author in this page";
   return (
-    <PageLayout title={""} description={""} location={location}>
+    <PageLayout title={title} description={description} location={location}>
       <HomeWidget author={data.authorInfo} details={data.mdx} />
     </PageLayout>
   );
