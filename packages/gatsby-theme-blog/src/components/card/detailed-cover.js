@@ -33,7 +33,6 @@ function DetailedBlogCardWithCover({blog, ...props}) {
   // const width = blog.cover !== null ? "75%" : "100%";
   const numColumns = blog.cover !== null ? 2 : 1;
   const sizes = blog.cover !== null ? [7, 13] : [1];
-  console.log("DEtailedBU");
   return (
     <Card
       sx={{

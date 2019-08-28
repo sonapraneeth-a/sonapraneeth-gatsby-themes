@@ -27,7 +27,6 @@ import {
  * @return {JSX}
  */
 function DetailedProjectCard({project, ...props}) {
-  console.log(project.cover);
   const context = useThemeUI();
   const theme = context.theme;
   const borderRadius = theme.rounded === false ? "0%" : "2%";
