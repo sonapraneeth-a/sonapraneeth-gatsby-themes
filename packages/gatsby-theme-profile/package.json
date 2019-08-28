@@ -1,6 +1,6 @@
 {
   "name": "@sonapraneeth/gatsby-theme-profile",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "main": "index.js",
   "author": "Sona Praneeth Akula <sonapraneeth.akula@gmail.com>",
   "repository": {
@@ -35,9 +35,9 @@
   "dependencies": {
     "@mdx-js/mdx": "^1.4.0",
     "@mdx-js/react": "^1.4.0",
-    "@sonapraneeth/gatsby-theme-bio": "^0.2.1",
-    "@sonapraneeth/gatsby-theme-blog": "^0.2.1",
-    "@sonapraneeth/gatsby-theme-project": "^0.2.1",
+    "@sonapraneeth/gatsby-theme-bio": "^0.3.0",
+    "@sonapraneeth/gatsby-theme-blog": "^0.3.0",
+    "@sonapraneeth/gatsby-theme-project": "^0.3.0",
     "gatsby-plugin-mdx": "^1.0.33",
     "gatsby-remark-autolink-headers": "^2.1.8",
     "gatsby-remark-copy-linked-files": "^2.1.13",

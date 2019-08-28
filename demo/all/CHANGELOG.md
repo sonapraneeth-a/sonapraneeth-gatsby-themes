@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.2.2](https://github.com/sonapraneeth-a/gatsby-dev-themes/compare/demo-all@0.2.1...demo-all@0.2.2) (2019-08-28)
+
+### Bug Fixes
+
+- added author option for all demo and profile package ([3cefd9d](https://github.com/sonapraneeth-a/gatsby-dev-themes/commit/3cefd9d))
+- using featured/recent projects only on projects banner ([c2f721e](https://github.com/sonapraneeth-a/gatsby-dev-themes/commit/c2f721e))
+
 ## [0.2.1](https://github.com/sonapraneeth-a/gatsby-dev-themes/compare/demo-all@0.2.0...demo-all@0.2.1) (2019-08-20)
 
 ### Bug Fixes

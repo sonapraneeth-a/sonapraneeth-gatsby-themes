@@ -3,6 +3,26 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.3.0](https://github.com/sonapraneeth-a/gatsby-dev-themes/compare/@sonapraneeth/gatsby-theme-project@0.2.1...@sonapraneeth/gatsby-theme-project@0.3.0) (2019-08-28)
+
+### Bug Fixes
+
+- added [@dateformat](https://github.com/dateformat) and [@file](https://github.com/file)ByRelativePath to File in blog/project ([6aff277](https://github.com/sonapraneeth-a/gatsby-dev-themes/commit/6aff277))
+- added code for creating missing directories. moved options to utils dir ([201c7c6](https://github.com/sonapraneeth-a/gatsby-dev-themes/commit/201c7c6))
+- added missing debug.js files and updated .gitignore ([657ac50](https://github.com/sonapraneeth-a/gatsby-dev-themes/commit/657ac50))
+- fixed an issue of wrong variable in baseUrl projects page ([81b1008](https://github.com/sonapraneeth-a/gatsby-dev-themes/commit/81b1008))
+- fixed style for griditem in project template ([7d0b41f](https://github.com/sonapraneeth-a/gatsby-dev-themes/commit/7d0b41f))
+- fixed toc for blog and project package ([cfa180b](https://github.com/sonapraneeth-a/gatsby-dev-themes/commit/cfa180b))
+- throwing warning/error when there are no mdx files in project/blog package ([852dd83](https://github.com/sonapraneeth-a/gatsby-dev-themes/commit/852dd83))
+- updated queries to show featured/all projects. ([5c7c34e](https://github.com/sonapraneeth-a/gatsby-dev-themes/commit/5c7c34e))
+- using featured/recent projects only on projects banner ([c2f721e](https://github.com/sonapraneeth-a/gatsby-dev-themes/commit/c2f721e))
+
+### Features
+
+- added cover image if present in project/blog template ([dcc092c](https://github.com/sonapraneeth-a/gatsby-dev-themes/commit/dcc092c))
+- added support for cover image for project in card ([69c91bb](https://github.com/sonapraneeth-a/gatsby-dev-themes/commit/69c91bb))
+- added tableOfContents to Project interface and loading value from mdx ([c6c8086](https://github.com/sonapraneeth-a/gatsby-dev-themes/commit/c6c8086))
+
 ## 0.2.1 (2019-08-20)
 
 ### Bug Fixes

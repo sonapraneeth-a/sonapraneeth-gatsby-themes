@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.3.0](https://github.com/sonapraneeth-a/gatsby-dev-themes/compare/demo-bio@0.2.1...demo-bio@0.3.0) (2019-08-28)
+
+### Features
+
+- added option for providing name to be used for bio package ([1c7ff1c](https://github.com/sonapraneeth-a/gatsby-dev-themes/commit/1c7ff1c))
+- made change to UI when details for bio package are unavailable ([d3ceab4](https://github.com/sonapraneeth-a/gatsby-dev-themes/commit/d3ceab4))
+
 ## [0.2.1](https://github.com/sonapraneeth-a/gatsby-dev-themes/compare/demo-bio@0.2.0...demo-bio@0.2.1) (2019-08-20)
 
 ### Bug Fixes

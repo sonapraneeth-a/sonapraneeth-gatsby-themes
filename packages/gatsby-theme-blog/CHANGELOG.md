@@ -3,6 +3,29 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.3.0](https://github.com/sonapraneeth-a/gatsby-dev-themes/compare/@sonapraneeth/gatsby-theme-blog@0.2.1...@sonapraneeth/gatsby-theme-blog@0.3.0) (2019-08-28)
+
+### Bug Fixes
+
+- added [@dateformat](https://github.com/dateformat) and [@file](https://github.com/file)ByRelativePath to File in blog/project ([6aff277](https://github.com/sonapraneeth-a/gatsby-dev-themes/commit/6aff277))
+- added code for creating missing directories. moved options to utils dir ([201c7c6](https://github.com/sonapraneeth-a/gatsby-dev-themes/commit/201c7c6))
+- added missing debug.js files and updated .gitignore ([657ac50](https://github.com/sonapraneeth-a/gatsby-dev-themes/commit/657ac50))
+- fixed an issue in wrong variable for cover (blog package) ([b5f9148](https://github.com/sonapraneeth-a/gatsby-dev-themes/commit/b5f9148))
+- fixed an issue of missing type for table of contents in blog package ([aba9a82](https://github.com/sonapraneeth-a/gatsby-dev-themes/commit/aba9a82))
+- fixed griditem style issue and removed variable not used in blog query ([50191a2](https://github.com/sonapraneeth-a/gatsby-dev-themes/commit/50191a2))
+- fixed toc for blog and project package ([cfa180b](https://github.com/sonapraneeth-a/gatsby-dev-themes/commit/cfa180b))
+- removed a limit on number of blogs in allBlog query ([83adc38](https://github.com/sonapraneeth-a/gatsby-dev-themes/commit/83adc38))
+- throwing warning/error when there are no mdx files in project/blog package ([852dd83](https://github.com/sonapraneeth-a/gatsby-dev-themes/commit/852dd83))
+
+### Features
+
+- added cover image if present in project/blog template ([dcc092c](https://github.com/sonapraneeth-a/gatsby-dev-themes/commit/dcc092c))
+- added detailed card component with cover for blog package ([59bad8e](https://github.com/sonapraneeth-a/gatsby-dev-themes/commit/59bad8e))
+- added last modified time to blog interface ([dfc783c](https://github.com/sonapraneeth-a/gatsby-dev-themes/commit/dfc783c))
+- added support for cover in config files in blog package ([7bb1d23](https://github.com/sonapraneeth-a/gatsby-dev-themes/commit/7bb1d23))
+- added tableOfContents to Project interface and loading value from mdx ([c6c8086](https://github.com/sonapraneeth-a/gatsby-dev-themes/commit/c6c8086))
+- sorted blogs in descending order of published date ([d8664c2](https://github.com/sonapraneeth-a/gatsby-dev-themes/commit/d8664c2))
+
 ## 0.2.1 (2019-08-20)
 
 ### Bug Fixes

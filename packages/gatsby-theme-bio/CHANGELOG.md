@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.3.0](https://github.com/sonapraneeth-a/gatsby-dev-themes/compare/@sonapraneeth/gatsby-theme-bio@0.2.1...@sonapraneeth/gatsby-theme-bio@0.3.0) (2019-08-28)
+
+### Bug Fixes
+
+- added code for creating directories mentioned in theme options ([8b2e4c9](https://github.com/sonapraneeth-a/gatsby-dev-themes/commit/8b2e4c9))
+- added code for creating missing directories. moved options to utils dir ([201c7c6](https://github.com/sonapraneeth-a/gatsby-dev-themes/commit/201c7c6))
+
+### Features
+
+- added debug provider for debugging issues ([b79c999](https://github.com/sonapraneeth-a/gatsby-dev-themes/commit/b79c999))
+- added option for providing name to be used for bio package ([1c7ff1c](https://github.com/sonapraneeth-a/gatsby-dev-themes/commit/1c7ff1c))
+- made change to UI when details for bio package are unavailable ([d3ceab4](https://github.com/sonapraneeth-a/gatsby-dev-themes/commit/d3ceab4))
+
 ## 0.2.1 (2019-08-20)
 
 ### Bug Fixes

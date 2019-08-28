@@ -3,6 +3,21 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.2.0](https://github.com/sonapraneeth-a/gatsby-dev-themes/compare/@sonapraneeth/gatsby-plugin-themed-components@0.1.1...@sonapraneeth/gatsby-plugin-themed-components@0.2.0) (2019-08-28)
+
+### Bug Fixes
+
+- changed css to style prop in grid and grid item ([17abd0c](https://github.com/sonapraneeth-a/gatsby-dev-themes/commit/17abd0c))
+- fixed a property in button component ([3461857](https://github.com/sonapraneeth-a/gatsby-dev-themes/commit/3461857))
+- fixed styling for grid in 768px media query ([19f9c49](https://github.com/sonapraneeth-a/gatsby-dev-themes/commit/19f9c49))
+- removed console log statements from header ([4add2ca](https://github.com/sonapraneeth-a/gatsby-dev-themes/commit/4add2ca))
+- updated border radius based on theme config in card ([853f665](https://github.com/sonapraneeth-a/gatsby-dev-themes/commit/853f665))
+- updated styling for button and changed from div to button ([ba52c03](https://github.com/sonapraneeth-a/gatsby-dev-themes/commit/ba52c03))
+
+### Features
+
+- exporting useThemeUI from gatsby-plugin-themed-components ([66ffb97](https://github.com/sonapraneeth-a/gatsby-dev-themes/commit/66ffb97))
+
 ## 0.1.1 (2019-08-20)
 
 ### Bug Fixes
