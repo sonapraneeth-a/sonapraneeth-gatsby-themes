@@ -18,13 +18,13 @@ import {
  * @param {*} location
  * @return {JSX}
  */
-function Projects({pageContext: {projects}}, location) {
+function Projects({pageContext: {featuredProjects}}, location) {
   return (
     <PageLayout location={location} title={""}>
       <SContainer>
         <Styled.h1>{"Projects"}</Styled.h1>
         <Grid noCols={2}>
-          {projects.map((project, index) => (
+          {featuredProjects.map((project, index) => (
             <GridItem key={`project-detailed-${index}`}>
               <DetailedProjectCard project={project.node} />
             </GridItem>
