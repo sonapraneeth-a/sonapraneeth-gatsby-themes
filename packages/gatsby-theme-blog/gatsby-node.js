@@ -182,62 +182,50 @@ exports.createPages = async ({actions, graphql, reporter}, themeOptions) => {
   // Options created using default and provided options
   options = withDefaults(themeOptions);
   debug(`Options: ${JSON.stringify(options, null, 2)}`);
+  const fields = `
+    id
+    slug
+    title
+    publishedDate
+    excerpt
+    fileAbsolutePath
+    timeToRead
+    lastModifiedTime
+    cover {
+      childImageSharp {
+        fluid(maxWidth: 1280) {
+          base64
+          aspectRatio
+          src
+          srcSet
+          srcWebp
+          srcSetWebp
+          sizes
+        }
+      }
+    }
+  `;
   const queryProd = `
   query AllBlogsQuery {
-    allBlog(filter: {draft: {eq: false}}) {
+    allBlog(
+      sort: {fields: publishedDate, order: DESC},
+      filter: {draft: {eq: false}}
+    ) {
       edges {
         node {
-          id
-          slug
-          title
-          publishedDate
-          excerpt
-          fileAbsolutePath
-          timeToRead
-          lastModifiedTime
-          cover {
-            childImageSharp {
-              fluid(maxWidth: 1280) {
-                base64
-                aspectRatio
-                src
-                srcSet
-                srcWebp
-                srcSetWebp
-                sizes
-              }
-            }
-          }
+          ${fields}
         }
       }
     }
   }`;
   const queryDev = `
   query AllBlogsQuery {
-    allBlog {
+    allBlog(
+      sort: {fields: publishedDate, order: DESC},
+    ) {
       edges {
         node {
-          id
-          slug
-          title
-          publishedDate
-          excerpt
-          fileAbsolutePath
-          timeToRead
-          lastModifiedTime
-          cover {
-            childImageSharp {
-              fluid(maxWidth: 1280) {
-                base64
-                aspectRatio
-                src
-                srcSet
-                srcWebp
-                srcSetWebp
-                sizes
-              }
-            }
-          }
+          ${fields}
         }
       }
     }
