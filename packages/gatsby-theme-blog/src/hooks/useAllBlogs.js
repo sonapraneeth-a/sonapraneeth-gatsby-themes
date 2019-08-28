@@ -6,7 +6,7 @@ export const useAllBlogs = () => {
   const blogs = useStaticQuery(
     graphql`
       query AllBlogsQuery {
-        allBlog(limit: 10, sort: { fields: publishedDate, order: DESC }) {
+        allBlog(sort: { fields: publishedDate, order: DESC }) {
           edges {
             node {
               id
