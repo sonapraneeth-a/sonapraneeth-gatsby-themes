@@ -208,20 +208,7 @@ exports.createPages = async ({actions, graphql, reporter}, themeOptions) => {
       }
     }
   `;
-  const queryOne = `
-  query AllProjectsQuery {
-    allProject(
-      sort: {fields: startDate, order: DESC},
-      filter: {featured: {eq: true}}
-    ) {
-      edges {
-        node {
-          ${fields}
-        }
-      }
-    }
-  }`;
-  const queryTwo = `
+  const query = `
   query AllProjectsQuery {
     allProject(
       sort: {fields: startDate, order: DESC},
@@ -233,27 +220,20 @@ exports.createPages = async ({actions, graphql, reporter}, themeOptions) => {
       }
     }
   }`;
-  const resultOne = await graphql(queryOne);
-  const projectsOne = resultOne.data.allProject.edges;
-  debug(resultOne);
-  debug(JSON.stringify(projectsOne, null, 2));
-  debug(`Number of featured projects: ${projectsOne.length}`);
-  const resultTwo = await graphql(queryTwo);
-  const projectsTwo = resultTwo.data.allProject.edges;
-  debug(resultTwo);
-  debug(JSON.stringify(projectsTwo, null, 2));
-  debug(`Number of projects: ${projectsTwo.length}`);
+  const result = await graphql(query);
+  const projects = result.data.allProject.edges;
+  debug(result);
+  debug(JSON.stringify(projects, null, 2));
+  debug(`Number of projects: ${projects.length}`);
   debug(`Creating base project page at ${options.baseUrl}`);
-  const featuredProjects = projectsOne.length > 0 ? projectsOne : projectsTwo;
-  const allProjects = projectsTwo;
   actions.createPage({
     path: options.baseUrl,
     component: require.resolve("./src/templates/projects.js"),
     context: {
-      featuredProjects,
+      projects,
     },
   });
-  if (allProjects.length == 0) {
+  if (projects.length <= 0) {
     const url =
       "https://github.com/sonapraneeth-a/gatsby-dev-themes/tree/master/demo/project/content";
     reporter.warn(`
@@ -261,10 +241,10 @@ exports.createPages = async ({actions, graphql, reporter}, themeOptions) => {
       '${options.contentPath}' directory. Hence project
       pages would not be created. Please add some mdx
       files in '${options.contentPath}' directory. You may refer
-      to ${url} for `);
-  }
-  if (allProjects.length > 0) {
-    allProjects.map((project) => {
+      to ${url} for reference
+    `);
+  } else {
+    projects.map((project) => {
       debug(`Creating project page for '${project.node.title}'`);
       actions.createPage({
         path: project.node.slug,

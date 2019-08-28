@@ -6,7 +6,10 @@ export const useFeaturedProjects = () => {
   const projects = useStaticQuery(
     graphql`
       query FeaturedProjectsQuery {
-        allProject {
+        allProject(
+          sort: { fields: startDate, order: DESC }
+          filter: { featured: { eq: true } }
+        ) {
           edges {
             node {
               id

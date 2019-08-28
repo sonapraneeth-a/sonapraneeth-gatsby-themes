@@ -14,6 +14,7 @@ import {
 import {
   ProjectWidget,
   useFeaturedProjects,
+  useRecentProjects,
 } from "@sonapraneeth/gatsby-theme-project";
 
 ProjectsBanner.propTypes = {};
@@ -25,7 +26,10 @@ ProjectsBanner.defaultProps = {};
  * @return {JSX} Rendered children for the ProjectsBanner
  */
 function ProjectsBanner() {
-  const projects = useFeaturedProjects();
+  const featuredProjects = useFeaturedProjects();
+  const recentProjects = useRecentProjects();
+  const projects =
+    featuredProjects.length > 0 ? featuredProjects : recentProjects;
   return (
     <div
       sx={{

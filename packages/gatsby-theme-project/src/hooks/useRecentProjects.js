@@ -6,7 +6,7 @@ export const useRecentProjects = () => {
   const projects = useStaticQuery(
     graphql`
       query RecentProjectsQuery {
-        allProject(limit: 10, sort: { fields: completedDate, order: DESC }) {
+        allProject(limit: 10, sort: { fields: startDate, order: DESC }) {
           edges {
             node {
               id
@@ -15,6 +15,7 @@ export const useRecentProjects = () => {
               startDate
               completedDate
               abstract
+              tags
             }
           }
         }
