@@ -34,7 +34,7 @@ function Grid({children, noCols, nSizes, style}) {
         display: "grid",
         gridGap: "0.7rem",
         padding: "0.5rem 0",
-        gridTemplateColumns: ["100%", "100%", "100%", "100%", templateColumns],
+        gridTemplateColumns: ["100%", "100%", "100%", templateColumns],
         ...style,
       }}
     >
