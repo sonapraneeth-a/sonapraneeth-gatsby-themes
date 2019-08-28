@@ -27,13 +27,17 @@ function HomeWidget({author, details}) {
     }
   }
   widget("Home Widget");
+  const noCols = details !== null ? 2 : 1;
+  const margin = details !== null ? "auto 10% !important" : "0 auto !important";
+  const width = details !== null ? "80% !important" : "60% !important";
   return (
     <>
-      <Grid noCols={2} nSizes={[1, 2]}>
+      <Grid noCols={noCols} nSizes={[1, 2]}>
         <GridItem
           id="figureBio"
-          css={{
-            margin: "0 10%",
+          style={{
+            margin: margin,
+            width: width,
             display: "flex",
             flexDirection: "column",
             alignSelf: "flex-start",
@@ -50,9 +54,11 @@ function HomeWidget({author, details}) {
             />
           }
         </GridItem>
-        <GridItem id="descriptionBio" css={{padding: "0 1rem 1rem 1rem"}}>
-          <DescriptionBio description={details.body} />
-        </GridItem>
+        {details !== null && (
+          <GridItem id="descriptionBio" style={{padding: "0 1rem 1rem 1rem"}}>
+            <DescriptionBio description={details.body} />
+          </GridItem>
+        )}
       </Grid>
     </>
   );
@@ -60,7 +66,7 @@ function HomeWidget({author, details}) {
 
 HomeWidget.propTypes = {
   author: PropTypes.any.isRequired,
-  details: PropTypes.any.isRequired,
+  details: PropTypes.any,
 };
 
 HomeWidget.defaultProps = {};
