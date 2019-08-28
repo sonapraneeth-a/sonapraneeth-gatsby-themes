@@ -4,7 +4,7 @@
 
   - [x] `debug` package not working
   - [x] Add eslint plugin to root
-  - [ ] `debug` package does not print in some gatsby-node functions
+  - [x] `debug` package does not print in some gatsby-node functions (Overwritten streams)
   - [ ] Add comments to all code
 
 - @sonapraneeth/gatsby-plugin-themed-components
@@ -24,7 +24,8 @@
 - @sonapraneeth/gatsby-theme-blog
 
   - [x] `timeToRead` not resolving through Mdx
-  - [ ] Add `fileResolverPassthrough` to resolve `modifiedTime` for mdx files
+  - [x] Add `fileResolverPassthrough` to resolve `modifiedTime` for mdx files
+    - Added using fileNode
 
 - demo/bio
 
@@ -39,4 +40,5 @@
   - [ ] Update image for project cover in demos
 
 - demo/profile
-  - [ ] Error: Unable to find plugin "@sonapraneeth/gatsby-theme-profile". Perhaps you need to install its package?
+  - [x] Error: Unable to find plugin "@sonapraneeth/gatsby-theme-profile". Perhaps you need to install its package?
+    - Need to add empty file as specified in main
