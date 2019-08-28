@@ -35,8 +35,15 @@ function Blog({data, location}) {
   const isTOCEmpty = JSON.stringify(toc) === "{}";
   const dispTOC =
     data.blog.toc && toc !== undefined && toc !== null && !isTOCEmpty;
+  const title = "Blog | " + data.blog.title;
+  const description =
+    "This page contains details about the blog: " + data.blog.title;
   return (
-    <BaseLayout location={data.blog.slug} title={""}>
+    <BaseLayout
+      location={data.blog.slug}
+      title={title}
+      description={description}
+    >
       {data.blog.cover !== null && (
         <GatsbyImage src={data.blog.cover.childImageSharp.fluid} />
       )}

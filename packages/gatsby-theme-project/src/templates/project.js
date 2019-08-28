@@ -33,8 +33,15 @@ const components = {
 function Project({data, location}) {
   const toc = data.project.tableOfContents;
   const isTOCEmpty = JSON.stringify(toc) === "{}";
+  const title = "Project | " + data.project.title;
+  const description =
+    "This page contains details about the project: " + data.project.title;
   return (
-    <BaseLayout location={data.project.slug} title={""}>
+    <BaseLayout
+      location={data.project.slug}
+      title={title}
+      description={description}
+    >
       {data.project.cover !== null && (
         <GatsbyImage src={data.project.cover.childImageSharp.fluid} />
       )}

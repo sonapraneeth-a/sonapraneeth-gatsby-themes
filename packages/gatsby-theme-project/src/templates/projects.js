@@ -10,6 +10,7 @@ import {
   Grid,
   GridItem,
   SContainer,
+  useSiteMetadata,
 } from "@sonapraneeth/gatsby-plugin-themed-components";
 
 /**
@@ -19,8 +20,15 @@ import {
  * @return {JSX}
  */
 function Projects({pageContext: {projects}}, location) {
+  const siteMeta = useSiteMetadata();
+  const title = "Projects done by " + siteMeta.author;
+  const description =
+    "This is the projects page of " +
+    siteMeta.author +
+    ". " +
+    "You can find summarized information about all projects in this page";
   return (
-    <PageLayout location={location} title={""}>
+    <PageLayout location={location} title={title} description={description}>
       <SContainer>
         <Styled.h1>{"Projects"}</Styled.h1>
         <Grid noCols={2}>
