@@ -41,7 +41,7 @@ function SocialBio({linkedin, github, twitter}) {
           target="_blank"
           rel="noopener noreferrer"
           style={{borderBottom: "none"}}
-          aria-label={"LinkedIn"}
+          aria-label={"LinkedIn link for " + linkedin}
         >
           <FaLinkedinIn
             sx={{
@@ -57,7 +57,7 @@ function SocialBio({linkedin, github, twitter}) {
           target="_blank"
           rel="noopener noreferrer"
           style={{borderBottom: "none"}}
-          aria-label={"Github"}
+          aria-label={"Github link for " + github}
         >
           <FaGithub
             sx={{
@@ -73,7 +73,7 @@ function SocialBio({linkedin, github, twitter}) {
           target="_blank"
           rel="noopener noreferrer"
           style={{borderBottom: "none"}}
-          aria-label={"Twitter"}
+          aria-label={"Twitter link for " + twitter}
         >
           <FaTwitter
             sx={{

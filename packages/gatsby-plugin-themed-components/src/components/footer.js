@@ -23,6 +23,10 @@ import {
  */
 function Footer() {
   const siteMeta = useSiteMetadata();
+  const author =
+    siteMeta.author !== null && siteMeta.author !== ""
+      ? siteMeta.author
+      : "author";
   const siteMetaSocial = useSiteMetadataSocial();
   const twitter =
     siteMetaSocial.twitter !== null && siteMetaSocial.twitter !== "";
@@ -51,7 +55,13 @@ function Footer() {
           }}
         >
           Copyright &copy;{" "}
-          <Styled.a as={Link} to={siteMeta.siteUrl}>
+          <Styled.a
+            as={Link}
+            to={siteMeta.siteUrl}
+            rel="noopener noreferrer"
+            style={{borderBottom: "none"}}
+            aria-label={"Link of " + author + " for this webpage"}
+          >
             {siteMeta.author}
           </Styled.a>{" "}
           {new Date().getFullYear()}. Made in
@@ -82,6 +92,10 @@ function Footer() {
                   bg: "background",
                 },
               }}
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{borderBottom: "none"}}
+              aria-label={"Twitter link of " + author}
             >
               <FaTwitter />
             </Styled.a>
@@ -98,6 +112,10 @@ function Footer() {
                   bg: "background",
                 },
               }}
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{borderBottom: "none"}}
+              aria-label={"Facebook link of " + author}
             >
               <FaFacebookF />
             </Styled.a>
@@ -116,6 +134,10 @@ function Footer() {
                   bg: "background",
                 },
               }}
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{borderBottom: "none"}}
+              aria-label={"LinkedIn link of " + author}
             >
               <FaLinkedinIn />
             </Styled.a>
@@ -132,6 +154,10 @@ function Footer() {
                   bg: "background",
                 },
               }}
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{borderBottom: "none"}}
+              aria-label={"Github link of " + author}
             >
               <FaGithub />
             </Styled.a>
