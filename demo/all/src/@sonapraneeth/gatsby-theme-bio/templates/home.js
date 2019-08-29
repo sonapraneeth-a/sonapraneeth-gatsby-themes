@@ -1,7 +1,10 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-import {PageLayout} from "@sonapraneeth/gatsby-plugin-themed-components";
+import {
+  PageLayout,
+  useSiteMetadata,
+} from "@sonapraneeth/gatsby-plugin-themed-components";
 
 import AboutBanner from "../../../components/about";
 import ProjectsBanner from "../../../components/projects";
@@ -18,8 +21,13 @@ HomeLayout.defaultProps = {};
  * @return {JSX} Rendered children for the HomeLayout
  */
 function HomeLayout({location}) {
+  const siteMeta = useSiteMetadata();
+  const meta = {
+    title: "Home page of " + siteMeta.author,
+    description: "This is home page of " + siteMeta.author,
+  };
   return (
-    <PageLayout title={""} description={""} location={location}>
+    <PageLayout meta={meta} pageTitle={""} location={location}>
       <AboutBanner />
       <ProjectsBanner />
       <BlogBanner />

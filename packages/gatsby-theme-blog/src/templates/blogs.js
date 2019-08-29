@@ -27,8 +27,12 @@ function Blogs({pageContext: {blogs}}, location) {
     siteMeta.author +
     ". " +
     "You can find summarized information about all blogs in this page";
+  const meta = {
+    title: title,
+    description: description,
+  };
   return (
-    <PageLayout location={location} title={title} description={description}>
+    <PageLayout location={location} meta={meta}>
       <SContainer>
         <Styled.h1>{"Blog"}</Styled.h1>
         <Grid noCols={1}>

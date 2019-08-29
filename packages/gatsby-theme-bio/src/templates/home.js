@@ -23,8 +23,12 @@ function HomeLayout({location, data}) {
     data.authorInfo.name +
     ". " +
     "You can find more information about the author in this page";
+  const meta = {
+    title: title,
+    description: description,
+  };
   return (
-    <PageLayout title={title} description={description} location={location}>
+    <PageLayout meta={meta} location={location}>
       <HomeWidget author={data.authorInfo} details={data.mdx} />
     </PageLayout>
   );

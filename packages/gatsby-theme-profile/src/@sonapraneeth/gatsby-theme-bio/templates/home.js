@@ -12,6 +12,7 @@ import {
   SContainer,
   Button,
   FaArrowRight,
+  useSiteMetadata,
 } from "@sonapraneeth/gatsby-plugin-themed-components";
 import {HomeWidget, useHome} from "@sonapraneeth/gatsby-theme-bio";
 import {
@@ -31,11 +32,16 @@ HomeLayout.defaultProps = {};
  * @return {JSX} Rendered children for the HomeLayout
  */
 function HomeLayout({location}) {
+  const siteMeta = useSiteMetadata();
   const home = useHome();
   const projects = useFeaturedProjects();
   const blogs = useRecentBlogs();
+  const meta = {
+    title: "Home page of " + siteMeta.author,
+    description: "This is home page of " + siteMeta.author,
+  };
   return (
-    <PageLayout title={""} description={""} location={location}>
+    <PageLayout meta={meta} pageTitle={""} location={location}>
       <div>
         <SContainer>
           <Styled.h1>About</Styled.h1>

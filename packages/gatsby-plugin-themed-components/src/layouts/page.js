@@ -8,12 +8,13 @@ import BaseLayout from "./base";
  * Page layout for pages
  * @return {JSX} Rendered children for the page
  */
-function PageLayout({title, description, location, children}) {
+function PageLayout({meta, pageTitle, location, children}) {
+  const {title, description} = meta;
   return (
     <BaseLayout title={title} description={description} location={location}>
-      {title !== null && title !== "" && (
+      {pageTitle !== null && pageTitle !== "" && (
         <Styled.h1>
-          <span>{title}</span>
+          <span>{pageTitle}</span>
         </Styled.h1>
       )}
       <section>{children}</section>
@@ -25,11 +26,18 @@ export default PageLayout;
 
 PageLayout.propTypes = {
   children: PropTypes.any.isRequired,
-  title: PropTypes.string.isRequired,
-  description: PropTypes.string,
+  pageTitle: PropTypes.string,
+  meta: PropTypes.shape({
+    title: PropTypes.string,
+    description: PropTypes.string,
+  }).isRequired,
   location: PropTypes.any.isRequired,
 };
 
 PageLayout.defaultProps = {
-  description: "",
+  meta: {
+    title: "",
+    description: "",
+  },
+  pageTitle: "",
 };

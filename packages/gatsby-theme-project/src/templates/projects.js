@@ -27,8 +27,12 @@ function Projects({pageContext: {projects}}, location) {
     siteMeta.author +
     ". " +
     "You can find summarized information about all projects in this page";
+  const meta = {
+    title: title,
+    description: description,
+  };
   return (
-    <PageLayout location={location} title={title} description={description}>
+    <PageLayout location={location} meta={meta}>
       <SContainer>
         <Styled.h1>{"Projects"}</Styled.h1>
         <Grid noCols={2}>
