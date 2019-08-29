@@ -13,23 +13,27 @@ import {Styled} from "theme-ui";
  *
  * @param {*} items
  * @param {*} location
+ * @param {*} appendLocation - Appends URL of the web-page to TOC item
  * @return {JSX}
  */
-function createItems(items, location) {
+function createItems(items, location, appendLocation) {
+  const appendUrl = appendLocation === true ? location.pathname : "";
   return (
     items &&
     items.map((item) => (
-      <li key={location.pathname + item.url}>
+      <li key={appendUrl + item.url}>
         <Styled.a
           as={Link}
-          to={location.pathname + item.url}
+          to={appendUrl + item.url}
           sx={{
             border: "none",
           }}
         >
           {item.title}
         </Styled.a>
-        {item.items && <ul>{createItems(item.items, location)}</ul>}
+        {item.items && (
+          <ul>{createItems(item.items, location, appendLocation)}</ul>
+        )}
       </li>
     ))
   );
@@ -41,7 +45,7 @@ function createItems(items, location) {
  * @param {*} location
  * @return {JSX}
  */
-function TableOfContents({tableOfContents, location}) {
+function TableOfContents({tableOfContents, location, appendLocation}) {
   return tableOfContents.items ? (
     <nav>
       <Styled.h3
@@ -59,7 +63,7 @@ function TableOfContents({tableOfContents, location}) {
           p: 0,
         }}
       >
-        {createItems(tableOfContents.items, location)}
+        {createItems(tableOfContents.items, location, appendLocation)}
       </ul>
     </nav>
   ) : null;
@@ -68,8 +72,11 @@ function TableOfContents({tableOfContents, location}) {
 TableOfContents.propTypes = {
   tableOfContents: PropTypes.any.isRequired,
   location: PropTypes.any.isRequired,
+  appendLocation: PropTypes.bool,
 };
 
-TableOfContents.defaultProps = {};
+TableOfContents.defaultProps = {
+  appendLocation: false,
+};
 
 export default TableOfContents;
