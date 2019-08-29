@@ -4,6 +4,7 @@ import {
   useAllProjects,
 } from "./src/hooks/index";
 import ProjectWidget from "./src/widget/project";
+import ProjectsBanner from "./src/banner/projects";
 
 export {
   // Hooks
@@ -12,4 +13,6 @@ export {
   useAllProjects,
   // Widgets
   ProjectWidget,
+  // Banner
+  ProjectsBanner,
 };

@@ -6,9 +6,9 @@ import {
   useSiteMetadata,
 } from "@sonapraneeth/gatsby-plugin-themed-components";
 
-import AboutBanner from "../../../components/about";
-import ProjectsBanner from "../../../components/projects";
-import BlogBanner from "../../../components/blog";
+import {AboutBanner} from "@sonapraneeth/gatsby-theme-bio";
+import {ProjectsBanner} from "@sonapraneeth/gatsby-theme-project";
+import {BlogBanner} from "@sonapraneeth/gatsby-theme-blog";
 
 HomeLayout.propTypes = {
   location: PropTypes.any.isRequired,
