@@ -76,7 +76,7 @@ TableOfContents.propTypes = {
 };
 
 TableOfContents.defaultProps = {
-  appendLocation: false,
+  appendLocation: true,
 };
 
 export default TableOfContents;
