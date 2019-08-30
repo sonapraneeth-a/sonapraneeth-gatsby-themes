@@ -3,7 +3,6 @@
   "version": "independent",
   "loglevel": "verbose",
   "registry": "https://registry.npmjs.org/",
-  "useWorkspaces": true,
   "npmClient": "yarn",
   "command": {
     "bootstrap": {
