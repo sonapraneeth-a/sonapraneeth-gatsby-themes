@@ -235,7 +235,7 @@ exports.createPages = async ({actions, graphql, reporter}, themeOptions) => {
   });
   if (projects.length <= 0) {
     const url =
-      "https://github.com/sonapraneeth-a/gatsby-dev-themes/tree/master/demo/project/content";
+      "https://github.com/sonapraneeth-a/sonapraneeth-gatsby-themes/tree/master/demo/project/content";
     reporter.warn(`
       There does not seem to be any mdx file present in
       '${options.contentPath}' directory. Hence project
