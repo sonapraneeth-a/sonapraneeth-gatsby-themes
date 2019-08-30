@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.3.1](https://github.com/sonapraneeth-a/gatsby-dev-themes/compare/@sonapraneeth/gatsby-theme-bio@0.3.0...@sonapraneeth/gatsby-theme-bio@0.3.1) (2019-08-30)
+
+### Bug Fixes
+
+- Fixed an accessibility issue in bio package ([9d0e0e1](https://github.com/sonapraneeth-a/gatsby-dev-themes/commit/9d0e0e1))
+- Fixed an SEO issue in bio package ([eb52437](https://github.com/sonapraneeth-a/gatsby-dev-themes/commit/eb52437))
+- separated meta and pageTitle for page layout ([f7f54b8](https://github.com/sonapraneeth-a/gatsby-dev-themes/commit/f7f54b8))
+
 # [0.3.0](https://github.com/sonapraneeth-a/gatsby-dev-themes/compare/@sonapraneeth/gatsby-theme-bio@0.2.1...@sonapraneeth/gatsby-theme-bio@0.3.0) (2019-08-28)
 
 ### Bug Fixes

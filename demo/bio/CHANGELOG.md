@@ -3,6 +3,10 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.3.1](https://github.com/sonapraneeth-a/gatsby-dev-themes/compare/demo-bio@0.3.0...demo-bio@0.3.1) (2019-08-30)
+
+**Note:** Version bump only for package demo-bio
+
 # [0.3.0](https://github.com/sonapraneeth-a/gatsby-dev-themes/compare/demo-bio@0.2.1...demo-bio@0.3.0) (2019-08-28)
 
 ### Features

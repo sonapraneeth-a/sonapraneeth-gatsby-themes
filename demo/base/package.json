@@ -1,6 +1,6 @@
 {
   "name": "demo-base",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "main": "index.js",
   "private": true,
   "author": "Sona Praneeth Akula <sonapraneeth.akula@gmail.com>",
@@ -31,7 +31,7 @@
     "prettier": "prettier --write src/**/*.js"
   },
   "dependencies": {
-    "@sonapraneeth/gatsby-plugin-themed-components": "^0.2.0",
+    "@sonapraneeth/gatsby-plugin-themed-components": "^0.3.0",
     "gatsby": "^2.14.0",
     "gatsby-theme-style-guide": "^0.2.37",
     "react": "^16.9.0",

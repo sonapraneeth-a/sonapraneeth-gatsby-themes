@@ -1,6 +1,6 @@
 {
   "name": "demo-bio",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "main": "index.js",
   "private": true,
   "author": "Sona Praneeth Akula <sonapraneeth.akula@gmail.com>",
@@ -31,7 +31,7 @@
     "prettier": "prettier --write src/**/*.js"
   },
   "dependencies": {
-    "@sonapraneeth/gatsby-theme-bio": "^0.3.0",
+    "@sonapraneeth/gatsby-theme-bio": "^0.3.1",
     "gatsby": "^2.14.0",
     "react": "^16.9.0",
     "react-dom": "^16.9.0"

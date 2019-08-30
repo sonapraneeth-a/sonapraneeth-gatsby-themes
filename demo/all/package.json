@@ -1,6 +1,6 @@
 {
   "name": "demo-all",
-  "version": "0.2.2",
+  "version": "0.2.3",
   "main": "index.js",
   "private": true,
   "author": "Sona Praneeth Akula <sonapraneeth.akula@gmail.com>",
@@ -33,9 +33,9 @@
   "dependencies": {
     "@mdx-js/mdx": "^1.4.0",
     "@mdx-js/react": "^1.4.0",
-    "@sonapraneeth/gatsby-theme-bio": "^0.3.0",
-    "@sonapraneeth/gatsby-theme-blog": "^0.3.0",
-    "@sonapraneeth/gatsby-theme-project": "^0.3.0",
+    "@sonapraneeth/gatsby-theme-bio": "^0.3.1",
+    "@sonapraneeth/gatsby-theme-blog": "^0.3.1",
+    "@sonapraneeth/gatsby-theme-project": "^0.3.1",
     "deepmerge": "^4.0.0",
     "gatsby": "^2.14.0",
     "gatsby-plugin-mdx": "^1.0.33",
