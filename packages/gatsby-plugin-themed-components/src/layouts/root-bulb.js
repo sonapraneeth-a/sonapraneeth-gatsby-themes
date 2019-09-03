@@ -4,7 +4,7 @@ import {Global} from "@emotion/core";
 import {css} from "theme-ui";
 import {useColorMode, useThemeUI, Layout} from "theme-ui";
 
-import {layout} from "../../config/default";
+import {layout} from "../../utils/default";
 import BulbSwitch from "../components/bulb";
 
 /**
