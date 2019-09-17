@@ -3,6 +3,7 @@ import {jsx} from "theme-ui";
 // eslint-disable-next-line no-unused-vars
 import React from "react";
 import PropTypes from "prop-types";
+import {useThemeUI} from "theme-ui";
 
 import {FaCalendarAlt, FaTag} from "react-icons/fa";
 
@@ -12,12 +13,15 @@ import {FaCalendarAlt, FaTag} from "react-icons/fa";
  * @return {JSX}
  */
 function Chip({children, type, ...props}) {
+  const context = useThemeUI();
+  const theme = context.theme;
+  const borderRadius = theme.rounded === false ? "0rem" : "0.2rem";
   return (
     <span
       {...props}
       sx={{
         lineHeight: 0.5,
-        borderRadius: 0,
+        borderRadius: borderRadius,
         paddingTop: ".01rem",
         paddingBottom: "0.2rem",
         bg: "chip.bg",

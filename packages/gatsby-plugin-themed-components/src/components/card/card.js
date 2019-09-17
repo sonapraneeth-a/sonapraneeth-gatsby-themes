@@ -14,7 +14,7 @@ import {shadows, transition} from "gatsby-design-tokens";
 function Card({children, ...props}) {
   const context = useThemeUI();
   const theme = context.theme;
-  const borderRadius = theme.rounded === false ? "0%" : "2%";
+  const borderRadius = theme.rounded === false ? "0%" : "3%";
   return (
     <div
       {...props}
