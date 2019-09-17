@@ -51,6 +51,12 @@ function RootBulb({children}) {
           "html": {
             fontSize: "18px",
           },
+          "pre": {
+            fontFamily: "monospace",
+          },
+          "code": {
+            fontFamily: "monospace",
+          },
           "::-webkit-scrollbar-track": {
             WebkitBoxShadow: `inset 0 0 6px ${colors.background}`,
             bg: "background",
