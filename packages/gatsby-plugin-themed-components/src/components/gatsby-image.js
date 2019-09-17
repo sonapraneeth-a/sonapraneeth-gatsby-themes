@@ -3,6 +3,8 @@ import PropTypes from "prop-types";
 import Image from "gatsby-image";
 
 GatsbyImage.propTypes = {
+  // Type of image: fixed/fluid,
+  type: PropTypes.oneOf(["fixed", "fluid"]).isRequired,
   // Image source
   src: PropTypes.object.isRequired,
   // Optional: Alt string for the image
@@ -25,11 +27,21 @@ GatsbyImage.defaultProps = {
  * @param {object} props
  * @return {JSX} <GatsbyImage> component
  */
-function GatsbyImage({src, alt, style, imgStyle, caption}) {
+function GatsbyImage({type, src, alt, style, imgStyle, caption}) {
   return (
     <>
-      <Image fluid={src} alt={alt} style={style} imgStyle={imgStyle} />
-      {caption}
+      {type === "fluid" && (
+        <>
+          <Image fluid={src} alt={alt} style={style} imgStyle={imgStyle} />
+          {caption}
+        </>
+      )}
+      {type === "fixed" && (
+        <>
+          <Image fixed={src} alt={alt} style={style} imgStyle={imgStyle} />
+          {caption}
+        </>
+      )}
     </>
   );
 }

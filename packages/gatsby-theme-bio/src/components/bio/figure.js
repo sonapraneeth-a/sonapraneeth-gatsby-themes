@@ -26,6 +26,7 @@ function FigureBio({image, caption}) {
   return (
     <>
       <GatsbyImage
+        type={"fluid"}
         src={image.fluid}
         style={{
           borderRadius: borderRadius,

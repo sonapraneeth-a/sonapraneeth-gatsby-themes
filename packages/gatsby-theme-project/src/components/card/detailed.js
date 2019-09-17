@@ -34,6 +34,7 @@ function DetailedProjectCard({project, ...props}) {
     <Card>
       {project.cover !== null && (
         <GatsbyImage
+          type={"fluid"}
           src={project.cover.childImageSharp.fluid}
           style={{
             borderTopLeftRadius: borderRadius,
