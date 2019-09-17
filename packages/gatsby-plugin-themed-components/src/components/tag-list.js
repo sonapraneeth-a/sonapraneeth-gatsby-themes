@@ -1,3 +1,6 @@
+/** @jsx jsx */
+import {jsx} from "@sonapraneeth/gatsby-plugin-themed-components";
+// eslint-disable-next-line no-unused-vars
 import React from "react";
 import PropTypes from "prop-types";
 import {Chip} from "@sonapraneeth/gatsby-plugin-themed-components";
@@ -14,7 +17,13 @@ function TagList({tags}) {
         return (
           tag !== null &&
           tag !== "" && (
-            <Chip type={"tag"} key={"project-tag-" + index}>
+            <Chip
+              type={"tag"}
+              key={"project-tag-" + index}
+              sx={{
+                mx: "0.1rem",
+              }}
+            >
               {tag}
             </Chip>
           )
