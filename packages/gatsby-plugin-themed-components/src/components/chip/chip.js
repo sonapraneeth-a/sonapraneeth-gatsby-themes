@@ -5,7 +5,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import {useThemeUI} from "theme-ui";
 
-import {FaCalendarAlt, FaTag} from "react-icons/fa";
+import {FaCalendarAlt, FaTag, FaClock} from "react-icons/fa";
 
 /**
  *
@@ -46,6 +46,13 @@ function Chip({children, type, ...props}) {
           }}
         />
       )}
+      {type !== null && type === "time" && (
+        <FaClock
+          sx={{
+            variant: "icon",
+          }}
+        />
+      )}
       <span
         sx={{
           verticalAlign: "middle",
@@ -60,7 +67,7 @@ function Chip({children, type, ...props}) {
 
 Chip.propTypes = {
   children: PropTypes.any.isRequired,
-  type: PropTypes.oneOf(["date", "tag"]),
+  type: PropTypes.oneOf(["date", "tag", "time"]),
 };
 
 Chip.defaultProps = {
