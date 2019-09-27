@@ -32,7 +32,7 @@
   },
   "dependencies": {
     "@sonapraneeth/gatsby-theme-bio": "^0.3.1",
-    "gatsby": "^2.15.15",
+    "gatsby": "^2.15.28",
     "react": "^16.9.0",
     "react-dom": "^16.9.0"
   }
