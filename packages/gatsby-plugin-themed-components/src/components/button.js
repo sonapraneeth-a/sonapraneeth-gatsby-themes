@@ -2,6 +2,7 @@
 import {jsx} from "theme-ui";
 // eslint-disable-next-line no-unused-vars
 import React from "react";
+import {useThemeUI} from "theme-ui";
 import PropTypes from "prop-types";
 
 /**
@@ -11,6 +12,9 @@ import PropTypes from "prop-types";
  */
 function Button({children, type, ...props}) {
   const style = "button." + type;
+  const context = useThemeUI();
+  const theme = context.theme;
+  const borderRadius = theme.rounded === false ? "0%" : "0.25rem";
   return (
     <button
       {...props}
@@ -23,7 +27,7 @@ function Button({children, type, ...props}) {
         border: "1px solid transparent",
         padding: ".375rem .75rem",
         fontSize: "1rem",
-        borderRadius: ".25rem",
+        borderRadius: borderRadius,
         cursor: "pointer",
         WebkitAppearance: "button",
         overflow: "visible",
