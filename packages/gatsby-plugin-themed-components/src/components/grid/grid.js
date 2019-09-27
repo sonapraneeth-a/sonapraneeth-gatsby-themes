@@ -1,8 +1,8 @@
+/** @jsx jsx */
+import {jsx} from "theme-ui";
 // eslint-disable-next-line no-unused-vars
 import React from "react";
 import PropTypes from "prop-types";
-/** @jsx jsx */
-import {jsx} from "theme-ui";
 
 Grid.propTypes = {
   children: PropTypes.any.isRequired,
