@@ -48,7 +48,7 @@ exports.createSchemaCustomization = ({actions, schema}) => {
       title: String!
       status: String!
       startDate: Date! @dateformat
-      completedDate: Date! @dateformat
+      completedDate: Date @dateformat
       source: String!
       report: String!
       presentation: String!
@@ -61,13 +61,14 @@ exports.createSchemaCustomization = ({actions, schema}) => {
       tags: [String!]!
       body: String!
       tableOfContents: JSON
+      timeToRead: Int
     }
     type ProjectMdx implements Project & Node {
       id: ID!
       title: String!
       status: String!
       startDate: Date! @dateformat
-      completedDate: Date! @dateformat
+      completedDate: Date @dateformat
       source: String!
       report: String!
       presentation: String!
@@ -138,19 +139,30 @@ exports.onCreateNode = (
     const projectTags = "tags" in frontmatter ? frontmatter.tags : [];
     debug(`Project cover: ${projectCover}`);
     debug(`Project tags: ${projectTags}`);
+    console.log(frontmatter.completedDate);
     const projectData = {
       title: frontmatter.title || "",
-      status: frontmatter.status || "Completed",
-      startDate: frontmatter.startDate,
-      completedDate: frontmatter.completedDate,
+      status:
+        frontmatter.status !== undefined && frontmatter.status !== null ?
+          frontmatter.status :
+          frontmatter.completedDate !== undefined &&
+            frontmatter.completedDate !== null ?
+            "Completed" :
+            "Ongoing",
+      startDate: new Date(frontmatter.startDate).toISOString(),
+      completedDate:
+        frontmatter.completedDate !== undefined &&
+        frontmatter.completedDate !== null ?
+          new Date(frontmatter.completedDate).toISOString() :
+          new Date().toISOString(),
       source: frontmatter.source || "",
       report: frontmatter.report || "",
       presentation: frontmatter.presentation || "",
       abstract: frontmatter.abstract || "",
       toc:
-        frontmatter.toc !== undefined && frontmatter.toc !== null
-          ? frontmatter.toc
-          : true,
+        frontmatter.toc !== undefined && frontmatter.toc !== null ?
+          frontmatter.toc :
+          true,
       featured: frontmatter.featured || false,
       fileAbsolutePath: node.fileAbsolutePath,
       cover: projectCover,
@@ -186,8 +198,8 @@ exports.createPages = async ({actions, graphql, reporter}, themeOptions) => {
     id
     slug
     title
-    startDate
-    completedDate
+    startDate(formatString: "MMM YYYY")
+    completedDate(formatString: "MMM YYYY")
     abstract
     source
     report
@@ -220,7 +232,12 @@ exports.createPages = async ({actions, graphql, reporter}, themeOptions) => {
       }
     }
   }`;
-  const result = await graphql(query);
+  let result = null;
+  try {
+    result = await graphql(query);
+  } catch (error) {
+    console.error(error);
+  }
   const projects = result.data.allProject.edges;
   debug(result);
   debug(JSON.stringify(projects, null, 2));
