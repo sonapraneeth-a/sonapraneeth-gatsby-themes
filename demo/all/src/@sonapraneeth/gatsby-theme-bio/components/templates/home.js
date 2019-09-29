@@ -10,17 +10,18 @@ import {AboutBanner} from "@sonapraneeth/gatsby-theme-bio";
 import {ProjectsBanner} from "@sonapraneeth/gatsby-theme-project";
 import {BlogBanner} from "@sonapraneeth/gatsby-theme-blog";
 
-HomeLayout.propTypes = {
+HomeTemplate.propTypes = {
   location: PropTypes.any.isRequired,
+  data: PropTypes.any.isRequired,
 };
 
-HomeLayout.defaultProps = {};
+HomeTemplate.defaultProps = {};
 
 /**
  * Home layout - Used in home page
- * @return {JSX} Rendered children for the HomeLayout
+ * @return {JSX} Rendered children for the HomeTemplate
  */
-function HomeLayout({location}) {
+function HomeTemplate({location, data}) {
   const siteMeta = useSiteMetadata();
   const meta = {
     title: "Home page of " + siteMeta.author,
@@ -28,11 +29,11 @@ function HomeLayout({location}) {
   };
   return (
     <PageLayout meta={meta} pageTitle={""} location={location}>
-      <AboutBanner />
+      <AboutBanner data={data} />
       <ProjectsBanner />
       <BlogBanner />
     </PageLayout>
   );
 }
 
-export default HomeLayout;
+export default HomeTemplate;
