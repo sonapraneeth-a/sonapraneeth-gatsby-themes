@@ -34,15 +34,23 @@
 - demo/bio
 
   - [ ] Update image for author bio in demos
+  - [ ] warn Warning: componentWillUpdate has been renamed, and is not recommended for use. See https://fb.me/react-async-component-lifecycle-hooks for details.
 
 - demo/blog
 
   - [ ] Update image for blog cover in demos
+  - [ ] warn Warning: componentWillUpdate has been renamed, and is not recommended for use. See https://fb.me/react-async-component-lifecycle-hooks for details.
 
 - demo/project
 
   - [ ] Update image for project cover in demos
+  - [ ] warn Warning: componentWillUpdate has been renamed, and is not recommended for use. See https://fb.me/react-async-component-lifecycle-hooks for details.
 
 - demo/profile
+
   - [x] Error: Unable to find plugin "@sonapraneeth/gatsby-theme-profile". Perhaps you need to install its package?
     - Need to add empty file as specified in main
+    - warn Warning: componentWillUpdate has been renamed, and is not recommended for use. See https://fb.me/react-async-component-lifecycle-hooks for details.
+
+- demo/all
+  - [ ] warn Warning: componentWillUpdate has been renamed, and is not recommended for use. See https://fb.me/react-async-component-lifecycle-hooks for details.
