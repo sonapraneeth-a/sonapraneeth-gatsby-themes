@@ -19,7 +19,7 @@ import {
  * @param {*} location
  * @return {JSX}
  */
-function Projects({pageContext: {projects}}, location) {
+function ProjectsListTemplate({projects, location}) {
   const siteMeta = useSiteMetadata();
   const title = "Projects done by " + siteMeta.author;
   const description =
@@ -47,11 +47,11 @@ function Projects({pageContext: {projects}}, location) {
   );
 }
 
-Projects.propTypes = {
-  pageContext: PropTypes.any.isRequired,
+ProjectsListTemplate.propTypes = {
+  projects: PropTypes.any.isRequired,
   location: PropTypes.any.isRequired,
 };
 
-Projects.defaultProps = {};
+ProjectsListTemplate.defaultProps = {};
 
-export default Projects;
+export default ProjectsListTemplate;
