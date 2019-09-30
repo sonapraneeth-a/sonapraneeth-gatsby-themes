@@ -5,7 +5,7 @@ import {
   PageLayout,
   Styled,
 } from "@sonapraneeth/gatsby-plugin-themed-components";
-import DetailedBlogCardWithCover from "../components/card/detailed-cover";
+import DetailedBlogCardWithCover from "../card/detailed-cover";
 import {
   Grid,
   GridItem,
