@@ -39,7 +39,7 @@ function BlogTemplate({blog, location}) {
   return (
     <BaseLayout location={blog.slug} title={title} description={description}>
       {blog.cover !== null && (
-        <GatsbyImage src={blog.cover.childImageSharp.fluid} />
+        <GatsbyImage type={"fluid"} src={blog.cover.childImageSharp.fluid} />
       )}
       <SContainer>
         <Styled.h1>{blog.title}</Styled.h1>

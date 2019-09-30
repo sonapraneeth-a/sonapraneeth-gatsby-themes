@@ -57,6 +57,7 @@ function DetailedBlogCardWithCover({blog, ...props}) {
             }}
           >
             <GatsbyImage
+              type={"fluid"}
               src={blog.cover.childImageSharp.fluid}
               style={{
                 borderTopLeftRadius: borderRadius,
