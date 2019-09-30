@@ -245,7 +245,7 @@ exports.createPages = async ({actions, graphql, reporter}, themeOptions) => {
   debug(`Creating base project page at ${options.baseUrl}`);
   actions.createPage({
     path: options.baseUrl,
-    component: require.resolve("./src/templates/projects.js"),
+    component: require.resolve("./src/templates/projects-list.js"),
     context: {
       projects,
     },

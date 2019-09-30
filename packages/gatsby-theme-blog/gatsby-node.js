@@ -156,9 +156,9 @@ exports.onCreateNode = (
       fileAbsolutePath: node.fileAbsolutePath,
       draft: frontmatter.draft || false,
       toc:
-        frontmatter.toc !== undefined && frontmatter.toc !== null
-          ? frontmatter.toc
-          : true,
+        frontmatter.toc !== undefined && frontmatter.toc !== null ?
+          frontmatter.toc :
+          true,
       sharing: frontmatter.sharing || false,
       cover: blogCover,
       tags: blogTags,
@@ -247,7 +247,7 @@ exports.createPages = async ({actions, graphql, reporter}, themeOptions) => {
   debug(`Creating base blog page at ${options.baseUrl}`);
   actions.createPage({
     path: options.baseUrl,
-    component: require.resolve("./src/templates/blogs.js"),
+    component: require.resolve("./src/templates/blogs-list.js"),
     context: {
       blogs,
     },
