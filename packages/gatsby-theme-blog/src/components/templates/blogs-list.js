@@ -19,7 +19,7 @@ import {
  * @param {*} location
  * @return {JSX}
  */
-function Blogs({pageContext: {blogs}}, location) {
+function BlogsListTemplate({blogs, location}) {
   const siteMeta = useSiteMetadata();
   const title = "Blogs penned by " + siteMeta.author;
   const description =
@@ -47,11 +47,11 @@ function Blogs({pageContext: {blogs}}, location) {
   );
 }
 
-Blogs.propTypes = {
-  pageContext: PropTypes.any.isRequired,
+BlogsListTemplate.propTypes = {
+  blogs: PropTypes.any.isRequired,
   location: PropTypes.any.isRequired,
 };
 
-Blogs.defaultProps = {};
+BlogsListTemplate.defaultProps = {};
 
-export default Blogs;
+export default BlogsListTemplate;
