@@ -21,7 +21,7 @@
       "ignoreChanges": [".*", "*.md"],
       "allowBranch": ["master"],
       "message": "chore(release): Publish",
-      "conventionalCommits": false,
+      "conventionalCommits": true,
       "signGitCommit": true,
       "signGitTag": true
     },
