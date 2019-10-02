@@ -96,7 +96,7 @@ exports.onCreateNode = (
   // Create source field (according to contentPath)
   const fileNode = getNode(node.parent);
   const source = fileNode.sourceInstanceName;
-  if (node.internal.type === "AuthorYaml" && source === "author") {
+  if (node.internal.type === "AuthorYaml" && source === "data") {
     const author = {
       name: node.name || "",
       description: node.description || "",

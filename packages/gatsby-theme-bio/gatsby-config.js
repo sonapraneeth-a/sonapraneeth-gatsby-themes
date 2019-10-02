@@ -32,14 +32,14 @@ module.exports = (themeOptions) => {
       {
         resolve: "gatsby-source-filesystem",
         options: {
-          name: "author",
+          name: "data",
           path: options.dataPath,
         },
       },
       {
         resolve: "gatsby-source-filesystem",
         options: {
-          name: "bio-assets",
+          name: "assets",
           path: options.assetsPath,
         },
       },
