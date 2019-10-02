@@ -7,7 +7,7 @@ import {useColorMode, css} from "theme-ui";
 import sun from "../assets/sun-18.png";
 import moon from "../assets/moon-18.png";
 
-import {layout} from "../../utils/default";
+import {layout} from "../../utils/debug";
 
 const checkedIcon = (
   <img

@@ -9,4 +9,5 @@ module.exports = {
   component: DebugTheme.extend("component"),
   widget: DebugTheme.extend("widget"),
   hooks: DebugTheme.extend("hooks"),
+  menu: DebugTheme.extend("menu"),
 };
