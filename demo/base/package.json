@@ -31,10 +31,10 @@
     "prettier": "prettier --write src/**/*.js"
   },
   "dependencies": {
-    "@sonapraneeth/gatsby-plugin-themed-components": "^0.3.0",
-    "gatsby": "^2.15.28",
+    "@sonapraneeth/gatsby-plugin-themed-components": "^0.4.0",
+    "gatsby": "^2.15.34",
     "gatsby-theme-style-guide": "^0.2.43",
-    "react": "^16.9.0",
-    "react-dom": "^16.9.0"
+    "react": "^16.10.2",
+    "react-dom": "^16.10.2"
   }
 }
