@@ -27,7 +27,7 @@ function BlogBanner() {
     <div
       sx={{
         bg: "banner.about",
-        padding: "1rem",
+        // padding: "1rem",
       }}
     >
       <SContainer>

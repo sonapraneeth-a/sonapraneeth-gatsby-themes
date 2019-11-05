@@ -32,9 +32,11 @@ function ProjectsBanner() {
     featuredProjects.length > 0 ? featuredProjects : recentProjects;
   return (
     <div
-      sx={{
-        padding: "1rem",
-      }}
+      sx={
+        {
+          // padding: "1rem",
+        }
+      }
     >
       <SContainer>
         <Styled.h1>Projects</Styled.h1>
