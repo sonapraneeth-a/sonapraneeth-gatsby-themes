@@ -21,19 +21,19 @@
   ],
   "license": "MIT",
   "peerDependencies": {
-    "gatsby": "^2.15.34",
-    "react": "^16.10.2",
-    "react-dom": "^16.10.2"
+    "gatsby": "^2.17.8",
+    "react": "^16.11.0",
+    "react-dom": "^16.11.0"
   },
   "dependencies": {
-    "@emotion/core": "^10.0.21",
+    "@emotion/core": "^10.0.22",
     "@mdx-js/react": "^1.5.1",
-    "gatsby-design-tokens": "^1.0.9",
-    "gatsby-image": "^2.2.25",
+    "gatsby-design-tokens": "^1.0.10",
+    "gatsby-image": "^2.2.30",
     "gatsby-plugin-theme-ui": "^0.2.43",
-    "react-icons": "^3.7.0",
+    "react-icons": "^3.8.0",
     "react-switch": "^5.0.1",
-    "theme-ui": "^0.2.43",
+    "theme-ui": "^0.2.46",
     "typeface-pt-sans": "^0.0.72",
     "typeface-signika-negative": "^0.0.71"
   },

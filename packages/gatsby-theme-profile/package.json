@@ -28,9 +28,9 @@
     "prettier": "prettier --write src/**/*.js"
   },
   "peerDependencies": {
-    "gatsby": "^2.15.34",
-    "react": "^16.10.2",
-    "react-dom": "^16.10.2"
+    "gatsby": "^2.17.8",
+    "react": "^16.11.0",
+    "react-dom": "^16.11.0"
   },
   "dependencies": {
     "@mdx-js/mdx": "^1.5.1",
@@ -38,13 +38,13 @@
     "@sonapraneeth/gatsby-theme-bio": "^0.4.0",
     "@sonapraneeth/gatsby-theme-blog": "^0.4.0",
     "@sonapraneeth/gatsby-theme-project": "^0.4.0",
-    "gatsby-plugin-mdx": "^1.0.50",
-    "gatsby-remark-autolink-headers": "^2.1.14",
-    "gatsby-remark-copy-linked-files": "^2.1.26",
-    "gatsby-remark-images": "^3.1.26",
+    "gatsby-plugin-mdx": "^1.0.55",
+    "gatsby-remark-autolink-headers": "^2.1.16",
+    "gatsby-remark-copy-linked-files": "^2.1.28",
+    "gatsby-remark-images": "^3.1.29",
     "gatsby-remark-numbered-footnotes": "^1.0.1",
     "gatsby-remark-slug": "^0.1.0",
-    "gatsby-remark-smartypants": "^2.1.12",
+    "gatsby-remark-smartypants": "^2.1.14",
     "remark-slug": "^5.1.2"
   }
 }
