@@ -1,10 +1,10 @@
+/** @jsx jsx */
+import {jsx} from "theme-ui";
 // eslint-disable-next-line no-unused-vars
 import React from "react";
 import PropTypes from "prop-types";
 import {Link} from "gatsby";
 import {Styled} from "theme-ui";
-/** @jsx jsx */
-import {jsx} from "theme-ui";
 
 import {SFlex, SFooter} from "../components/theme-ui/index";
 import {useSiteMetadata} from "../hooks/useSiteMetadata";
@@ -24,9 +24,9 @@ import {
 function Footer() {
   const siteMeta = useSiteMetadata();
   const author =
-    siteMeta.author !== null && siteMeta.author !== ""
-      ? siteMeta.author
-      : "author";
+    siteMeta.author !== null && siteMeta.author !== "" ?
+      siteMeta.author :
+      "author";
   const siteMetaSocial = useSiteMetadataSocial();
   const twitter =
     siteMetaSocial.twitter !== null && siteMetaSocial.twitter !== "";
@@ -102,7 +102,7 @@ function Footer() {
           )}
           {facebook && (
             <Styled.a
-              href={"https://www.facebook.com/" + siteMetaSocial.linkedin + "/"}
+              href={"https://www.facebook.com/" + siteMetaSocial.facebook + "/"}
               sx={{
                 "variant": "link.none",
                 "color": "icons.facebook",
