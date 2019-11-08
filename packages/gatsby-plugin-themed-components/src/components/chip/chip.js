@@ -67,11 +67,11 @@ function Chip({children, type, ...props}) {
 
 Chip.propTypes = {
   children: PropTypes.any.isRequired,
-  type: PropTypes.oneOf(["date", "tag", "time"]),
+  type: PropTypes.oneOf(["date", "tag", "time", "default"]),
 };
 
 Chip.defaultProps = {
-  type: "",
+  type: "default",
 };
 
 export default Chip;
