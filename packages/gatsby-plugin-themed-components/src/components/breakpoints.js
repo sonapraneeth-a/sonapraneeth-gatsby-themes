@@ -23,6 +23,16 @@ export const screens = {
   ultrahd: breakpoints[7],
 };
 
+export const screensInfo = [
+  ["mobile", "20 rem"],
+  ["minitablet", "40 rem"],
+  ["tablet", "48 rem"],
+  ["laptop", "64 rem"],
+  ["desktop", "80 rem"],
+  ["fullHD", "86 rem"],
+  ["ultraHD", "120 rem"],
+];
+
 // Media query for mobile breakpoint
 export const mobile = `@media screen and (max-width: ${breakpoints[1]}rem)`;
 
