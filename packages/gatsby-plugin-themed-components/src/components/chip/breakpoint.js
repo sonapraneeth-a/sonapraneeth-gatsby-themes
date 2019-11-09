@@ -31,11 +31,15 @@ function BreakpointChip({text, ...props}) {
           position: "fixed",
           right: "1rem",
           bottom: "1rem",
+          textAlign: "center",
         }}
       >
         <b>
-          {screen[0][0].toUpperCase() + screen[0].slice(1)} {">= " + screen[1]}
+          {screen[0][0].toUpperCase() + screen[0].slice(1)}
+          {" >= " + screen[1]}
         </b>
+        <br />
+        <b>{text}</b>
       </Chip>
     );
   });
