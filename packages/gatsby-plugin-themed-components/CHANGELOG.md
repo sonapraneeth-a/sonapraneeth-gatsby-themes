@@ -3,6 +3,21 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.5.0](https://github.com/sonapraneeth-a/sonapraneeth-gatsby-themes/compare/@sonapraneeth/gatsby-plugin-themed-components@0.4.0...@sonapraneeth/gatsby-plugin-themed-components@0.5.0) (2019-11-09)
+
+### Bug Fixes
+
+- **component:** minor update to contents of breakpoint component ([a5d3b58](https://github.com/sonapraneeth-a/sonapraneeth-gatsby-themes/commit/a5d3b58))
+- **components:** Fixed a link issue in facebook in footer ([1c37f9c](https://github.com/sonapraneeth-a/sonapraneeth-gatsby-themes/commit/1c37f9c))
+- **components:** minor update to component styling ([32a1382](https://github.com/sonapraneeth-a/sonapraneeth-gatsby-themes/commit/32a1382))
+- **components:** minor update to styling to header text ([35e8d7d](https://github.com/sonapraneeth-a/sonapraneeth-gatsby-themes/commit/35e8d7d))
+
+### Features
+
+- **components:** added breakpoint component ([11d359c](https://github.com/sonapraneeth-a/sonapraneeth-gatsby-themes/commit/11d359c))
+- **components:** added default chip type(iconless chip) ([7761fa3](https://github.com/sonapraneeth-a/sonapraneeth-gatsby-themes/commit/7761fa3))
+- **hooks:** Added new functions and use window dimensions hook ([a47fdb7](https://github.com/sonapraneeth-a/sonapraneeth-gatsby-themes/commit/a47fdb7))
+
 # [0.3.0](https://github.com/sonapraneeth-a/sonapraneeth-gatsby-themes/compare/@sonapraneeth/gatsby-plugin-themed-components@0.2.0...@sonapraneeth/gatsby-plugin-themed-components@0.3.0) (2019-08-30)
 
 ### Bug Fixes

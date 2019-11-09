@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.4.1](https://github.com/sonapraneeth-a/sonapraneeth-gatsby-themes/compare/@sonapraneeth/gatsby-theme-blog@0.4.0...@sonapraneeth/gatsby-theme-blog@0.4.1) (2019-11-09)
+
+### Bug Fixes
+
+- fixed gatsby image type in blog template components ([e903706](https://github.com/sonapraneeth-a/sonapraneeth-gatsby-themes/commit/e903706))
+- minor styling change to banner code ([c5d83fa](https://github.com/sonapraneeth-a/sonapraneeth-gatsby-themes/commit/c5d83fa))
+
 ## [0.3.1](https://github.com/sonapraneeth-a/sonapraneeth-gatsby-themes/compare/@sonapraneeth/gatsby-theme-blog@0.3.0...@sonapraneeth/gatsby-theme-blog@0.3.1) (2019-08-30)
 
 ### Bug Fixes
