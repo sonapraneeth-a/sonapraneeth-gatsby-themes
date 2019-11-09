@@ -33,6 +33,7 @@ function SocialBio({linkedin, github, twitter}) {
         flexDirection: "row",
         justifyContent: "space-between",
         fontSize: [0, 0, 2],
+        m: 4,
       }}
     >
       {linkedin !== null && linkedin !== "" && (

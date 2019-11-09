@@ -51,7 +51,8 @@ function Footer() {
       >
         <p
           sx={{
-            width: "70%",
+            width: "50%",
+            py: [0, 0, 4],
           }}
         >
           Copyright &copy;{" "}
@@ -77,7 +78,9 @@ function Footer() {
           sx={{
             display: "flex",
             justifyContent: "space-around",
-            width: "30%",
+            width: "50%",
+            height: "fit-content",
+            flexWrap: "wrap",
           }}
         >
           {twitter && (
@@ -87,6 +90,8 @@ function Footer() {
                 "variant": "link.none",
                 "color": "icons.twitter",
                 "bg": "background",
+                "px": 2,
+                "py": 4,
                 ":hover": {
                   color: "text",
                   bg: "background",
@@ -107,6 +112,8 @@ function Footer() {
                 "variant": "link.none",
                 "color": "icons.facebook",
                 "bg": "background",
+                "px": 2,
+                "py": 4,
                 ":hover": {
                   color: "text",
                   bg: "background",
@@ -129,6 +136,8 @@ function Footer() {
                 "variant": "link.none",
                 "color": "icons.linkedin",
                 "bg": "background",
+                "px": 2,
+                "py": 4,
                 ":hover": {
                   color: "text",
                   bg: "background",
@@ -149,6 +158,8 @@ function Footer() {
                 "variant": "link.none",
                 "color": "icons.github",
                 "bg": "background",
+                "px": 2,
+                "py": 4,
                 ":hover": {
                   color: "text",
                   bg: "background",

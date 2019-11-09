@@ -22,14 +22,14 @@ function HomeWidget({author, details}) {
       localStorage.setItem(
         "debug",
         "@sonapraneeth/gatsby-plugin-themed-components:*," +
-          "@sonapraneeth/gatsby-theme-bio:*"
+          "@sonapraneeth/gatsby-theme-bio:*",
       );
     }
   }
   widget("Home Widget");
   const noCols = details !== null ? 2 : 1;
-  const margin = details !== null ? "auto 10% !important" : "0 auto !important";
-  const width = details !== null ? "80% !important" : "60% !important";
+  const margin = details !== null ? "auto 5% !important" : "0 auto !important";
+  const width = details !== null ? "90% !important" : "60% !important";
   return (
     <>
       <Grid noCols={noCols} nSizes={[1, 2]}>
