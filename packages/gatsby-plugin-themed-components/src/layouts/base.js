@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 /** @jsx jsx */
 import {jsx} from "theme-ui";
 
-import RootBulb from "./root-bulb";
+import Root from "./root";
 import HeadMetadata from "../components/head/meta";
 import {SMain} from "../components/theme-ui/index";
 import Header from "../components/header";
@@ -16,7 +16,7 @@ import Footer from "../components/footer";
  */
 function BaseLayout({title, description, location, children}) {
   return (
-    <RootBulb>
+    <Root>
       <HeadMetadata
         title={title}
         description={description}
@@ -25,7 +25,7 @@ function BaseLayout({title, description, location, children}) {
       <Header />
       <SMain>{children}</SMain>
       <Footer />
-    </RootBulb>
+    </Root>
   );
 }
 
