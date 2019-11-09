@@ -16,7 +16,11 @@ function Header() {
   const siteMeta = useSiteMetadata();
   return (
     <SHeader>
-      <SContainer>
+      <SContainer
+        sx={{
+          textAlign: "center",
+        }}
+      >
         <Styled.h1>
           <Styled.a
             as={Link}
