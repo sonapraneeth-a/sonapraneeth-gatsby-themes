@@ -30,7 +30,7 @@ const mdxResolverPassthrough = (fieldName) => async (
   source,
   args,
   context,
-  info
+  info,
 ) => {
   const type = info.schema.getType("Mdx");
   const mdxNode = context.nodeModel.getNodeById({
@@ -112,7 +112,7 @@ exports.createSchemaCustomization = ({actions, schema}) => {
           resolve: mdxResolverPassthrough("tableOfContents"),
         },
       },
-    })
+    }),
   );
 };
 
@@ -120,7 +120,7 @@ exports.createSchemaCustomization = ({actions, schema}) => {
 // This will change with schema customization with work
 exports.onCreateNode = (
   {node, actions, getNode, createNodeId},
-  themeOptions
+  themeOptions,
 ) => {
   // Options created using default and provided options
   options = withDefaults(themeOptions);
@@ -141,7 +141,7 @@ exports.onCreateNode = (
     });
     let blogUrl = slug;
     const [, year, month, date, title] = blogUrl.match(
-      /^\/([\d]{4})-([\d]{2})-([\d]{2})-{1}(.+)\/$/
+      /^\/([\d]{4})-([\d]{2})-([\d]{2})-{1}(.+)\/$/,
     );
     blogUrl = `${options.baseUrl}/${year}/${month}/${date}/${slugify(title)}/`;
     blogUrl = blogUrl.replace(/\/\//, "/");

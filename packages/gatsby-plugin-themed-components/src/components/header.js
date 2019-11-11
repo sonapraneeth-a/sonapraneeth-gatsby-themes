@@ -1,9 +1,8 @@
+/** @jsx jsx */
+import {jsx, Styled} from "theme-ui";
 // eslint-disable-next-line no-unused-vars
 import React from "react";
 import {Link} from "gatsby";
-import {Styled} from "theme-ui";
-/** @jsx jsx */
-import {jsx} from "theme-ui";
 
 import {SContainer, SHeader} from "../components/theme-ui/index";
 import {useSiteMetadata} from "../hooks/useSiteMetadata";

@@ -28,7 +28,7 @@ const mdxResolverPassthrough = (fieldName) => async (
   source,
   args,
   context,
-  info
+  info,
 ) => {
   const type = info.schema.getType("Mdx");
   const mdxNode = context.nodeModel.getNodeById({
@@ -105,7 +105,7 @@ exports.createSchemaCustomization = ({actions, schema}) => {
           resolve: mdxResolverPassthrough("tableOfContents"),
         },
       },
-    })
+    }),
   );
 };
 
@@ -113,7 +113,7 @@ exports.createSchemaCustomization = ({actions, schema}) => {
 // This will change with schema customization with work
 exports.onCreateNode = (
   {node, actions, getNode, createNodeId, reporter},
-  themeOptions
+  themeOptions,
 ) => {
   // Options created using default and provided options
   options = withDefaults(themeOptions);

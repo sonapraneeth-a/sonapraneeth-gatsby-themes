@@ -57,17 +57,17 @@ function ProjectTemplate({data, location}) {
   });
   const startLocaleDate = new Date(startDate).toLocaleDateString(
     "en-US",
-    options
+    options,
   );
   /* const completedLocaleDate02 = new Date(completedDate)
     .toLocaleDateString("en-US", options02);*/
   const completedDate = new Date(data.project.completedDate).toLocaleString(
     "en-US",
-    {timeZone: "Asia/Kolkata"}
+    {timeZone: "Asia/Kolkata"},
   );
   let completedLocaleDate = new Date(completedDate).toLocaleDateString(
     "en-US",
-    options
+    options,
   );
   completedLocaleDate =
     data.project.status === "Ongoing" ? "Present" : completedLocaleDate;
