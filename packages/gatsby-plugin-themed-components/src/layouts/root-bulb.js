@@ -42,9 +42,6 @@ function RootBulb({children, windowWidth, windowHeight}) {
     hideSidebar = true;
   }
   const [sidebarDisplay, setSidebarDisplay] = useState(display);
-  if (typeof window !== undefined) {
-    localStorage.setItem("sidebar", type);
-  }
   const toggleSidebarDisplay = () => {
     layout("Toggling sidebar");
     layout(`Sidebar display: ${sidebarDisplay}`);
