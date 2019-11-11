@@ -50,6 +50,7 @@ import {
 } from "react-icons/fa";
 import {useSiteMetadata, useSiteMetadataSocial} from "./src/hooks/index";
 import {colors} from "gatsby-design-tokens";
+import {getFormattedDate} from "./utils/index";
 
 export {
   // Layouts
@@ -108,4 +109,6 @@ export {
   useSiteMetadataSocial,
   // Gatsby Design Tokens
   colors,
+  // Utility functions
+  getFormattedDate,
 };

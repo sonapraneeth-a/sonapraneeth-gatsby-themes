@@ -37,4 +37,38 @@ module.exports = {
       }, ms);
     };
   },
+
+  padZeros: function(object, length) {
+    const objectAsString = object.toString();
+    let zeros = "";
+    const zerosLength =
+      length > objectAsString.length ? length - objectAsString.length : 0;
+    for (let index = 0; index < zerosLength; index++) {
+      zeros += "0";
+    }
+    return zeros + objectAsString;
+  },
+
+  getFormattedDate: function(date) {
+    const jsDate = new Date(date);
+    const month = [
+      "January",
+      "February",
+      "March",
+      "April",
+      "May",
+      "June",
+      "July",
+      "August",
+      "September",
+      "October",
+      "November",
+      "December",
+    ];
+    const formattedJSDate =
+      `${module.exports.padZeros(jsDate.getDate(), 2)} ` +
+      `${month[jsDate.getMonth()]} ` +
+      `${jsDate.getFullYear()}`;
+    return formattedJSDate;
+  },
 };

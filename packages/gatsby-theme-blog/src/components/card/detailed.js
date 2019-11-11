@@ -14,6 +14,7 @@ import {
   FaReadme,
   FaClock,
   Chip,
+  getFormattedDate,
 } from "@sonapraneeth/gatsby-plugin-themed-components";
 
 /**
@@ -23,6 +24,7 @@ import {
  */
 function DetailedBlogCard({blog, ...props}) {
   const timeToRead = blog.timeToRead === null ? "~1" : blog.timeToRead;
+  const publishedDate = getFormattedDate(blog.publishedDate);
   return (
     <Card>
       <CardContent>
@@ -38,7 +40,7 @@ function DetailedBlogCard({blog, ...props}) {
             }}
           >
             <Chip type={"date"}>
-              <b>Published:</b> {blog.publishedDate}
+              <b>Published:</b> {publishedDate}
             </Chip>
           </SFlex>
           <p>{blog.excerpt}</p>

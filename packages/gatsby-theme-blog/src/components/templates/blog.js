@@ -6,6 +6,7 @@ import {MDXProvider} from "@mdx-js/react";
 import {
   SContainer,
   Styled,
+  getFormattedDate,
 } from "@sonapraneeth/gatsby-plugin-themed-components";
 import {
   GatsbyImage,
@@ -36,6 +37,9 @@ function BlogTemplate({blog, location}) {
   const title = "Blog | " + blog.title;
   // eslint-disable-next-line max-len
   const description = "This page contains details about the blog: " + blog.title;
+  const lastModifiedTime = getFormattedDate(blog.lastModifiedTime);
+  const publishedDate = getFormattedDate(blog.publishedDate);
+  console.log(lastModifiedTime);
   return (
     <BaseLayout location={blog.slug} title={title} description={description}>
       {blog.cover !== null && (
@@ -45,11 +49,11 @@ function BlogTemplate({blog, location}) {
         <Styled.h1>{blog.title}</Styled.h1>
         <Chip type={"date"}>
           <b>Published: </b>
-          {blog.publishedDate}
+          {publishedDate}
         </Chip>{" "}
         <Chip type={"date"}>
           <b>Last Modified: </b>
-          {blog.lastModifiedTime}
+          {lastModifiedTime}
         </Chip>{" "}
         <TagList tags={blog.tags} />
         <hr />
