@@ -35,6 +35,10 @@ export default {
   },
   // Surface color
   surface: "#f8f8f8",
+  sidebar: {
+    bg: "#a19393",
+    text: "",
+  },
   // Color modes
   modes: {
     // The below configuration is for "dark" mode
@@ -60,6 +64,10 @@ export default {
       chip: {
         bg: "#ccc",
         color: "#241414",
+      },
+      sidebar: {
+        bg: "",
+        text: "",
       },
     },
   },
