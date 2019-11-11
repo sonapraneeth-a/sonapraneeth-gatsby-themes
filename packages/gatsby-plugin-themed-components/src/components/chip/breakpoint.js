@@ -29,7 +29,7 @@ function BreakpointChip({text, ...props}) {
         sx={{
           display: breakpointDisplay,
           position: "fixed",
-          right: "1rem",
+          left: "1rem",
           bottom: "1rem",
           textAlign: "center",
         }}

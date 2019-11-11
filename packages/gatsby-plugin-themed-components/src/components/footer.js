@@ -65,7 +65,8 @@ function Footer() {
           >
             {siteMeta.author}
           </Styled.a>{" "}
-          {new Date().getFullYear()}. Made in
+          {new Date().getFullYear()}. <br />
+          Made in
           <FaHeart
             sx={{
               color: "red",
