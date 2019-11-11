@@ -22,10 +22,12 @@ function ScrollToTop({delayInMs, scrollStepInPx, ...props}) {
    *
    */
   function scrollStep() {
-    if (window.pageYOffset === 0) {
-      clearInterval(intervalId);
+    if (typeof window !== "undefined") {
+      if (window.pageYOffset === 0) {
+        clearInterval(intervalId);
+      }
+      window.scroll(0, window.pageYOffset - scrollStepInPx);
     }
-    window.scroll(0, window.pageYOffset - scrollStepInPx);
   }
 
   /**
@@ -38,8 +40,6 @@ function ScrollToTop({delayInMs, scrollStepInPx, ...props}) {
     // setIntervalId(newIntervalId);
     intervalId = newIntervalId;
   }
-
-  console.log(window.pageYOffset);
 
   return (
     <Button
