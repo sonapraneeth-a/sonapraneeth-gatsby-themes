@@ -81,6 +81,8 @@ function RootBulb({children, windowWidth, windowHeight}) {
     };
   }
   console.log("Root");
+  console.log(`sidebarDisplay: ${sidebarDisplay}`);
+  console.log(`hideSidebar: ${hideSidebar}`);
   return (
     <>
       <Global
