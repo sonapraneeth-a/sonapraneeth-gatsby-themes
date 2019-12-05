@@ -15,7 +15,7 @@ import {SidebarContext} from "../../context/sidebar";
  * @param {*} children
  * @return {JSX}
  */
-function SidebarMenu({menuItems, toggleSidebarDisplay, ...props}) {
+function Sidebar({menuItems, toggleSidebarDisplay, ...props}) {
   // Reference: https://www.youtube.com/watch?v=lhMKvyLRWo0
   const {type, display, width, unit} = useContext(SidebarContext);
   const additionalSidebarCSS = {
@@ -123,13 +123,13 @@ function SidebarMenu({menuItems, toggleSidebarDisplay, ...props}) {
   );
 }
 
-SidebarMenu.propTypes = {
+Sidebar.propTypes = {
   menuItems: PropTypes.any.isRequired,
   toggleSidebarDisplay: PropTypes.func.isRequired,
 };
 
-SidebarMenu.defaultProps = {
+Sidebar.defaultProps = {
   menuItems: [],
 };
 
-export default SidebarMenu;
+export default Sidebar;

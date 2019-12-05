@@ -10,7 +10,7 @@ import {Link} from "gatsby";
  * @param {*} children
  * @return {JSX}
  */
-function NavbarMenu({menuItems, ...props}) {
+function Navbar({menuItems, ...props}) {
   const context = useThemeUI();
   const theme = context.theme;
   console.log("Navbar");
@@ -66,12 +66,12 @@ function NavbarMenu({menuItems, ...props}) {
   );
 }
 
-NavbarMenu.propTypes = {
+Navbar.propTypes = {
   menuItems: PropTypes.any.isRequired,
 };
 
-NavbarMenu.defaultProps = {
+Navbar.defaultProps = {
   menuItems: [],
 };
 
-export default NavbarMenu;
+export default Navbar;
