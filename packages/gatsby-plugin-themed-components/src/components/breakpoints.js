@@ -1,5 +1,5 @@
 // Breakpoints for the theme
-const breakpoints = [20, 40, 48, 64, 80, 86, 120, 240];
+export const breakpoints = [20, 40, 48, 64, 80, 86, 120, 240];
 
 // Used for min-width queries
 export const from = (bp) => `@media screen and (min-width: ${bp}rem)`;

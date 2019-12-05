@@ -164,7 +164,7 @@ function RootBulb({children, windowWidth, windowHeight}) {
         >
           {children}
         </Layout>
-        <BreakpointChip text={`${windowWidth} x ${windowHeight}`} />
+        <BreakpointChip width={windowWidth} height={windowHeight} />
       </SidebarContext.Provider>
     </>
   );
