@@ -143,31 +143,31 @@ function RootBulb({children, windowWidth, windowHeight}) {
       >
         <BulbSwitch toggleTheme={toggleTheme} color={colors.bulb.color} />
       </div>
-      <SidebarContext.Provider
-        value={{
-          type: type,
-          display: sidebarDisplay,
-          width: width,
-          unit: unit,
-        }}
-      >
-        {hideSidebar === false && isMenuPresent === true && (
+      {hideSidebar === false && isMenuPresent === true && (
+        <SidebarContext.Provider
+          value={{
+            type: type,
+            display: sidebarDisplay,
+            width: width,
+            unit: unit,
+          }}
+        >
           <Sidebar
             menuItems={menu}
             toggleSidebarDisplay={toggleSidebarDisplay}
           />
-        )}
-        <Layout
-          sx={{
-            transition: "all 0.3s ease-in-out",
-            marginTop: [8, 8, 8, 0],
-            ...additionalToggleContentCSS,
-          }}
-        >
-          {children}
-        </Layout>
-        <BreakpointChip width={windowWidth} height={windowHeight} />
-      </SidebarContext.Provider>
+        </SidebarContext.Provider>
+      )}
+      <Layout
+        sx={{
+          transition: "all 0.3s ease-in-out",
+          marginTop: [8, 8, 8, 0],
+          ...additionalToggleContentCSS,
+        }}
+      >
+        {children}
+      </Layout>
+      <BreakpointChip width={windowWidth} height={windowHeight} />
     </>
   );
 }
