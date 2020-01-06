@@ -32,8 +32,8 @@
   },
   "dependencies": {
     "@sonapraneeth/gatsby-plugin-themed-components": "^0.5.0",
-    "gatsby": "^2.18.6",
-    "gatsby-theme-style-guide": "^0.2.49",
+    "gatsby": "^2.18.18",
+    "gatsby-theme-style-guide": "^0.2.53",
     "react": "^16.12.0",
     "react-dom": "^16.12.0"
   }
