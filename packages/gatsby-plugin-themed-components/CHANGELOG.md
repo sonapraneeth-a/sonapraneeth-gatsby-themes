@@ -3,6 +3,26 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.6.0](https://github.com/sonapraneeth-a/sonapraneeth-gatsby-themes/compare/@sonapraneeth/gatsby-plugin-themed-components@0.5.0...@sonapraneeth/gatsby-plugin-themed-components@0.6.0) (2020-01-07)
+
+### Bug Fixes
+
+- fixed date formatting in blog posts. added new functionality in utils ([a01e896](https://github.com/sonapraneeth-a/sonapraneeth-gatsby-themes/commit/a01e896))
+- minor eslint formatting changes ([8749299](https://github.com/sonapraneeth-a/sonapraneeth-gatsby-themes/commit/8749299))
+- **component:** fixed multiple breakpoinnt chip rendering ([387db75](https://github.com/sonapraneeth-a/sonapraneeth-gatsby-themes/commit/387db75))
+- **component:** fixed undefined window issue in scroll-to-top component during build ([e6083cb](https://github.com/sonapraneeth-a/sonapraneeth-gatsby-themes/commit/e6083cb))
+- **components:** minor styling updates to footer and breakpoints component ([70a59b7](https://github.com/sonapraneeth-a/sonapraneeth-gatsby-themes/commit/70a59b7))
+- **components:** updated names of navbar and sidebar components ([a078554](https://github.com/sonapraneeth-a/sonapraneeth-gatsby-themes/commit/a078554))
+- **layout:** removed setting of sidebar key in localStorage ([eddb9ba](https://github.com/sonapraneeth-a/sonapraneeth-gatsby-themes/commit/eddb9ba))
+
+### Features
+
+- **components:** added base implementation for scroll to top component ([9fbcc2e](https://github.com/sonapraneeth-a/sonapraneeth-gatsby-themes/commit/9fbcc2e))
+- **components:** added base implementation of navbar component ([bc46e1e](https://github.com/sonapraneeth-a/sonapraneeth-gatsby-themes/commit/bc46e1e))
+- **components:** Initial implementation of sidebar component ([5c88f80](https://github.com/sonapraneeth-a/sonapraneeth-gatsby-themes/commit/5c88f80))
+- **hooks:** added useMenu hook for reading menu data for sidebar/navbar ([2ad5bb6](https://github.com/sonapraneeth-a/sonapraneeth-gatsby-themes/commit/2ad5bb6))
+- **layout:** updated root and base layout to use sidebar and navbar ([18d5791](https://github.com/sonapraneeth-a/sonapraneeth-gatsby-themes/commit/18d5791))
+
 # [0.5.0](https://github.com/sonapraneeth-a/sonapraneeth-gatsby-themes/compare/@sonapraneeth/gatsby-plugin-themed-components@0.4.0...@sonapraneeth/gatsby-plugin-themed-components@0.5.0) (2019-11-09)
 
 ### Bug Fixes

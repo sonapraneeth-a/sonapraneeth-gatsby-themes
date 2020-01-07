@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.4.2](https://github.com/sonapraneeth-a/sonapraneeth-gatsby-themes/compare/@sonapraneeth/gatsby-theme-project@0.4.1...@sonapraneeth/gatsby-theme-project@0.4.2) (2020-01-07)
+
+### Bug Fixes
+
+- minor eslint formatting changes ([8749299](https://github.com/sonapraneeth-a/sonapraneeth-gatsby-themes/commit/8749299))
+
 ## [0.4.1](https://github.com/sonapraneeth-a/sonapraneeth-gatsby-themes/compare/@sonapraneeth/gatsby-theme-project@0.4.0...@sonapraneeth/gatsby-theme-project@0.4.1) (2019-11-09)
 
 ### Bug Fixes
