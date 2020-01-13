@@ -23,6 +23,7 @@ import {
 
 const components = {
   h1: MDXComponents.h1,
+  pre: MDXComponents.pre,
 };
 
 /**

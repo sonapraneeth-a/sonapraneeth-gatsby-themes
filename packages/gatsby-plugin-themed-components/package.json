@@ -31,6 +31,7 @@
     "gatsby-design-tokens": "^1.0.10",
     "gatsby-image": "^2.2.37",
     "gatsby-plugin-theme-ui": "^0.2.53",
+    "prism-react-renderer": "^1.0.2",
     "react-icons": "^3.8.0",
     "react-switch": "^5.0.1",
     "theme-ui": "^0.2.52",
