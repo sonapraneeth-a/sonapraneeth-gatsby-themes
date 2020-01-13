@@ -6,7 +6,7 @@ import {jsx} from "theme-ui";
 import React from "react";
 import PropTypes from "prop-types";
 import Highlight, {defaultProps} from "prism-react-renderer";
-import theme from "prism-react-renderer/themes/nightOwl";
+import theme from "prism-react-renderer/themes/oceanicNext";
 import {copyToClipboard} from "./copy-to-clipboard";
 
 const Code = ({codeString, language}) => {
