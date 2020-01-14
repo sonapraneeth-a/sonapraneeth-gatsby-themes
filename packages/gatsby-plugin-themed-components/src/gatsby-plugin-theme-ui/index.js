@@ -1,6 +1,7 @@
 /* eslint-disable quotes */
 import "typeface-pt-sans";
 import "typeface-signika-negative";
+import "typeface-fira-code";
 import {lineHeights} from "gatsby-design-tokens";
 
 import colors from "./colors";
