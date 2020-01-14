@@ -6,12 +6,14 @@ import {jsx} from "theme-ui";
 import React from "react";
 import PropTypes from "prop-types";
 import Highlight, {defaultProps} from "prism-react-renderer";
-import theme from "prism-react-renderer/themes/oceanicNext";
+// import theme from "prism-react-renderer/themes/oceanicNext";
 import CopyButton from "./copy-button";
 import LineNo from "./line-no";
 
 const languageMap = {
   cpp: "C++",
+  java: "Java",
+  python: "Python",
 };
 
 const getHighlightLines = (input) => {
@@ -60,8 +62,8 @@ const Code = ({codeString, language, ...props}) => {
           display: "flex",
           flexDirection: "row",
           justifyContent: "space-between",
-          bg: "black",
-          color: "white",
+          bg: "text",
+          color: "background",
           borderTopLeftRadius: "3px",
           borderTopRightRadius: "3px",
         }}
@@ -105,74 +107,51 @@ const Code = ({codeString, language, ...props}) => {
         {...defaultProps}
         code={codeString}
         language={language}
-        theme={theme}
+        theme={undefined}
       >
         {({className, style, tokens, getLineProps, getTokenProps}) => (
           <pre
-            className={className}
+            className={className + " gatsby-highlight"}
             style={style}
             sx={{
-              "textAlign": "left",
-              "margin": "0 0 1rem 0",
-              "py": "0.5rem",
-              "overflowX": "auto",
-              "borderBottomLeftRadius": "3px",
-              "borderBottomRightRadius": "3px",
-              "&.token-line": {
-                lineHeight: "1.3rem",
-                height: "1.3rem",
-              },
-              "fontFamily": "monospace",
-              "position": "relative",
+              textAlign: "left",
+              margin: "0 0 1rem 0",
+              py: "0.5rem",
+              overflowX: "auto",
+              borderBottomLeftRadius: "3px",
+              borderBottomRightRadius: "3px",
+              fontFamily: "monospace",
+              position: "relative",
             }}
           >
             {tokens.map((line, i) => {
-              if (checkIfLineIsToBeHighlighted(lines, i + 1)) {
-                return (
-                  <div
-                    key={"div" + i}
-                    {...getLineProps({line, key: i})}
-                    sx={{
-                      bg: "#663399",
-                      borderLeft: "0.4rem solid #362066",
-                    }}
-                  >
-                    {printLineNos && <LineNo number={i + 1} />}
-                    {line.map((token, key) => (
-                      <span
-                        key={"span" + i}
-                        {...getTokenProps({token, key})}
-                        sx={{
-                          marginLeft: 1,
-                          fontSize: 4,
-                        }}
-                      />
-                    ))}
-                  </div>
-                );
-              } else {
-                return (
-                  <div
-                    key={"div" + i}
-                    {...getLineProps({line, key: i})}
-                    sx={{
-                      borderLeft: "0.4rem solid #362066",
-                    }}
-                  >
-                    {printLineNos && <LineNo number={i + 1} />}
-                    {line.map((token, key) => (
-                      <span
-                        key={"span" + i}
-                        {...getTokenProps({token, key})}
-                        sx={{
-                          marginLeft: 1,
-                          fontSize: 4,
-                        }}
-                      />
-                    ))}
-                  </div>
-                );
-              }
+              const lineProps = getLineProps({line, key: i});
+              const className = [lineProps.className]
+                .concat(
+                  checkIfLineIsToBeHighlighted(lines, i + 1) &&
+                    "gatsby-highlight-code-line",
+                )
+                .filter(Boolean)
+                .join(" ");
+              return (
+                <div
+                  key={"div" + i}
+                  {...Object.assign({}, lineProps, {
+                    className,
+                  })}
+                >
+                  {printLineNos && <LineNo number={i + 1} />}
+                  {line.map((token, key) => (
+                    <span
+                      key={"span" + i}
+                      {...getTokenProps({token, key})}
+                      sx={{
+                        fontSize: 3,
+                      }}
+                    />
+                  ))}
+                </div>
+              );
             })}
           </pre>
         )}

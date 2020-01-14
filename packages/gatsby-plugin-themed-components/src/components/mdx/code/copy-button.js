@@ -63,7 +63,7 @@ CopyButton.propTypes = {
 };
 
 CopyButton.defaultProps = {
-  duration: 5000,
+  duration: 3000,
   fileName: "",
   trim: false,
 };

@@ -1,3 +1,5 @@
+import code from "./code";
+
 export default {
   // The below configuration is for "light" mode
   // text color
@@ -28,6 +30,9 @@ export default {
     facebook: "#3b5998",
     // RSS
     rss: "#f26522",
+  },
+  code: {
+    ...code.default,
   },
   chip: {
     bg: "#ccc",
@@ -68,6 +73,9 @@ export default {
       sidebar: {
         bg: "",
         text: "",
+      },
+      code: {
+        ...code.dark,
       },
     },
   },

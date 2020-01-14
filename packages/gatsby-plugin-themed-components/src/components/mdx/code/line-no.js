@@ -19,7 +19,7 @@ function LineNo({number, ...props}) {
         opacity: 0.3,
         px: 2,
         borderRight: "0.1rem solid white",
-        marginRight: 2,
+        marginRight: 1,
       }}
     >
       {number}
