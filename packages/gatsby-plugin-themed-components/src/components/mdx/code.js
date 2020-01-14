@@ -7,80 +7,187 @@ import React from "react";
 import PropTypes from "prop-types";
 import Highlight, {defaultProps} from "prism-react-renderer";
 import theme from "prism-react-renderer/themes/oceanicNext";
-import {copyToClipboard} from "./copy-to-clipboard";
+import CopyButton from "./copy-button";
+import LineNo from "./line-no";
 
-const Code = ({codeString, language}) => {
-  const handleClick = () => {
-    copyToClipboard(codeString);
-  };
+const languageMap = {
+  cpp: "C++",
+};
 
+const getHighlightLines = (input) => {
+  const lines = [];
+  if (input === null || input === undefined) return lines;
+  const groups = input.split(",");
+  for (let idx = 0; idx < groups.length; idx++) {
+    const line = groups[idx].split("-");
+    if (line.length === 1) {
+      lines.push([parseInt(line[0], 10), parseInt(line[0], 10)]);
+    } else {
+      lines.push([parseInt(line[0], 10), parseInt(line[1], 10)]);
+    }
+  }
+  return lines;
+};
+
+const checkIfLineIsToBeHighlighted = (lineNos, currentLineNo) => {
+  if (lineNos.length === 0) return false;
+  for (let idx = 0; idx < lineNos.length; idx++) {
+    if (currentLineNo >= lineNos[idx][0] && currentLineNo <= lineNos[idx][1]) {
+      return true;
+    }
+  }
+  return false;
+};
+
+const Code = ({codeString, language, ...props}) => {
+  const lines = getHighlightLines(props.highlight);
+  const printLineNos =
+    props.lineNos === undefined || props.lineNos === null ?
+      true :
+      props.lineNos === "true" ?
+        true :
+        false;
+  const copy =
+    props.copy === undefined || props.copy === null ?
+      true :
+      props.copy === "true" ?
+        true :
+        false;
   return (
-    <Highlight
-      {...defaultProps}
-      code={codeString}
-      language={language}
-      theme={theme}
-    >
-      {({className, style, tokens, getLineProps, getTokenProps}) => (
-        <pre
-          className={className}
-          style={style}
+    <>
+      <div
+        sx={{
+          display: "flex",
+          flexDirection: "row",
+          justifyContent: "space-between",
+          bg: "black",
+          color: "white",
+          borderTopLeftRadius: "3px",
+          borderTopRightRadius: "3px",
+        }}
+      >
+        <div
           sx={{
-            "textAlign": "left",
-            "margin": "1rem 0",
-            "padding": "0.5rem",
-            "overflowX": "auto",
-            "borderRadius": "3px",
-            "&.token-line": {
-              lineHeight: "1.3rem",
-              height: "1.3rem",
-            },
-            "fontFamily": "'Courier New', Courier, monospace",
-            "position": "relative",
+            right: "0.25rem",
+            border: 0,
+            borderRadius: "3px",
+            margin: 1,
+            opacity: 1,
+            fontSize: 3,
+            px: 1,
           }}
         >
-          <button
+          {props.title}
+        </div>
+        <div
+          sx={{
+            display: "flex",
+            flexDirection: "row",
+          }}
+        >
+          <div
             sx={{
-              "position": "absolute",
-              "right": "0.25rem",
-              "border": 0,
-              "borderRadius": "3px",
-              "margin": "0.25em",
-              "opacity": 0.3,
-              "&:hover": {
-                opacity: 1,
-              },
+              right: "0.25rem",
+              border: 0,
+              borderRadius: "3px",
+              margin: 1,
+              opacity: 1,
+              fontSize: 3,
+              px: 1,
             }}
-            onClick={handleClick}
           >
-            Copy
-          </button>
-          {tokens.map((line, i) => (
-            <div key={"div" + i} {...getLineProps({line, key: i})}>
-              <span
-                sx={{
-                  display: "inline-block",
-                  width: "2rem",
-                  userSelect: "none",
-                  opacity: "0.3",
-                }}
-              >
-                {i + 1}
-              </span>
-              {line.map((token, key) => (
-                <span key={"span" + i} {...getTokenProps({token, key})} />
-              ))}
-            </div>
-          ))}
-        </pre>
-      )}
-    </Highlight>
+            {languageMap[language]}
+          </div>
+          {copy && <CopyButton content={codeString} />}
+        </div>
+      </div>
+      <Highlight
+        {...defaultProps}
+        code={codeString}
+        language={language}
+        theme={theme}
+      >
+        {({className, style, tokens, getLineProps, getTokenProps}) => (
+          <pre
+            className={className}
+            style={style}
+            sx={{
+              "textAlign": "left",
+              "margin": "0 0 1rem 0",
+              "py": "0.5rem",
+              "overflowX": "auto",
+              "borderBottomLeftRadius": "3px",
+              "borderBottomRightRadius": "3px",
+              "&.token-line": {
+                lineHeight: "1.3rem",
+                height: "1.3rem",
+              },
+              "fontFamily": "monospace",
+              "position": "relative",
+            }}
+          >
+            {tokens.map((line, i) => {
+              if (checkIfLineIsToBeHighlighted(lines, i + 1)) {
+                return (
+                  <div
+                    key={"div" + i}
+                    {...getLineProps({line, key: i})}
+                    sx={{
+                      bg: "#663399",
+                      borderLeft: "0.4rem solid #362066",
+                    }}
+                  >
+                    {printLineNos && <LineNo number={i + 1} />}
+                    {line.map((token, key) => (
+                      <span
+                        key={"span" + i}
+                        {...getTokenProps({token, key})}
+                        sx={{
+                          marginLeft: 1,
+                          fontSize: 4,
+                        }}
+                      />
+                    ))}
+                  </div>
+                );
+              } else {
+                return (
+                  <div
+                    key={"div" + i}
+                    {...getLineProps({line, key: i})}
+                    sx={{
+                      borderLeft: "0.4rem solid #362066",
+                    }}
+                  >
+                    {printLineNos && <LineNo number={i + 1} />}
+                    {line.map((token, key) => (
+                      <span
+                        key={"span" + i}
+                        {...getTokenProps({token, key})}
+                        sx={{
+                          marginLeft: 1,
+                          fontSize: 4,
+                        }}
+                      />
+                    ))}
+                  </div>
+                );
+              }
+            })}
+          </pre>
+        )}
+      </Highlight>
+    </>
   );
 };
 
 Code.propTypes = {
   codeString: PropTypes.any.isRequired,
   language: PropTypes.string.isRequired,
+  title: PropTypes.string,
+  copy: PropTypes.string,
+  highlight: PropTypes.string,
+  lineNos: PropTypes.string,
 };
 
 Code.defaultProps = {};
