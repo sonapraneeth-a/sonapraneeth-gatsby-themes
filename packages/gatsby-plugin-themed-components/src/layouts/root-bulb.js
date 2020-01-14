@@ -4,7 +4,6 @@ import {jsx} from "theme-ui";
 import React, {useContext, useState} from "react";
 import PropTypes from "prop-types";
 import {Global} from "@emotion/core";
-import {css} from "theme-ui";
 import {useColorMode, useThemeUI, Layout} from "theme-ui";
 
 import {layout} from "../../utils/debug";
@@ -13,6 +12,7 @@ import Sidebar from "../components/menu/sidebar";
 import {useMenu} from "../hooks/useMenu";
 import {SidebarContext} from "../context/sidebar";
 import BreakpointChip from "../components/chip/breakpoint";
+import {globalStyles} from "../utils/styles";
 
 /**
  * @param {*} children
@@ -55,7 +55,7 @@ function RootBulb({children, windowWidth, windowHeight}) {
   };
   const context = useThemeUI();
   layout(`Theme: ${JSON.stringify(context.theme, null, 2)}`);
-  const {colors} = context.theme;
+  const theme = context.theme;
   const menu = useMenu();
   // eslint-disable-next-line max-len
   const isMenuPresent = menu !== undefined && menu !== null && menu.length !== 0;
@@ -85,54 +85,7 @@ function RootBulb({children, windowWidth, windowHeight}) {
   console.log(`hideSidebar: ${hideSidebar}`);
   return (
     <>
-      <Global
-        styles={css({
-          "*": {
-            boxSizing: "border-box",
-            lineHeight: "body",
-          },
-          "body": {
-            margin: 0,
-            fontFamily: "body",
-            boxSizing: "border-box",
-            lineHeight: "body",
-            transition: "all 0.3s ease-in-out",
-          },
-          "html": {
-            fontSize: "18px",
-          },
-          "pre": {
-            fontFamily: "monospace",
-          },
-          "code": {
-            fontFamily: "monospace",
-          },
-          "::-webkit-scrollbar-track": {
-            WebkitBoxShadow: `inset 0 0 6px ${colors.background}`,
-            bg: "background",
-          },
-          "::-webkit-scrollbar": {
-            width: "6px",
-            bg: "#F5F5F5",
-          },
-          "::-webkit-scrollbar-thumb": {
-            bg: "text",
-          },
-          ".id-link": {
-            "color": `${colors.text} !important`,
-            "bg": `${colors.background} !important`,
-            "textDecoration": "none !important",
-            "borderBottom": "none !important",
-            "marginRight": "0.5rem",
-            ":hover": {
-              color: `${colors.text} !important`,
-              bg: `${colors.background} !important`,
-              textDecoration: "none !important",
-              borderBottom: "none !important",
-            },
-          },
-        })}
-      />
+      <Global styles={globalStyles(theme)} />
       <div
         style={{
           position: "fixed",
@@ -141,7 +94,7 @@ function RootBulb({children, windowWidth, windowHeight}) {
           zIndex: "100",
         }}
       >
-        <BulbSwitch toggleTheme={toggleTheme} color={colors.bulb.color} />
+        <BulbSwitch toggleTheme={toggleTheme} color={theme.colors.bulb.color} />
       </div>
       {hideSidebar === false && isMenuPresent === true && (
         <SidebarContext.Provider
