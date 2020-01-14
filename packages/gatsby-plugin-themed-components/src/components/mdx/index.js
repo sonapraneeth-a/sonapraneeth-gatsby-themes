@@ -1,7 +1,7 @@
 import React from "react";
 
 import H1 from "./h1";
-import Code from "./code";
+import {Code} from "./code/";
 
 export const MDXComponents = {
   h1: H1,
