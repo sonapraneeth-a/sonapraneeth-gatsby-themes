@@ -1,14 +1,14 @@
 {
-  "name": "@sonapraneeth/gatsby-theme-project",
+  "name": "@sonapraneeth/gatsby-theme-collection",
   "version": "0.4.3",
   "main": "index.js",
   "author": "Sona Praneeth Akula <sonapraneeth.akula@gmail.com>",
   "repository": {
     "type": "git",
     "url": "https://github.com/sonapraneeth-a/sonapraneeth-gatsby-themes.git",
-    "directory": "packages/gatsby-theme-project"
+    "directory": "packages/gatsby-theme-collection"
   },
-  "homepage": "https://demo-sonapraneeth-themes-project.netlify.com",
+  "homepage": "https://demo-sonapraneeth-themes-collection.netlify.com",
   "bugs": {
     "url": "https://github.com/sonapraneeth-a/sonapraneeth-gatsby-themes/issues"
   },
@@ -17,7 +17,7 @@
     "gatsby-theme",
     "gatsby-plugin",
     "react",
-    "project"
+    "collection"
   ],
   "license": "MIT",
   "peerDependencies": {
@@ -42,7 +42,8 @@
     "gatsby-source-filesystem": "^2.1.43",
     "gatsby-transformer-sharp": "^2.3.9",
     "react-helmet": "^5.2.1",
-    "remark-slug": "^5.1.2"
+    "remark-slug": "^5.1.2",
+    "slug": "^2.1.0"
   },
   "devDependencies": {
     "debug": "^4.1.1"

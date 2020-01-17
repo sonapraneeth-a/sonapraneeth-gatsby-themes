@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.5.0](https://github.com/sonapraneeth-a/sonapraneeth-gatsby-themes/compare/@sonapraneeth/gatsby-theme-blog@0.4.2...@sonapraneeth/gatsby-theme-blog@0.5.0) (2020-01-17)
+
+### Features
+
+- **component:** added pre component for rendering code blocks ([43a6e52](https://github.com/sonapraneeth-a/sonapraneeth-gatsby-themes/commit/43a6e52))
+
 ## [0.4.2](https://github.com/sonapraneeth-a/sonapraneeth-gatsby-themes/compare/@sonapraneeth/gatsby-theme-blog@0.4.1...@sonapraneeth/gatsby-theme-blog@0.4.2) (2020-01-07)
 
 ### Bug Fixes

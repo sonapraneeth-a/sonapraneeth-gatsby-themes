@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.7.0](https://github.com/sonapraneeth-a/sonapraneeth-gatsby-themes/compare/@sonapraneeth/gatsby-plugin-themed-components@0.6.0...@sonapraneeth/gatsby-plugin-themed-components@0.7.0) (2020-01-17)
+
+### Bug Fixes
+
+- update theme in code block component ([9649a63](https://github.com/sonapraneeth-a/sonapraneeth-gatsby-themes/commit/9649a63))
+
+### Features
+
+- added fira code font for monospace codes rendering ([4055296](https://github.com/sonapraneeth-a/sonapraneeth-gatsby-themes/commit/4055296))
+- **componenet:** not displaying some components in print media ([7774f34](https://github.com/sonapraneeth-a/sonapraneeth-gatsby-themes/commit/7774f34))
+- **component:** added line highlighting, copy button and line no components ([0aba953](https://github.com/sonapraneeth-a/sonapraneeth-gatsby-themes/commit/0aba953))
+- **component:** added pre component for rendering code blocks ([43a6e52](https://github.com/sonapraneeth-a/sonapraneeth-gatsby-themes/commit/43a6e52))
+- **component:** added up-to-down curatain component for menu items ([ccca4c8](https://github.com/sonapraneeth-a/sonapraneeth-gatsby-themes/commit/ccca4c8))
+- **component:** updated theme for code blocks in light and dark mode ([8e6581f](https://github.com/sonapraneeth-a/sonapraneeth-gatsby-themes/commit/8e6581f))
+- **components:** updating styling and display of some components in print media ([5df0ed0](https://github.com/sonapraneeth-a/sonapraneeth-gatsby-themes/commit/5df0ed0))
+
 # [0.6.0](https://github.com/sonapraneeth-a/sonapraneeth-gatsby-themes/compare/@sonapraneeth/gatsby-plugin-themed-components@0.5.0...@sonapraneeth/gatsby-plugin-themed-components@0.6.0) (2020-01-07)
 
 ### Bug Fixes

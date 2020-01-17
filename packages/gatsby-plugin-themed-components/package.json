@@ -1,6 +1,6 @@
 {
   "name": "@sonapraneeth/gatsby-plugin-themed-components",
-  "version": "0.6.0",
+  "version": "0.7.0",
   "main": "index.js",
   "author": "Sona Praneeth Akula <sonapraneeth.akula@gmail.com>",
   "repository": {
