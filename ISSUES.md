@@ -10,6 +10,7 @@
 - @sonapraneeth/gatsby-plugin-themed-components
 
   - [x] Styles from `./packages/base/src/gatsby-plugin-theme-ui/fonts.js` are not working
+  - [ ] Sidebar is working with navbar in `dev` environment but not in `production` environment
 
 - @sonapraneeth/gatsby-theme-bio
 
