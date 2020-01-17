@@ -109,10 +109,24 @@ const gatsbyHighlight = (t) => {
   };
 };
 
+const printMedia = (t) => {
+  return {
+    "@media print": {
+      ".gatsby-highlight-code-line, .token-line": {
+        borderLeftWidth: "0!important",
+      },
+      ".token-line": {
+        paddingLeft: `${t.space[1]}`,
+      },
+    },
+  };
+};
+
 export const globalStyles = (t) => {
   return {
     ...prismToken(t),
     ...gatsbyHighlight(t),
+    ...printMedia(t),
     "*": {
       boxSizing: "border-box",
       lineHeight: `${t.lineHeights.body}`,

@@ -41,6 +41,9 @@ function CopyButton({content, fileName, duration, trim}) {
           opacity: 1,
           cursor: "pointer",
         },
+        "@media print": {
+          display: "none",
+        },
       }}
       onClick={async () => {
         await copyToClipboard(trim ? content.trim() : content);

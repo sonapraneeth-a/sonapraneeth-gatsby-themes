@@ -17,12 +17,15 @@ function Navbar({menuItems, ...props}) {
   return (
     <div
       sx={{
-        display: "flex",
-        flexDirection: "row",
-        fontSize: "0.8rem",
-        bg: "text",
-        color: "background",
-        justifyContent: "center",
+        "display": "flex",
+        "flexDirection": "row",
+        "fontSize": "0.8rem",
+        "bg": "text",
+        "color": "background",
+        "justifyContent": "center",
+        "@media print": {
+          display: "none",
+        },
       }}
     >
       {menuItems.map((menuItemNode, index) => {
