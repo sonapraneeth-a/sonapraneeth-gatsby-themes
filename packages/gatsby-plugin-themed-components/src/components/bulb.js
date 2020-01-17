@@ -18,8 +18,11 @@ function BulbSwitch({toggleTheme, color = "#ff0", stroke = "#fcee21"}) {
     <div
       onClick={toggleTheme}
       sx={{
-        px: "0.01rem",
-        cursor: "pointer",
+        "px": "0.01rem",
+        "cursor": "pointer",
+        "@media print": {
+          display: "none",
+        },
       }}
     >
       <BulbIcon color={color} stroke={stroke} />

@@ -34,11 +34,14 @@ function BreakpointChip({width, height, ...props}) {
       type="default"
       key={"screen" + screenIndex}
       sx={{
-        display: "block",
-        position: "fixed",
-        left: "1rem",
-        bottom: "1rem",
-        textAlign: "center",
+        "display": "block",
+        "position": "fixed",
+        "left": "1rem",
+        "bottom": "1rem",
+        "textAlign": "center",
+        "@media print": {
+          display: "none",
+        },
       }}
     >
       <b>

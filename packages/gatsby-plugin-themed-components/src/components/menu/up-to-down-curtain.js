@@ -24,12 +24,15 @@ function UpToDownCurtain({menuItems, ...props}) {
     <>
       <label
         sx={{
-          zIndex: 100,
-          position: "fixed",
-          cursor: "pointer",
-          top: "2.1rem",
-          left: "0.8rem",
-          transition: "all 0.3s ease-in-out",
+          "zIndex": 100,
+          "position": "fixed",
+          "cursor": "pointer",
+          "top": "2.1rem",
+          "left": "0.8rem",
+          "transition": "all 0.3s ease-in-out",
+          "@media print": {
+            display: "none",
+          },
         }}
         onClick={toggleUpToDownCurtain}
       >
@@ -47,7 +50,7 @@ function UpToDownCurtain({menuItems, ...props}) {
           width: "100%",
           height: "100%",
           top: display === true ? "0%" : "-100%",
-          transition: "all 0.3s cubic-bezier(0, 1, 0.5, 1)", // ease-in-out",
+          transition: "all 0.3s ease-in-out", // cubic-bezier(0, 1, 0.5, 1)",
           transform: display === true ? "translateY(0%)" : "translateY(-100%)",
           bg: "background",
         }}
