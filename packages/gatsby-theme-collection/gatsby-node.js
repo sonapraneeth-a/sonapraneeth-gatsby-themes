@@ -1,6 +1,7 @@
 const path = require("path");
 const fs = require("fs");
 const {createFilePath} = require("gatsby-source-filesystem");
+const crypto = require("crypto");
 const withDefaults = require("./utils/default-options");
 const debug = require("./utils/debug").debugNode;
 const slugify = require("slug");
@@ -46,6 +47,20 @@ exports.createSchemaCustomization = ({actions, schema}) => {
   actions.createTypes(`
     interface Collection @nodeInterface {
       id: ID!
+      name: String!
+      slug: String!
+      items: [CollectionItem!]!
+      subCollection: [Collection!]!
+    }
+    type CollectionMdx implements Collection & Node {
+      id: ID!
+      name: String!
+      slug: String!
+      items: [CollectionItem!]!
+      subCollection: [Collection!]!
+    }
+    interface CollectionItem @nodeInterface {
+      id: ID!
       title: String!
       publishedDate: Date! @dateformat
       slug: String!
@@ -61,7 +76,7 @@ exports.createSchemaCustomization = ({actions, schema}) => {
       tableOfContents: JSON
       lastModifiedTime: Date @dateformat
     }
-    type CollectionMdx implements Collection & Node {
+    type CollectionItemMdx implements CollectionItem & Node {
       id: ID!
       title: String!
       publishedDate: Date! @dateformat
@@ -80,7 +95,7 @@ exports.createSchemaCustomization = ({actions, schema}) => {
   `);
   actions.createTypes(
     schema.buildObjectType({
-      name: "CollectionMdx",
+      name: "CollectionItemMdx",
       fields: {
         body: {
           type: "String!",
@@ -123,6 +138,7 @@ exports.onCreateNode = (
 ) => {
   // Options created using default and provided options
   options = withDefaults(themeOptions);
+  const {createNode, createParentChildLink} = actions;
   // Make sure it's an MDX node
   if (node.internal.type !== "Mdx") {
     return;
@@ -137,6 +153,135 @@ exports.onCreateNode = (
       getNode,
       basePath: options.contentPath,
     });
-    console.log(slug);
+    const url = `${options.baseUrl}/${slug}/`;
+    const collectionItemUrl = url.replace(/\/\//g, "/").replace(/\/\//g, "/");
+    const frontmatter = JSON.parse(JSON.stringify(node.frontmatter));
+    const collectionItemCover =
+      "cover" in frontmatter ? frontmatter.cover : null;
+    debug(`CollectionItem cover: ${collectionItemCover}`);
+    const collectionItemTags = "tags" in frontmatter ? frontmatter.tags : [];
+    const collectionItemData = {
+      title: frontmatter.title || "",
+      publishedDate: frontmatter.publishedDate,
+      slug: collectionItemUrl,
+      fileAbsolutePath: node.fileAbsolutePath,
+      draft: frontmatter.draft || false,
+      toc:
+        frontmatter.toc !== undefined && frontmatter.toc !== null ?
+          frontmatter.toc :
+          true,
+      sharing: frontmatter.sharing || false,
+      cover: collectionItemCover,
+      tags: collectionItemTags,
+      lastModifiedTime: fileNode.modifiedTime,
+    };
+    createNode({
+      ...collectionItemData,
+      // Required fields.
+      id: createNodeId(`${node.id} >>> CollectionItemMdx`),
+      parent: node.id,
+      children: [],
+      internal: {
+        type: "CollectionItemMdx",
+        contentDigest: crypto
+          .createHash("md5")
+          .update(JSON.stringify(collectionItemData))
+          .digest("hex"),
+        content: JSON.stringify(collectionItemData),
+        description: "Collection Items",
+      },
+    });
+    createParentChildLink({parent: fileNode, child: node});
+  }
+};
+
+exports.createPages = async ({actions, graphql, reporter}, themeOptions) => {
+  // Options created using default and provided options
+  options = withDefaults(themeOptions);
+  debug(`Options: ${JSON.stringify(options, null, 2)}`);
+  const fields = `
+    id
+    slug
+    title
+    publishedDate
+    excerpt
+    fileAbsolutePath
+    timeToRead
+    lastModifiedTime
+    cover {
+      childImageSharp {
+        fluid(maxWidth: 1280) {
+          base64
+          aspectRatio
+          src
+          srcSet
+          srcWebp
+          srcSetWebp
+          sizes
+        }
+      }
+    }
+  `;
+  const queryProd = `
+  query AllCollectionItemsQuery {
+    allCollectionItem(
+      sort: {fields: publishedDate, order: DESC},
+      filter: {draft: {eq: false}}
+    ) {
+      edges {
+        node {
+          ${fields}
+        }
+      }
+    }
+  }`;
+  const queryDev = `
+  query AllCollectionItemsQuery {
+    allCollectionItem(
+      sort: {fields: publishedDate, order: DESC},
+    ) {
+      edges {
+        node {
+          ${fields}
+        }
+      }
+    }
+  }`;
+  let result = null;
+  if (process.env.NODE_ENV !== "production") {
+    result = await graphql(queryDev);
+  } else {
+    result = await graphql(queryProd);
+  }
+  const collectionItems = result.data.allCollectionItem.edges;
+  debug(`Number of collectionItems: ${collectionItems.length}`);
+  debug(`Creating base collectionItem page at ${options.baseUrl}`);
+  /* actions.createPage({
+    path: options.baseUrl,
+    component: require.resolve("./src/templates/collection-items-list.js"),
+    context: {
+      collectionItems,
+    },
+  });*/
+  if (collectionItems.length == 0) {
+    reporter.panic(`
+      There does not seem to be any mdx file present in
+      '${options.contentPath}' directory. Hence collectionItem
+      pages would not be created. Please add some mdx
+      files in '${options.contentPath}' directory`);
+  }
+  debug(`CollectionItems in ${process.env.NODE_ENV} env`);
+  debug(JSON.stringify(collectionItems, null, 2));
+  if (collectionItems.length > 0) {
+    collectionItems.map((collectionItem) => {
+      debug(`Creating collectionItem page for '${collectionItem.node.title}'`);
+      actions.createPage({
+        path: collectionItem.node.slug,
+        component: require.resolve("./src/templates/collection-item.js"),
+        context: {
+          id: collectionItem.node.id,
+        },
+      });
+    });
   }
 };
