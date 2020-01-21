@@ -78,7 +78,7 @@ function Footer() {
         <p
           sx={{
             display: "flex",
-            justifyContent: "space-around",
+            justifyContent: "flex-end",
             width: "50%",
             height: "fit-content",
             flexWrap: "wrap",
@@ -91,7 +91,7 @@ function Footer() {
                 "variant": "link.none",
                 "color": "icons.twitter",
                 "bg": "background",
-                "px": 2,
+                "px": 4,
                 "py": 4,
                 ":hover": {
                   color: "text",
@@ -113,7 +113,7 @@ function Footer() {
                 "variant": "link.none",
                 "color": "icons.facebook",
                 "bg": "background",
-                "px": 2,
+                "px": 4,
                 "py": 4,
                 ":hover": {
                   color: "text",
@@ -137,7 +137,7 @@ function Footer() {
                 "variant": "link.none",
                 "color": "icons.linkedin",
                 "bg": "background",
-                "px": 2,
+                "px": 4,
                 "py": 4,
                 ":hover": {
                   color: "text",
@@ -159,7 +159,7 @@ function Footer() {
                 "variant": "link.none",
                 "color": "icons.github",
                 "bg": "background",
-                "px": 2,
+                "px": 4,
                 "py": 4,
                 ":hover": {
                   color: "text",

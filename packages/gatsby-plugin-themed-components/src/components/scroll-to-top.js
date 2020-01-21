@@ -47,8 +47,8 @@ function ScrollToTop({delayInMs, scrollStepInPx, ...props}) {
       onClick={scrollToTop}
       sx={{
         "position": "fixed",
-        "right": "1.5rem",
-        "bottom": "1.5rem",
+        "right": 3,
+        "bottom": 3,
         "width": "3rem",
         "height": "3rem",
         "borderRadius": "0.5rem",
