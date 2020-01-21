@@ -16,13 +16,16 @@ function UpToDownCurtain({menuItems, ...props}) {
   const [display, setDisplay] = useState(false);
   const upCurtainStatus = display;
   // Reference: https://theme-ui.com/recipes/color-mode-switcher
+  // Fixes warning: A form label must be associated with a control
   const toggleUpToDownCurtain = (e) => {
     setDisplay(!upCurtainStatus);
   };
   console.log(display);
   return (
     <>
-      <label
+      <div
+        role="button"
+        tabIndex={0}
         sx={{
           "zIndex": 100,
           "position": "fixed",
@@ -35,6 +38,7 @@ function UpToDownCurtain({menuItems, ...props}) {
           },
         }}
         onClick={toggleUpToDownCurtain}
+        onKeyDown={toggleUpToDownCurtain}
       >
         <FaAngleDoubleDown
           sx={{
@@ -42,7 +46,7 @@ function UpToDownCurtain({menuItems, ...props}) {
             fontSize: 9,
           }}
         />
-      </label>
+      </div>
       <div
         sx={{
           zIndex: 10000,
@@ -55,7 +59,9 @@ function UpToDownCurtain({menuItems, ...props}) {
           bg: "background",
         }}
       >
-        <label
+        <div
+          role="button"
+          tabIndex={0}
           sx={{
             position: "fixed",
             zIndex: 100,
@@ -64,6 +70,7 @@ function UpToDownCurtain({menuItems, ...props}) {
             right: "0.8rem",
           }}
           onClick={toggleUpToDownCurtain}
+          onKeyDown={toggleUpToDownCurtain}
         >
           <IoMdClose
             sx={{
@@ -71,7 +78,7 @@ function UpToDownCurtain({menuItems, ...props}) {
               fontSize: 9,
             }}
           />
-        </label>
+        </div>
         <div
           sx={{
             display: "flex",
