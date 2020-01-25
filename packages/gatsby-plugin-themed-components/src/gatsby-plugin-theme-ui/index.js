@@ -15,7 +15,7 @@ import options from "./options";
 export default {
   // This enables the color modes feature
   // and is used as the name for the top-level colors object
-  initialColorMode: "light",
+  initialColorModeName: "light",
   // use CSS custom properties to help avoid flash of colors on
   // initial page load
   // Refer: https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_custom_properties

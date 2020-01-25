@@ -4,8 +4,9 @@ import {jsx} from "theme-ui";
 import React, {useContext, useState} from "react";
 import PropTypes from "prop-types";
 import {Global} from "@emotion/core";
-import {useColorMode, useThemeUI, Layout} from "theme-ui";
+import {useColorMode, useThemeUI} from "theme-ui";
 
+import {SLayout} from "../components/theme-ui/index";
 import {layout} from "../../utils/debug";
 import BulbSwitch from "../components/bulb";
 import {useMenu} from "../hooks/useMenu";
@@ -57,13 +58,13 @@ function RootBulb({children, windowWidth, windowHeight}) {
         <BulbSwitch toggleTheme={toggleTheme} color={theme.colors.bulb.color} />
       </div>
       {isMenuPresent === true && <UpToDownCurtain menuItems={menu} />}
-      <Layout
+      <SLayout
         sx={{
           marginTop: [8, 8, 8, 0],
         }}
       >
         {children}
-      </Layout>
+      </SLayout>
       <BreakpointChip width={windowWidth} height={windowHeight} />
     </>
   );

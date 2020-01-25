@@ -4,7 +4,7 @@ import {jsx} from "theme-ui";
 import {useContext} from "react";
 import {SidebarContext} from "../../context/sidebar";
 // ThemeUI Components
-import {Box, Flex, Layout, Header, Main, Container, Footer} from "theme-ui";
+import {Box, Flex, Container} from "theme-ui";
 
 const SBox = (props) => {
   return <Box {...props} />;
@@ -15,15 +15,15 @@ const SFlex = (props) => {
 };
 
 const SLayout = (props) => {
-  return <Layout {...props} />;
+  return <Box {...props} />;
 };
 
 const SHeader = (props) => {
-  return <Header {...props} />;
+  return <Box {...props} />;
 };
 
 const SMain = (props) => {
-  return <Main {...props} />;
+  return <Box {...props} />;
 };
 
 const SContainer = (props) => {
@@ -47,7 +47,7 @@ const SContainer = (props) => {
 };
 
 const SFooter = (props) => {
-  return <Footer {...props} />;
+  return <Box {...props} />;
 };
 
 export {SBox, SFlex, SLayout, SHeader, SMain, SContainer, SFooter};
