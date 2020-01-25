@@ -31,7 +31,7 @@
     "prettier": "prettier --write src/**/*.js"
   },
   "dependencies": {
-    "@sonapraneeth/gatsby-theme-profile": "^0.3.3",
+    "@sonapraneeth/gatsby-theme-profile": "^0.3.4",
     "gatsby": "^2.19.5",
     "react": "^16.12.0",
     "react-dom": "^16.12.0"
