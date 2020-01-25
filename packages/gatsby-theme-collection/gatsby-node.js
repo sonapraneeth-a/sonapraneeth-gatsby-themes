@@ -4,10 +4,16 @@ const {createFilePath} = require("gatsby-source-filesystem");
 const crypto = require("crypto");
 const withDefaults = require("./utils/default-options");
 const debug = require("./utils/debug").debugNode;
+const {
+  updateCollection,
+  updateCollectionNode,
+} = require("./utils/collections");
 const slugify = require("slug");
 slugify.charmap["+"] = "p";
 
 let options;
+const mdxItems = [];
+const collections = [];
 
 // 1. Make sure the necessary directories exist
 exports.onPreBootstrap = ({store, reporter}, themeOptions) => {
@@ -153,8 +159,24 @@ exports.onCreateNode = (
       getNode,
       basePath: options.contentPath,
     });
-    const url = `${options.baseUrl}/${slug}/`;
+    const mdxSlugInfo = slug.split("/");
+    mdxSlugInfo.shift();
+    mdxSlugInfo.pop();
+    if (mdxSlugInfo.length <= 1 && mdxSlugInfo.length > 3) return;
+    const collectionName = slugify(mdxSlugInfo[0]);
+    let subCollectionName = "";
+    let itemName = slugify(mdxSlugInfo[1]);
+    if (mdxSlugInfo.length == 3) {
+      subCollectionName = slugify(mdxSlugInfo[1]);
+      itemName = slugify(mdxSlugInfo[2]);
+    }
+    debugNode(
+      `Collection name: ${collectionName},
+      SubCollection name: ${subCollectionName}`,
+    );
+    const url = options.baseUrl + collectionName + subCollectionName + itemName;
     const collectionItemUrl = url.replace(/\/\//g, "/").replace(/\/\//g, "/");
+    debug(`Item URL: ${collectionItemUrl}`);
     const frontmatter = JSON.parse(JSON.stringify(node.frontmatter));
     const collectionItemCover =
       "cover" in frontmatter ? frontmatter.cover : null;
@@ -175,7 +197,7 @@ exports.onCreateNode = (
       tags: collectionItemTags,
       lastModifiedTime: fileNode.modifiedTime,
     };
-    createNode({
+    const mdxItem = {
       ...collectionItemData,
       // Required fields.
       id: createNodeId(`${node.id} >>> CollectionItemMdx`),
@@ -190,15 +212,46 @@ exports.onCreateNode = (
         content: JSON.stringify(collectionItemData),
         description: "Collection Items",
       },
-    });
+    };
+    mdxItems.push(mdxItem);
+    updateCollection(
+      mdxItem,
+      collections,
+      options.baseUrl,
+      collectionName,
+      subCollectionName,
+      createNodeId,
+    );
+    createNode(mdxItem);
     createParentChildLink({parent: fileNode, child: node});
   }
 };
 
 exports.createPages = async ({actions, graphql, reporter}, themeOptions) => {
+  const {createNode} = actions;
+  for (let idx = 0; idx < collections.length; idx++) {
+    await createNode(updateCollectionNode(collections[idx]));
+  }
   // Options created using default and provided options
   options = withDefaults(themeOptions);
   debug(`Options: ${JSON.stringify(options, null, 2)}`);
+  /* const queryCollection = `
+  query AllCollectionsQuery {
+    allCollection {
+      edges {
+        node {
+          id
+          name
+          slug
+          subCollection {
+            name
+          }
+        }
+      }
+    }
+  }
+  `;
+  const collectionResults = await graphql(queryCollection);*/
   const fields = `
     id
     slug
@@ -255,8 +308,8 @@ exports.createPages = async ({actions, graphql, reporter}, themeOptions) => {
   }
   const collectionItems = result.data.allCollectionItem.edges;
   debug(`Number of collectionItems: ${collectionItems.length}`);
-  debug(`Creating base collectionItem page at ${options.baseUrl}`);
-  /* actions.createPage({
+  /* debug(`Creating base collectionItem page at ${options.baseUrl}`);
+  actions.createPage({
     path: options.baseUrl,
     component: require.resolve("./src/templates/collection-items-list.js"),
     context: {
