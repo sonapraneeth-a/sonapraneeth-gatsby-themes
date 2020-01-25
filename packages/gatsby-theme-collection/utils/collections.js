@@ -17,6 +17,10 @@ module.exports = {
     subCollectionName,
     createNodeId,
   ) => {
+    /* console.log(
+      `Add '${mdxItem.title}' to ${collectionName}, ` +
+      `${subCollectionName}`,
+    );*/
     let collectionUrl = `${baseUrl}/${collectionName}/`;
     let subCollectionUrl = `${baseUrl}/${collectionName}/${subCollectionName}/`;
     collectionUrl = collectionUrl.replace(/\/\//g, "/").replace(/\/\//g, "/");
@@ -44,6 +48,9 @@ module.exports = {
               collections[collectionIdx].subCollection[subCollectionIdx]
                 .name === subCName
             ) {
+              /* console.log(
+                "Adding mdxItem to already existing collection " +
+                " and subCollection");*/
               collectionItemAdded = true;
               collections[collectionIdx].subCollection[
                 subCollectionIdx
@@ -54,6 +61,9 @@ module.exports = {
         }
         if (collectionItemAdded === false && subCName !== "") {
           collectionItemAdded = true;
+          /* console.log(
+            "Adding mdxItem to already existing collection " +
+            " but creating subCollection");*/
           const subCollectionItem = {
             id: createNodeId(`${subCollectionName} >>> CollectionMdx`),
             name: subCName,
@@ -62,14 +72,21 @@ module.exports = {
             subCollection: [],
           };
           collections[collectionIdx].subCollection.push(subCollectionItem);
-        } else {
+          break;
+        }
+        if (collectionItemAdded === false && subCName === "") {
           collectionItemAdded = true;
+          /* console.log(
+            "Adding mdxItem to already existing collection");*/
           collections[collectionIdx].items.push(mdxItem);
+          break;
         }
       }
     }
     if (collectionItemAdded === false) {
       collectionItemAdded = true;
+      /* console.log(
+        "Adding mdxItem to newly created collection");*/
       let collectionItem = {
         id: createNodeId(`${collectionName} >>> CollectionMdx`),
         name: cName,
@@ -78,6 +95,8 @@ module.exports = {
         subCollection: [],
       };
       if (subCollectionName !== "") {
+        /* console.log(
+          "Adding mdxItem to newly created collection and sub-collection");*/
         collectionItem = {
           ...collectionItem,
           items: [],
