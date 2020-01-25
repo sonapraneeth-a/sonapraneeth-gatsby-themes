@@ -24,57 +24,73 @@ module.exports = {
       .replace(/\/\//g, "/")
       .replace(/\/\//g, "/");
     let collectionItemAdded = false;
+    const cName =
+      collectionName.charAt(0).toUpperCase() + collectionName.slice(1);
+    const subCName =
+      subCollectionName.charAt(0).toUpperCase() + subCollectionName.slice(1);
     for (
       let collectionIdx = 0;
       collectionIdx < collections.length;
       collectionIdx++
     ) {
-      if (collections[collectionIdx].name === collectionName) {
-        for (
-          let subCollectionIdx = 0;
-          subCollectionIdx < collections[collectionIdx].subCollection.length;
-          subCollectionIdx++
-        ) {
-          if (
-            collections[collectionIdx].subCollection[subCollectionIdx].name ===
-            subCollectionName
+      if (collections[collectionIdx].name === cName) {
+        if (subCollectionName !== "") {
+          for (
+            let subCollectionIdx = 0;
+            subCollectionIdx < collections[collectionIdx].subCollection.length;
+            subCollectionIdx++
           ) {
-            collectionItemAdded = true;
-            collections[collectionIdx].subCollection[
-              subCollectionIdx
-            ].items.push(mdxItem);
-            break;
+            if (
+              collections[collectionIdx].subCollection[subCollectionIdx]
+                .name === subCName
+            ) {
+              collectionItemAdded = true;
+              collections[collectionIdx].subCollection[
+                subCollectionIdx
+              ].items.push(mdxItem);
+              break;
+            }
           }
         }
-        if (collectionItemAdded === false) {
+        if (collectionItemAdded === false && subCName !== "") {
           collectionItemAdded = true;
           const subCollectionItem = {
             id: createNodeId(`${subCollectionName} >>> CollectionMdx`),
-            name: subCollectionName,
+            name: subCName,
             slug: subCollectionUrl,
             items: [mdxItem],
             subCollection: [],
           };
           collections[collectionIdx].subCollection.push(subCollectionItem);
+        } else {
+          collectionItemAdded = true;
+          collections[collectionIdx].items.push(mdxItem);
         }
       }
     }
     if (collectionItemAdded === false) {
       collectionItemAdded = true;
-      const collectionItem = {
+      let collectionItem = {
         id: createNodeId(`${collectionName} >>> CollectionMdx`),
-        name: collectionName,
+        name: cName,
         slug: collectionUrl,
-        items: [],
-        subCollection: [
-          {
-            id: createNodeId(`${subCollectionName} >>> CollectionMdx`),
-            name: subCollectionName,
-            slug: subCollectionUrl,
-            items: [mdxItem],
-          },
-        ],
+        items: [mdxItem],
+        subCollection: [],
       };
+      if (subCollectionName !== "") {
+        collectionItem = {
+          ...collectionItem,
+          items: [],
+          subCollection: [
+            {
+              id: createNodeId(`${subCollectionName} >>> CollectionMdx`),
+              name: subCName,
+              slug: subCollectionUrl,
+              items: [mdxItem],
+            },
+          ],
+        };
+      }
       collections.push(collectionItem);
     }
   },

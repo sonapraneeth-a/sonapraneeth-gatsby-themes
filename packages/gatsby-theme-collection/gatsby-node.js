@@ -171,8 +171,8 @@ exports.onCreateNode = (
       itemName = slugify(mdxSlugInfo[2]);
     }
     debug(
-      `Collection name: ${collectionName},
-      SubCollection name: ${subCollectionName}`,
+      `Collection name: '${collectionName}',
+      SubCollection name: '${subCollectionName}'`,
     );
     const url =
       `${options.baseUrl}/${collectionName}` +
@@ -237,7 +237,7 @@ exports.createPages = async ({actions, graphql, reporter}, themeOptions) => {
   // Options created using default and provided options
   options = withDefaults(themeOptions);
   debug(`Options: ${JSON.stringify(options, null, 2)}`);
-  /* const queryCollection = `
+  const queryCollection = `
   query AllCollectionsQuery {
     allCollection {
       edges {
@@ -245,15 +245,74 @@ exports.createPages = async ({actions, graphql, reporter}, themeOptions) => {
           id
           name
           slug
+          items {
+            timeToRead
+            publishedDate
+            title
+            excerpt
+            slug
+          }
           subCollection {
+            id
             name
+            slug
+            items {
+              timeToRead
+              publishedDate
+              title
+              excerpt
+              slug
+            }
           }
         }
       }
     }
   }
   `;
-  const collectionResults = await graphql(queryCollection);*/
+  let result = null;
+  result = await graphql(queryCollection);
+  collectionResults = result.data.allCollection.edges;
+  if (collectionResults.length == 0) {
+    reporter.panic(`
+      There does not seem to be any mdx file present in
+      '${options.contentPath}' directory. Hence collectionItem
+      pages would not be created. Please add some mdx
+      files in '${options.contentPath}' directory`);
+  }
+  if (collectionResults.length > 0) {
+    collectionResults.map((collection, collectionIdx) => {
+      if (collection.node.subCollection.length > 0) {
+        collection.node.subCollection.map((subCollection, subCollectionIdx) => {
+          debug(`Creating subCollection page for '${subCollection.name}'`);
+          const subCollectionItems = subCollection.items;
+          const subCollectionName = subCollection.name;
+          actions.createPage({
+            path: subCollection.slug,
+            component: require.resolve(
+              "./src/templates/subcollection-item-list.js",
+            ),
+            context: {
+              subCollectionName: subCollectionName,
+              collectionItems: subCollectionItems,
+            },
+          });
+        });
+      } else {
+        debug(`Creating collection page for '${collection.node.name}'`);
+        const collectionItems = collection.node.items;
+        const collectionName = collection.node.name;
+        actions.createPage({
+          path: collection.node.slug,
+          component: require.resolve("./src/templates/collection-item-list.js"),
+          context: {
+            collectionName: collectionName,
+            collectionItems: collectionItems,
+          },
+        });
+      }
+    });
+  }
+  // MDX file templating
   const fields = `
     id
     slug
@@ -302,7 +361,7 @@ exports.createPages = async ({actions, graphql, reporter}, themeOptions) => {
       }
     }
   }`;
-  let result = null;
+  result = null;
   if (process.env.NODE_ENV !== "production") {
     result = await graphql(queryDev);
   } else {
