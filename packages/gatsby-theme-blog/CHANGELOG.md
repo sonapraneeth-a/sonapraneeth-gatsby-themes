@@ -3,6 +3,10 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.5.1](https://github.com/sonapraneeth-a/sonapraneeth-gatsby-themes/compare/@sonapraneeth/gatsby-theme-blog@0.5.0...@sonapraneeth/gatsby-theme-blog@0.5.1) (2020-01-25)
+
+**Note:** Version bump only for package @sonapraneeth/gatsby-theme-blog
+
 # [0.5.0](https://github.com/sonapraneeth-a/sonapraneeth-gatsby-themes/compare/@sonapraneeth/gatsby-theme-blog@0.4.2...@sonapraneeth/gatsby-theme-blog@0.5.0) (2020-01-17)
 
 ### Features

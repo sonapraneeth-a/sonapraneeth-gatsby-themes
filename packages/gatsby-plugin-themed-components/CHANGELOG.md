@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.7.1](https://github.com/sonapraneeth-a/sonapraneeth-gatsby-themes/compare/@sonapraneeth/gatsby-plugin-themed-components@0.7.0...@sonapraneeth/gatsby-plugin-themed-components@0.7.1) (2020-01-25)
+
+### Bug Fixes
+
+- **component:** fixed styling issues in footer and scroll-to-top ([b7398e9](https://github.com/sonapraneeth-a/sonapraneeth-gatsby-themes/commit/b7398e9))
+- **component:** fixed warnings in bulb and up-to-down-curtain component ([ed19c31](https://github.com/sonapraneeth-a/sonapraneeth-gatsby-themes/commit/ed19c31))
+
 # [0.7.0](https://github.com/sonapraneeth-a/sonapraneeth-gatsby-themes/compare/@sonapraneeth/gatsby-plugin-themed-components@0.6.0...@sonapraneeth/gatsby-plugin-themed-components@0.7.0) (2020-01-17)
 
 ### Bug Fixes

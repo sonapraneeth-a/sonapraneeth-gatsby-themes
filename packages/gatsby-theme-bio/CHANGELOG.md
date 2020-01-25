@@ -3,6 +3,10 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.4.4](https://github.com/sonapraneeth-a/sonapraneeth-gatsby-themes/compare/@sonapraneeth/gatsby-theme-bio@0.4.3...@sonapraneeth/gatsby-theme-bio@0.4.4) (2020-01-25)
+
+**Note:** Version bump only for package @sonapraneeth/gatsby-theme-bio
+
 ## [0.4.3](https://github.com/sonapraneeth-a/sonapraneeth-gatsby-themes/compare/@sonapraneeth/gatsby-theme-bio@0.4.2...@sonapraneeth/gatsby-theme-bio@0.4.3) (2020-01-17)
 
 **Note:** Version bump only for package @sonapraneeth/gatsby-theme-bio
