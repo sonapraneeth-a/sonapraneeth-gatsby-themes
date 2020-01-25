@@ -170,11 +170,13 @@ exports.onCreateNode = (
       subCollectionName = slugify(mdxSlugInfo[1]);
       itemName = slugify(mdxSlugInfo[2]);
     }
-    debugNode(
+    debug(
       `Collection name: ${collectionName},
       SubCollection name: ${subCollectionName}`,
     );
-    const url = options.baseUrl + collectionName + subCollectionName + itemName;
+    const url =
+      `${options.baseUrl}/${collectionName}` +
+      `/${subCollectionName}/${itemName}`;
     const collectionItemUrl = url.replace(/\/\//g, "/").replace(/\/\//g, "/");
     debug(`Item URL: ${collectionItemUrl}`);
     const frontmatter = JSON.parse(JSON.stringify(node.frontmatter));

@@ -17,7 +17,6 @@ module.exports = {
     subCollectionName,
     createNodeId,
   ) => {
-    console.log(`Adding: ${collectionName}, ${subCollectionName}`);
     let collectionUrl = `${baseUrl}/${collectionName}/`;
     let subCollectionUrl = `${baseUrl}/${collectionName}/${subCollectionName}/`;
     collectionUrl = collectionUrl.replace(/\/\//g, "/").replace(/\/\//g, "/");
