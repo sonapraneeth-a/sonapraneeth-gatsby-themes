@@ -69,6 +69,7 @@ exports.createSchemaCustomization = ({actions, schema}) => {
       id: ID!
       title: String!
       publishedDate: Date! @dateformat
+      priority: Int!
       slug: String!
       excerpt: String!
       toc: Boolean!
@@ -86,6 +87,7 @@ exports.createSchemaCustomization = ({actions, schema}) => {
       id: ID!
       title: String!
       publishedDate: Date! @dateformat
+      priority: Int!
       slug: String!
       excerpt: String!
       toc: Boolean!
@@ -186,6 +188,7 @@ exports.onCreateNode = (
     const collectionItemTags = "tags" in frontmatter ? frontmatter.tags : [];
     const collectionItemData = {
       title: frontmatter.title || "",
+      priority: frontmatter.priority || 1,
       publishedDate: frontmatter.publishedDate,
       slug: collectionItemUrl,
       fileAbsolutePath: node.fileAbsolutePath,
@@ -239,7 +242,9 @@ exports.createPages = async ({actions, graphql, reporter}, themeOptions) => {
   debug(`Options: ${JSON.stringify(options, null, 2)}`);
   const queryCollection = `
   query AllCollectionsQuery {
-    allCollection {
+    allCollection (
+      sort: {fields: subCollection___items___priority, order: DESC}
+    ) {
       edges {
         node {
           id

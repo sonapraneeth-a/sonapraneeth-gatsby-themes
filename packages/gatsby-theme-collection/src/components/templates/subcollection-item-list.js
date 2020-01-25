@@ -40,11 +40,24 @@ function SubCollectionItemsListTemplate({
       <SContainer>
         <Styled.h1>{subCollectionName}</Styled.h1>
         <Grid noCols={1}>
-          {collectionItems.map((collectionItem, index) => (
-            <GridItem key={`blog-detailed-${index}`}>
-              <DetailedCollectionItemCard collectionItem={collectionItem} />
-            </GridItem>
-          ))}
+          {collectionItems.map((collectionItem, index) => {
+            if (
+              process.env.NODE_ENV !== "production" ||
+              (process.env.NODE_ENV === "production" &&
+                collectionItem.draft === false)
+            ) {
+              return (
+                <GridItem key={`collection-detailed-${index}`}>
+                  <DetailedCollectionItemCard
+                    collectionName={subCollectionName}
+                    collectionItem={collectionItem}
+                  />
+                </GridItem>
+              );
+            } else {
+              return <></>;
+            }
+          })}
         </Grid>
       </SContainer>
     </PageLayout>
