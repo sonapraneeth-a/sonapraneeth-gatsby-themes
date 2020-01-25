@@ -139,7 +139,6 @@ exports.onCreateNode = (
     const projectTags = "tags" in frontmatter ? frontmatter.tags : [];
     debug(`Project cover: ${projectCover}`);
     debug(`Project tags: ${projectTags}`);
-    console.log(frontmatter.completedDate);
     const projectData = {
       title: frontmatter.title || "",
       status:
