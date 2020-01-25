@@ -21,15 +21,15 @@
   ],
   "license": "MIT",
   "peerDependencies": {
-    "gatsby": "^2.18.18",
+    "gatsby": "^2.19.5",
     "react": "^16.12.0",
     "react-dom": "^16.12.0"
   },
   "dependencies": {
     "@emotion/core": "^10.0.27",
-    "@mdx-js/react": "^1.5.3",
+    "@mdx-js/react": "^1.5.5",
     "gatsby-design-tokens": "^1.0.10",
-    "gatsby-image": "^2.2.37",
+    "gatsby-image": "^2.2.39",
     "gatsby-plugin-theme-ui": "^0.2.53",
     "prism-react-renderer": "^1.0.2",
     "react-icons": "^3.8.0",
