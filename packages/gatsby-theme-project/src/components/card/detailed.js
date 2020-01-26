@@ -104,8 +104,7 @@ function DetailedProjectCard({project, ...props}) {
                 bg: "surface",
                 color: "text",
               },
-              "px": "1rem",
-              "display": "inline-block",
+              "padding": 2,
             }}
           >
             <FaInfoCircle
@@ -133,7 +132,7 @@ function DetailedProjectCard({project, ...props}) {
                   bg: "surface",
                   color: "text",
                 },
-                "px": "1rem",
+                "padding": 2,
               }}
             >
               <FaCode
@@ -162,7 +161,7 @@ function DetailedProjectCard({project, ...props}) {
                   bg: "surface",
                   color: "text",
                 },
-                "px": "1rem",
+                "padding": 2,
               }}
             >
               <FaFileAlt
@@ -191,7 +190,7 @@ function DetailedProjectCard({project, ...props}) {
                   bg: "surface",
                   color: "text",
                 },
-                "px": "1rem",
+                "padding": 2,
               }}
             >
               <FaFilePowerpoint
