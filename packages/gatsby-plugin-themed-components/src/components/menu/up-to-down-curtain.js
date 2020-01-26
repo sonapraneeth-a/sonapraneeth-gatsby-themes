@@ -25,7 +25,7 @@ function UpToDownCurtain({menuItems, ...props}) {
     <>
       <div
         role="button"
-        tab-index={0}
+        tabIndex={0}
         aria-label={"Handle to bring down menu for the webpage"}
         sx={{
           "zIndex": 100,
@@ -75,7 +75,7 @@ function UpToDownCurtain({menuItems, ...props}) {
       >
         <div
           role="button"
-          tab-index={0}
+          tabIndex={0}
           aria-label={
             "Handle to open/close menu for the webpage " +
             "based on current status"

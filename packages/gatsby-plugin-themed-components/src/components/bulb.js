@@ -29,7 +29,7 @@ function BulbSwitch({toggleTheme, color = "#ff0", stroke = "#fcee21"}) {
     <div
       role="button"
       aria-label={"Icon to change theme of the webpage"}
-      tab-index={0}
+      tabIndex={0}
       onClick={toggleTheme}
       onKeyDown={toggleTheme}
       sx={{
