@@ -19,11 +19,11 @@ const SLayout = (props) => {
 };
 
 const SHeader = (props) => {
-  return <Box {...props} />;
+  return <Box as="header" {...props} />;
 };
 
 const SMain = (props) => {
-  return <Box {...props} />;
+  return <Box as="main" {...props} />;
 };
 
 const SContainer = (props) => {
@@ -47,7 +47,7 @@ const SContainer = (props) => {
 };
 
 const SFooter = (props) => {
-  return <Box {...props} />;
+  return <Box as="footer" {...props} />;
 };
 
 export {SBox, SFlex, SLayout, SHeader, SMain, SContainer, SFooter};

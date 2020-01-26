@@ -61,6 +61,9 @@ function RootBulb({children, windowWidth, windowHeight}) {
       <SLayout
         sx={{
           marginTop: [8, 8, 8, 0],
+          minHeight: "100vh",
+          display: "flex",
+          flexDirection: "column",
         }}
       >
         {children}
