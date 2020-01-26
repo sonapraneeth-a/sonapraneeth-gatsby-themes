@@ -44,6 +44,7 @@ function ScrollToTop({delayInMs, scrollStepInPx, ...props}) {
   return (
     <Button
       type={"primary"}
+      aria-label={"Handle to scroll the webpage to top"}
       onClick={scrollToTop}
       sx={{
         "position": "fixed",
