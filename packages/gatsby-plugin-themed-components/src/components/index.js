@@ -8,6 +8,7 @@ import SEO from "./head/seo";
 import TableOfContents from "./toc";
 import {MDXComponents} from "./mdx/index";
 import TagList from "./tag-list";
+import CategoryList from "./category-list";
 
 export {
   Button,
@@ -24,4 +25,5 @@ export {
   TableOfContents,
   MDXComponents,
   TagList,
+  CategoryList,
 };
