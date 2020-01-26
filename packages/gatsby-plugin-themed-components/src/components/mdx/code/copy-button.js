@@ -33,7 +33,7 @@ function CopyButton({content, fileName, duration, trim}) {
         "border": 0,
         "borderRadius": "3px",
         "margin": 1,
-        "opacity": 0.5,
+        "opacity": 0.8,
         "fontSize": 3,
         "px": 1,
         "fontFamily": "body",

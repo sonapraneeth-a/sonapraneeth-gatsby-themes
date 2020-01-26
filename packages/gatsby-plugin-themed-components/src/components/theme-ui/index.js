@@ -23,7 +23,16 @@ const SHeader = (props) => {
 };
 
 const SMain = (props) => {
-  return <Box as="main" {...props} />;
+  return (
+    <Box
+      as="main"
+      sx={{
+        margin: "auto",
+        width: "100%",
+      }}
+      {...props}
+    />
+  );
 };
 
 const SContainer = (props) => {

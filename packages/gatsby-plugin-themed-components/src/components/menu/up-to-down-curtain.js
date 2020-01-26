@@ -21,6 +21,7 @@ function UpToDownCurtain({menuItems, ...props}) {
     setDisplay(!upCurtainStatus);
   };
   console.log(display);
+  // Reference: https://codepen.io/dodozhang21/pen/siKtp
   return (
     <>
       <div
@@ -36,6 +37,18 @@ function UpToDownCurtain({menuItems, ...props}) {
           "@media print": {
             display: "none",
           },
+          "@keyframes bounce": {
+            "0%, 20%, 50%, 80%, 100%": {
+              transform: "translateY(0)",
+            },
+            "40%": {
+              transform: "translateY(-30px)",
+            },
+            "60%": {
+              transform: "translateY(-15px)",
+            },
+          },
+          "animation": "bounce 2s infinite linear",
         }}
         onClick={toggleUpToDownCurtain}
         onKeyDown={toggleUpToDownCurtain}
@@ -57,6 +70,7 @@ function UpToDownCurtain({menuItems, ...props}) {
           transition: "all 0.3s ease-in-out", // cubic-bezier(0, 1, 0.5, 1)",
           transform: display === true ? "translateY(0%)" : "translateY(-100%)",
           bg: "background",
+          backgroundAttachment: "fixed",
         }}
       >
         <div

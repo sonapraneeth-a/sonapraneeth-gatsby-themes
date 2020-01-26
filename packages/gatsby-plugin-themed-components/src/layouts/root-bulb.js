@@ -60,7 +60,7 @@ function RootBulb({children, windowWidth, windowHeight}) {
       {isMenuPresent === true && <UpToDownCurtain menuItems={menu} />}
       <SLayout
         sx={{
-          marginTop: [8, 8, 8, 0],
+          // marginTop: [8, 8, 8, 0],
           minHeight: "100vh",
           display: "flex",
           flexDirection: "column",

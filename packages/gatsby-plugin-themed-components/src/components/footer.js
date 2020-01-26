@@ -46,13 +46,12 @@ function Footer() {
         sx={{
           width: "90%",
           justifyContent: "space-between",
-          margin: "1rem auto",
+          margin: "0 auto",
         }}
       >
         <p
           sx={{
             width: "50%",
-            py: [0, 0, 4],
           }}
         >
           Copyright &copy;{" "}
