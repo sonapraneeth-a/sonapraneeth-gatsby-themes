@@ -13,7 +13,6 @@ import {Link} from "gatsby";
 function Navbar({menuItems, ...props}) {
   const context = useThemeUI();
   const theme = context.theme;
-  console.log("Navbar");
   return (
     <div
       sx={{

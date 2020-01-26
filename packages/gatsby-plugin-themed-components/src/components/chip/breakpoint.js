@@ -28,7 +28,6 @@ function BreakpointChip({width, height, ...props}) {
     }
   }
   const screen = screensInfo[screenIndex];
-  console.log(screen);
   return (
     <Chip
       type="default"

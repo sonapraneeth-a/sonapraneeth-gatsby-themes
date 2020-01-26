@@ -40,7 +40,6 @@ function BlogTemplate({blog, location}) {
   const description = "This page contains details about the blog: " + blog.title;
   const lastModifiedTime = getFormattedDate(blog.lastModifiedTime);
   const publishedDate = getFormattedDate(blog.publishedDate);
-  console.log(lastModifiedTime);
   return (
     <BaseLayout location={blog.slug} title={title} description={description}>
       {blog.cover !== null && (

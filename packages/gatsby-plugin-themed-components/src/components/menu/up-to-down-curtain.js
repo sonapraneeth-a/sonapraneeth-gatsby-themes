@@ -20,7 +20,6 @@ function UpToDownCurtain({menuItems, ...props}) {
   const toggleUpToDownCurtain = (e) => {
     setDisplay(!upCurtainStatus);
   };
-  console.log(display);
   // Reference: https://codepen.io/dodozhang21/pen/siKtp
   return (
     <>

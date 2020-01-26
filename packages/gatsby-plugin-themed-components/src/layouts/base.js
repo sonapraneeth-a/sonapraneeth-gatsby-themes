@@ -19,10 +19,8 @@ import ScrollToTop from "../components/scroll-to-top";
  * @return {JSX} Rendered children for the page
  */
 function BaseLayout({title, description, location, children}) {
-  console.log(location);
   const menu = useMenu();
   const {width} = useWindowDimensions();
-  console.log(width);
   let showNavbar = false;
   if (width >= 1024) {
     showNavbar = true;

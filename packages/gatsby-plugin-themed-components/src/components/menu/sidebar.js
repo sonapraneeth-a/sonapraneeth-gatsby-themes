@@ -25,7 +25,6 @@ function Sidebar({menuItems, toggleSidebarDisplay, ...props}) {
   const additionalSidebarToggleCSS = {
     transform: display === true ? `translateX(${width}${unit})` : "",
   };
-  console.log("Sidebar component");
   return (
     <div
       sx={{
