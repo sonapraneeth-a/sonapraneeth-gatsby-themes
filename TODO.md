@@ -9,15 +9,18 @@
   - [ ] Add README.md
   - [ ] Add comments for all files before publishing
   - [ ] Add Copyright notice for all files before publishing
+  - [ ] Update SHeader, SMain, SFooter with proper HTML tags and Box component
+  - [x] Add code block support
+    - [x] code title
+    - [x] copy button
+    - [x] line highlighting
+    - [x] chip for file type
+    - [ ] Update styling of code components
+    - [ ] Add new prismjs themes
 
 - @sonapraneeth/gatsby-theme-project
 
   - [x] Add image support
-  - [ ] Add code block support
-    - [ ] code title
-    - [ ] copy button
-    - [ ] line highlighting
-    - [ ] chip for file type
   - [ ] Add tags page /{baseUrl}/tags
   - [ ] Add archives page /{baseUrl}/archives
   - [ ] Add README.md
@@ -29,11 +32,6 @@
 
 - @sonapraneeth/gatsby-theme-blog
   - [x] Add image support
-  - [ ] Add code block support
-    - [ ] code title
-    - [ ] copy button
-    - [ ] line highlighting
-    - [ ] chip for file type
   - [ ] Add tags page /{baseUrl}/tags
   - [ ] Add archives page /{baseUrl}/archives
   - [ ] Add README.md
