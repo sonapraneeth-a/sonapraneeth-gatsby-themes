@@ -13,8 +13,10 @@ import {
   SFlex,
   FaReadme,
   FaClock,
-  Chip,
-  getFormattedDate,
+  TagList,
+  CategoryList,
+  // Chip,
+  // getFormattedDate,
 } from "@sonapraneeth/gatsby-plugin-themed-components";
 
 /**
@@ -25,7 +27,7 @@ import {
 function DetailedCollectionItemCard({collectionItem, ...props}) {
   const timeToRead =
     collectionItem.timeToRead === null ? "~1" : collectionItem.timeToRead;
-  const publishedDate = getFormattedDate(collectionItem.publishedDate);
+  // const publishedDate = getFormattedDate(collectionItem.publishedDate);
   return (
     <Card>
       <CardContent>
@@ -40,11 +42,13 @@ function DetailedCollectionItemCard({collectionItem, ...props}) {
               flexDirection: "row",
             }}
           >
-            <Chip type={"date"}>
+            {/* <Chip type={"date"}>
               <b>Published:</b> {publishedDate}
-            </Chip>
+          </Chip>*/}
+            <TagList tags={collectionItem.tags} />
+            <CategoryList categories={collectionItem.categories} />
           </SFlex>
-          <p>{collectionItem.excerpt}</p>
+          {/* <p>{collectionItem.excerpt}</p>*/}
         </SFlex>
       </CardContent>
       <CardFooter>
