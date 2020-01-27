@@ -80,6 +80,7 @@ exports.createSchemaCustomization = ({actions, schema}) => {
       cover: File @fileByRelativePath
       timeToRead: Int
       tags: [String!]!
+      categories: [String!]!
       tableOfContents: JSON
       lastModifiedTime: Date @dateformat
     }
@@ -98,6 +99,7 @@ exports.createSchemaCustomization = ({actions, schema}) => {
       cover: File @fileByRelativePath
       timeToRead: Int
       tags: [String!]!
+      categories: [String!]!
       lastModifiedTime: Date @dateformat
     }
   `);
@@ -186,6 +188,8 @@ exports.onCreateNode = (
       "cover" in frontmatter ? frontmatter.cover : null;
     debug(`CollectionItem cover: ${collectionItemCover}`);
     const collectionItemTags = "tags" in frontmatter ? frontmatter.tags : [];
+    const collectionItemCategories =
+      "categories" in frontmatter ? frontmatter.categories : [];
     const collectionItemData = {
       title: frontmatter.title || "",
       priority: frontmatter.priority || 1,
@@ -200,6 +204,7 @@ exports.onCreateNode = (
       sharing: frontmatter.sharing || false,
       cover: collectionItemCover,
       tags: collectionItemTags,
+      categories: collectionItemCategories,
       lastModifiedTime: fileNode.modifiedTime,
     };
     const mdxItem = {
@@ -256,6 +261,8 @@ exports.createPages = async ({actions, graphql, reporter}, themeOptions) => {
             title
             excerpt
             slug
+            tags
+            categories
           }
           subCollection {
             id
@@ -267,6 +274,8 @@ exports.createPages = async ({actions, graphql, reporter}, themeOptions) => {
               title
               excerpt
               slug
+              tags
+              categories
             }
           }
         }
