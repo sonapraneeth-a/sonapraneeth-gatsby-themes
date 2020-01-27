@@ -22,7 +22,7 @@ FigureBio.defaultProps = {
 function FigureBio({image, caption}) {
   const context = useThemeUI();
   const theme = context.theme;
-  const borderRadius = theme.rounded === false ? "0%" : "50%";
+  const borderRadius = theme.rounded === false ? "0%" : "10%";
   return (
     <>
       <GatsbyImage
