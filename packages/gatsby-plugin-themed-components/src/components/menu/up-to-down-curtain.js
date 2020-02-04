@@ -60,10 +60,14 @@ function UpToDownCurtain({menuItems, ...props}) {
           }}
         />
       </div>
+      {/* Reference: https://mxstbr.com/thoughts/gatsby */}
       <div
         sx={{
           zIndex: 10000,
-          position: "absolute",
+          position: "fixed",
+          bottom: 0,
+          left: 0,
+          right: 0,
           width: "100%",
           height: "100%",
           top: display === true ? "0%" : "-100%",
