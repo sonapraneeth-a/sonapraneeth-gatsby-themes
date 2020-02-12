@@ -4,16 +4,16 @@ const {createFilePath} = require("gatsby-source-filesystem");
 const crypto = require("crypto");
 const withDefaults = require("./utils/default-options");
 const debug = require("./utils/debug").debugNode;
-const {
+/* const {
   updateCollection,
   updateCollectionNode,
-} = require("./utils/collections");
+} = require("./utils/collections");*/
 const slugify = require("slug");
 slugify.charmap["+"] = "p";
 
 let options;
-const mdxItems = [];
-const collections = [];
+// const mdxItems = [];
+// const collections = [];
 
 // 1. Make sure the necessary directories exist
 exports.onPreBootstrap = ({store, reporter}, themeOptions) => {
@@ -223,7 +223,7 @@ exports.onCreateNode = (
         description: "Collection Items",
       },
     };
-    mdxItems.push(mdxItem);
+    /* mdxItems.push(mdxItem);
     updateCollection(
       mdxItem,
       collections,
@@ -231,20 +231,20 @@ exports.onCreateNode = (
       collectionName,
       subCollectionName,
       createNodeId,
-    );
+    );*/
     createNode(mdxItem);
     createParentChildLink({parent: fileNode, child: node});
   }
 };
 
 exports.createPages = async ({actions, graphql, reporter}, themeOptions) => {
-  const {createNode} = actions;
-  for (let idx = 0; idx < collections.length; idx++) {
-    await createNode(updateCollectionNode(collections[idx]));
-  }
   // Options created using default and provided options
   options = withDefaults(themeOptions);
   debug(`Options: ${JSON.stringify(options, null, 2)}`);
+  /* const {createNode} = actions;
+  for (let idx = 0; idx < collections.length; idx++) {
+    await createNode(updateCollectionNode(collections[idx]));
+  }
   const queryCollection = `
   query AllCollectionsQuery {
     allCollection (
@@ -325,7 +325,7 @@ exports.createPages = async ({actions, graphql, reporter}, themeOptions) => {
         });
       }
     });
-  }
+  }*/
   // MDX file templating
   const fields = `
     id
