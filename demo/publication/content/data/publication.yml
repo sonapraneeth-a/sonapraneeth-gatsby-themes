@@ -1,0 +1,23 @@
+- title: Title 01
+  description: Description 01
+  published: ABC Conference
+  authors:
+    - name: Author 01
+      email: Email 01
+      institution: Institution 01
+  url: Url 01
+  doi: DOI 01
+  date: 12-02-1995
+- title: Title 02
+  description: Description 02
+  published: ABC Conference
+  authors:
+    - name: Author 01
+      email: Email 01
+      institution: Institution 01
+    - name: Author 02
+      email: Email 02
+      institution: Institution 01
+  url: Url 02
+  doi: DOI 02
+  date: 12-03-1995

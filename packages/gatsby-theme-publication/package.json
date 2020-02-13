@@ -1,0 +1,38 @@
+{
+  "name": "@sonapraneeth/gatsby-theme-publication",
+  "version": "0.0.0",
+  "main": "index.js",
+  "author": "Sona Praneeth Akula <sonapraneeth.akula@gmail.com>",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/sonapraneeth-a/sonapraneeth-gatsby-themes.git",
+    "directory": "packages/gatsby-theme-publication"
+  },
+  "homepage": "https://demo-sonapraneeth-themes-publication.netlify.com",
+  "bugs": {
+    "url": "https://github.com/sonapraneeth-a/sonapraneeth-gatsby-themes/issues"
+  },
+  "keywords": [
+    "gatsby",
+    "gatsby-theme",
+    "gatsby-plugin",
+    "react",
+    "publication"
+  ],
+  "license": "MIT",
+  "peerDependencies": {
+    "gatsby": "^2.19.16",
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0"
+  },
+  "dependencies": {
+    "@sonapraneeth/gatsby-plugin-themed-components": "^0.7.1",
+    "gatsby-plugin-react-helmet": "^3.1.22",
+    "gatsby-source-filesystem": "^2.1.48",
+    "gatsby-transformer-yaml": "^2.2.25",
+    "react-helmet": "^5.2.1"
+  },
+  "devDependencies": {
+    "debug": "^4.1.1"
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "name": "demo-publication",
+  "version": "0.0.0",
+  "main": "index.js",
+  "private": true,
+  "author": "Sona Praneeth Akula <sonapraneeth.akula@gmail.com>",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/sonapraneeth-a/sonapraneeth-gatsby-themes.git",
+    "directory": "demo/publication"
+  },
+  "homepage": "https://demo-sonapraneeth-themes-publication.netlify.com",
+  "bugs": {
+    "url": "https://github.com/sonapraneeth-a/sonapraneeth-gatsby-themes/issues"
+  },
+  "keywords": [
+    "gatsby",
+    "gatsby-theme",
+    "gatsby-plugin",
+    "react",
+    "demo",
+    "starter",
+    "publication"
+  ],
+  "license": "MIT",
+  "scripts": {
+    "dev": "gatsby develop",
+    "build": "gatsby build",
+    "build-prefix": "gatsby build --prefix-paths",
+    "clean": "gatsby clean",
+    "prettier": "prettier --write src/**/*.js"
+  },
+  "dependencies": {
+    "@sonapraneeth/gatsby-theme-publication": "^0.0.0",
+    "gatsby": "^2.19.16",
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0"
+  }
+}
