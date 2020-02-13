@@ -23,7 +23,7 @@ exports.onPreBootstrap = ({store, reporter}, themeOptions) => {
   });
 };
 
-exports.createSchemaCustomization = ({actions}) => {
+exports.createSchemaCustomization = ({actions, schema}) => {
   actions.createTypes(`
     interface IPublication {
       id: ID!
@@ -34,6 +34,7 @@ exports.createSchemaCustomization = ({actions}) => {
       url: String
       doi: String!
       date: Date @dateformat
+      body: String
     }
     type Publication implements IPublication & Node {
       id: ID!
@@ -44,6 +45,7 @@ exports.createSchemaCustomization = ({actions}) => {
       url: String
       doi: String!
       date: Date @dateformat
+      body: String
     }
     type Author {
       name: String!
