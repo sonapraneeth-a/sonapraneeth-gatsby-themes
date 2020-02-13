@@ -95,14 +95,22 @@ exports.createPages = async ({actions, graphql, reporter}, themeOptions) => {
       edges {
         node {
           id
+          institution
+          positions {
+            details
+            endDuration
+            place
+            startDuration
+            title
+          }
         }
       }
     }
   }`;
   const result = await graphql(query);
-  const data = result.data.allTimeline.edges;
-  debug(data);
-  if (data === null || (data !== null && data.length === 0)) {
+  const timelines = result.data.allTimeline.edges;
+  debug(timelines);
+  if (timelines === null || (timelines !== null && timelines.length === 0)) {
     reporter.panic(
       "Unable to retrieve data for timeline. " +
         "Please provide atleast one timeline info in " +
@@ -112,9 +120,9 @@ exports.createPages = async ({actions, graphql, reporter}, themeOptions) => {
   reporter.info(`Creating page at ${options.baseUrl}`);
   /* actions.createPage({
     path: options.baseUrl,
-    component: require.resolve("./src/templates/timeline.js"),
+    component: require.resolve("./src/templates/timelines.js"),
     context: {
-      id: result.data.authorInfo.id,
+      timelines,
     },
   });*/
 };

@@ -111,14 +111,28 @@ exports.createPages = async ({actions, graphql, reporter}, themeOptions) => {
       edges {
         node {
           id
+          title
+          description
+          published
+          authors {
+            name
+            email
+            institution
+          }
+          url
+          doi
+          date
         }
       }
     }
   }`;
   const result = await graphql(query);
-  const data = result.data.allPublication.edges;
-  debug(data);
-  if (data === null || (data !== null && data.length === 0)) {
+  const publications = result.data.allPublication.edges;
+  debug(publications);
+  if (
+    publications === null ||
+    (publications !== null && publications.length === 0)
+  ) {
     reporter.panic(
       "Unable to retrieve data for publications. " +
         "Please provide atleast one publication in " +
@@ -128,9 +142,9 @@ exports.createPages = async ({actions, graphql, reporter}, themeOptions) => {
   reporter.info(`Creating page at ${options.baseUrl}`);
   /* actions.createPage({
     path: options.baseUrl,
-    component: require.resolve("./src/templates/publication.js"),
+    component: require.resolve("./src/templates/publications.js"),
     context: {
-      id: result.data.authorInfo.id,
+      publications
     },
   });*/
 };
