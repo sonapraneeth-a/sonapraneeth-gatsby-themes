@@ -1,0 +1,25 @@
+- institution: Title 00
+  positions:
+    - title: Student 01
+      startDuration: 12 July 1995
+      endDuration: 12 July 2008
+      place: Bengaluru
+      details:
+        - Student
+        - Leader
+    - title: Student
+      startDuration: 12 July 1998
+      endDuration: 12 July 2004
+      place: Bengaluru
+      details:
+        - Student
+        - Leader
+- institution: Title 01
+  positions:
+    - title: Student
+      startDuration: 12 July 1998
+      endDuration: 12 July 2004
+      place: Bengaluru
+      details:
+        - Student
+        - Leader
