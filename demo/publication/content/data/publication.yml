@@ -1,5 +1,6 @@
 - title: Title 01
   description: Description 01
+  abstract: Lorem Ipsum is simply dummy text of the printing and typesetting industry.
   published: ABC Conference
   authors:
     - name: Author 01
@@ -10,6 +11,7 @@
   date: 12-02-1995
 - title: Title 02
   description: Description 02
+  abstract: Lorem Ipsum is simply dummy text of the printing and typesetting industry.
   published: ABC Conference
   authors:
     - name: Author 01

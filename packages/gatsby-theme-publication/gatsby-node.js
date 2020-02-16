@@ -34,6 +34,7 @@ exports.createSchemaCustomization = ({actions, schema}) => {
       url: String
       doi: String!
       date: Date @dateformat
+      abstract: String
       body: String
     }
     type Publication implements IPublication & Node {
@@ -45,6 +46,7 @@ exports.createSchemaCustomization = ({actions, schema}) => {
       url: String
       doi: String!
       date: Date @dateformat
+      abstract: String
       body: String
     }
     type Author {
@@ -73,7 +75,6 @@ exports.onCreateNode = (
   const fileNode = getNode(node.parent);
   const source = fileNode.sourceInstanceName;
   if (node.internal.type === "PublicationYaml" && source === "publication") {
-    console.log(`Author: ${node.authors}`);
     const publication = {
       title: node.title,
       description: node.description || "",
@@ -81,6 +82,7 @@ exports.onCreateNode = (
       authors: node.authors,
       url: node.url || "",
       doi: node.doi,
+      abstract: node.abstract,
       date: new Date(node.date).toISOString(),
     };
     debug(publication);
@@ -122,6 +124,7 @@ exports.createPages = async ({actions, graphql, reporter}, themeOptions) => {
           url
           doi
           date
+          abstract
         }
       }
     }
@@ -140,11 +143,11 @@ exports.createPages = async ({actions, graphql, reporter}, themeOptions) => {
     );
   }
   reporter.info(`Creating page at ${options.baseUrl}`);
-  /* actions.createPage({
+  actions.createPage({
     path: options.baseUrl,
-    component: require.resolve("./src/templates/publications.js"),
+    component: require.resolve("./src/templates/publication-list.js"),
     context: {
-      publications
+      publications,
     },
-  });*/
+  });
 };
