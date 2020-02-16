@@ -1,4 +1,3 @@
-const crypto = require("crypto");
 const debug = require("./utils/debug").debugNode;
 
 const initPriority = 1;
@@ -35,7 +34,13 @@ exports.createSchemaCustomization = ({actions}) => {
   `);
 };
 
-exports.onCreateNode = ({node, actions, getNode, createNodeId}) => {
+exports.onCreateNode = ({
+  node,
+  actions,
+  getNode,
+  createNodeId,
+  createContentDigest,
+}) => {
   const {createNode} = actions;
   if (node.internal.type !== "MenuYaml") {
     return;
@@ -78,10 +83,7 @@ exports.onCreateNode = ({node, actions, getNode, createNodeId}) => {
       children: [],
       internal: {
         type: "MenuItem",
-        contentDigest: crypto
-          .createHash("md5")
-          .update(JSON.stringify(menuItem))
-          .digest("hex"),
+        contentDigest: createContentDigest(JSON.stringify(menuItem)),
         content: JSON.stringify(menuItem),
         description: "Menu Item",
       },

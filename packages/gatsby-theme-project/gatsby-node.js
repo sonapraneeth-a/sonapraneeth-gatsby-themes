@@ -1,7 +1,6 @@
 const path = require("path");
 const fs = require("fs");
 const {createFilePath} = require("gatsby-source-filesystem");
-const crypto = require("crypto");
 const withDefaults = require("./utils/default-options");
 const debug = require("./utils/debug").debugNode;
 
@@ -30,11 +29,13 @@ const mdxResolverPassthrough = (fieldName) => async (
   context,
   info,
 ) => {
+  console.log(info);
   const type = info.schema.getType("Mdx");
   const mdxNode = context.nodeModel.getNodeById({
     id: source.parent,
   });
   const resolver = type.getFields()[fieldName].resolve;
+  console.log(resolver);
   const result = await resolver(mdxNode, args, context, {
     fieldName,
   });
@@ -112,7 +113,7 @@ exports.createSchemaCustomization = ({actions, schema}) => {
 // Create fields for post slugs and source
 // This will change with schema customization with work
 exports.onCreateNode = (
-  {node, actions, getNode, createNodeId, reporter},
+  {node, actions, getNode, createNodeId, createContentDigest, reporter},
   themeOptions,
 ) => {
   // Options created using default and provided options
@@ -177,10 +178,7 @@ exports.onCreateNode = (
       children: [],
       internal: {
         type: "ProjectMdx",
-        contentDigest: crypto
-          .createHash("md5")
-          .update(JSON.stringify(projectData))
-          .digest("hex"),
+        contentDigest: createContentDigest(JSON.stringify(projectData)),
         content: JSON.stringify(projectData),
         description: "Projects",
       },

@@ -1,7 +1,6 @@
 const path = require("path");
 const fs = require("fs");
 const {createFilePath} = require("gatsby-source-filesystem");
-const crypto = require("crypto");
 const withDefaults = require("./utils/default-options");
 const debug = require("./utils/debug").debugNode;
 /* const {
@@ -143,7 +142,7 @@ exports.createSchemaCustomization = ({actions, schema}) => {
 // Create fields for post slugs and source
 // This will change with schema customization with work
 exports.onCreateNode = (
-  {node, actions, getNode, createNodeId},
+  {node, actions, getNode, createNodeId, createContentDigest},
   themeOptions,
 ) => {
   // Options created using default and provided options
@@ -215,10 +214,7 @@ exports.onCreateNode = (
       children: [],
       internal: {
         type: "CollectionItemMdx",
-        contentDigest: crypto
-          .createHash("md5")
-          .update(JSON.stringify(collectionItemData))
-          .digest("hex"),
+        contentDigest: createContentDigest(JSON.stringify(collectionItemData)),
         content: JSON.stringify(collectionItemData),
         description: "Collection Items",
       },
@@ -231,6 +227,7 @@ exports.onCreateNode = (
       collectionName,
       subCollectionName,
       createNodeId,
+      createContentDigest,
     );*/
     createNode(mdxItem);
     createParentChildLink({parent: fileNode, child: node});

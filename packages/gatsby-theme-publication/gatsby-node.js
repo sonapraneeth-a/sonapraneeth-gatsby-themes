@@ -1,6 +1,5 @@
 const path = require("path");
 const fs = require("fs");
-const crypto = require("crypto");
 const withDefaults = require("./utils/default-options");
 const debug = require("./utils/debug").debugNode;
 
@@ -63,7 +62,7 @@ exports.sourceNodes = ({actions}, themeOptions) => {
 };
 
 exports.onCreateNode = (
-  {node, actions, getNode, createNodeId, reporter},
+  {node, actions, getNode, createNodeId, createContentDigest, reporter},
   themeOptions,
 ) => {
   options = withDefaults(themeOptions);
@@ -94,10 +93,7 @@ exports.onCreateNode = (
       children: [],
       internal: {
         type: "Publication",
-        contentDigest: crypto
-          .createHash("md5")
-          .update(JSON.stringify(publication))
-          .digest("hex"),
+        contentDigest: createContentDigest(JSON.stringify(publication)),
         content: JSON.stringify(publication),
         description: "Publication",
       },

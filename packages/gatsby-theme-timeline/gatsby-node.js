@@ -1,6 +1,5 @@
 const path = require("path");
 const fs = require("fs");
-const crypto = require("crypto");
 const withDefaults = require("./utils/default-options");
 const debug = require("./utils/debug").debugNode;
 
@@ -51,7 +50,7 @@ exports.sourceNodes = ({actions}, themeOptions) => {
 };
 
 exports.onCreateNode = (
-  {node, actions, getNode, createNodeId, reporter},
+  {node, actions, getNode, createNodeId, createContentDigest, reporter},
   themeOptions,
 ) => {
   options = withDefaults(themeOptions);
@@ -76,10 +75,7 @@ exports.onCreateNode = (
       children: [],
       internal: {
         type: "Timeline",
-        contentDigest: crypto
-          .createHash("md5")
-          .update(JSON.stringify(timeline))
-          .digest("hex"),
+        contentDigest: createContentDigest(JSON.stringify(timeline)),
         content: JSON.stringify(timeline),
         description: "Timeline",
       },

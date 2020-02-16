@@ -1,6 +1,5 @@
 const path = require("path");
 const fs = require("fs");
-const crypto = require("crypto");
 const withDefaults = require("./utils/default-options");
 const debug = require("./utils/debug").debugNode;
 
@@ -57,7 +56,7 @@ exports.createSchemaCustomization = ({actions}) => {
   `);
 };
 
-exports.sourceNodes = ({actions}, themeOptions) => {
+exports.sourceNodes = ({actions, createContentDigest}, themeOptions) => {
   options = withDefaults(themeOptions);
   debug("Schema customization");
   const {createNode} = actions;
@@ -68,10 +67,7 @@ exports.sourceNodes = ({actions}, themeOptions) => {
     children: [],
     internal: {
       type: "BioOptions",
-      contentDigest: crypto
-        .createHash("md5")
-        .update(JSON.stringify(options))
-        .digest("hex"),
+      contentDigest: createContentDigest(JSON.stringify(options)),
       content: JSON.stringify(options),
       description: "Bio Options",
     },
@@ -79,14 +75,14 @@ exports.sourceNodes = ({actions}, themeOptions) => {
 };
 
 exports.onCreateNode = (
-  {node, actions, getNode, createNodeId, reporter},
-  themeOptions
+  {node, actions, getNode, createNodeId, createContentDigest, reporter},
+  themeOptions,
 ) => {
   options = withDefaults(themeOptions);
   if (options.author === null || options.author === "") {
     reporter.panic(
       "Author option is empty. Please provide a valid author " +
-        "name in package options"
+        "name in package options",
     );
   }
   const {createNode} = actions;
@@ -117,10 +113,7 @@ exports.onCreateNode = (
       children: [],
       internal: {
         type: "AuthorInfo",
-        contentDigest: crypto
-          .createHash("md5")
-          .update(JSON.stringify(author))
-          .digest("hex"),
+        contentDigest: createContentDigest(JSON.stringify(author)),
         content: JSON.stringify(author),
         description: "Author Info",
       },
@@ -141,7 +134,7 @@ exports.createPages = async ({actions, graphql, reporter}, themeOptions) => {
     reporter.panic(
       `Unable to retrieve data for author (${options.author}). ` +
         "Please provide name which has been used in " +
-        `data files (Path: ${options.dataPath})`
+        `data files (Path: ${options.dataPath})`,
     );
   }
   reporter.info(`Creating page at ${options.baseUrl}`);

@@ -1,5 +1,3 @@
-const crypto = require("crypto");
-
 module.exports = {
   /* createCollections: (mdxItems, createNodeId) => {
     const collections = [];
@@ -16,6 +14,7 @@ module.exports = {
     collectionName,
     subCollectionName,
     createNodeId,
+    createContentDigest,
   ) => {
     /* console.log(
       `Add '${mdxItem.title}' to ${collectionName}, ` +
@@ -127,10 +126,7 @@ module.exports = {
         ...subCollection,
         internal: {
           type: "CollectionMdx",
-          contentDigest: crypto
-            .createHash("md5")
-            .update(JSON.stringify(subCollection))
-            .digest("hex"),
+          contentDigest: createContentDigest(JSON.stringify(subCollection)),
           content: JSON.stringify(subCollection),
           description: "Collection",
         },
@@ -141,10 +137,7 @@ module.exports = {
       children: [],
       internal: {
         type: "CollectionMdx",
-        contentDigest: crypto
-          .createHash("md5")
-          .update(JSON.stringify(updatedCollection))
-          .digest("hex"),
+        contentDigest: createContentDigest(JSON.stringify(updatedCollection)),
         content: JSON.stringify(updatedCollection),
         description: "Collection",
       },
