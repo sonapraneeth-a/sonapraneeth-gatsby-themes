@@ -118,11 +118,11 @@ exports.createPages = async ({actions, graphql, reporter}, themeOptions) => {
     );
   }
   reporter.info(`Creating page at ${options.baseUrl}`);
-  /* actions.createPage({
+  actions.createPage({
     path: options.baseUrl,
-    component: require.resolve("./src/templates/timelines.js"),
+    component: require.resolve("./src/templates/timeline-list.js"),
     context: {
       timelines,
     },
-  });*/
+  });
 };
