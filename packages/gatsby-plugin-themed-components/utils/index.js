@@ -71,4 +71,7 @@ module.exports = {
       `${jsDate.getFullYear()}`;
     return formattedJSDate;
   },
+  isNullOrEmpty: function(input) {
+    return !(input !== undefined && input !== null && input !== "");
+  },
 };
