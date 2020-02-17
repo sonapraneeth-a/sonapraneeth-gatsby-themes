@@ -5,8 +5,14 @@ let prevPriority;
 
 exports.createSchemaCustomization = ({actions}) => {
   actions.createTypes(`
-    interface Options @nodeInterface {
+    interface IOptions {
       id: ID!
+      package: String!
+      options: JSON!
+    }
+    type Options implements IOptions & Node {
+      id: ID!
+      package: String!
       options: JSON!
     }
     type Sublink @nodeInterface {
