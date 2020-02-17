@@ -44,7 +44,7 @@ const mdxResolverPassthrough = (fieldName) => async (
 
 exports.createSchemaCustomization = ({actions, schema}) => {
   actions.createTypes(`
-    interface Blog @nodeInterface {
+    interface IBlog {
       id: ID!
       title: String!
       publishedDate: Date! @dateformat
@@ -61,7 +61,7 @@ exports.createSchemaCustomization = ({actions, schema}) => {
       tableOfContents: JSON
       lastModifiedTime: Date @dateformat
     }
-    type BlogMdx implements Blog & Node {
+    type Blog implements IBlog & Node {
       id: ID!
       title: String!
       publishedDate: Date! @dateformat
@@ -80,7 +80,7 @@ exports.createSchemaCustomization = ({actions, schema}) => {
   `);
   actions.createTypes(
     schema.buildObjectType({
-      name: "BlogMdx",
+      name: "Blog",
       fields: {
         body: {
           type: "String!",
@@ -166,11 +166,11 @@ exports.onCreateNode = (
     createNode({
       ...blogData,
       // Required fields.
-      id: createNodeId(`${node.id} >>> BlogMdx`),
+      id: createNodeId(`${node.id} >>> Blog`),
       parent: node.id,
       children: [],
       internal: {
-        type: "BlogMdx",
+        type: "Blog",
         contentDigest: createContentDigest(JSON.stringify(blogData)),
         content: JSON.stringify(blogData),
         description: "Blog Posts",

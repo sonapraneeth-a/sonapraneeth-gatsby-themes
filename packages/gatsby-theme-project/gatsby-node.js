@@ -29,13 +29,11 @@ const mdxResolverPassthrough = (fieldName) => async (
   context,
   info,
 ) => {
-  console.log(info);
   const type = info.schema.getType("Mdx");
   const mdxNode = context.nodeModel.getNodeById({
     id: source.parent,
   });
   const resolver = type.getFields()[fieldName].resolve;
-  console.log(resolver);
   const result = await resolver(mdxNode, args, context, {
     fieldName,
   });
@@ -44,7 +42,7 @@ const mdxResolverPassthrough = (fieldName) => async (
 
 exports.createSchemaCustomization = ({actions, schema}) => {
   actions.createTypes(`
-    interface Project @nodeInterface {
+    interface IProject {
       id: ID!
       title: String!
       status: String!
@@ -64,7 +62,7 @@ exports.createSchemaCustomization = ({actions, schema}) => {
       tableOfContents: JSON
       timeToRead: Int
     }
-    type ProjectMdx implements Project & Node {
+    type Project implements IProject & Node {
       id: ID!
       title: String!
       status: String!
@@ -85,7 +83,7 @@ exports.createSchemaCustomization = ({actions, schema}) => {
   `);
   actions.createTypes(
     schema.buildObjectType({
-      name: "ProjectMdx",
+      name: "Project",
       fields: {
         body: {
           type: "String!",
@@ -173,11 +171,11 @@ exports.onCreateNode = (
     createNode({
       ...projectData,
       // Required fields.
-      id: createNodeId(`${node.id} >>> ProjectMdx`),
+      id: createNodeId(`${node.id} >>> Project`),
       parent: node.id,
       children: [],
       internal: {
-        type: "ProjectMdx",
+        type: "Project",
         contentDigest: createContentDigest(JSON.stringify(projectData)),
         content: JSON.stringify(projectData),
         description: "Projects",
