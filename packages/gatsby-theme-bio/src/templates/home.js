@@ -21,7 +21,7 @@ function HomeTemplateNode({location, data}) {
 
 export const query = graphql`
   query AuthorDetailedInfo($id: String!) {
-    authorInfo(id: { eq: $id }) {
+    author(id: { eq: $id }) {
       name
       description
       cover {

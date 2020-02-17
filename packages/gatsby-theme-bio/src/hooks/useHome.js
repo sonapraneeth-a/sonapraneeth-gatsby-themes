@@ -8,7 +8,7 @@ export const useHome = () => {
   /* const siteMeta = useSiteMetadata();
   const query = `
     query AuthorDetailedInfoShadowed {
-      authorInfo(name: { eq: "${siteMeta.author}" }) {
+      author(name: { eq: "${siteMeta.author}" }) {
         name
         description
         cover {
@@ -50,7 +50,7 @@ export const useHome = () => {
   const home = useStaticQuery(
     graphql`
       query AuthorDetailedInfoShadowed {
-        authorInfo(name: { eq: "John Doe" }) {
+        author(name: { eq: "John Doe" }) {
           name
           description
           cover {
@@ -83,7 +83,7 @@ export const useHome = () => {
           body
         }
       }
-    `
+    `,
   );
   return home;
 };

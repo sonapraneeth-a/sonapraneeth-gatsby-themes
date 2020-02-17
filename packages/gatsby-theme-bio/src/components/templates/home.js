@@ -16,10 +16,10 @@ HomeTemplate.defaultProps = {};
  * @return {JSX} Rendered children for the HomeTemplate
  */
 function HomeTemplate({location, data}) {
-  const title = "Home page of " + data.authorInfo.name;
+  const title = "Home page of " + data.author.name;
   const description =
     "This is the home page of " +
-    data.authorInfo.name +
+    data.author.name +
     ". " +
     "You can find more information about the author in this page";
   const meta = {
@@ -28,7 +28,7 @@ function HomeTemplate({location, data}) {
   };
   return (
     <PageLayout meta={meta} location={location}>
-      <HomeWidget author={data.authorInfo} details={data.mdx} />
+      <HomeWidget author={data.author} details={data.mdx} />
     </PageLayout>
   );
 }

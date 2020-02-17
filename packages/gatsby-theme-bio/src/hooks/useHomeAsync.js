@@ -8,7 +8,7 @@ export const useHomeAsync = async () => {
   const siteMeta = useSiteMetadata();
   const query = `
   query MainAuthorShadowed {
-    authorInfo(name: {eq: "${siteMeta.author}"}) {
+    author(name: {eq: "${siteMeta.author}"}) {
       id
     }
   }`;

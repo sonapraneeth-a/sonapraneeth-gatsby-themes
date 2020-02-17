@@ -30,7 +30,7 @@ function AboutBanner({data}) {
     >
       <SContainer>
         <Styled.h1>About</Styled.h1>
-        <HomeWidget author={data.authorInfo} details={data.mdx} />
+        <HomeWidget author={data.author} details={data.mdx} />
       </SContainer>
     </div>
   );

@@ -28,25 +28,21 @@ exports.onPreBootstrap = ({store, reporter}, themeOptions) => {
 
 exports.createSchemaCustomization = ({actions}) => {
   actions.createTypes(`
-    type BioOptions implements Options & Node {
-      id: ID!
-      options: JSON!
-    }
-    interface Author @nodeInterface {
+    interface IAuthor {
       id: ID!
       name: String!
       description: String!
       cover: File!
       username: Username!
     }
-    type Username @nodeInterface {
+    type Username {
       linkedin: String!
       facebook: String!
       twitter: String!
       github: String!
       email: String!
     }
-    type AuthorInfo implements Author & Node {
+    type Author implements IAuthor & Node {
       id: ID!
       name: String!
       description: String!
@@ -56,17 +52,21 @@ exports.createSchemaCustomization = ({actions}) => {
   `);
 };
 
-exports.sourceNodes = ({actions, createContentDigest}, themeOptions) => {
+exports.sourceNodes = (
+  {actions, createContentDigest, createNodeId},
+  themeOptions,
+) => {
   options = withDefaults(themeOptions);
   debug("Schema customization");
   const {createNode} = actions;
   createNode({
     options,
-    id: "@sonapraneeth/gatsby-theme-bio",
+    id: createNodeId("@sonapraneeth/gatsby-theme-bio >>> Options"),
+    package: "@sonapraneeth/gatsby-theme-bio",
     parent: null,
     children: [],
     internal: {
-      type: "BioOptions",
+      type: "Options",
       contentDigest: createContentDigest(JSON.stringify(options)),
       content: JSON.stringify(options),
       description: "Bio Options",
@@ -108,11 +108,11 @@ exports.onCreateNode = (
     createNode({
       ...author,
       // Required fields.
-      id: createNodeId(`${node.id} >>> AuthorInfo`),
+      id: createNodeId(`${node.id} >>> Author`),
       parent: node.id,
       children: [],
       internal: {
-        type: "AuthorInfo",
+        type: "Author",
         contentDigest: createContentDigest(JSON.stringify(author)),
         content: JSON.stringify(author),
         description: "Author Info",
@@ -125,12 +125,12 @@ exports.createPages = async ({actions, graphql, reporter}, themeOptions) => {
   options = withDefaults(themeOptions);
   const query = `
   query MainAuthor {
-    authorInfo(name: {eq: "${options.author}"}) {
+    author(name: {eq: "${options.author}"}) {
       id
     }
   }`;
   const result = await graphql(query);
-  if (result.data !== null && result.data.authorInfo === null) {
+  if (result.data !== null && result.data.author === null) {
     reporter.panic(
       `Unable to retrieve data for author (${options.author}). ` +
         "Please provide name which has been used in " +
@@ -142,7 +142,7 @@ exports.createPages = async ({actions, graphql, reporter}, themeOptions) => {
     path: options.baseUrl,
     component: require.resolve("./src/templates/home.js"),
     context: {
-      id: result.data.authorInfo.id,
+      id: result.data.author.id,
     },
   });
 };
