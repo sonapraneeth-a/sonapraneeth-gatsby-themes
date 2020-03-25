@@ -7,21 +7,26 @@ export const useRecentProjects = () => {
     const projects = useStaticQuery(
       graphql`
         query RecentProjectsQuery {
-          allProject(limit: 10, sort: { fields: startDate, order: DESC }) {
+          allProject(
+            limit: 10
+            sort: { fields: metadata___startDate, order: DESC }
+          ) {
             edges {
               node {
                 id
-                slug
                 title
-                startDate
-                completedDate
                 abstract
-                tags
+                slug
+                metadata {
+                  startDate
+                  completedDate
+                  tags
+                }
               }
             }
           }
         }
-      `
+      `,
     );
     return projects.allProject.edges;
   } catch (error) {
