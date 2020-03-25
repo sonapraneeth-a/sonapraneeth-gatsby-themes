@@ -26,7 +26,8 @@ import {
  * @return {JSX}
  */
 function DetailedBlogCardWithCover({blog, ...props}) {
-  const timeToRead = blog.timeToRead === null ? "< 1" : blog.timeToRead;
+  const timeToRead =
+    blog.metadata.timeToRead === null ? "< 1" : blog.metadata.timeToRead;
   const context = useThemeUI();
   const theme = context.theme;
   const borderRadius = theme.rounded === false ? "0%" : "2%";
@@ -89,7 +90,7 @@ function DetailedBlogCardWithCover({blog, ...props}) {
                 }}
               >
                 <Chip type={"date"}>
-                  <b>Published:</b> {blog.publishedDate}
+                  <b>Published:</b> {blog.metadata.publishedTime}
                 </Chip>
               </SFlex>
               <p>{blog.excerpt}</p>
