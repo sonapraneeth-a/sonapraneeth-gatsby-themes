@@ -39,8 +39,8 @@ function TimelinesListTemplate({timelines, location}) {
               {timeline.node.positions.map((position, idx2) => (
                 <ol key={"timeline-pos" + idx2}>
                   <li>{position.title}</li>
-                  <li>{position.startDuration}</li>
-                  <li>{position.endDuration}</li>
+                  <li>{position.startDate}</li>
+                  <li>{position.endDate}</li>
                   <li>{position.place}</li>
                 </ol>
               ))}

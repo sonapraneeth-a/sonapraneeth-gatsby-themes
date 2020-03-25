@@ -36,8 +36,8 @@ exports.createSchemaCustomization = ({actions, schema}) => {
     }
     type Position {
       title: String!
-      startDuration: Date @dateformat
-      endDuration: Date @dateformat
+      startDate: Date @dateformat
+      endDate: Date @dateformat
       place: String!
       details: [String!]
     }
