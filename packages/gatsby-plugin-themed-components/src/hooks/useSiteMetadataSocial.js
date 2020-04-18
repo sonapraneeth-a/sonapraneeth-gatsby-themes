@@ -17,7 +17,7 @@ export const useSiteMetadataSocial = () => {
           }
         }
       }
-    `
+    `,
   );
   return siteMeta.site.siteMetadata.social;
 };

@@ -48,7 +48,7 @@ function RootSwitch({children}) {
       // To enable debugging information in browser
       localStorage.setItem(
         "debug",
-        "@sonapraneeth/gatsby-plugin-themed-components:*"
+        "@sonapraneeth/gatsby-plugin-themed-components:*",
       );
     }
   }
