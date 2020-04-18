@@ -1,27 +1,26 @@
 /** @jsx jsx */
-import {jsx} from "@sonapraneeth/gatsby-plugin-themed-components";
-// eslint-disable-next-line no-unused-vars
-import React from "react";
-import PropTypes from "prop-types";
-import {MDXRenderer} from "gatsby-plugin-mdx";
 import {MDXProvider} from "@mdx-js/react";
-
+import {jsx} from "@sonapraneeth/gatsby-plugin-themed-components";
 import {
   SContainer,
   Styled,
 } from "@sonapraneeth/gatsby-plugin-themed-components";
 import {
+  BaseLayout,
+  Chip,
+  from,
   GatsbyImage,
   Grid,
   GridItem,
-  BaseLayout,
-  Chip,
-  TableOfContents,
   MDXComponents,
-  TagList,
-  from,
   screens,
+  TableOfContents,
+  TagList,
 } from "@sonapraneeth/gatsby-plugin-themed-components";
+import {MDXRenderer} from "gatsby-plugin-mdx";
+import PropTypes from "prop-types";
+// eslint-disable-next-line no-unused-vars
+import React from "react";
 
 const components = {
   h1: MDXComponents.h1,
@@ -38,7 +37,8 @@ function ProjectTemplate({data, location}) {
   const title = "Project | " + data.project.title;
   const description =
     "This page contains details about the project: " + data.project.title;
-  // Reference: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/toLocaleDateString
+  // Reference:
+  // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date/toLocaleDateString
   const options = {
     year: "numeric",
     month: "short",
@@ -84,6 +84,7 @@ function ProjectTemplate({data, location}) {
       title={title}
       description={description}
     >
+      {" "}
       {data.project.cover !== null && (
         <GatsbyImage
           type={"fluid"}
