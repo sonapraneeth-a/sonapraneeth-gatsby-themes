@@ -8,24 +8,26 @@ export const useFeaturedProjects = () => {
       graphql`
         query FeaturedProjectsQuery {
           allProject(
-            sort: { fields: startDate, order: DESC }
-            filter: { featured: { eq: true } }
+            sort: { fields: metadata___startDate, order: DESC }
+            filter: { metadata: { featured: { eq: true } } }
             limit: 10
           ) {
             edges {
               node {
                 id
-                slug
                 title
-                startDate
-                completedDate
                 abstract
-                tags
+                slug
+                metadata {
+                  startDate
+                  completedDate
+                  tags
+                }
               }
             }
           }
         }
-      `
+      `,
     );
     return projects.allProject.edges;
   } catch (error) {

@@ -29,13 +29,7 @@ export const query = graphql`
   query ProjectQuery($id: String!) {
     project(id: { eq: $id }) {
       title
-      status
-      startDate
-      completedDate
       slug
-      toc
-      tags
-      body
       cover {
         childImageSharp {
           fluid(maxWidth: 1280) {
@@ -49,8 +43,16 @@ export const query = graphql`
           }
         }
       }
-      tableOfContents
-      timeToRead
+      metadata {
+        status
+        startDate
+        completedDate
+        toc
+        tableOfContents
+        tags
+        timeToRead
+      }
+      body
     }
   }
 `;
