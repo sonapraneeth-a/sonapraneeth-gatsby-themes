@@ -74,7 +74,8 @@ function ProjectTemplate({data, location}) {
   completedLocaleDate =
     data.project.status === "Ongoing" ? "Present" : completedLocaleDate;
   const timeToRead =
-    data.project.metadata.timeToRead === null ?
+    data.project.metadata.timeToRead === null ||
+    data.project.metadata.timeToRead <= 0 ?
       "~1" :
       data.project.metadata.timeToRead;
   return (

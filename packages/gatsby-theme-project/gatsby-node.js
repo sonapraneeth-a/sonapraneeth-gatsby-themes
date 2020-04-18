@@ -33,12 +33,32 @@ const mdxResolverPassthrough = (fieldName) => async (
   const mdxNode = context.nodeModel.getNodeById({
     id: source.parent,
   });
-  const resolver = type.getFields()[fieldName].resolve;
+  const updatedFieldName = fieldName === undefined ? info.fieldName : fieldName;
+  const resolver = type.getFields()[updatedFieldName].resolve;
   const result = await resolver(mdxNode, args, context, {
-    fieldName,
+    updatedFieldName,
   });
   return result;
 };
+
+const mdxResolverPassthroughAsync = (fieldName = async (
+  source,
+  args,
+  context,
+  info,
+  fieldName,
+) => {
+  const type = info.schema.getType("Mdx");
+  const mdxNode = context.nodeModel.getNodeById({
+    id: source.parent,
+  });
+  const updatedFieldName = fieldName === undefined ? info.fieldName : fieldName;
+  const resolver = type.getFields()[updatedFieldName].resolve;
+  const result = await resolver(mdxNode, args, context, {
+    updatedFieldName,
+  });
+  return result;
+});
 
 exports.createSchemaCustomization = ({actions, schema}) => {
   actions.createTypes(`
@@ -82,7 +102,7 @@ exports.createSchemaCustomization = ({actions, schema}) => {
       fields: {
         body: {
           type: "String!",
-          resolve: mdxResolverPassthrough("body"),
+          resolve: mdxResolverPassthrough(),
         },
       },
     }),
@@ -93,7 +113,18 @@ exports.createSchemaCustomization = ({actions, schema}) => {
       fields: {
         timeToRead: {
           type: "Int",
-          resolve: mdxResolverPassthrough("timeToRead"),
+          resolve: async (source, args, context, info) => {
+            let result = await mdxResolverPassthroughAsync(
+              source,
+              args,
+              context,
+              info,
+            );
+            if (result === undefined || result === null || isNaN(result)) {
+              result = 0;
+            }
+            return result;
+          },
         },
         tableOfContents: {
           type: "JSON",
