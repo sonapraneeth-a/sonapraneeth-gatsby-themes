@@ -1,5 +1,27 @@
 import {fonts} from "gatsby-design-tokens";
 
+fontSizesRaw: [
+  0.25,
+  0.5,
+  0.75,
+  0.875,
+  1,
+  1.125,
+  1.25,
+  1.5,
+  1.75,
+  2,
+  2.25,
+  2.625,
+  3,
+  3.375,
+  3.75,
+  4.25,
+  4.75,
+  5.25,
+  5.75,
+];
+
 /* eslint-disable quotes */
 export default {
   fonts: {
@@ -18,6 +40,7 @@ export default {
   fontWeights: {
     // Font weight for body. Normal
     body: 400,
+    semiBold: 600,
     // Font weight for headings. Bold
     heading: 700,
     // Bold font weight
@@ -26,27 +49,7 @@ export default {
     extraBold: 800,
   },
   // Font sizes stack
-  fontSizes: [
-    0.25,
-    0.5,
-    0.75,
-    0.875,
-    1,
-    1.125,
-    1.25,
-    1.5,
-    1.75,
-    2,
-    2.25,
-    2.625,
-    3,
-    3.375,
-    3.75,
-    4.25,
-    4.75,
-    5.25,
-    5.75,
-  ].map((item) => {
+  fontSizes: fontSizesRaw.map((item) => {
     return `${item}rem`;
   }),
 };

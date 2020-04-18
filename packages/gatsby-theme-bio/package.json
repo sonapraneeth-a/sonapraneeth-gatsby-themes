@@ -21,21 +21,21 @@
   ],
   "license": "MIT",
   "peerDependencies": {
-    "gatsby": "^2.19.40",
-    "react": "^16.13.0",
-    "react-dom": "^16.13.0"
+    "gatsby": "^2.20.4",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1"
   },
   "dependencies": {
     "@mdx-js/mdx": "^1.5.7",
     "@mdx-js/react": "^1.5.7",
     "@sonapraneeth/gatsby-plugin-themed-components": "^0.7.1",
-    "gatsby-image": "^2.2.43",
-    "gatsby-plugin-mdx": "^1.0.81",
-    "gatsby-plugin-react-helmet": "^3.1.23",
-    "gatsby-plugin-sharp": "^2.4.11",
-    "gatsby-source-filesystem": "^2.1.53",
-    "gatsby-transformer-sharp": "^2.3.18",
-    "gatsby-transformer-yaml": "^2.2.26",
+    "gatsby-image": "^2.3.1",
+    "gatsby-plugin-mdx": "^1.1.2",
+    "gatsby-plugin-react-helmet": "^3.2.1",
+    "gatsby-plugin-sharp": "^2.5.3",
+    "gatsby-source-filesystem": "^2.2.2",
+    "gatsby-transformer-sharp": "^2.4.2",
+    "gatsby-transformer-yaml": "^2.3.1",
     "react-helmet": "^5.2.1"
   },
   "devDependencies": {

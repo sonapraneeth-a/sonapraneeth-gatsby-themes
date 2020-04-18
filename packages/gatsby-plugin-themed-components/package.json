@@ -21,13 +21,13 @@
   ],
   "license": "MIT",
   "peerDependencies": {
-    "gatsby": "^2.19.40",
-    "react": "^16.13.0",
-    "react-dom": "^16.13.0"
+    "gatsby": "^2.20.4",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1"
   },
   "dependencies": {
-    "gatsby-design-tokens": "^1.0.10",
-    "gatsby-image": "^2.2.43",
+    "gatsby-design-tokens": "^2.0.4",
+    "gatsby-image": "^2.3.1",
     "gatsby-plugin-theme-ui": "^0.3.0",
     "prism-react-renderer": "^1.0.2",
     "react-icons": "^3.9.0",

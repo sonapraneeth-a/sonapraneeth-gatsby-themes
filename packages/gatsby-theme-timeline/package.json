@@ -21,15 +21,15 @@
   ],
   "license": "MIT",
   "peerDependencies": {
-    "gatsby": "^2.19.40",
-    "react": "^16.13.0",
-    "react-dom": "^16.13.0"
+    "gatsby": "^2.20.4",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1"
   },
   "dependencies": {
     "@sonapraneeth/gatsby-plugin-themed-components": "^0.7.1",
-    "gatsby-plugin-react-helmet": "^3.1.23",
-    "gatsby-source-filesystem": "^2.1.53",
-    "gatsby-transformer-yaml": "^2.2.26",
+    "gatsby-plugin-react-helmet": "^3.2.1",
+    "gatsby-source-filesystem": "^2.2.2",
+    "gatsby-transformer-yaml": "^2.3.1",
     "react-helmet": "^5.2.1"
   },
   "devDependencies": {
