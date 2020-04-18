@@ -6,19 +6,21 @@ export const useAllBlogs = () => {
   const blogs = useStaticQuery(
     graphql`
       query AllBlogsQuery {
-        allBlog(sort: { fields: publishedDate, order: DESC }) {
+        allBlog(sort: { fields: metadata___publishedTime, order: DESC }) {
           edges {
             node {
               id
               slug
               title
-              publishedDate
               excerpt
+              metadata {
+                publishedTime
+              }
             }
           }
         }
       }
-    `
+    `,
   );
   return blogs.allBlog.edges;
 };

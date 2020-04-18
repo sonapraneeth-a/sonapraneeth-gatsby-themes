@@ -23,8 +23,9 @@ import {
  * @return {JSX}
  */
 function DetailedBlogCard({blog, ...props}) {
-  const timeToRead = blog.timeToRead === null ? "~1" : blog.timeToRead;
-  const publishedDate = getFormattedDate(blog.publishedDate);
+  const timeToRead =
+    blog.metadata.timeToRead === null ? "~1" : blog.metadata.timeToRead;
+  const publishedDate = getFormattedDate(blog.metadata.publishedTime);
   return (
     <Card>
       <CardContent>
