@@ -58,7 +58,7 @@ function DetailedProjectCard({project, ...props}) {
               >
                 {project.title}
               </span>
-              {project.featured && (
+              {project.metadata.isFeatured && (
                 <FaStar
                   sx={{
                     display: "inline-block",

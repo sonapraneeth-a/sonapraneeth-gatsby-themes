@@ -33,7 +33,7 @@ const components = {
  * @return {JSX}
  */
 function ProjectTemplate({data, location}) {
-  const toc = data.project.tableOfContents;
+  const toc = data.project.metadata.tableOfContents;
   const isTOCEmpty = JSON.stringify(toc) === "{}";
   const title = "Project | " + data.project.title;
   const description =
@@ -52,19 +52,21 @@ function ProjectTemplate({data, location}) {
     // hour: "2-digit",
     // minute: "2-digit",
   };*/
-  const startDate = new Date(data.project.startDate).toLocaleString("en-US", {
-    timeZone: "Asia/Kolkata",
-  });
+  const startDate = new Date(data.project.metadata.startDate).toLocaleString(
+    "en-US",
+    {
+      timeZone: "Asia/Kolkata",
+    },
+  );
   const startLocaleDate = new Date(startDate).toLocaleDateString(
     "en-US",
     options,
   );
   /* const completedLocaleDate02 = new Date(completedDate)
     .toLocaleDateString("en-US", options02);*/
-  const completedDate = new Date(data.project.completedDate).toLocaleString(
-    "en-US",
-    {timeZone: "Asia/Kolkata"},
-  );
+  const completedDate = new Date(
+    data.project.metadata.completedDate,
+  ).toLocaleString("en-US", {timeZone: "Asia/Kolkata"});
   let completedLocaleDate = new Date(completedDate).toLocaleDateString(
     "en-US",
     options,
@@ -72,7 +74,9 @@ function ProjectTemplate({data, location}) {
   completedLocaleDate =
     data.project.status === "Ongoing" ? "Present" : completedLocaleDate;
   const timeToRead =
-    data.project.timeToRead === null ? "~1" : data.project.timeToRead;
+    data.project.metadata.timeToRead === null ?
+      "~1" :
+      data.project.metadata.timeToRead;
   return (
     <BaseLayout
       location={data.project.slug}
@@ -95,10 +99,10 @@ function ProjectTemplate({data, location}) {
           <b>Duration: </b>
           {startLocaleDate} - {completedLocaleDate}
         </Chip>{" "}
-        <TagList tags={data.project.tags} />{" "}
+        <TagList tags={data.project.metadata.tags} />{" "}
         <Chip type={"time"}>{timeToRead} min. read</Chip> <hr />
         <section>
-          {data.project.toc &&
+          {data.project.metadata.showTOC &&
             toc !== undefined &&
             toc !== null &&
             !isTOCEmpty && (
@@ -123,7 +127,7 @@ function ProjectTemplate({data, location}) {
               </GridItem>
             </Grid>
           )}
-          {(!data.project.toc ||
+          {(!data.project.metadata.showTOC ||
             toc === undefined ||
             toc === null ||
             isTOCEmpty) && (

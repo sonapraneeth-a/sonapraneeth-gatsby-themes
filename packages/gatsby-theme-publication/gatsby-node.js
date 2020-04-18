@@ -22,6 +22,19 @@ exports.onPreBootstrap = ({store, reporter}, themeOptions) => {
   });
 };
 
+const yamlResolverPassthrough = (fieldName) => async (
+  source,
+  args,
+  context,
+  info,
+) => {
+  const yamlNode = context.nodeModel.getNodeById({
+    id: source.parent,
+  });
+  const result = yamlNode[fieldName];
+  return result;
+};
+
 exports.createSchemaCustomization = ({actions, schema}) => {
   actions.createTypes(`
     interface IPublication {
@@ -54,6 +67,17 @@ exports.createSchemaCustomization = ({actions, schema}) => {
       institution: String!
     }
   `);
+  actions.createTypes(
+    schema.buildObjectType({
+      name: "Publication",
+      fields: {
+        abstract: {
+          type: "String",
+          resolve: yamlResolverPassthrough("abstract"),
+        },
+      },
+    }),
+  );
 };
 
 exports.sourceNodes = ({actions}, themeOptions) => {
@@ -66,7 +90,7 @@ exports.onCreateNode = (
   themeOptions,
 ) => {
   options = withDefaults(themeOptions);
-  const {createNode} = actions;
+  const {createNode, createParentChildLink} = actions;
   if (node.internal.type !== "PublicationYaml") {
     return;
   }
@@ -81,7 +105,7 @@ exports.onCreateNode = (
       authors: node.authors,
       url: node.url || "",
       doi: node.doi,
-      abstract: node.abstract,
+      // abstract: node.abstract,
       date: new Date(node.date).toISOString(),
     };
     debug(publication);
@@ -98,6 +122,7 @@ exports.onCreateNode = (
         description: "Publication",
       },
     });
+    createParentChildLink({parent: fileNode, child: node});
   }
 };
 

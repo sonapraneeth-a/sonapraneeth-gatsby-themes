@@ -47,35 +47,33 @@ exports.createSchemaCustomization = ({actions, schema}) => {
     interface IBlog {
       id: ID!
       title: String!
-      publishedDate: Date! @dateformat
-      slug: String!
       excerpt: String!
-      toc: Boolean!
-      body: String!
+      slug: String!
       fileAbsolutePath: String!
-      draft: Boolean!
-      sharing: Boolean!
       cover: File @fileByRelativePath
-      timeToRead: Int
-      tags: [String!]!
-      tableOfContents: JSON
-      lastModifiedTime: Date @dateformat
+      body: String!
+      metadata: BlogMetadata
     }
     type Blog implements IBlog & Node {
       id: ID!
       title: String!
-      publishedDate: Date! @dateformat
-      slug: String!
       excerpt: String!
-      toc: Boolean!
-      body: String!
+      slug: String!
       fileAbsolutePath: String!
-      draft: Boolean!
-      sharing: Boolean!
       cover: File @fileByRelativePath
-      timeToRead: Int
-      tags: [String!]!
+      body: String!
+      metadata: BlogMetadata
+    }
+    type BlogMetadata {
+      isFeatured: Boolean!
+      publishedTime: Date! @dateformat
       lastModifiedTime: Date @dateformat
+      isDraft: Boolean!
+      showSharing: Boolean!
+      showTOC: Boolean!
+      tableOfContents: JSON
+      tags: [String!]!
+      timeToRead: Int
     }
   `);
   actions.createTypes(
@@ -86,10 +84,6 @@ exports.createSchemaCustomization = ({actions, schema}) => {
           type: "String!",
           resolve: mdxResolverPassthrough("body"),
         },
-        timeToRead: {
-          type: "Int",
-          resolve: mdxResolverPassthrough("timeToRead"),
-        },
         excerpt: {
           type: "String!",
           args: {
@@ -99,6 +93,17 @@ exports.createSchemaCustomization = ({actions, schema}) => {
             },
           },
           resolve: mdxResolverPassthrough("excerpt"),
+        },
+      },
+    }),
+  );
+  actions.createTypes(
+    schema.buildObjectType({
+      name: "BlogMetadata",
+      fields: {
+        timeToRead: {
+          type: "Int",
+          resolve: mdxResolverPassthrough("timeToRead"),
         },
         tableOfContents: {
           type: "JSON",
@@ -150,18 +155,21 @@ exports.onCreateNode = (
     const blogTags = "tags" in frontmatter ? frontmatter.tags : [];
     const blogData = {
       title: frontmatter.title || "",
-      publishedDate: frontmatter.publishedDate,
       slug: blogUrl,
       fileAbsolutePath: node.fileAbsolutePath,
-      draft: frontmatter.draft || false,
-      toc:
-        frontmatter.toc !== undefined && frontmatter.toc !== null ?
-          frontmatter.toc :
-          true,
-      sharing: frontmatter.sharing || false,
       cover: blogCover,
-      tags: blogTags,
-      lastModifiedTime: fileNode.modifiedTime,
+      metadata: {
+        parent: node.id,
+        publishedTime: frontmatter.publishedTime,
+        lastModifiedTime: fileNode.modifiedTime,
+        isDraft: frontmatter.isDraft || false,
+        showSharing: frontmatter.showSharing || false,
+        showTOC:
+          frontmatter.showTOC !== undefined && frontmatter.showTOC !== null ?
+            frontmatter.showTOC :
+            true,
+        tags: blogTags,
+      },
     };
     createNode({
       ...blogData,
@@ -186,13 +194,10 @@ exports.createPages = async ({actions, graphql, reporter}, themeOptions) => {
   debug(`Options: ${JSON.stringify(options, null, 2)}`);
   const fields = `
     id
-    slug
     title
-    publishedDate
     excerpt
+    slug
     fileAbsolutePath
-    timeToRead
-    lastModifiedTime
     cover {
       childImageSharp {
         fluid(maxWidth: 1280) {
@@ -206,12 +211,17 @@ exports.createPages = async ({actions, graphql, reporter}, themeOptions) => {
         }
       }
     }
+    metadata {
+      publishedTime
+      lastModifiedTime
+      timeToRead  
+    }
   `;
   const queryProd = `
   query AllBlogsQuery {
     allBlog(
-      sort: {fields: publishedDate, order: DESC},
-      filter: {draft: {eq: false}}
+      sort: {fields: metadata___publishedTime, order: DESC},
+      filter: {metadata___isDraft: {eq: false}}
     ) {
       edges {
         node {
@@ -223,7 +233,7 @@ exports.createPages = async ({actions, graphql, reporter}, themeOptions) => {
   const queryDev = `
   query AllBlogsQuery {
     allBlog(
-      sort: {fields: publishedDate, order: DESC},
+      sort: {fields: metadata___publishedTime, order: DESC},
     ) {
       edges {
         node {

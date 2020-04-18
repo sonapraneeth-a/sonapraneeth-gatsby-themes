@@ -11,16 +11,18 @@ export const useAllProjects = () => {
             edges {
               node {
                 id
-                slug
                 title
-                startDate
-                completedDate
                 abstract
+                slug
+                metadata {
+                  startDate
+                  completedDate
+                }
               }
             }
           }
         }
-      `
+      `,
     );
     return projects.allProject.edges;
   } catch (error) {

@@ -28,9 +28,6 @@ export const query = graphql`
       id
       slug
       title
-      toc
-      publishedDate
-      tags
       body
       cover {
         childImageSharp {
@@ -45,8 +42,13 @@ export const query = graphql`
           }
         }
       }
-      tableOfContents
-      lastModifiedTime
+      metadata {
+        tableOfContents
+        lastModifiedTime
+        showTOC
+        publishedTime
+        tags
+      }
     }
   }
 `;

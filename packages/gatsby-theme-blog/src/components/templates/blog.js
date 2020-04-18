@@ -32,14 +32,15 @@ const components = {
  * @return {JSX}
  */
 function BlogTemplate({blog, location}) {
-  const toc = blog.tableOfContents;
+  const toc = blog.metadata.tableOfContents;
   const isTOCEmpty = JSON.stringify(toc) === "{}";
-  const dispTOC = blog.toc && toc !== undefined && toc !== null && !isTOCEmpty;
+  const dispTOC =
+    blog.metadata.showTOC && toc !== undefined && toc !== null && !isTOCEmpty;
   const title = "Blog | " + blog.title;
   // eslint-disable-next-line max-len
   const description = "This page contains details about the blog: " + blog.title;
-  const lastModifiedTime = getFormattedDate(blog.lastModifiedTime);
-  const publishedDate = getFormattedDate(blog.publishedDate);
+  const lastModifiedTime = getFormattedDate(blog.metadata.lastModifiedTime);
+  const publishedDate = getFormattedDate(blog.metadata.publishedTime);
   return (
     <BaseLayout location={blog.slug} title={title} description={description}>
       {blog.cover !== null && (
@@ -55,7 +56,7 @@ function BlogTemplate({blog, location}) {
           <b>Last Modified: </b>
           {lastModifiedTime}
         </Chip>{" "}
-        <TagList tags={blog.tags} />
+        <TagList tags={blog.metadata.tags} />
         <hr />
         <section>
           {dispTOC && (
@@ -80,7 +81,7 @@ function BlogTemplate({blog, location}) {
               </GridItem>
             </Grid>
           )}
-          {(!blog.toc || toc === undefined || toc === null || isTOCEmpty) && (
+          {!dispTOC && (
             <Grid noCols={1}>
               <GridItem id="body" style={{margin: 0}}>
                 <MDXProvider components={components}>

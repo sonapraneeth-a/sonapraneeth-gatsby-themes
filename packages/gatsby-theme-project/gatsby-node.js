@@ -45,40 +45,35 @@ exports.createSchemaCustomization = ({actions, schema}) => {
     interface IProject {
       id: ID!
       title: String!
-      status: String!
-      startDate: Date! @dateformat
-      completedDate: Date @dateformat
-      source: String!
-      report: String!
-      presentation: String!
-      abstract: String!
-      toc: Boolean!
-      featured: Boolean!
+      abstract: String
       slug: String!
-      fileAbsolutePath: String!
-      cover: File
-      tags: [String!]!
+      fileAbsolutePath: String
+      cover: File @fileByRelativePath
+      metadata: ProjectMetadata
       body: String!
-      tableOfContents: JSON
-      timeToRead: Int
     }
     type Project implements IProject & Node {
       id: ID!
       title: String!
+      abstract: String
+      slug: String!
+      fileAbsolutePath: String
+      cover: File @fileByRelativePath
+      metadata: ProjectMetadata
+      body: String!
+    }
+    type ProjectMetadata {
       status: String!
+      isFeatured: Boolean!
       startDate: Date! @dateformat
       completedDate: Date @dateformat
+      showTOC: Boolean!
+      tableOfContents: JSON
+      tags: [String!]!
+      timeToRead: Int
       source: String!
       report: String!
       presentation: String!
-      abstract: String!
-      toc: Boolean!
-      featured: Boolean!
-      slug: String!
-      fileAbsolutePath: String!
-      cover: File @fileByRelativePath
-      tags: [String!]!
-      body: String!
     }
   `);
   actions.createTypes(
@@ -89,6 +84,13 @@ exports.createSchemaCustomization = ({actions, schema}) => {
           type: "String!",
           resolve: mdxResolverPassthrough("body"),
         },
+      },
+    }),
+  );
+  actions.createTypes(
+    schema.buildObjectType({
+      name: "ProjectMetadata",
+      fields: {
         timeToRead: {
           type: "Int",
           resolve: mdxResolverPassthrough("timeToRead"),
@@ -107,6 +109,32 @@ exports.createSchemaCustomization = ({actions, schema}) => {
     }),
   );
 };
+
+/* exports.createResolvers = ({ createResolvers }) => {
+  const resolvers = {
+    ProjectMetadata: {
+      timeToRead: {
+        type: "Int",
+        resolve: async (source, args, context, info) => {
+          const time = await mdxResolverPassthrough("timeToRead");
+          console.log(`Time: ${time}`);
+          return time;
+        },
+      },
+      tableOfContents: {
+        type: "JSON",
+        args: {
+          maxDepth: {
+            type: "Int",
+            defaultValue: 3,
+          },
+        },
+        resolve: mdxResolverPassthrough("tableOfContents"),
+      },
+    },
+  };
+  createResolvers(resolvers);
+}*/
 
 // Create fields for post slugs and source
 // This will change with schema customization with work
@@ -140,32 +168,35 @@ exports.onCreateNode = (
     debug(`Project tags: ${projectTags}`);
     const projectData = {
       title: frontmatter.title || "",
-      status:
-        frontmatter.status !== undefined && frontmatter.status !== null ?
-          frontmatter.status :
-          frontmatter.completedDate !== undefined &&
-            frontmatter.completedDate !== null ?
-            "Completed" :
-            "Ongoing",
-      startDate: new Date(frontmatter.startDate).toISOString(),
-      completedDate:
-        frontmatter.completedDate !== undefined &&
-        frontmatter.completedDate !== null ?
-          new Date(frontmatter.completedDate).toISOString() :
-          new Date().toISOString(),
-      source: frontmatter.source || "",
-      report: frontmatter.report || "",
-      presentation: frontmatter.presentation || "",
       abstract: frontmatter.abstract || "",
-      toc:
-        frontmatter.toc !== undefined && frontmatter.toc !== null ?
-          frontmatter.toc :
-          true,
-      featured: frontmatter.featured || false,
+      slug: projectUrl,
       fileAbsolutePath: node.fileAbsolutePath,
       cover: projectCover,
-      tags: projectTags,
-      slug: projectUrl,
+      metadata: {
+        parent: node.id,
+        status:
+          frontmatter.status !== undefined && frontmatter.status !== null ?
+            frontmatter.status :
+            frontmatter.completedDate !== undefined &&
+              frontmatter.completedDate !== null ?
+              "Completed" :
+              "Ongoing",
+        isFeatured: frontmatter.isFeatured || false,
+        startDate: new Date(frontmatter.startDate).toISOString(),
+        completedDate:
+          frontmatter.completedDate !== undefined &&
+          frontmatter.completedDate !== null ?
+            new Date(frontmatter.completedDate).toISOString() :
+            new Date().toISOString(),
+        showTOC:
+          frontmatter.showTOC !== undefined && frontmatter.showTOC !== null ?
+            frontmatter.showTOC :
+            true,
+        tags: projectTags,
+        source: frontmatter.source || "",
+        report: frontmatter.report || "",
+        presentation: frontmatter.presentation || "",
+      },
     };
     debug(JSON.stringify(projectData, null, 2));
     createNode({
@@ -191,16 +222,9 @@ exports.createPages = async ({actions, graphql, reporter}, themeOptions) => {
   debug(`Options: ${JSON.stringify(options, null, 2)}`);
   const fields = `
     id
-    slug
     title
-    startDate(formatString: "MMM YYYY")
-    completedDate(formatString: "MMM YYYY")
     abstract
-    source
-    report
-    presentation
-    status
-    featured
+    slug
     cover {
       childImageSharp {
         fluid(maxWidth: 1280) {
@@ -214,11 +238,20 @@ exports.createPages = async ({actions, graphql, reporter}, themeOptions) => {
         }
       }
     }
+    metadata {
+      status
+      isFeatured
+      startDate(formatString: "MMM YYYY")
+      completedDate(formatString: "MMM YYYY")
+      source
+      report
+      presentation
+    }
   `;
   const query = `
   query AllProjectsQuery {
     allProject(
-      sort: {fields: startDate, order: DESC},
+      sort: {fields: metadata___startDate, order: DESC},
     ) {
       edges {
         node {
