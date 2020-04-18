@@ -99,10 +99,10 @@ function ProjectTemplate({data, location}) {
           <b>Duration: </b>
           {startLocaleDate} - {completedLocaleDate}
         </Chip>{" "}
-        <TagList tags={data.project.tags} />{" "}
+        <TagList tags={data.project.metadata.tags} />{" "}
         <Chip type={"time"}>{timeToRead} min. read</Chip> <hr />
         <section>
-          {data.project.toc &&
+          {data.project.metadata.showTOC &&
             toc !== undefined &&
             toc !== null &&
             !isTOCEmpty && (
@@ -127,7 +127,7 @@ function ProjectTemplate({data, location}) {
               </GridItem>
             </Grid>
           )}
-          {(!data.project.toc ||
+          {(!data.project.metadata.showTOC ||
             toc === undefined ||
             toc === null ||
             isTOCEmpty) && (

@@ -9,7 +9,7 @@ export const useFeaturedProjects = () => {
         query FeaturedProjectsQuery {
           allProject(
             sort: { fields: metadata___startDate, order: DESC }
-            filter: { metadata: { featured: { eq: true } } }
+            filter: { metadata: { isFeatured: { eq: true } } }
             limit: 10
           ) {
             edges {

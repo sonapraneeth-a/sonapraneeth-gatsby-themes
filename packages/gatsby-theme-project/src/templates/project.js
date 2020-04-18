@@ -47,7 +47,7 @@ export const query = graphql`
         status
         startDate
         completedDate
-        toc
+        showTOC
         tableOfContents
         tags
         timeToRead

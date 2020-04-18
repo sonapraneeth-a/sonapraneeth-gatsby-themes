@@ -64,10 +64,10 @@ exports.createSchemaCustomization = ({actions, schema}) => {
     }
     type ProjectMetadata {
       status: String!
-      featured: Boolean!
+      isFeatured: Boolean!
       startDate: Date! @dateformat
       completedDate: Date @dateformat
-      toc: Boolean!
+      showTOC: Boolean!
       tableOfContents: JSON
       tags: [String!]!
       timeToRead: Int
@@ -181,16 +181,16 @@ exports.onCreateNode = (
               frontmatter.completedDate !== null ?
               "Completed" :
               "Ongoing",
-        featured: frontmatter.featured || false,
+        isFeatured: frontmatter.isFeatured || false,
         startDate: new Date(frontmatter.startDate).toISOString(),
         completedDate:
           frontmatter.completedDate !== undefined &&
           frontmatter.completedDate !== null ?
             new Date(frontmatter.completedDate).toISOString() :
             new Date().toISOString(),
-        toc:
-          frontmatter.toc !== undefined && frontmatter.toc !== null ?
-            frontmatter.toc :
+        showTOC:
+          frontmatter.showTOC !== undefined && frontmatter.showTOC !== null ?
+            frontmatter.showTOC :
             true,
         tags: projectTags,
         source: frontmatter.source || "",
@@ -240,7 +240,7 @@ exports.createPages = async ({actions, graphql, reporter}, themeOptions) => {
     }
     metadata {
       status
-      featured
+      isFeatured
       startDate(formatString: "MMM YYYY")
       completedDate(formatString: "MMM YYYY")
       source
