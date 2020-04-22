@@ -3,6 +3,21 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.5.0](https://github.com/sonapraneeth-a/sonapraneeth-gatsby-themes/compare/@sonapraneeth/gatsby-theme-project@0.4.4...@sonapraneeth/gatsby-theme-project@0.5.0) (2020-04-22)
+
+### Bug Fixes
+
+- moved from using crypto to createContentDigest API ([fcc9ae0](https://github.com/sonapraneeth-a/sonapraneeth-gatsby-themes/commit/fcc9ae0bc2d17f1f10ef1953f0b3a6c117a50b97))
+- removed mdx types and changed interface to type ([fc7dd82](https://github.com/sonapraneeth-a/sonapraneeth-gatsby-themes/commit/fc7dd8206b0dd372e39283439f3175762b16df83))
+- **component:** fixed tapping target size issue in project card component ([487fa21](https://github.com/sonapraneeth-a/sonapraneeth-gatsby-themes/commit/487fa21bd5b9390abce8dba46dc309d0c2673af4))
+
+### Features
+
+- moved some fields in project class to metadata ([b4a3f04](https://github.com/sonapraneeth-a/sonapraneeth-gatsby-themes/commit/b4a3f0453491ae717bf056b8e84ab34d999f478a))
+- moved some fields in project class to metadata ([24478b2](https://github.com/sonapraneeth-a/sonapraneeth-gatsby-themes/commit/24478b208e30405d2b77c43de588e17f991a7ab7))
+- renamed fields toc and featured ([9825981](https://github.com/sonapraneeth-a/sonapraneeth-gatsby-themes/commit/98259810f3ed43c6e070f690229d5995133f5094))
+- renamed fields toc and featured ([a37502a](https://github.com/sonapraneeth-a/sonapraneeth-gatsby-themes/commit/a37502acc035d4231ddd008641cfdcf9fd939fcc))
+
 ## [0.4.4](https://github.com/sonapraneeth-a/sonapraneeth-gatsby-themes/compare/@sonapraneeth/gatsby-theme-project@0.4.3...@sonapraneeth/gatsby-theme-project@0.4.4) (2020-01-25)
 
 ### Bug Fixes

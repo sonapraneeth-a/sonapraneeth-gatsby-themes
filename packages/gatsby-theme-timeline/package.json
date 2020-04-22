@@ -1,6 +1,6 @@
 {
   "name": "@sonapraneeth/gatsby-theme-timeline",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "main": "index.js",
   "author": "Sona Praneeth Akula <sonapraneeth.akula@gmail.com>",
   "repository": {
@@ -26,7 +26,7 @@
     "react-dom": "^16.13.1"
   },
   "dependencies": {
-    "@sonapraneeth/gatsby-plugin-themed-components": "^0.7.1",
+    "@sonapraneeth/gatsby-plugin-themed-components": "^0.8.0",
     "gatsby-plugin-react-helmet": "^3.2.4",
     "gatsby-source-filesystem": "^2.2.4",
     "gatsby-transformer-yaml": "^2.3.3",

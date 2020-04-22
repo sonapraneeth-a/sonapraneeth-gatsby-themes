@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.4.5](https://github.com/sonapraneeth-a/sonapraneeth-gatsby-themes/compare/@sonapraneeth/gatsby-theme-bio@0.4.4...@sonapraneeth/gatsby-theme-bio@0.4.5) (2020-04-22)
+
+### Bug Fixes
+
+- moved Author to IAuthor and AuthorInfo to Author ([5e6680a](https://github.com/sonapraneeth-a/sonapraneeth-gatsby-themes/commit/5e6680aff514480f0e7cbe63fdca07baa8bb199d))
+- moved from using crypto to createContentDigest API ([fcc9ae0](https://github.com/sonapraneeth-a/sonapraneeth-gatsby-themes/commit/fcc9ae0bc2d17f1f10ef1953f0b3a6c117a50b97))
+- **components:** minor update in styling of figure component and home widget ([e8e7bef](https://github.com/sonapraneeth-a/sonapraneeth-gatsby-themes/commit/e8e7bef3a67c2f1434c465f0892c40431c4b3700))
+
 ## [0.4.4](https://github.com/sonapraneeth-a/sonapraneeth-gatsby-themes/compare/@sonapraneeth/gatsby-theme-bio@0.4.3...@sonapraneeth/gatsby-theme-bio@0.4.4) (2020-01-25)
 
 **Note:** Version bump only for package @sonapraneeth/gatsby-theme-bio

@@ -3,6 +3,29 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.8.0](https://github.com/sonapraneeth-a/sonapraneeth-gatsby-themes/compare/@sonapraneeth/gatsby-plugin-themed-components@0.7.1...@sonapraneeth/gatsby-plugin-themed-components@0.8.0) (2020-04-22)
+
+### Bug Fixes
+
+- eslint fixes (formatting issues) ([bd995cb](https://github.com/sonapraneeth-a/sonapraneeth-gatsby-themes/commit/bd995cb4021a4337a2c2f13aca6e7d30f2bb5cea))
+- moved from Options to IOptions ([4015c7a](https://github.com/sonapraneeth-a/sonapraneeth-gatsby-themes/commit/4015c7a17c34b0e14ca771bac28b6e7c72682181))
+- moved from using crypto to createContentDigest API ([fcc9ae0](https://github.com/sonapraneeth-a/sonapraneeth-gatsby-themes/commit/fcc9ae0bc2d17f1f10ef1953f0b3a6c117a50b97))
+- updated design tokens ([66128d7](https://github.com/sonapraneeth-a/sonapraneeth-gatsby-themes/commit/66128d74f846f59c7d68b92f072d3f47c65e3fa9))
+- **compoenent:** updated html tags for some theme-ui components ([48902d9](https://github.com/sonapraneeth-a/sonapraneeth-gatsby-themes/commit/48902d9049c985bf352170b603c841df63bb46eb))
+- **component:** fixed minor styling issue in up-to-down-curtain component ([416fc84](https://github.com/sonapraneeth-a/sonapraneeth-gatsby-themes/commit/416fc847db236eba949a6ed059cab0e9c8fadd89))
+- **component:** fixed wrong prop in bulb and up-to-down-curtain component ([7ee73b6](https://github.com/sonapraneeth-a/sonapraneeth-gatsby-themes/commit/7ee73b6e2b285c2c2d923b6758e77dd1fdf47fb0))
+- **component:** minor updates to chip component ([f571942](https://github.com/sonapraneeth-a/sonapraneeth-gatsby-themes/commit/f571942633cabc7c193611aa8b96d4bde8eea44a))
+- **components:** fixed accessibility issues in some components ([8ed587e](https://github.com/sonapraneeth-a/sonapraneeth-gatsby-themes/commit/8ed587ea78d706be8b9abaa7aff80800ec8956d1))
+- **components:** removed all uncommented console.log statements from ([6242ea6](https://github.com/sonapraneeth-a/sonapraneeth-gatsby-themes/commit/6242ea6afc40673fc31d78e34f670641910ae849))
+- updated styling of some componets ([ad1b7e5](https://github.com/sonapraneeth-a/sonapraneeth-gatsby-themes/commit/ad1b7e53b5ab2edbe66568cf1091e7d81fef379e))
+
+### Features
+
+- added new function isNullOrEmpty ([d978ac2](https://github.com/sonapraneeth-a/sonapraneeth-gatsby-themes/commit/d978ac26962688141c18f7e15b59f1df16a88d89))
+- **component:** added category list component ([617e60e](https://github.com/sonapraneeth-a/sonapraneeth-gatsby-themes/commit/617e60e539a22b45022400894b107251e5e58e6b))
+- **component:** updated scroll-to-top button behaviour ([4739665](https://github.com/sonapraneeth-a/sonapraneeth-gatsby-themes/commit/4739665f5bf0e8138f0a65f33df000ad096d5478))
+- upgraded theme-ui to 0.3.0 and updated code according to breaking changes ([5bf214a](https://github.com/sonapraneeth-a/sonapraneeth-gatsby-themes/commit/5bf214ae8b4ffbc2bc32be8751a0d709bf058f5a))
+
 ## [0.7.1](https://github.com/sonapraneeth-a/sonapraneeth-gatsby-themes/compare/@sonapraneeth/gatsby-plugin-themed-components@0.7.0...@sonapraneeth/gatsby-plugin-themed-components@0.7.1) (2020-01-25)
 
 ### Bug Fixes

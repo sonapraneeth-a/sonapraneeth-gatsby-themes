@@ -1,6 +1,6 @@
 {
   "name": "@sonapraneeth/gatsby-theme-collection",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "main": "index.js",
   "author": "Sona Praneeth Akula <sonapraneeth.akula@gmail.com>",
   "repository": {
@@ -28,7 +28,7 @@
   "dependencies": {
     "@mdx-js/mdx": "^1.5.8",
     "@mdx-js/react": "^1.5.8",
-    "@sonapraneeth/gatsby-plugin-themed-components": "^0.7.1",
+    "@sonapraneeth/gatsby-plugin-themed-components": "^0.8.0",
     "gatsby-image": "^2.3.4",
     "gatsby-plugin-mdx": "^1.1.9",
     "gatsby-plugin-react-helmet": "^3.2.4",

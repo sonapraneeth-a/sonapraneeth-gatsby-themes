@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.6.0](https://github.com/sonapraneeth-a/sonapraneeth-gatsby-themes/compare/@sonapraneeth/gatsby-theme-blog@0.5.1...@sonapraneeth/gatsby-theme-blog@0.6.0) (2020-04-22)
+
+### Bug Fixes
+
+- moved from using crypto to createContentDigest API ([fcc9ae0](https://github.com/sonapraneeth-a/sonapraneeth-gatsby-themes/commit/fcc9ae0bc2d17f1f10ef1953f0b3a6c117a50b97))
+- removed mdx types and changed interface to type ([fc7dd82](https://github.com/sonapraneeth-a/sonapraneeth-gatsby-themes/commit/fc7dd8206b0dd372e39283439f3175762b16df83))
+- **components:** removed all uncommented console.log statements from ([6242ea6](https://github.com/sonapraneeth-a/sonapraneeth-gatsby-themes/commit/6242ea6afc40673fc31d78e34f670641910ae849))
+
+### Features
+
+- added metadata and renamed fields ([43e5ccc](https://github.com/sonapraneeth-a/sonapraneeth-gatsby-themes/commit/43e5ccc8507a04acb35e7af838b6ddcd03de4de7))
+
 ## [0.5.1](https://github.com/sonapraneeth-a/sonapraneeth-gatsby-themes/compare/@sonapraneeth/gatsby-theme-blog@0.5.0...@sonapraneeth/gatsby-theme-blog@0.5.1) (2020-01-25)
 
 **Note:** Version bump only for package @sonapraneeth/gatsby-theme-blog
