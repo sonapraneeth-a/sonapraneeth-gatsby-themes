@@ -1,6 +1,6 @@
 import {fonts} from "gatsby-design-tokens";
 
-fontSizesRaw: [
+const fontSizesRaw = [
   0.25,
   0.5,
   0.75,
