@@ -32,8 +32,8 @@
   },
   "dependencies": {
     "@sonapraneeth/gatsby-theme-blog": "^0.6.0",
-    "gatsby": "^2.20.24",
-    "react": "^16.13.1",
-    "react-dom": "^16.13.1"
+    "gatsby": "^2.24.80",
+    "react": "^16.14.0",
+    "react-dom": "^16.14.0"
   }
 }
